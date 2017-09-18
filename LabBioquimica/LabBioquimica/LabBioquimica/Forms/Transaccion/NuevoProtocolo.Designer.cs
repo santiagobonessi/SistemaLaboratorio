@@ -62,6 +62,7 @@
             this.txtConsultaProtocolo = new System.Windows.Forms.TextBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnNueoAnalisis = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -222,7 +223,7 @@
             this.dgvAnalisis.Location = new System.Drawing.Point(14, 184);
             this.dgvAnalisis.Name = "dgvAnalisis";
             this.dgvAnalisis.RowHeadersVisible = false;
-            this.dgvAnalisis.Size = new System.Drawing.Size(586, 170);
+            this.dgvAnalisis.Size = new System.Drawing.Size(586, 156);
             this.dgvAnalisis.TabIndex = 3;
             // 
             // idAnalisis
@@ -272,7 +273,7 @@
             this.conceptoUnidad,
             this.valorRef,
             this.btnBorrarItem});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 360);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 379);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(586, 170);
@@ -319,7 +320,7 @@
             this.groupBox2.Controls.Add(this.btnConsultaProtocolo);
             this.groupBox2.Controls.Add(this.txtConsultaProtocolo);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 542);
+            this.groupBox2.Location = new System.Drawing.Point(12, 555);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(384, 52);
             this.groupBox2.TabIndex = 5;
@@ -345,7 +346,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.Location = new System.Drawing.Point(449, 544);
+            this.btnImprimir.Location = new System.Drawing.Point(449, 555);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(149, 52);
             this.btnImprimir.TabIndex = 6;
@@ -362,12 +363,24 @@
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // btnNueoAnalisis
+            // 
+            this.btnNueoAnalisis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNueoAnalisis.Location = new System.Drawing.Point(493, 346);
+            this.btnNueoAnalisis.Name = "btnNueoAnalisis";
+            this.btnNueoAnalisis.Size = new System.Drawing.Size(107, 27);
+            this.btnNueoAnalisis.TabIndex = 12;
+            this.btnNueoAnalisis.Text = "Nueva Práctica";
+            this.btnNueoAnalisis.UseVisualStyleBackColor = true;
+            this.btnNueoAnalisis.Click += new System.EventHandler(this.btnNueoAnalisis_Click);
+            // 
             // NuevoProtocolo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(606, 604);
+            this.ClientSize = new System.Drawing.Size(606, 610);
+            this.Controls.Add(this.btnNueoAnalisis);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
@@ -423,5 +436,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnNueoAnalisis;
     }
 }

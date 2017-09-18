@@ -80,6 +80,12 @@
     <Compile Include="Forms\Menu\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Transaccion\NuevoAnalisis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaccion\NuevoAnalisis.Designer.cs">
+      <DependentUpon>NuevoAnalisis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Transaccion\NuevoProtocolo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaccion\NuevoAnalisis.resx">
+      <DependentUpon>NuevoAnalisis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaccion\NuevoProtocolo.resx">
       <DependentUpon>NuevoProtocolo.cs</DependentUpon>
