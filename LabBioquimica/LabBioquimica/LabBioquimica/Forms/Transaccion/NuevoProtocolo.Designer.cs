@@ -32,14 +32,15 @@
             this.lblProtocolo = new System.Windows.Forms.Label();
             this.txtProtocolo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnProfesional = new System.Windows.Forms.Button();
+            this.btnPaciente = new System.Windows.Forms.Button();
+            this.cboProfesional = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboPaciente = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cboPaciente = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cboProfesional = new System.Windows.Forms.ComboBox();
-            this.btnPaciente = new System.Windows.Forms.Button();
-            this.btnProfesional = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +81,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Protocolo";
             // 
+            // btnProfesional
+            // 
+            this.btnProfesional.Location = new System.Drawing.Point(377, 105);
+            this.btnProfesional.Name = "btnProfesional";
+            this.btnProfesional.Size = new System.Drawing.Size(66, 23);
+            this.btnProfesional.TabIndex = 9;
+            this.btnProfesional.Text = "...";
+            this.btnProfesional.UseVisualStyleBackColor = true;
+            // 
+            // btnPaciente
+            // 
+            this.btnPaciente.Location = new System.Drawing.Point(377, 76);
+            this.btnPaciente.Name = "btnPaciente";
+            this.btnPaciente.Size = new System.Drawing.Size(66, 23);
+            this.btnPaciente.TabIndex = 8;
+            this.btnPaciente.Text = "...";
+            this.btnPaciente.UseVisualStyleBackColor = true;
+            // 
+            // cboProfesional
+            // 
+            this.cboProfesional.FormattingEnabled = true;
+            this.cboProfesional.Location = new System.Drawing.Point(91, 105);
+            this.cboProfesional.Name = "cboProfesional";
+            this.cboProfesional.Size = new System.Drawing.Size(280, 23);
+            this.cboProfesional.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Profesional";
+            // 
+            // cboPaciente
+            // 
+            this.cboPaciente.FormattingEnabled = true;
+            this.cboPaciente.Location = new System.Drawing.Point(91, 76);
+            this.cboPaciente.Name = "cboPaciente";
+            this.cboPaciente.Size = new System.Drawing.Size(280, 23);
+            this.cboPaciente.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Paciente";
+            // 
             // dtpFecha
             // 
             this.dtpFecha.Location = new System.Drawing.Point(91, 49);
@@ -97,65 +152,22 @@
             this.lblFecha.TabIndex = 2;
             this.lblFecha.Text = "Fecha";
             // 
-            // label3
+            // checkBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Paciente";
-            // 
-            // cboPaciente
-            // 
-            this.cboPaciente.FormattingEnabled = true;
-            this.cboPaciente.Location = new System.Drawing.Point(91, 76);
-            this.cboPaciente.Name = "cboPaciente";
-            this.cboPaciente.Size = new System.Drawing.Size(280, 23);
-            this.cboPaciente.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Profesional";
-            // 
-            // cboProfesional
-            // 
-            this.cboProfesional.FormattingEnabled = true;
-            this.cboProfesional.Location = new System.Drawing.Point(91, 105);
-            this.cboProfesional.Name = "cboProfesional";
-            this.cboProfesional.Size = new System.Drawing.Size(280, 23);
-            this.cboProfesional.TabIndex = 7;
-            // 
-            // btnPaciente
-            // 
-            this.btnPaciente.Location = new System.Drawing.Point(377, 76);
-            this.btnPaciente.Name = "btnPaciente";
-            this.btnPaciente.Size = new System.Drawing.Size(66, 23);
-            this.btnPaciente.TabIndex = 8;
-            this.btnPaciente.Text = "...";
-            this.btnPaciente.UseVisualStyleBackColor = true;
-            // 
-            // btnProfesional
-            // 
-            this.btnProfesional.Location = new System.Drawing.Point(377, 105);
-            this.btnProfesional.Name = "btnProfesional";
-            this.btnProfesional.Size = new System.Drawing.Size(66, 23);
-            this.btnProfesional.TabIndex = 9;
-            this.btnProfesional.Text = "...";
-            this.btnProfesional.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(21, 191);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // NuevoProtocolo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 489);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NuevoProtocolo";
@@ -163,6 +175,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -179,5 +192,6 @@
         private System.Windows.Forms.ComboBox cboPaciente;
         private System.Windows.Forms.Button btnProfesional;
         private System.Windows.Forms.Button btnPaciente;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
