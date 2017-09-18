@@ -32,9 +32,9 @@
             this.lblProtocolo = new System.Windows.Forms.Label();
             this.txtProtocolo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-
             this.btnProfesional = new System.Windows.Forms.Button();
             this.btnPaciente = new System.Windows.Forms.Button();
             this.cboProfesional = new System.Windows.Forms.ComboBox();
@@ -43,7 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
-
             this.dgvAnalisis = new System.Windows.Forms.DataGridView();
             this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conceptoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,11 +60,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnConsultaProtocolo = new System.Windows.Forms.Button();
             this.txtConsultaProtocolo = new System.Windows.Forms.TextBox();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.lblMensaje = new System.Windows.Forms.Label();
-
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -91,6 +87,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.lblMensaje);
             this.groupBox1.Controls.Add(this.btnModificar);
             this.groupBox1.Controls.Add(this.btnAceptar);
@@ -112,6 +109,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Protocolo";
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.ForeColor = System.Drawing.Color.Red;
+            this.lblMensaje.Location = new System.Drawing.Point(254, 23);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(183, 15);
+            this.lblMensaje.TabIndex = 12;
+            this.lblMensaje.Text = "mensaje protocolo repetido";
+            // 
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(402, 143);
@@ -132,7 +139,7 @@
             // 
             // btnProfesional
             // 
-            this.btnProfesional.Location = new System.Drawing.Point(514, 105);
+            this.btnProfesional.Location = new System.Drawing.Point(377, 105);
             this.btnProfesional.Name = "btnProfesional";
             this.btnProfesional.Size = new System.Drawing.Size(66, 23);
             this.btnProfesional.TabIndex = 9;
@@ -141,7 +148,7 @@
             // 
             // btnPaciente
             // 
-            this.btnPaciente.Location = new System.Drawing.Point(514, 76);
+            this.btnPaciente.Location = new System.Drawing.Point(377, 76);
             this.btnPaciente.Name = "btnPaciente";
             this.btnPaciente.Size = new System.Drawing.Size(66, 23);
             this.btnPaciente.TabIndex = 8;
@@ -153,7 +160,7 @@
             this.cboProfesional.FormattingEnabled = true;
             this.cboProfesional.Location = new System.Drawing.Point(91, 105);
             this.cboProfesional.Name = "cboProfesional";
-            this.cboProfesional.Size = new System.Drawing.Size(417, 23);
+            this.cboProfesional.Size = new System.Drawing.Size(280, 23);
             this.cboProfesional.TabIndex = 7;
             // 
             // label1
@@ -171,7 +178,7 @@
             this.cboPaciente.FormattingEnabled = true;
             this.cboPaciente.Location = new System.Drawing.Point(91, 76);
             this.cboPaciente.Name = "cboPaciente";
-            this.cboPaciente.Size = new System.Drawing.Size(417, 23);
+            this.cboPaciente.Size = new System.Drawing.Size(280, 23);
             this.cboPaciente.TabIndex = 5;
             // 
             // label3
@@ -188,18 +195,18 @@
             // 
             this.dtpFecha.Location = new System.Drawing.Point(91, 49);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(417, 21);
+            this.dtpFecha.Size = new System.Drawing.Size(280, 21);
             this.dtpFecha.TabIndex = 3;
             // 
             // lblFecha
-            // btnProfesional
             // 
-            this.btnProfesional.Location = new System.Drawing.Point(377, 105);
-            this.btnProfesional.Name = "btnProfesional";
-            this.btnProfesional.Size = new System.Drawing.Size(66, 23);
-            this.btnProfesional.TabIndex = 9;
-            this.btnProfesional.Text = "...";
-            this.btnProfesional.UseVisualStyleBackColor = true;
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(6, 56);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(42, 13);
+            this.lblFecha.TabIndex = 2;
+            this.lblFecha.Text = "Fecha";
             // 
             // dgvAnalisis
             // 
@@ -212,7 +219,7 @@
             this.codigoAnalisis,
             this.btnModificarFila,
             this.btnBorrarFila});
-            this.dgvAnalisis.Location = new System.Drawing.Point(12, 184);
+            this.dgvAnalisis.Location = new System.Drawing.Point(14, 184);
             this.dgvAnalisis.Name = "dgvAnalisis";
             this.dgvAnalisis.RowHeadersVisible = false;
             this.dgvAnalisis.Size = new System.Drawing.Size(586, 170);
@@ -223,22 +230,6 @@
             this.idAnalisis.HeaderText = "ID ANALISIS";
             this.idAnalisis.Name = "idAnalisis";
             this.idAnalisis.Visible = false;
-            // btnPaciente
-            // 
-            this.btnPaciente.Location = new System.Drawing.Point(377, 76);
-            this.btnPaciente.Name = "btnPaciente";
-            this.btnPaciente.Size = new System.Drawing.Size(66, 23);
-            this.btnPaciente.TabIndex = 8;
-            this.btnPaciente.Text = "...";
-            this.btnPaciente.UseVisualStyleBackColor = true;
-            // 
-            // cboProfesional
-            // 
-            this.cboProfesional.FormattingEnabled = true;
-            this.cboProfesional.Location = new System.Drawing.Point(91, 105);
-            this.cboProfesional.Name = "cboProfesional";
-            this.cboProfesional.Size = new System.Drawing.Size(280, 23);
-            this.cboProfesional.TabIndex = 7;
             // 
             // conceptoAnalisis
             // 
@@ -351,59 +342,15 @@
             this.txtConsultaProtocolo.Size = new System.Drawing.Size(277, 20);
             this.txtConsultaProtocolo.TabIndex = 2;
             // 
-            // btnConfirmar
+            // btnImprimir
             // 
-            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmar.Location = new System.Drawing.Point(449, 544);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(149, 52);
-            this.btnConfirmar.TabIndex = 6;
-            this.btnConfirmar.Text = "Imprimir Informe";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            // 
-            // lblMensaje
-            // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(254, 23);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(183, 15);
-            this.lblMensaje.TabIndex = 12;
-            this.lblMensaje.Text = "mensaje protocolo repetido";
-            // cboPaciente
-            // 
-            this.cboPaciente.FormattingEnabled = true;
-            this.cboPaciente.Location = new System.Drawing.Point(91, 76);
-            this.cboPaciente.Name = "cboPaciente";
-            this.cboPaciente.Size = new System.Drawing.Size(280, 23);
-            this.cboPaciente.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Paciente";
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Location = new System.Drawing.Point(91, 49);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(280, 21);
-            this.dtpFecha.TabIndex = 3;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(6, 56);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(42, 13);
-            this.lblFecha.TabIndex = 2;
-            this.lblFecha.Text = "Fecha";
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Location = new System.Drawing.Point(449, 544);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(149, 52);
+            this.btnImprimir.TabIndex = 6;
+            this.btnImprimir.Text = "Imprimir Informe";
+            this.btnImprimir.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
@@ -419,12 +366,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 606);
-            this.Controls.Add(this.btnConfirmar);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(606, 604);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dgvAnalisis);
-            this.ClientSize = new System.Drawing.Size(490, 489);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -473,7 +420,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnConsultaProtocolo;
         private System.Windows.Forms.TextBox txtConsultaProtocolo;
-        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.CheckBox checkBox1;
     }
