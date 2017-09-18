@@ -1,0 +1,11 @@
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\LabBioquimica.exe.config
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Properties.Resources.resources
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.csproj.GenerateResource.Cache
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Menu.FormMenu.resources
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\LabBioquimica.exe
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\LabBioquimica.pdb
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.exe
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.pdb
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.Pacientes.resources
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Transaccion.NuevoProtocolo.resources

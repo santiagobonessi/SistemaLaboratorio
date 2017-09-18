@@ -1,0 +1,3 @@
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\AcceoBaseDatos\obj\Debug\AcceoBaseDatos.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\AcceoBaseDatos\obj\Debug\AcceoBaseDatos.Properties.Resources.resources
+C:\Users\Santiago\Desktop\LabBioquimica\LabBioquimica\AcceoBaseDatos\obj\Debug\AcceoBaseDatos.csproj.GenerateResource.Cache
