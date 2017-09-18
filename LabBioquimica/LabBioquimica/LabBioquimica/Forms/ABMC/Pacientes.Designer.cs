@@ -55,7 +55,7 @@
             this.panelConsulta.Controls.Add(this.dgvPacientes);
             this.panelConsulta.Location = new System.Drawing.Point(23, 79);
             this.panelConsulta.Name = "panelConsulta";
-            this.panelConsulta.Size = new System.Drawing.Size(915, 364);
+            this.panelConsulta.Size = new System.Drawing.Size(915, 413);
             this.panelConsulta.TabIndex = 0;
             // 
             // dgvPacientes
@@ -78,7 +78,8 @@
             this.cmdEliminar});
             this.dgvPacientes.Location = new System.Drawing.Point(3, 3);
             this.dgvPacientes.Name = "dgvPacientes";
-            this.dgvPacientes.Size = new System.Drawing.Size(909, 358);
+            this.dgvPacientes.RowHeadersVisible = false;
+            this.dgvPacientes.Size = new System.Drawing.Size(909, 407);
             this.dgvPacientes.TabIndex = 0;
             // 
             // idPaciente

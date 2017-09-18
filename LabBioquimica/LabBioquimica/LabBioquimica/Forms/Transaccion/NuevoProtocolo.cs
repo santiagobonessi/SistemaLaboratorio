@@ -17,5 +17,7 @@ namespace LabBioquimica.Forms.Transaccion
         {
             InitializeComponent();
         }
+
+        
     }
 }
