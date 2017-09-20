@@ -18,6 +18,10 @@ namespace LabBioquimica.Forms.Transaccion
             InitializeComponent();
         }
 
-        
+        private void btnNueoAnalisis_Click(object sender, EventArgs e)
+        {
+            Forms.Transaccion.NuevoAnalisis nuevoAnalisis = new Forms.Transaccion.NuevoAnalisis();
+            nuevoAnalisis.Show();
+        }
     }
 }
