@@ -51,18 +51,18 @@
             this.btnModificarFila = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnBorrarFila = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conceptoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resultadoPractica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conceptoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorRef = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBorrarItem = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnConsultaProtocolo = new System.Windows.Forms.Button();
             this.txtConsultaProtocolo = new System.Windows.Forms.TextBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnNueoAnalisis = new System.Windows.Forms.Button();
+            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conceptoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultadoPractica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conceptoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorRef = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBorrarItem = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,7 +73,7 @@
             // 
             this.lblProtocolo.AutoSize = true;
             this.lblProtocolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProtocolo.Location = new System.Drawing.Point(6, 26);
+            this.lblProtocolo.Location = new System.Drawing.Point(26, 23);
             this.lblProtocolo.Name = "lblProtocolo";
             this.lblProtocolo.Size = new System.Drawing.Size(79, 13);
             this.lblProtocolo.TabIndex = 0;
@@ -81,7 +81,7 @@
             // 
             // txtProtocolo
             // 
-            this.txtProtocolo.Location = new System.Drawing.Point(91, 23);
+            this.txtProtocolo.Location = new System.Drawing.Point(111, 20);
             this.txtProtocolo.Name = "txtProtocolo";
             this.txtProtocolo.Size = new System.Drawing.Size(157, 21);
             this.txtProtocolo.TabIndex = 1;
@@ -105,7 +105,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(586, 176);
+            this.groupBox1.Size = new System.Drawing.Size(575, 164);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Protocolo";
@@ -114,15 +114,15 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(254, 23);
+            this.lblMensaje.Location = new System.Drawing.Point(274, 20);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(183, 15);
+            this.lblMensaje.Size = new System.Drawing.Size(217, 15);
             this.lblMensaje.TabIndex = 12;
-            this.lblMensaje.Text = "mensaje protocolo repetido";
+            this.lblMensaje.Text = "mensaje si protocolo es repetido";
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(402, 143);
+            this.btnModificar.Location = new System.Drawing.Point(371, 131);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(86, 27);
             this.btnModificar.TabIndex = 11;
@@ -131,7 +131,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(494, 143);
+            this.btnAceptar.Location = new System.Drawing.Point(463, 131);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(86, 27);
             this.btnAceptar.TabIndex = 10;
@@ -140,7 +140,7 @@
             // 
             // btnProfesional
             // 
-            this.btnProfesional.Location = new System.Drawing.Point(377, 105);
+            this.btnProfesional.Location = new System.Drawing.Point(463, 102);
             this.btnProfesional.Name = "btnProfesional";
             this.btnProfesional.Size = new System.Drawing.Size(66, 23);
             this.btnProfesional.TabIndex = 9;
@@ -149,7 +149,7 @@
             // 
             // btnPaciente
             // 
-            this.btnPaciente.Location = new System.Drawing.Point(377, 76);
+            this.btnPaciente.Location = new System.Drawing.Point(463, 73);
             this.btnPaciente.Name = "btnPaciente";
             this.btnPaciente.Size = new System.Drawing.Size(66, 23);
             this.btnPaciente.TabIndex = 8;
@@ -159,16 +159,16 @@
             // cboProfesional
             // 
             this.cboProfesional.FormattingEnabled = true;
-            this.cboProfesional.Location = new System.Drawing.Point(91, 105);
+            this.cboProfesional.Location = new System.Drawing.Point(111, 102);
             this.cboProfesional.Name = "cboProfesional";
-            this.cboProfesional.Size = new System.Drawing.Size(280, 23);
+            this.cboProfesional.Size = new System.Drawing.Size(346, 23);
             this.cboProfesional.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 110);
+            this.label1.Location = new System.Drawing.Point(26, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 6;
@@ -177,16 +177,16 @@
             // cboPaciente
             // 
             this.cboPaciente.FormattingEnabled = true;
-            this.cboPaciente.Location = new System.Drawing.Point(91, 76);
+            this.cboPaciente.Location = new System.Drawing.Point(111, 73);
             this.cboPaciente.Name = "cboPaciente";
-            this.cboPaciente.Size = new System.Drawing.Size(280, 23);
+            this.cboPaciente.Size = new System.Drawing.Size(346, 23);
             this.cboPaciente.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 81);
+            this.label3.Location = new System.Drawing.Point(26, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 4;
@@ -194,16 +194,16 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(91, 49);
+            this.dtpFecha.Location = new System.Drawing.Point(111, 46);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(280, 21);
+            this.dtpFecha.Size = new System.Drawing.Size(302, 21);
             this.dtpFecha.TabIndex = 3;
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(6, 56);
+            this.lblFecha.Location = new System.Drawing.Point(26, 53);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(42, 13);
             this.lblFecha.TabIndex = 2;
@@ -220,10 +220,10 @@
             this.codigoAnalisis,
             this.btnModificarFila,
             this.btnBorrarFila});
-            this.dgvAnalisis.Location = new System.Drawing.Point(14, 184);
+            this.dgvAnalisis.Location = new System.Drawing.Point(14, 172);
             this.dgvAnalisis.Name = "dgvAnalisis";
             this.dgvAnalisis.RowHeadersVisible = false;
-            this.dgvAnalisis.Size = new System.Drawing.Size(586, 156);
+            this.dgvAnalisis.Size = new System.Drawing.Size(573, 168);
             this.dgvAnalisis.TabIndex = 3;
             // 
             // idAnalisis
@@ -276,44 +276,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 379);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(586, 170);
+            this.dataGridView1.Size = new System.Drawing.Size(575, 170);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // idItem
-            // 
-            this.idItem.HeaderText = "IDITEM";
-            this.idItem.Name = "idItem";
-            this.idItem.Visible = false;
-            // 
-            // conceptoItem
-            // 
-            this.conceptoItem.HeaderText = "Item";
-            this.conceptoItem.Name = "conceptoItem";
-            this.conceptoItem.ReadOnly = true;
-            this.conceptoItem.Visible = false;
-            // 
-            // resultadoPractica
-            // 
-            this.resultadoPractica.HeaderText = "Resultado";
-            this.resultadoPractica.Name = "resultadoPractica";
-            // 
-            // conceptoUnidad
-            // 
-            this.conceptoUnidad.HeaderText = "Unidad";
-            this.conceptoUnidad.Name = "conceptoUnidad";
-            this.conceptoUnidad.ReadOnly = true;
-            // 
-            // valorRef
-            // 
-            this.valorRef.HeaderText = "Valor Referencia";
-            this.valorRef.Name = "valorRef";
-            this.valorRef.ReadOnly = true;
-            // 
-            // btnBorrarItem
-            // 
-            this.btnBorrarItem.HeaderText = "Borrar";
-            this.btnBorrarItem.Name = "btnBorrarItem";
-            this.btnBorrarItem.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -346,7 +310,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.Location = new System.Drawing.Point(449, 555);
+            this.btnImprimir.Location = new System.Drawing.Point(438, 557);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(149, 52);
             this.btnImprimir.TabIndex = 6;
@@ -366,7 +330,7 @@
             // btnNueoAnalisis
             // 
             this.btnNueoAnalisis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNueoAnalisis.Location = new System.Drawing.Point(493, 346);
+            this.btnNueoAnalisis.Location = new System.Drawing.Point(480, 346);
             this.btnNueoAnalisis.Name = "btnNueoAnalisis";
             this.btnNueoAnalisis.Size = new System.Drawing.Size(107, 27);
             this.btnNueoAnalisis.TabIndex = 12;
@@ -374,12 +338,47 @@
             this.btnNueoAnalisis.UseVisualStyleBackColor = true;
             this.btnNueoAnalisis.Click += new System.EventHandler(this.btnNueoAnalisis_Click);
             // 
+            // idItem
+            // 
+            this.idItem.HeaderText = "IDITEM";
+            this.idItem.Name = "idItem";
+            this.idItem.Visible = false;
+            // 
+            // conceptoItem
+            // 
+            this.conceptoItem.HeaderText = "Item";
+            this.conceptoItem.Name = "conceptoItem";
+            this.conceptoItem.ReadOnly = true;
+            // 
+            // resultadoPractica
+            // 
+            this.resultadoPractica.HeaderText = "Resultado";
+            this.resultadoPractica.Name = "resultadoPractica";
+            // 
+            // conceptoUnidad
+            // 
+            this.conceptoUnidad.HeaderText = "Unidad";
+            this.conceptoUnidad.Name = "conceptoUnidad";
+            this.conceptoUnidad.ReadOnly = true;
+            // 
+            // valorRef
+            // 
+            this.valorRef.HeaderText = "Valor Referencia";
+            this.valorRef.Name = "valorRef";
+            this.valorRef.ReadOnly = true;
+            // 
+            // btnBorrarItem
+            // 
+            this.btnBorrarItem.HeaderText = "Borrar";
+            this.btnBorrarItem.Name = "btnBorrarItem";
+            this.btnBorrarItem.ReadOnly = true;
+            // 
             // NuevoProtocolo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(606, 610);
+            this.ClientSize = new System.Drawing.Size(599, 610);
             this.Controls.Add(this.btnNueoAnalisis);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.groupBox2);
@@ -424,12 +423,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn btnModificarFila;
         private System.Windows.Forms.DataGridViewButtonColumn btnBorrarFila;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resultadoPractica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoUnidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorRef;
-        private System.Windows.Forms.DataGridViewButtonColumn btnBorrarItem;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnConsultaProtocolo;
         private System.Windows.Forms.TextBox txtConsultaProtocolo;
@@ -437,5 +430,11 @@
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnNueoAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultadoPractica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoUnidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorRef;
+        private System.Windows.Forms.DataGridViewButtonColumn btnBorrarItem;
     }
 }
