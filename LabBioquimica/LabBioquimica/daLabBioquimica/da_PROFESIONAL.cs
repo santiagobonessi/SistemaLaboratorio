@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace daLabBioquimica
 {
-    public class Class1
+    public class da_PROFESIONAL
     {
     }
 }
