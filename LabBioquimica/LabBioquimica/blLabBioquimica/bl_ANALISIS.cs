@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,9 +43,72 @@ namespace blLabBioquimica
             get { return p_UNID_BIOQ; }
             set { p_UNID_BIOQ = value; }
         }
+
+        public bl_ANALISISEntidad() { }
+
+        public bl_ANALISISEntidad(Int32 ID_ANALISIS)
+        {
+            try
+            {
+                
+                bl_ANALISIS bl = new bl_ANALISIS();
+                bl_ANALISISEntidad ent = bl.BuscarPorPK(ID_ANALISIS);
+
+                if (ent != null)
+                {
+                    this.ID_ANALISIS = ent.ID_ANALISIS;
+                    this.CODIGO = ent.CODIGO;
+                    this.NOMBRE = ent.NOMBRE;
+                    this.METODO = ent.METODO;
+                    this.UNID_BIOQ = ent.UNID_BIOQ;
+                }
+            }
+            
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 
     public class bl_ANALISIS
     {
+        private daLabBioquimica.da_ANALISIS p_da;
+
+        public bl_ANALISIS()
+        {
+            p_da = new daLabBioquimica.da_ANALISIS();
+        }
+
+        public bl_ANALISISEntidad BuscarPorPK(Nullable<Int32> ID_ANALISIS)
+        {
+            try
+            {
+                DataTable dt = p_da.BuscarPorPK(ID_ANALISIS);
+                
+                if(dt != null && dt.Rows.Count > 0)
+                {
+                    bl_ANALISISEntidad ent = new bl_ANALISISEntidad();
+
+                    if (dt.Rows[0]["idAnalisis"] != DBNull.Value)
+                        ent.ID_ANALISIS = Convert.ToInt32(dt.Rows[0]["idAnalisis"]);
+
+
+
+
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return null;
+        }
+
     }
 }
