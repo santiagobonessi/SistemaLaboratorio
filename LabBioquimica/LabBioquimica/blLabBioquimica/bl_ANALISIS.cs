@@ -93,12 +93,21 @@ namespace blLabBioquimica
 
                     if (dt.Rows[0]["idAnalisis"] != DBNull.Value)
                         ent.ID_ANALISIS = Convert.ToInt32(dt.Rows[0]["idAnalisis"]);
+                    if (dt.Rows[0]["codigo"] != DBNull.Value)
+                        ent.CODIGO = Convert.ToString(dt.Rows[0]["codigo"]);
+                    if (dt.Rows[0]["nombre"] != DBNull.Value)
+                        ent.NOMBRE = Convert.ToString(dt.Rows[0]["nombre"]);
+                    if (dt.Rows[0]["metodo"] != DBNull.Value)
+                        ent.METODO = Convert.ToString(dt.Rows[0]["metodo"]);
+                    if (dt.Rows[0]["unidadBioquimica"] != DBNull.Value)
+                        ent.UNID_BIOQ = Convert.ToDouble(dt.Rows[0]["unidadBioquimica"]);
 
-
-
-
+                    return ent;
                 }
-
+                else
+                {
+                    return null;
+                }
 
             }
 

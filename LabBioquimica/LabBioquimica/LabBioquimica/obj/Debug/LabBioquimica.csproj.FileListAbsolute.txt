@@ -21,3 +21,8 @@ C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioq
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Properties.Resources.resources
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.csproj.GenerateResource.Cache
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Transaccion.NuevoAnalisis.resources
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\blLabBioquimica.dll
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\daLabBioquimica.dll
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\blLabBioquimica.pdb
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\daLabBioquimica.pdb
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.Analisis.resources

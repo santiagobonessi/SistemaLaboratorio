@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace daLabBioquimica
 {
-    public class da_PROTOCOLO_DETALLE
+    public class da_PROTOCOLO_DETALLE : daLabBioquimica.Framework.daBase
     {
+
+        public da_PROTOCOLO_DETALLE() :base() { }
     }
 }
