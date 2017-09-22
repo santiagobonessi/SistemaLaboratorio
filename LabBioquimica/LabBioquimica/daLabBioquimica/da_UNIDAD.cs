@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace daLabBioquimica
 {
-    public class da_UNIDAD
+    public class da_UNIDAD : daLabBioquimica.Framework.daBase
     {
+        public da_UNIDAD() : base() { }
+
     }
 }

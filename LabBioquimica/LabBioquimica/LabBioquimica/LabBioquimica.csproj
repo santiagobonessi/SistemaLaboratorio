@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ABMC\Analisis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Analisis.Designer.cs">
+      <DependentUpon>Analisis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ABMC\Pacientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
       <DependentUpon>NuevoProtocolo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ABMC\Analisis.resx">
+      <DependentUpon>Analisis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Pacientes.resx">
       <DependentUpon>Pacientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +154,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icono Form.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\blLabBioquimica\blLabBioquimica.csproj">
+      <Project>{ee1ca06f-5428-46ee-b37f-7e801a04b250}</Project>
+      <Name>blLabBioquimica</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

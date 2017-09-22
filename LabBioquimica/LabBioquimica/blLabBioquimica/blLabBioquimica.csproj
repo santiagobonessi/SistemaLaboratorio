@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,7 +49,14 @@
     <Compile Include="bl_PROTOCOLO_DETALLE.cs" />
     <Compile Include="bl_UNIDAD.cs" />
     <Compile Include="bl_PROFESIONAL.cs" />
+    <Compile Include="Framework\blException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\daLabBioquimica\daLabBioquimica.csproj">
+      <Project>{568b00c1-0295-4fad-bbf3-456db2df0e8e}</Project>
+      <Name>daLabBioquimica</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

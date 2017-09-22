@@ -44,10 +44,18 @@ namespace LabBioquimica.Forms.Menu
             pacientes.Show();
         }
 
+        private void análisisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ABMC.Analisis analisis = new ABMC.Analisis();
+            analisis.Show();
+        }
+
         private void registroDePrácticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Transaccion.NuevoProtocolo nuevoProtocolo = new Transaccion.NuevoProtocolo();
             nuevoProtocolo.Show();
         }
+
+        
     }
 }
