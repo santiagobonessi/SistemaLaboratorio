@@ -115,8 +115,6 @@ namespace blLabBioquimica
             {
                 throw ex;
             }
-
-            return null;
         }
 
     }

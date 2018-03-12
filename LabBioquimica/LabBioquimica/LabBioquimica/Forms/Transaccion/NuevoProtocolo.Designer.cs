@@ -44,28 +44,25 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dgvAnalisis = new System.Windows.Forms.DataGridView();
-            this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conceptoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metodoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnModificarFila = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnBorrarFila = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvItems = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnConsultaProtocolo = new System.Windows.Forms.Button();
             this.txtConsultaProtocolo = new System.Windows.Forms.TextBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnNueoAnalisis = new System.Windows.Forms.Button();
+            this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conceptoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metodoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conceptoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultadoPractica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conceptoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorRef = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBorrarItem = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -217,67 +214,32 @@
             this.idAnalisis,
             this.conceptoAnalisis,
             this.metodoAnalisis,
-            this.codigoAnalisis,
-            this.btnModificarFila,
-            this.btnBorrarFila});
+            this.codigoAnalisis});
             this.dgvAnalisis.Location = new System.Drawing.Point(14, 172);
             this.dgvAnalisis.Name = "dgvAnalisis";
             this.dgvAnalisis.RowHeadersVisible = false;
+            this.dgvAnalisis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAnalisis.Size = new System.Drawing.Size(573, 168);
             this.dgvAnalisis.TabIndex = 3;
+            this.dgvAnalisis.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAnalisis_MouseClick);
             // 
-            // idAnalisis
+            // dgvItems
             // 
-            this.idAnalisis.HeaderText = "ID ANALISIS";
-            this.idAnalisis.Name = "idAnalisis";
-            this.idAnalisis.Visible = false;
-            // 
-            // conceptoAnalisis
-            // 
-            this.conceptoAnalisis.HeaderText = "Análisis";
-            this.conceptoAnalisis.Name = "conceptoAnalisis";
-            this.conceptoAnalisis.ReadOnly = true;
-            // 
-            // metodoAnalisis
-            // 
-            this.metodoAnalisis.HeaderText = "Método";
-            this.metodoAnalisis.Name = "metodoAnalisis";
-            this.metodoAnalisis.ReadOnly = true;
-            // 
-            // codigoAnalisis
-            // 
-            this.codigoAnalisis.HeaderText = "Código";
-            this.codigoAnalisis.Name = "codigoAnalisis";
-            this.codigoAnalisis.ReadOnly = true;
-            // 
-            // btnModificarFila
-            // 
-            this.btnModificarFila.HeaderText = "Modificar";
-            this.btnModificarFila.Name = "btnModificarFila";
-            this.btnModificarFila.Text = "MODIFICAR";
-            // 
-            // btnBorrarFila
-            // 
-            this.btnBorrarFila.HeaderText = "Borrar";
-            this.btnBorrarFila.Name = "btnBorrarFila";
-            this.btnBorrarFila.Text = "BORRAR";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idItem,
             this.conceptoItem,
             this.resultadoPractica,
             this.conceptoUnidad,
-            this.valorRef,
-            this.btnBorrarItem});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 379);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(575, 170);
-            this.dataGridView1.TabIndex = 4;
+            this.valorRef});
+            this.dgvItems.Location = new System.Drawing.Point(12, 379);
+            this.dgvItems.Name = "dgvItems";
+            this.dgvItems.RowHeadersVisible = false;
+            this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvItems.Size = new System.Drawing.Size(575, 170);
+            this.dgvItems.TabIndex = 4;
+            this.dgvItems.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvItems_MouseClick);
             // 
             // groupBox2
             // 
@@ -338,6 +300,30 @@
             this.btnNueoAnalisis.UseVisualStyleBackColor = true;
             this.btnNueoAnalisis.Click += new System.EventHandler(this.btnNueoAnalisis_Click);
             // 
+            // idAnalisis
+            // 
+            this.idAnalisis.HeaderText = "ID ANALISIS";
+            this.idAnalisis.Name = "idAnalisis";
+            this.idAnalisis.Visible = false;
+            // 
+            // conceptoAnalisis
+            // 
+            this.conceptoAnalisis.HeaderText = "Análisis";
+            this.conceptoAnalisis.Name = "conceptoAnalisis";
+            this.conceptoAnalisis.ReadOnly = true;
+            // 
+            // metodoAnalisis
+            // 
+            this.metodoAnalisis.HeaderText = "Método";
+            this.metodoAnalisis.Name = "metodoAnalisis";
+            this.metodoAnalisis.ReadOnly = true;
+            // 
+            // codigoAnalisis
+            // 
+            this.codigoAnalisis.HeaderText = "Código";
+            this.codigoAnalisis.Name = "codigoAnalisis";
+            this.codigoAnalisis.ReadOnly = true;
+            // 
             // idItem
             // 
             this.idItem.HeaderText = "IDITEM";
@@ -367,12 +353,6 @@
             this.valorRef.Name = "valorRef";
             this.valorRef.ReadOnly = true;
             // 
-            // btnBorrarItem
-            // 
-            this.btnBorrarItem.HeaderText = "Borrar";
-            this.btnBorrarItem.Name = "btnBorrarItem";
-            this.btnBorrarItem.ReadOnly = true;
-            // 
             // NuevoProtocolo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,7 +362,7 @@
             this.Controls.Add(this.btnNueoAnalisis);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvItems);
             this.Controls.Add(this.dgvAnalisis);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox1);
@@ -392,7 +372,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -416,13 +396,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dgvAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn metodoAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoAnalisis;
-        private System.Windows.Forms.DataGridViewButtonColumn btnModificarFila;
-        private System.Windows.Forms.DataGridViewButtonColumn btnBorrarFila;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnConsultaProtocolo;
         private System.Windows.Forms.TextBox txtConsultaProtocolo;
@@ -430,11 +404,14 @@
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnNueoAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn metodoAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn resultadoPractica;
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoUnidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorRef;
-        private System.Windows.Forms.DataGridViewButtonColumn btnBorrarItem;
     }
 }
