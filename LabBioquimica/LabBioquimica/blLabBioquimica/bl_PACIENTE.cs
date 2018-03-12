@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,11 +45,32 @@ namespace blLabBioquimica
             set { p_ID_TIPO_DOC = value; }
         }
 
+        private String p_N_TIPO_DOC;
+        public String N_TIPO_DOC
+        {
+            get { return p_N_TIPO_DOC; }
+            set { p_N_TIPO_DOC = value; }
+        }
+
         private Nullable<Int32> p_ID_SEXO;
         public Nullable<Int32> ID_SEXO
         {
             get { return p_ID_SEXO; }
             set { p_ID_SEXO = value; }
+        }
+
+        private String p_N_SEXO;
+        public String N_SEXO
+        {
+            get { return p_N_SEXO; }
+            set { p_N_SEXO = value; }
+        }
+
+        private Nullable<DateTime> p_FECHA_NACIMIENTO;
+        public Nullable<DateTime> FECHA_NACIMIENTO
+        {
+            get { return p_FECHA_NACIMIENTO; }
+            set { p_FECHA_NACIMIENTO = value; }
         }
 
         private String p_TELEFONO;
@@ -65,11 +87,25 @@ namespace blLabBioquimica
             set { p_ID_MUTUAL = value; }
         }
 
+        private String p_N_MUTUAL;
+        public String N_MUTUAL
+        {
+            get { return p_N_MUTUAL; }
+            set { p_N_MUTUAL = value; }
+        }
+
         private Nullable<Int32> p_ID_LOCALIDAD;
         public Nullable<Int32> ID_LOCALIDAD
         {
             get { return p_ID_LOCALIDAD; }
             set { p_ID_LOCALIDAD = value; }
+        }
+
+        private String p_N_LOCALIDAD;
+        public String N_LOCALIDAD
+        {
+            get { return p_N_LOCALIDAD; }
+            set { p_N_LOCALIDAD = value; }
         }
 
         private String p_CALLE;
@@ -87,9 +123,191 @@ namespace blLabBioquimica
         }
 
 
+        public bl_PACIENTEEntidad() { }
+
+        public bl_PACIENTEEntidad(Int32 ID_PACIENTE)
+        {
+            try
+            {
+
+                bl_PACIENTE bl = new bl_PACIENTE();
+                bl_PACIENTEEntidad ent = bl.BuscarPorPK(ID_PACIENTE);
+
+
+                if (ent != null)
+                {
+
+                    this.ID_PACIENTE = ent.ID_PACIENTE;
+                    this.APELLIDO = ent.APELLIDO;
+                    this.NOMBRE = ent.NOMBRE;
+                    this.DOCUMENTO = ent.DOCUMENTO;
+                    this.ID_TIPO_DOC = ent.ID_TIPO_DOC;
+                    this.ID_SEXO = ent.ID_SEXO;
+                    this.FECHA_NACIMIENTO = ent.FECHA_NACIMIENTO;
+                    this.TELEFONO = ent.TELEFONO;
+                    this.ID_MUTUAL = ent.ID_MUTUAL;
+                    this.ID_LOCALIDAD = ent.ID_LOCALIDAD;
+                    this.CALLE = ent.CALLE;
+                    this.NRO_CALLE = ent.NRO_CALLE;
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+    }
+
+    public class bl_PACIENTEEntidadColeccion : List<bl_PACIENTEEntidad>
+    {
     }
 
     public class bl_PACIENTE
     {
+
+        private daLabBioquimica.da_PACIENTE p_da;
+
+        public bl_PACIENTE()
+        {
+            p_da = new daLabBioquimica.da_PACIENTE();
+        }
+
+        public bl_PACIENTEEntidad BuscarPorPK(Nullable<Int32> p_ID_PACIENTE)
+        {
+            try
+            {
+                DataTable dt = p_da.BuscarPorPK(p_ID_PACIENTE);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    bl_PACIENTEEntidad ent = new bl_PACIENTEEntidad();
+
+
+                    if (dt.Rows[0]["idPaciente"] != DBNull.Value)
+                        ent.ID_PACIENTE = Convert.ToInt32(dt.Rows[0]["idPaciente"]);
+                    if (dt.Rows[0]["apellido"] != DBNull.Value)
+                        ent.APELLIDO = Convert.ToString(dt.Rows[0]["apellido"]);
+                    if (dt.Rows[0]["nombre"] != DBNull.Value)
+                        ent.NOMBRE = Convert.ToString(dt.Rows[0]["nombre"]);
+                    if (dt.Rows[0]["documento"] != DBNull.Value)
+                        ent.DOCUMENTO = Convert.ToInt32(dt.Rows[0]["documento"]);
+                    if (dt.Rows[0]["idTipoDoc"] != DBNull.Value)
+                        ent.ID_TIPO_DOC = Convert.ToInt32(dt.Rows[0]["idTipoDoc"]);
+                    if (dt.Rows[0]["TipoDoc"] != DBNull.Value)
+                        ent.N_TIPO_DOC = Convert.ToString(dt.Rows[0]["TipoDoc"]);
+                    if (dt.Rows[0]["idSexo"] != DBNull.Value)
+                        ent.ID_SEXO = Convert.ToInt32(dt.Rows[0]["idSexo"]);
+                    if (dt.Rows[0]["Sexo"] != DBNull.Value)
+                        ent.N_SEXO = Convert.ToString(dt.Rows[0]["Sexo"]);
+                    if (dt.Rows[0]["fechaNacimiento"] != DBNull.Value)
+                        ent.FECHA_NACIMIENTO = Convert.ToDateTime(dt.Rows[0]["fechaNacimiento"]);
+                    if (dt.Rows[0]["telefono"] != DBNull.Value)
+                        ent.TELEFONO = Convert.ToString(dt.Rows[0]["telefono"]);
+                    if (dt.Rows[0]["idMutual"] != DBNull.Value)
+                        ent.ID_MUTUAL = Convert.ToInt32(dt.Rows[0]["idMutual"]);
+                    if (dt.Rows[0]["Mutual"] != DBNull.Value)
+                        ent.N_MUTUAL = Convert.ToString(dt.Rows[0]["Mutual"]);
+                    if (dt.Rows[0]["idLocalidad"] != DBNull.Value)
+                        ent.ID_LOCALIDAD = Convert.ToInt32(dt.Rows[0]["idLocalidad"]);
+                    if (dt.Rows[0]["Localidad"] != DBNull.Value)
+                        ent.N_LOCALIDAD = Convert.ToString(dt.Rows[0]["Localidad"]);
+                    if (dt.Rows[0]["calle"] != DBNull.Value)
+                        ent.CALLE = Convert.ToString(dt.Rows[0]["calle"]);
+                    if (dt.Rows[0]["nroCalle"] != DBNull.Value)
+                        ent.NRO_CALLE = Convert.ToInt32(dt.Rows[0]["nroCalle"]);
+
+                    return ent;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public bl_PACIENTEEntidadColeccion Buscar(Nullable<Int32> p_ID_PACIENTE, string p_APELLIDO, string p_NOMBRE, string p_DOCUMENTO)
+        {
+            try
+            {
+                DataTable dt = p_da.Buscar(p_ID_PACIENTE, p_APELLIDO, p_NOMBRE, p_DOCUMENTO);
+                bl_PACIENTEEntidadColeccion lista = new bl_PACIENTEEntidadColeccion();
+
+                if (dt != null) { 
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        bl_PACIENTEEntidad ent = new bl_PACIENTEEntidad();
+                        if (dr["idPaciente"] != DBNull.Value)
+                            ent.ID_PACIENTE = Convert.ToInt32(dr["idPaciente"]);
+                        if (dr["apellido"] != DBNull.Value)
+                            ent.APELLIDO = Convert.ToString(dr["apellido"]);
+                        if (dr["nombre"] != DBNull.Value)
+                            ent.NOMBRE = Convert.ToString(dr["nombre"]);
+                        if (dr["documento"] != DBNull.Value)
+                            ent.DOCUMENTO = Convert.ToInt32(dr["documento"]);
+                        if (dr["idTipoDoc"] != DBNull.Value)
+                            ent.ID_TIPO_DOC = Convert.ToInt32(dr["idTipoDoc"]);
+                        if (dr["TipoDoc"] != DBNull.Value)
+                            ent.N_TIPO_DOC = Convert.ToString(dr["TipoDoc"]);
+                        if (dr["idSexo"] != DBNull.Value)
+                            ent.ID_SEXO = Convert.ToInt32(dr["idSexo"]);
+                        if (dr["Sexo"] != DBNull.Value)
+                            ent.N_SEXO = Convert.ToString(dr["Sexo"]);
+                        if (dr["fechaNacimiento"] != DBNull.Value)
+                            ent.FECHA_NACIMIENTO = Convert.ToDateTime(dr["fechaNacimiento"]);
+                        if (dr["telefono"] != DBNull.Value)
+                            ent.TELEFONO = Convert.ToString(dr["telefono"]);
+                        if (dr["idMutual"] != DBNull.Value)
+                            ent.ID_MUTUAL = Convert.ToInt32(dr["idMutual"]);
+                        if (dr["Mutual"] != DBNull.Value)
+                            ent.N_MUTUAL = Convert.ToString(dr["Mutual"]);
+                        if (dr["idLocalidad"] != DBNull.Value)
+                            ent.ID_LOCALIDAD = Convert.ToInt32(dr["idLocalidad"]);
+                        if (dr["Localidad"] != DBNull.Value)
+                            ent.N_LOCALIDAD = Convert.ToString(dr["Localidad"]);
+                        if (dr["calle"] != DBNull.Value)
+                            ent.CALLE = Convert.ToString(dr["calle"]);
+                        if (dr["nroCalle"] != DBNull.Value)
+                            ent.NRO_CALLE = Convert.ToInt32(dr["nroCalle"]);
+
+                        lista.Add(ent);
+                    }
+                }
+
+                return lista;
+
+            }
+            catch (daLabBioquimica.Framework.daException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
