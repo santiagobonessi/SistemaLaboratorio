@@ -26,3 +26,8 @@ C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioq
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\blLabBioquimica.pdb
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\daLabBioquimica.pdb
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.Analisis.resources
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.AltaPacientes.resources
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\LabBioquimica.exe.manifest
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\LabBioquimica.application
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.exe.manifest
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.application

@@ -43,10 +43,14 @@
   <ItemGroup>
     <Compile Include="bl_ANALISIS.cs" />
     <Compile Include="bl_ITEM.cs" />
+    <Compile Include="bl_LOCALIDAD.cs" />
+    <Compile Include="bl_MUTUAL.cs" />
     <Compile Include="bl_PACIENTE.cs" />
     <Compile Include="bl_PRACTICA.cs" />
     <Compile Include="bl_PROTOCOLO.cs" />
     <Compile Include="bl_PROTOCOLO_DETALLE.cs" />
+    <Compile Include="bl_SEXO.cs" />
+    <Compile Include="bl_TIPO_DOC.cs" />
     <Compile Include="bl_UNIDAD.cs" />
     <Compile Include="bl_PROFESIONAL.cs" />
     <Compile Include="Framework\blException.cs" />

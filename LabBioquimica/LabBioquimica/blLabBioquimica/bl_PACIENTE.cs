@@ -121,7 +121,42 @@ namespace blLabBioquimica
             get { return p_NRO_CALLE; }
             set { p_NRO_CALLE = value; }
         }
-
+        private String p_USR_ING;
+        public String USR_ING
+        {
+            get { return p_USR_ING; }
+            set { p_USR_ING = value; }
+        }
+        private Nullable<DateTime> p_FEC_ING;
+        public Nullable<DateTime> FEC_ING
+        {
+            get { return p_FEC_ING; }
+            set { p_FEC_ING = value; }
+        }
+        private String p_USR_MOD;
+        public String USR_MOD
+        {
+            get { return p_USR_MOD; }
+            set { p_USR_MOD = value; }
+        }
+        private Nullable<DateTime> p_FEC_MOD;
+        public Nullable<DateTime> FEC_MOD
+        {
+            get { return p_FEC_MOD; }
+            set { p_FEC_MOD = value; }
+        }
+        private String p_USR_BAJA;
+        public String USR_BAJA
+        {
+            get { return p_USR_BAJA; }
+            set { p_USR_BAJA = value; }
+        }
+        private Nullable<DateTime> p_FEC_BAJA;
+        public Nullable<DateTime> FEC_BAJA
+        {
+            get { return p_FEC_BAJA; }
+            set { p_FEC_BAJA = value; }
+        }
 
         public bl_PACIENTEEntidad() { }
 
@@ -149,7 +184,12 @@ namespace blLabBioquimica
                     this.ID_LOCALIDAD = ent.ID_LOCALIDAD;
                     this.CALLE = ent.CALLE;
                     this.NRO_CALLE = ent.NRO_CALLE;
-
+                    this.USR_ING = ent.USR_ING;
+                    this.FEC_ING = ent.FEC_ING;
+                    this.USR_MOD = ent.USR_MOD;
+                    this.FEC_MOD = ent.FEC_MOD;
+                    this.USR_BAJA = ent.USR_BAJA;
+                    this.FEC_BAJA = ent.FEC_BAJA;
                 }
             }
 
@@ -228,9 +268,13 @@ namespace blLabBioquimica
 
             }
 
-            catch (Exception ex)
+            catch (blLabBioquimica.Framework.blException ex)
             {
                 throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw new blLabBioquimica.Framework.blException(ex.Message);
             }
         }
 
@@ -278,6 +322,20 @@ namespace blLabBioquimica
                             ent.CALLE = Convert.ToString(dr["calle"]);
                         if (dr["nroCalle"] != DBNull.Value)
                             ent.NRO_CALLE = Convert.ToInt32(dr["nroCalle"]);
+                        if (dr["usr_ing"] != DBNull.Value)
+                            ent.USR_ING = Convert.ToString(dr["usr_ing"]);
+                        if (dr["fec_ing"] != DBNull.Value)
+                            ent.FEC_ING = Convert.ToDateTime(dr["fec_ing"]);
+                        if (dr["usr_mod"] != DBNull.Value)
+                            ent.USR_MOD = Convert.ToString(dr["usr_mod"]);
+                        if (dr["fec_mod"] != DBNull.Value)
+                            ent.FEC_MOD = Convert.ToDateTime(dr["fec_mod"]);
+                        if (dr["usr_baja"] != DBNull.Value)
+                            ent.USR_BAJA = Convert.ToString(dr["usr_baja"]);
+                        if (dr["fec_baja"] != DBNull.Value)
+                            ent.FEC_BAJA = Convert.ToDateTime(dr["fec_baja"]);
+
+
 
                         lista.Add(ent);
                     }
@@ -286,18 +344,61 @@ namespace blLabBioquimica
                 return lista;
 
             }
-            catch (daLabBioquimica.Framework.daException ex)
+            catch (blLabBioquimica.Framework.blException ex)
             {
                 throw ex;
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new blLabBioquimica.Framework.blException(ex.Message);
             }
         }
 
 
+        public bl_PACIENTEEntidad Insertar(bl_PACIENTEEntidad ent)
+        {
+            try
+            {
 
+                ent.ID_PACIENTE = p_da.Insertar(ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.ID_TIPO_DOC, ent.ID_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.ID_MUTUAL, ent.ID_LOCALIDAD, ent.CALLE, ent.NRO_CALLE, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
+
+                return ent;
+            }
+            catch (blLabBioquimica.Framework.blException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw new blLabBioquimica.Framework.blException(ex.Message);
+            }
+
+        }
+
+        public void Modificar(bl_PACIENTEEntidad ent)
+        {
+            try
+            {
+                p_da.Modificar(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.ID_TIPO_DOC, ent.ID_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.ID_MUTUAL, ent.ID_LOCALIDAD, ent.CALLE, ent.NRO_CALLE, ent.USR_MOD, ent.FEC_MOD);
+            }
+            catch (Exception ex)
+            {
+                throw new blLabBioquimica.Framework.blException(ex.Message);
+            }
+        }
+
+        public void Baja(bl_PACIENTEEntidad ent)
+        {
+            try
+            {
+                p_da.Baja(ent.ID_PACIENTE, ent.USR_BAJA, ent.FEC_BAJA);
+            }
+            catch (Exception ex)
+            {
+                throw new blLabBioquimica.Framework.blException(ex.Message);
+            }
+
+        }
 
 
 
