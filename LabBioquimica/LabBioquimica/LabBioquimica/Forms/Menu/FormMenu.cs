@@ -41,21 +41,31 @@ namespace LabBioquimica.Forms.Menu
         private void pacientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ABMC.Pacientes pacientes = new ABMC.Pacientes();
-            pacientes.Show();
+            pacientes.ShowDialog();
+            pacientes.Dispose();
+        }
+
+        private void profesionalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ABMC.Profesionales profesionales = new ABMC.Profesionales();
+            profesionales.ShowDialog();
+            profesionales.Dispose();
         }
 
         private void análisisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ABMC.Analisis analisis = new ABMC.Analisis();
-            analisis.Show();
+            analisis.ShowDialog();
+            analisis.Dispose();
         }
 
         private void registroDePrácticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Transaccion.NuevoProtocolo nuevoProtocolo = new Transaccion.NuevoProtocolo();
-            nuevoProtocolo.Show();
+            nuevoProtocolo.ShowDialog();
+            nuevoProtocolo.Dispose();
         }
 
-        
+ 
     }
 }

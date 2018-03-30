@@ -40,10 +40,12 @@ namespace LabBioquimica.Forms.Transaccion
                     dr.Selected = false;
 
                 }
-                dgvAnalisis.Rows[position_xy_mouse_row].Selected = true;
+                
 
                 if (position_xy_mouse_row >= 0)
                 {
+                    dgvAnalisis.Rows[position_xy_mouse_row].Selected = true;
+
                     miMenu.Items.Add("Nueva Práctica").Name = "NuevaPractica";
                     miMenu.Items.Add("Eliminar Práctica").Name = "EliminarPractica";
                     miMenu.Items.Add("Agregar o Modificar Items de la Práctica").Name = "AgregarModificarItemsPractica";
@@ -99,13 +101,12 @@ namespace LabBioquimica.Forms.Transaccion
                     dr.Selected = false;
 
                 }
-                dgvItems.Rows[position_xy_mouse_row].Selected = true;
+                
 
                 if (position_xy_mouse_row >= 0)
                 {
-                    
+                    dgvItems.Rows[position_xy_mouse_row].Selected = true;
                     miMenu.Items.Add("Eliminar Item").Name = "EliminarItem";
-
                 }
 
                 miMenu.Show(dgvItems, new Point(e.X, e.Y));

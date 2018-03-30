@@ -43,11 +43,15 @@
   <ItemGroup>
     <Compile Include="da_ANALISIS.cs" />
     <Compile Include="da_ITEM.cs" />
+    <Compile Include="da_LOCALIDAD.cs" />
+    <Compile Include="da_MUTUAL.cs" />
     <Compile Include="da_PACIENTE.cs" />
     <Compile Include="da_PRACTICA.cs" />
     <Compile Include="da_PROFESIONAL.cs" />
     <Compile Include="da_PROTOCOLO.cs" />
     <Compile Include="da_PROTOCOLO_DETALLE.cs" />
+    <Compile Include="da_SEXO.cs" />
+    <Compile Include="da_TIPO_DOC.cs" />
     <Compile Include="da_UNIDAD.cs" />
     <Compile Include="Framework\daBase.cs" />
     <Compile Include="Framework\daException.cs" />

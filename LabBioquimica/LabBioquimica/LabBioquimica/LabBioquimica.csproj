@@ -12,7 +12,8 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Santiago\Desktop\SistemaLaboratorio\Ejecutable\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,10 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -54,6 +55,18 @@
   <PropertyGroup>
     <ApplicationIcon>Icono Form.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>DDD9EF666C4ABE51585CC0453AA2B34E10E49D71</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LabBioquimica_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,17 +81,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ABMC\Profesionales\AltaProfesionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Profesionales\AltaProfesionales.Designer.cs">
+      <DependentUpon>AltaProfesionales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ABMC\Pacientes\AltaPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Pacientes\AltaPacientes.Designer.cs">
+      <DependentUpon>AltaPacientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ABMC\Analisis.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ABMC\Analisis.Designer.cs">
       <DependentUpon>Analisis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ABMC\Pacientes.cs">
+    <Compile Include="Forms\ABMC\Pacientes\Pacientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ABMC\Pacientes.Designer.cs">
+    <Compile Include="Forms\ABMC\Pacientes\Pacientes.Designer.cs">
       <DependentUpon>Pacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ABMC\Profesionales\Profesionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Profesionales\Profesionales.Designer.cs">
+      <DependentUpon>Profesionales.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Menu\FormMenu.cs">
       <SubType>Form</SubType>
@@ -99,11 +130,20 @@
       <DependentUpon>NuevoProtocolo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ABMC\Pacientes\AltaPacientes.resx">
+      <DependentUpon>AltaPacientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Analisis.resx">
       <DependentUpon>Analisis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ABMC\Pacientes.resx">
+    <EmbeddedResource Include="Forms\ABMC\Pacientes\Pacientes.resx">
       <DependentUpon>Pacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Profesionales\AltaProfesionales.resx">
+      <DependentUpon>AltaProfesionales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Profesionales\Profesionales.resx">
+      <DependentUpon>Profesionales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
@@ -123,6 +163,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="LabBioquimica_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
