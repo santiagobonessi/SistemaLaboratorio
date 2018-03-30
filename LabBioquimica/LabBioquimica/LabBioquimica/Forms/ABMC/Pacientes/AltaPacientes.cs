@@ -12,7 +12,7 @@ namespace LabBioquimica.Forms.ABMC
 {
     public partial class AltaPacientes : Form
     {
-        
+        //Creo una instancia del Form Pacientes para actualizar la grilla
         private Pacientes p_frm;
 
         public static Int32 idModificar;
@@ -53,7 +53,7 @@ namespace LabBioquimica.Forms.ABMC
             //Datos
             ent.APELLIDO = this.txtApellido.Text;
             ent.NOMBRE = this.txtNombre.Text;
-            if(this.txtDocumento.Text != "") { ent.DOCUMENTO = int.Parse(this.txtDocumento.Text); }
+            if(!string.IsNullOrWhiteSpace(txtDocumento.Text)) { ent.DOCUMENTO = int.Parse(this.txtDocumento.Text); }
 
             ent.ID_TIPO_DOC = int.Parse(this.cboTipoDoc.SelectedValue.ToString());
             ent.ID_SEXO = int.Parse(this.cboSexo.SelectedValue.ToString());
@@ -67,13 +67,13 @@ namespace LabBioquimica.Forms.ABMC
                 ent.FECHA_NACIMIENTO = DateTime.Parse(this.dtpNacimiento.Text);
             }
             
-            if(this.txtTelefono.Text != "") { ent.TELEFONO = this.txtTelefono.Text; }
+            if(!string.IsNullOrWhiteSpace(txtTelefono.Text)) { ent.TELEFONO = this.txtTelefono.Text; }
             
             ent.ID_MUTUAL = int.Parse(this.cboMutual.SelectedValue.ToString());
             ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
 
-            if(this.txtCalle.Text != "") { ent.CALLE = this.txtCalle.Text; }
-            if(this.txtNroCalle.Text != "") { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
+            if(!string.IsNullOrWhiteSpace(txtCalle.Text)) { ent.CALLE = this.txtCalle.Text; }
+            if(!string.IsNullOrWhiteSpace(txtNroCalle.Text)) { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
 
             ent.USR_ING = "ADMIN";
             ent.FEC_ING = DateTime.Now;
@@ -162,7 +162,7 @@ namespace LabBioquimica.Forms.ABMC
 
             blPaciente.Modificar(ent);
 
-            MessageBox.Show("Se modificó con éxito el paciente " + ent.APELLIDO + ", " + ent.NOMBRE + "");
+            //MessageBox.Show("Se modificó con éxito el paciente " + ent.APELLIDO + ", " + ent.NOMBRE + "");
             limpiarAltaPaciente();
             Close();
             p_frm.cargarPacientes();
@@ -190,7 +190,6 @@ namespace LabBioquimica.Forms.ABMC
 
         public void cargarComboMutual()
         {
-
             blLabBioquimica.bl_MUTUAL blMutual = new blLabBioquimica.bl_MUTUAL();
 
             this.cboMutual.DataSource = null;
@@ -198,12 +197,10 @@ namespace LabBioquimica.Forms.ABMC
             this.cboMutual.ValueMember = "idMutual";
             this.cboMutual.DisplayMember = "nombre";
             this.cboMutual.SelectedIndex = 0;
-
         }
 
         public void cargarComboSexo()
         {
-
             blLabBioquimica.bl_SEXO blSexo = new blLabBioquimica.bl_SEXO();
 
             this.cboSexo.DataSource = null;
@@ -211,7 +208,6 @@ namespace LabBioquimica.Forms.ABMC
             this.cboSexo.ValueMember = "idSexo";
             this.cboSexo.DisplayMember = "nombre";
             this.cboSexo.SelectedIndex = 0;
-
         }
 
         public void cargarComboTipoDoc()
@@ -227,7 +223,6 @@ namespace LabBioquimica.Forms.ABMC
 
         public void cargarComboLocalidad()
         {
-
             blLabBioquimica.bl_LOCALIDAD blLocalidad = new blLabBioquimica.bl_LOCALIDAD();
 
             this.cboLocalidad.DataSource = null;
@@ -235,7 +230,6 @@ namespace LabBioquimica.Forms.ABMC
             this.cboLocalidad.ValueMember = "idLocalidad";
             this.cboLocalidad.DisplayMember = "nombre";
             this.cboLocalidad.SelectedIndex = 0;
-
         }
 
         private void cboMutual_KeyPress(object sender, KeyPressEventArgs e)

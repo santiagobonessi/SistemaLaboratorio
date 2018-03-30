@@ -258,6 +258,18 @@ namespace blLabBioquimica
                         ent.CALLE = Convert.ToString(dt.Rows[0]["calle"]);
                     if (dt.Rows[0]["nroCalle"] != DBNull.Value)
                         ent.NRO_CALLE = Convert.ToInt32(dt.Rows[0]["nroCalle"]);
+                    if (dt.Rows[0]["usr_ing"] != DBNull.Value)
+                        ent.USR_ING = Convert.ToString(dt.Rows[0]["usr_ing"]);
+                    if (dt.Rows[0]["fec_ing"] != DBNull.Value)
+                        ent.FEC_ING = Convert.ToDateTime(dt.Rows[0]["fec_ing"]);
+                    if (dt.Rows[0]["usr_mod"] != DBNull.Value)
+                        ent.USR_MOD = Convert.ToString(dt.Rows[0]["usr_mod"]);
+                    if (dt.Rows[0]["fec_mod"] != DBNull.Value)
+                        ent.FEC_MOD = Convert.ToDateTime(dt.Rows[0]["fec_mod"]);
+                    if (dt.Rows[0]["usr_baja"] != DBNull.Value)
+                        ent.USR_BAJA = Convert.ToString(dt.Rows[0]["usr_baja"]);
+                    if (dt.Rows[0]["fec_baja"] != DBNull.Value)
+                        ent.FEC_BAJA = Convert.ToDateTime(dt.Rows[0]["fec_baja"]);
 
                     return ent;
                 }
@@ -399,14 +411,6 @@ namespace blLabBioquimica
             }
 
         }
-
-
-
-
-
-
-
-
 
 
 

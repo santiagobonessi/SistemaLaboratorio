@@ -12,19 +12,17 @@ namespace LabBioquimica.Forms.ABMC
 {
     public partial class Pacientes : Form
     {
-        public static Int32 posSelec;
 
+        public static Int32 posSelec;
 
         public Pacientes()
         {
             InitializeComponent();
-            
         }
 
         private void Pacientes_Load(object sender, EventArgs e)
         {
             cargarPacientes();
-            this.txtConsulta.Focus();
         }
 
         public void cargarPacientes()
@@ -119,7 +117,6 @@ namespace LabBioquimica.Forms.ABMC
                 miMenu.ItemClicked += new ToolStripItemClickedEventHandler(MiMenu_ItemClicked);     
 
             }
-
         }
 
         private void MiMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -149,18 +146,13 @@ namespace LabBioquimica.Forms.ABMC
                     break;
 
                 case "Eliminar":
-                    //Hacer un update a la fila que tenga el paciente a eliminar.
-
                     DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el paciente?", "Eliminar Paciente", MessageBoxButtons.YesNo);
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-
                         Baja(idPacienteSelec);
                         MessageBox.Show("El paciente " + apellido + ", " + nombre + " ha sido eliminado");
                         cargarPacientes();
-
                     }
-
                     break;
 
                 case "Salir":
@@ -183,17 +175,11 @@ namespace LabBioquimica.Forms.ABMC
             ent.FEC_BAJA = DateTime.Now;
 
             blPaciente.Baja(ent);
-
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.txtConsulta.Text = "";
-        }
-
-        private void AltaPacientes_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            cargarPacientes();
         }
 
 

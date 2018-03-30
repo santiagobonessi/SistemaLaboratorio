@@ -59,7 +59,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(90, 350);
+            this.btnInsertar.Location = new System.Drawing.Point(78, 346);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 11;
@@ -69,7 +69,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(171, 350);
+            this.btnCancelar.Location = new System.Drawing.Point(159, 346);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
@@ -282,7 +282,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(90, 350);
+            this.btnGrabar.Location = new System.Drawing.Point(78, 346);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 15;
@@ -295,7 +295,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(325, 385);
+            this.ClientSize = new System.Drawing.Size(324, 381);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.dtpNacimiento);
             this.Controls.Add(this.cboLocalidad);

@@ -214,12 +214,12 @@ namespace daLabBioquimica
                     com.Parameters.AddWithValue("@FEC_BAJA", DBNull.Value);
 
 
-                int idCliente = Convert.ToInt32(com.ExecuteScalar());
+                int idPaciente = Convert.ToInt32(com.ExecuteScalar());
 
                 
                 conn.Close();
 
-                return idCliente;
+                return idPaciente;
             }
             catch (Exception ex)
             {

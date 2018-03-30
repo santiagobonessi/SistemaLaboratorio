@@ -84,6 +84,7 @@
             this.profesionalesToolStripMenuItem.Name = "profesionalesToolStripMenuItem";
             this.profesionalesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.profesionalesToolStripMenuItem.Text = "Profesionales";
+            this.profesionalesToolStripMenuItem.Click += new System.EventHandler(this.profesionalesToolStripMenuItem_Click);
             // 
             // mutualesToolStripMenuItem
             // 

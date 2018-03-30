@@ -81,10 +81,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\ABMC\AltaPacientes.cs">
+    <Compile Include="Forms\ABMC\Profesionales\AltaProfesionales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ABMC\AltaPacientes.Designer.cs">
+    <Compile Include="Forms\ABMC\Profesionales\AltaProfesionales.Designer.cs">
+      <DependentUpon>AltaProfesionales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ABMC\Pacientes\AltaPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Pacientes\AltaPacientes.Designer.cs">
       <DependentUpon>AltaPacientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ABMC\Analisis.cs">
@@ -98,6 +104,12 @@
     </Compile>
     <Compile Include="Forms\ABMC\Pacientes\Pacientes.Designer.cs">
       <DependentUpon>Pacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ABMC\Profesionales\Profesionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Profesionales\Profesionales.Designer.cs">
+      <DependentUpon>Profesionales.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Menu\FormMenu.cs">
       <SubType>Form</SubType>
@@ -118,7 +130,7 @@
       <DependentUpon>NuevoProtocolo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\ABMC\AltaPacientes.resx">
+    <EmbeddedResource Include="Forms\ABMC\Pacientes\AltaPacientes.resx">
       <DependentUpon>AltaPacientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Analisis.resx">
@@ -126,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Pacientes\Pacientes.resx">
       <DependentUpon>Pacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Profesionales\AltaProfesionales.resx">
+      <DependentUpon>AltaProfesionales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Profesionales\Profesionales.resx">
+      <DependentUpon>Profesionales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
