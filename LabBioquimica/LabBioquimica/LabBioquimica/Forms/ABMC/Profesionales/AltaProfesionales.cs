@@ -14,13 +14,34 @@ namespace LabBioquimica.Forms.ABMC
     {
         //Creo una instancia del Form Pacientes para actualizar la grilla
         private Profesionales p_frm;
+        //Creo una instancia del Form NuevoProtocolo para actualizar el combo box
+        private LabBioquimica.Forms.Transaccion.NuevoProtocolo np_frm;
 
         public static Int32 idModificar;
 
+        //Constructor sin parámetros
+        public AltaProfesional()
+        {
+            InitializeComponent();
+
+            cargarComboLocalidad();
+            this.btnGrabar.Visible = false;
+        }
+        //Constructor con parámetro del form Profesionales
         public AltaProfesional(Profesionales pro)
         {
             InitializeComponent();
             p_frm = pro;
+
+            cargarComboLocalidad();
+            this.btnGrabar.Visible = false;
+        }
+
+        //Constructor con parámetro del form NuevoProtocolo
+        public AltaProfesional(LabBioquimica.Forms.Transaccion.NuevoProtocolo nuevoP)
+        {
+            InitializeComponent();
+            np_frm = nuevoP;
 
             cargarComboLocalidad();
             this.btnGrabar.Visible = false;
@@ -64,7 +85,14 @@ namespace LabBioquimica.Forms.ABMC
                 MessageBox.Show("Se registró con éxito el profesional " + ent.APELLIDO + ", " + ent.NOMBRE + "");
                 limpiarAltaProfesional();
                 Close();
-                p_frm.cargarProfesionales();
+
+                if (p_frm != null) { p_frm.cargarProfesionales(); }
+                if (np_frm != null)
+                {
+                    np_frm.cargarComboProfesionales();
+                    np_frm.cargarNomApeAltaProfesionales(ent.APELLIDO + " " + ent.NOMBRE);
+                }
+                 
             }
 
         }

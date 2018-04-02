@@ -412,6 +412,30 @@ namespace blLabBioquimica
 
         }
 
+        public DataTable dataTablePaciente()
+        {
+            try
+            {
+                DataTable dt = p_da.Buscar(null, null, null, null);
+
+                if (dt != null)
+                {
+                    return dt;
+                }
+
+                return null;
+            }
+
+            catch (blLabBioquimica.Framework.blException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw new blLabBioquimica.Framework.blException(ex.Message);
+            }
+        }
+
 
 
     }

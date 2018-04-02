@@ -55,7 +55,7 @@ namespace daLabBioquimica
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"SELECT P.idProfesional, P.apellido, P.nombre, P.matricula, "
+                String sql = @"SELECT P.idProfesional, P.apellido, P.nombre, P.apellido + ' ' + P.nombre AS nomape, P.matricula, "
                                + "P.telefono, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
                                + "FROM Profesionales P, Localidad L "

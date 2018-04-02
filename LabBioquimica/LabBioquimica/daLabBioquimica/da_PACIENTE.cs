@@ -59,7 +59,7 @@ namespace daLabBioquimica
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"SELECT P.idPaciente, P.apellido, P.nombre, P.documento, P.idTipoDoc, TD.nombre AS TipoDoc, P.idSexo, S.nombre AS Sexo, "
+                String sql = @"SELECT P.idPaciente, P.apellido, P.nombre, P.apellido + ' ' + P.nombre AS nomape, P.documento, P.idTipoDoc, TD.nombre AS TipoDoc, P.idSexo, S.nombre AS Sexo, "
                                + "P.fechaNacimiento, P.telefono, P.idMutual, M.nombre AS Mutual, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
                                + "FROM Pacientes P, TipoDocumento TD, Sexo S, Mutuales M, Localidad L "
@@ -106,6 +106,8 @@ namespace daLabBioquimica
                 if (ds.Tables.Count > 0) { 
                     return ds.Tables[0];
                 }
+
+                
 
                 return null;
             }

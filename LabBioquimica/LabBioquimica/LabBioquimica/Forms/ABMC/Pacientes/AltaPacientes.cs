@@ -13,14 +13,42 @@ namespace LabBioquimica.Forms.ABMC
     public partial class AltaPacientes : Form
     {
         //Creo una instancia del Form Pacientes para actualizar la grilla
-        private Pacientes p_frm;
+        private LabBioquimica.Forms.ABMC.Pacientes p_frm;
+        //Creo una instancia del Form NuevoProtocolo para actualizar el combo box
+        private LabBioquimica.Forms.Transaccion.NuevoProtocolo np_frm;
 
         public static Int32 idModificar;
-
+        
+        //Constructor sin parámetros
+        public AltaPacientes()
+        {
+            InitializeComponent();
+            cargarComboMutual();
+            cargarComboSexo();
+            cargarComboTipoDoc();
+            cargarComboLocalidad();
+            this.dtpNacimiento.Value = DateTime.Now;
+            this.btnGrabar.Visible = false;
+        }
+        //Constructor con parámetro del form Pacientes
         public AltaPacientes(Pacientes pac)
         {
             InitializeComponent();
             p_frm = pac;
+
+            cargarComboMutual();
+            cargarComboSexo();
+            cargarComboTipoDoc();
+            cargarComboLocalidad();
+            this.dtpNacimiento.Value = DateTime.Now;
+            this.btnGrabar.Visible = false;
+        }
+
+        //Constructor con parámetro del form NuevoProtocolo
+        public AltaPacientes(LabBioquimica.Forms.Transaccion.NuevoProtocolo nuevoP)
+        {
+            InitializeComponent();
+            np_frm = nuevoP;
 
             cargarComboMutual();
             cargarComboSexo();
@@ -84,7 +112,12 @@ namespace LabBioquimica.Forms.ABMC
                 MessageBox.Show("Se registró con éxito el paciente " + ent.APELLIDO + ", " + ent.NOMBRE +"");
                 limpiarAltaPaciente();
                 Close();
-                p_frm.cargarPacientes();
+                if (p_frm != null) { p_frm.cargarPacientes(); }
+                if (np_frm != null)
+                {
+                    np_frm.cargarComboPacientes();
+                    np_frm.cargarNomApeAltaPaciente(ent.APELLIDO + " " + ent.NOMBRE);
+                }
             }
 
         }
