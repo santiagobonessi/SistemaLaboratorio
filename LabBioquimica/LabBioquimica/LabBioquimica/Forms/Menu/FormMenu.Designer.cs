@@ -91,6 +91,7 @@
             this.mutualesToolStripMenuItem.Name = "mutualesToolStripMenuItem";
             this.mutualesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mutualesToolStripMenuItem.Text = "Mutuales";
+            this.mutualesToolStripMenuItem.Click += new System.EventHandler(this.mutualesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

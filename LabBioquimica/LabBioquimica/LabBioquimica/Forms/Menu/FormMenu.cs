@@ -52,6 +52,13 @@ namespace LabBioquimica.Forms.Menu
             profesionales.Dispose();
         }
 
+        private void mutualesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ABMC.Mutuales mutuales = new ABMC.Mutuales();
+            mutuales.ShowDialog();
+            mutuales.Dispose();
+        }
+
         private void análisisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ABMC.Analisis analisis = new ABMC.Analisis();
@@ -66,6 +73,6 @@ namespace LabBioquimica.Forms.Menu
             nuevoProtocolo.Dispose();
         }
 
- 
+
     }
 }

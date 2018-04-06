@@ -81,6 +81,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ABMC\Mutuales\AltaMutuales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Mutuales\AltaMutuales.Designer.cs">
+      <DependentUpon>AltaMutuales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ABMC\Mutuales\Mutuales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Mutuales\Mutuales.Designer.cs">
+      <DependentUpon>Mutuales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ABMC\Profesionales\AltaProfesionales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +142,12 @@
       <DependentUpon>NuevoProtocolo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ABMC\Mutuales\AltaMutuales.resx">
+      <DependentUpon>AltaMutuales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Mutuales\Mutuales.resx">
+      <DependentUpon>Mutuales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Pacientes\AltaPacientes.resx">
       <DependentUpon>AltaPacientes.cs</DependentUpon>
     </EmbeddedResource>
