@@ -81,6 +81,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ABMC\Localidades\AltaLocalidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Localidades\AltaLocalidades.Designer.cs">
+      <DependentUpon>AltaLocalidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ABMC\Analisis\AltaAnalisis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Analisis\AltaAnalisis.Designer.cs">
+      <DependentUpon>AltaAnalisis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ABMC\Localidades\Localidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Localidades\Localidades.Designer.cs">
+      <DependentUpon>Localidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ABMC\Mutuales\AltaMutuales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,10 +123,10 @@
     <Compile Include="Forms\ABMC\Pacientes\AltaPacientes.Designer.cs">
       <DependentUpon>AltaPacientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ABMC\Analisis.cs">
+    <Compile Include="Forms\ABMC\Analisis\Analisis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ABMC\Analisis.Designer.cs">
+    <Compile Include="Forms\ABMC\Analisis\Analisis.Designer.cs">
       <DependentUpon>Analisis.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ABMC\Pacientes\Pacientes.cs">
@@ -142,6 +160,15 @@
       <DependentUpon>NuevoProtocolo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ABMC\Analisis\AltaAnalisis.resx">
+      <DependentUpon>AltaAnalisis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Localidades\AltaLocalidades.resx">
+      <DependentUpon>AltaLocalidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Localidades\Localidades.resx">
+      <DependentUpon>Localidades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Mutuales\AltaMutuales.resx">
       <DependentUpon>AltaMutuales.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,7 +178,7 @@
     <EmbeddedResource Include="Forms\ABMC\Pacientes\AltaPacientes.resx">
       <DependentUpon>AltaPacientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ABMC\Analisis.resx">
+    <EmbeddedResource Include="Forms\ABMC\Analisis\Analisis.resx">
       <DependentUpon>Analisis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Pacientes\Pacientes.resx">

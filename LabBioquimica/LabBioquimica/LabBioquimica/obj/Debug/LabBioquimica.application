@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="LabBioquimica.exe.manifest" size="5270">
+    <dependentAssembly dependencyType="install" codebase="LabBioquimica.exe.manifest" size="5271">
       <assemblyIdentity name="LabBioquimica.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nn1Qb2kA9mjBbD7pL2rC367n2LMd8KKHaY9DgiZSnYs=</dsig:DigestValue>
+        <dsig:DigestValue>D/bpku0gGho0oCHexS7IX8irH7xVrXAPVb6ljjdUh/k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

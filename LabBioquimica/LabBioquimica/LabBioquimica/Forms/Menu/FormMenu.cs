@@ -66,6 +66,13 @@ namespace LabBioquimica.Forms.Menu
             analisis.Dispose();
         }
 
+        private void localidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ABMC.Localidades localidades = new ABMC.Localidades();
+            localidades.ShowDialog();
+            localidades.Dispose();
+        }
+
         private void registroDePrácticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Transaccion.NuevoProtocolo nuevoProtocolo = new Transaccion.NuevoProtocolo();
