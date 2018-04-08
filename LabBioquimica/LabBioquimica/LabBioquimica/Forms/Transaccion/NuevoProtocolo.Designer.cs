@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevoProtocolo));
             this.lblProtocolo = new System.Windows.Forms.Label();
             this.txtProtocolo = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbNuevoProtocolo = new System.Windows.Forms.GroupBox();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -60,7 +60,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnNueoAnalisis = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gbNuevoProtocolo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -83,29 +83,27 @@
             this.txtProtocolo.Size = new System.Drawing.Size(157, 21);
             this.txtProtocolo.TabIndex = 1;
             // 
-            // groupBox1
+            // gbNuevoProtocolo
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.lblMensaje);
-            this.groupBox1.Controls.Add(this.btnModificar);
-            this.groupBox1.Controls.Add(this.btnAceptar);
-            this.groupBox1.Controls.Add(this.btnProfesional);
-            this.groupBox1.Controls.Add(this.btnPaciente);
-            this.groupBox1.Controls.Add(this.cboProfesional);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cboPaciente);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dtpFecha);
-            this.groupBox1.Controls.Add(this.lblFecha);
-            this.groupBox1.Controls.Add(this.txtProtocolo);
-            this.groupBox1.Controls.Add(this.lblProtocolo);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(575, 164);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nuevo Protocolo";
+            this.gbNuevoProtocolo.BackColor = System.Drawing.Color.Transparent;
+            this.gbNuevoProtocolo.Controls.Add(this.lblMensaje);
+            this.gbNuevoProtocolo.Controls.Add(this.btnProfesional);
+            this.gbNuevoProtocolo.Controls.Add(this.btnPaciente);
+            this.gbNuevoProtocolo.Controls.Add(this.cboProfesional);
+            this.gbNuevoProtocolo.Controls.Add(this.label1);
+            this.gbNuevoProtocolo.Controls.Add(this.cboPaciente);
+            this.gbNuevoProtocolo.Controls.Add(this.label3);
+            this.gbNuevoProtocolo.Controls.Add(this.dtpFecha);
+            this.gbNuevoProtocolo.Controls.Add(this.lblFecha);
+            this.gbNuevoProtocolo.Controls.Add(this.txtProtocolo);
+            this.gbNuevoProtocolo.Controls.Add(this.lblProtocolo);
+            this.gbNuevoProtocolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbNuevoProtocolo.Location = new System.Drawing.Point(12, 2);
+            this.gbNuevoProtocolo.Name = "gbNuevoProtocolo";
+            this.gbNuevoProtocolo.Size = new System.Drawing.Size(575, 132);
+            this.gbNuevoProtocolo.TabIndex = 2;
+            this.gbNuevoProtocolo.TabStop = false;
+            this.gbNuevoProtocolo.Text = "Nuevo Protocolo";
             // 
             // lblMensaje
             // 
@@ -119,21 +117,23 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(371, 131);
+            this.btnModificar.Location = new System.Drawing.Point(409, 140);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(86, 27);
             this.btnModificar.TabIndex = 11;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(463, 131);
+            this.btnAceptar.Location = new System.Drawing.Point(501, 140);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(86, 27);
             this.btnAceptar.TabIndex = 10;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnProfesional
             // 
@@ -143,6 +143,7 @@
             this.btnProfesional.TabIndex = 9;
             this.btnProfesional.Text = "...";
             this.btnProfesional.UseVisualStyleBackColor = true;
+            this.btnProfesional.Click += new System.EventHandler(this.btnProfesional_Click);
             // 
             // btnPaciente
             // 
@@ -152,6 +153,7 @@
             this.btnPaciente.TabIndex = 8;
             this.btnPaciente.Text = "...";
             this.btnPaciente.UseVisualStyleBackColor = true;
+            this.btnPaciente.Click += new System.EventHandler(this.btnPaciente_Click);
             // 
             // cboProfesional
             // 
@@ -193,7 +195,7 @@
             // 
             this.dtpFecha.Location = new System.Drawing.Point(111, 46);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(302, 21);
+            this.dtpFecha.Size = new System.Drawing.Size(246, 21);
             this.dtpFecha.TabIndex = 3;
             // 
             // lblFecha
@@ -360,17 +362,19 @@
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(599, 610);
             this.Controls.Add(this.btnNueoAnalisis);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvItems);
             this.Controls.Add(this.dgvAnalisis);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbNuevoProtocolo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NuevoProtocolo";
             this.Text = "Registro de Examenes";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbNuevoProtocolo.ResumeLayout(false);
+            this.gbNuevoProtocolo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -384,7 +388,7 @@
 
         private System.Windows.Forms.Label lblProtocolo;
         private System.Windows.Forms.TextBox txtProtocolo;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbNuevoProtocolo;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label3;

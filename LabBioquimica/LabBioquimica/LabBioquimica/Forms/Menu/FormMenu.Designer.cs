@@ -91,6 +91,7 @@
             this.mutualesToolStripMenuItem.Name = "mutualesToolStripMenuItem";
             this.mutualesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mutualesToolStripMenuItem.Text = "Mutuales";
+            this.mutualesToolStripMenuItem.Click += new System.EventHandler(this.mutualesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -126,6 +127,7 @@
             this.localidadesToolStripMenuItem.Name = "localidadesToolStripMenuItem";
             this.localidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.localidadesToolStripMenuItem.Text = "Localidades";
+            this.localidadesToolStripMenuItem.Click += new System.EventHandler(this.localidadesToolStripMenuItem_Click);
             // 
             // registroDePrácticasToolStripMenuItem
             // 

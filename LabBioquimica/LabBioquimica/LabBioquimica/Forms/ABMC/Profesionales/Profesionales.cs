@@ -100,8 +100,6 @@ namespace LabBioquimica.Forms.ABMC
                 miMenu.ItemClicked += new ToolStripItemClickedEventHandler(MiMenu_ItemClicked);
 
             }
-
-
         }
 
         private void MiMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
