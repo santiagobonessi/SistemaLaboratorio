@@ -236,6 +236,7 @@
             // 
             // cboTipoDoc
             // 
+            this.cboTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoDoc.FormattingEnabled = true;
             this.cboTipoDoc.Location = new System.Drawing.Point(103, 124);
             this.cboTipoDoc.Name = "cboTipoDoc";
@@ -245,6 +246,7 @@
             // 
             // cboSexo
             // 
+            this.cboSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSexo.FormattingEnabled = true;
             this.cboSexo.Location = new System.Drawing.Point(104, 151);
             this.cboSexo.Name = "cboSexo";
@@ -254,6 +256,7 @@
             // 
             // cboMutual
             // 
+            this.cboMutual.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMutual.FormattingEnabled = true;
             this.cboMutual.Location = new System.Drawing.Point(103, 232);
             this.cboMutual.Name = "cboMutual";
@@ -263,6 +266,7 @@
             // 
             // cboLocalidad
             // 
+            this.cboLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLocalidad.FormattingEnabled = true;
             this.cboLocalidad.Location = new System.Drawing.Point(104, 259);
             this.cboLocalidad.Name = "cboLocalidad";

@@ -72,7 +72,10 @@ namespace LabBioquimica.Forms.ABMC
             ent.NOMBRE = this.txtNombre.Text;
             if (!string.IsNullOrWhiteSpace(txtMatricula.Text)) { ent.MATRICULA = this.txtMatricula.Text; }
             if (!string.IsNullOrWhiteSpace(txtTelefono.Text)) { ent.TELEFONO = this.txtTelefono.Text; }
-            ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
+            if (this.cboLocalidad.SelectedValue.ToString() != "0")
+            {
+                ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
+            }
             if (!string.IsNullOrWhiteSpace(txtCalle.Text)) { ent.CALLE = this.txtCalle.Text; }
             if (!string.IsNullOrWhiteSpace(txtNroCalle.Text)) { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
 
@@ -106,9 +109,10 @@ namespace LabBioquimica.Forms.ABMC
             this.lblTitulo.Text = "Modificar Profesional";
             this.txtApellido.Text = ent.APELLIDO;
             this.txtNombre.Text = ent.NOMBRE;
-            this.txtMatricula.Text = ent.MATRICULA.ToString();
+            this.txtMatricula.Text = ent.MATRICULA;
             this.txtTelefono.Text = ent.TELEFONO;
-            this.cboLocalidad.Text = ent.N_LOCALIDAD;
+            if (ent.ID_LOCALIDAD != null) { this.cboLocalidad.Text = ent.N_LOCALIDAD; }
+            else { this.cboLocalidad.SelectedIndex = 0; }
             this.txtCalle.Text = ent.CALLE;
             this.txtNroCalle.Text = ent.NRO_CALLE.ToString();
             this.btnInsertar.Visible = false;
@@ -141,7 +145,10 @@ namespace LabBioquimica.Forms.ABMC
             ent.NOMBRE = this.txtNombre.Text;
             if (!string.IsNullOrWhiteSpace(txtMatricula.Text)) { ent.MATRICULA = this.txtMatricula.Text; }
             if (!string.IsNullOrWhiteSpace(txtTelefono.Text)) { ent.TELEFONO = this.txtTelefono.Text; }
-            ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
+            if (this.cboLocalidad.SelectedValue.ToString() != "0")
+            {
+                ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
+            }
             if (!string.IsNullOrWhiteSpace(txtCalle.Text)) { ent.CALLE = this.txtCalle.Text; }
             if (!string.IsNullOrWhiteSpace(txtNroCalle.Text)) { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
 
@@ -166,7 +173,7 @@ namespace LabBioquimica.Forms.ABMC
             this.txtNombre.Text = "";
             this.txtMatricula.Text = "";
             this.txtTelefono.Text = "";
-            this.cboLocalidad.SelectedIndex = 0;
+            this.cboLocalidad.SelectedIndex = -1;
             this.txtCalle.Text = "";
             this.txtNroCalle.Text = "";
         }
@@ -175,17 +182,21 @@ namespace LabBioquimica.Forms.ABMC
         {
             blLabBioquimica.bl_LOCALIDAD blLocalidad = new blLabBioquimica.bl_LOCALIDAD();
 
+            DataTable dt = blLocalidad.dataTableLocalidad();
+            DataRow nuevaFila = dt.NewRow();
+
+            nuevaFila["idLocalidad"] = 0;
+            nuevaFila["nombre"] = "--SELECCIONE--";
+            dt.Rows.InsertAt(nuevaFila, 0);
+
             this.cboLocalidad.DataSource = null;
-            this.cboLocalidad.DataSource = blLocalidad.dataTableLocalidad();
+            this.cboLocalidad.DataSource = dt;
             this.cboLocalidad.ValueMember = "idLocalidad";
             this.cboLocalidad.DisplayMember = "nombre";
             this.cboLocalidad.SelectedIndex = 0;
+
         }
 
-        private void cboLocalidad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
 
 
     }

@@ -33,14 +33,14 @@
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.txtConsulta = new System.Windows.Forms.TextBox();
             this.dgvAnalisis = new System.Windows.Forms.DataGridView();
+            this.lblCantFilas = new System.Windows.Forms.Label();
+            this.lblCant = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidBioq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblCantFilas = new System.Windows.Forms.Label();
-            this.lblCant = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,37 +95,6 @@
             this.dgvAnalisis.TabIndex = 15;
             this.dgvAnalisis.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAnalisis_MouseClick);
             // 
-            // idAnalisis
-            // 
-            this.idAnalisis.HeaderText = "ID";
-            this.idAnalisis.Name = "idAnalisis";
-            this.idAnalisis.ReadOnly = true;
-            this.idAnalisis.Visible = false;
-            // 
-            // codigo
-            // 
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // metodo
-            // 
-            this.metodo.HeaderText = "Método";
-            this.metodo.Name = "metodo";
-            this.metodo.ReadOnly = true;
-            // 
-            // unidBioq
-            // 
-            this.unidBioq.HeaderText = "Unidad Bioquimica";
-            this.unidBioq.Name = "unidBioq";
-            this.unidBioq.ReadOnly = true;
-            // 
             // lblCantFilas
             // 
             this.lblCantFilas.AutoSize = true;
@@ -151,6 +120,41 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "...";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // idAnalisis
+            // 
+            this.idAnalisis.HeaderText = "ID";
+            this.idAnalisis.Name = "idAnalisis";
+            this.idAnalisis.ReadOnly = true;
+            this.idAnalisis.Visible = false;
+            // 
+            // codigo
+            // 
+            this.codigo.FillWeight = 51.30358F;
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.FillWeight = 216.1707F;
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // metodo
+            // 
+            this.metodo.FillWeight = 81.76434F;
+            this.metodo.HeaderText = "Método";
+            this.metodo.Name = "metodo";
+            this.metodo.ReadOnly = true;
+            // 
+            // unidBioq
+            // 
+            this.unidBioq.FillWeight = 50.76143F;
+            this.unidBioq.HeaderText = "Unidad Bioquimica";
+            this.unidBioq.Name = "unidBioq";
+            this.unidBioq.ReadOnly = true;
             // 
             // Analisis
             // 
@@ -181,13 +185,13 @@
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.TextBox txtConsulta;
         private System.Windows.Forms.DataGridView dgvAnalisis;
+        private System.Windows.Forms.Label lblCantFilas;
+        private System.Windows.Forms.Label lblCant;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn metodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn unidBioq;
-        private System.Windows.Forms.Label lblCantFilas;
-        private System.Windows.Forms.Label lblCant;
-        private System.Windows.Forms.Button button1;
     }
 }

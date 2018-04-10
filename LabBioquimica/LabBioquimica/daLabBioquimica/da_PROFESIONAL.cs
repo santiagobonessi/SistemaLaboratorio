@@ -23,9 +23,9 @@ namespace daLabBioquimica
                 String sql = @"SELECT P.idProfesional, P.apellido, P.nombre, P.matricula, "
                                + "P.telefono, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
-                               + "FROM Profesionales P, Localidad L "
-                               + "WHERE P.idProfesional = @ID_PROFESIONAL "
-                               + "AND P.idLocalidad = L.idLocalidad ";
+                               + "FROM Profesionales P LEFT JOIN Localidad L ON P.idLocalidad = L.idLocalidad "
+                               + "WHERE P.idProfesional = @ID_PROFESIONAL ";
+                               
 
                 SqlCommand com = new SqlCommand(sql, conn);
 
@@ -58,12 +58,11 @@ namespace daLabBioquimica
                 String sql = @"SELECT P.idProfesional, P.apellido, P.nombre, P.apellido + ' ' + P.nombre AS nomape, P.matricula, "
                                + "P.telefono, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
-                               + "FROM Profesionales P, Localidad L "
+                               + "FROM Profesionales P LEFT JOIN Localidad L ON P.idLocalidad = L.idLocalidad "
                                + "WHERE (P.idProfesional = @ID_PROFESIONAL OR @ID_PROFESIONAL IS NULL) "
                                + "AND (P.apellido LIKE @APELLIDO + '%' OR @APELLIDO IS NULL) "
                                + "AND (P.nombre LIKE @NOMBRE + '%' OR @NOMBRE IS NULL) "
                                + "AND (P.matricula = @MATRICULA OR @MATRICULA IS NULL) "
-                               + "AND P.idLocalidad = L.idLocalidad "
                                + "AND P.usr_baja IS NULL "
                                + "AND P.fec_baja IS NULL "
                                + "ORDER BY P.apellido, P.nombre";

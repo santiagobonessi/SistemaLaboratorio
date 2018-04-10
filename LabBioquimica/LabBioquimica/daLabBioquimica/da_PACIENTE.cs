@@ -23,12 +23,9 @@ namespace daLabBioquimica
                 String sql = @"SELECT P.idPaciente, P.apellido, P.nombre, P.documento, P.idTipoDoc, TD.nombre AS TipoDoc, P.idSexo, S.nombre AS Sexo, "
                                + "P.fechaNacimiento, P.telefono, P.idMutual, M.nombre AS Mutual, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
-                               + "FROM Pacientes P, TipoDocumento TD, Sexo S, Mutuales M, Localidad L " 
-                               + "WHERE P.idPaciente = @ID_PACIENTE "
-                               + "AND P.idTipoDoc = TD.idTipoDoc " 
-                               + "AND P.idSexo = S.idSexo " 
-                               + "AND P.idMutual = M.idMutual " 
-                               + "AND P.idLocalidad = L.idLocalidad ";
+                               + "FROM Pacientes P LEFT JOIN TipoDocumento TD ON P.idTipoDoc = TD.idTipoDoc LEFT JOIN  Sexo S ON P.idSexo = S.idSexo "
+                               + "LEFT JOIN  Mutuales M ON P.idMutual = M.idMutual LEFT JOIN Localidad L ON P.idLocalidad = L.idLocalidad "
+                               + "WHERE P.idPaciente = @ID_PACIENTE ";
 
                 SqlCommand com = new SqlCommand(sql, conn);
 
@@ -62,15 +59,12 @@ namespace daLabBioquimica
                 String sql = @"SELECT P.idPaciente, P.apellido, P.nombre, P.apellido + ' ' + P.nombre AS nomape, P.documento, P.idTipoDoc, TD.nombre AS TipoDoc, P.idSexo, S.nombre AS Sexo, "
                                + "P.fechaNacimiento, P.telefono, P.idMutual, M.nombre AS Mutual, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
-                               + "FROM Pacientes P, TipoDocumento TD, Sexo S, Mutuales M, Localidad L "
+                               + "FROM Pacientes P LEFT JOIN TipoDocumento TD ON P.idTipoDoc = TD.idTipoDoc LEFT JOIN  Sexo S ON P.idSexo = S.idSexo "
+                               + "LEFT JOIN  Mutuales M ON P.idMutual = M.idMutual LEFT JOIN Localidad L ON P.idLocalidad = L.idLocalidad "
                                + "WHERE (P.idPaciente = @ID_PACIENTE OR @ID_PACIENTE IS NULL) "
                                + "AND (P.apellido LIKE @APELLIDO + '%' OR @APELLIDO IS NULL) "
                                + "AND (P.nombre LIKE @NOMBRE + '%' OR @NOMBRE IS NULL) "
                                + "AND (P.documento = @DOCUMENTO OR @DOCUMENTO IS NULL) "
-                               + "AND P.idTipoDoc = TD.idTipoDoc "
-                               + "AND P.idSexo = S.idSexo "
-                               + "AND P.idMutual = M.idMutual "
-                               + "AND P.idLocalidad = L.idLocalidad "
                                + "AND P.usr_baja IS NULL "
                                + "AND P.fec_baja IS NULL "
                                + "ORDER BY P.apellido, P.nombre";
