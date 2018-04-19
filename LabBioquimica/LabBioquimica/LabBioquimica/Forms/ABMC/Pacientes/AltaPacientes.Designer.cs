@@ -41,14 +41,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDocumento = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtCalle = new System.Windows.Forms.TextBox();
-            this.txtNroCalle = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.cboTipoDoc = new System.Windows.Forms.ComboBox();
             this.cboSexo = new System.Windows.Forms.ComboBox();
             this.cboMutual = new System.Windows.Forms.ComboBox();
@@ -59,7 +57,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(78, 346);
+            this.btnInsertar.Location = new System.Drawing.Point(73, 323);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 11;
@@ -69,7 +67,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(159, 346);
+            this.btnCancelar.Location = new System.Drawing.Point(154, 323);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
@@ -98,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 100);
+            this.label3.Location = new System.Drawing.Point(32, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 4;
@@ -161,20 +159,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(65, 289);
+            this.label10.Location = new System.Drawing.Point(42, 289);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.Size = new System.Drawing.Size(56, 13);
             this.label10.TabIndex = 11;
-            this.label10.Text = "Calle:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(45, 316);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 13);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Nro Calle:";
+            this.label10.Text = "DIrección:";
             // 
             // txtApellido
             // 
@@ -218,24 +207,17 @@
             this.txtTelefono.Size = new System.Drawing.Size(208, 20);
             this.txtTelefono.TabIndex = 6;
             // 
-            // txtCalle
+            // txtDireccion
             // 
-            this.txtCalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCalle.Location = new System.Drawing.Point(103, 286);
-            this.txtCalle.Name = "txtCalle";
-            this.txtCalle.Size = new System.Drawing.Size(208, 20);
-            this.txtCalle.TabIndex = 9;
-            // 
-            // txtNroCalle
-            // 
-            this.txtNroCalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNroCalle.Location = new System.Drawing.Point(103, 312);
-            this.txtNroCalle.Name = "txtNroCalle";
-            this.txtNroCalle.Size = new System.Drawing.Size(208, 20);
-            this.txtNroCalle.TabIndex = 10;
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDireccion.Location = new System.Drawing.Point(103, 286);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(208, 20);
+            this.txtDireccion.TabIndex = 9;
             // 
             // cboTipoDoc
             // 
+            this.cboTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoDoc.FormattingEnabled = true;
             this.cboTipoDoc.Location = new System.Drawing.Point(103, 124);
             this.cboTipoDoc.Name = "cboTipoDoc";
@@ -245,6 +227,7 @@
             // 
             // cboSexo
             // 
+            this.cboSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSexo.FormattingEnabled = true;
             this.cboSexo.Location = new System.Drawing.Point(104, 151);
             this.cboSexo.Name = "cboSexo";
@@ -254,6 +237,7 @@
             // 
             // cboMutual
             // 
+            this.cboMutual.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMutual.FormattingEnabled = true;
             this.cboMutual.Location = new System.Drawing.Point(103, 232);
             this.cboMutual.Name = "cboMutual";
@@ -263,6 +247,7 @@
             // 
             // cboLocalidad
             // 
+            this.cboLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLocalidad.FormattingEnabled = true;
             this.cboLocalidad.Location = new System.Drawing.Point(104, 259);
             this.cboLocalidad.Name = "cboLocalidad";
@@ -282,7 +267,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(78, 346);
+            this.btnGrabar.Location = new System.Drawing.Point(73, 323);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 15;
@@ -295,21 +280,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(324, 381);
+            this.ClientSize = new System.Drawing.Size(324, 359);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.dtpNacimiento);
             this.Controls.Add(this.cboLocalidad);
             this.Controls.Add(this.cboMutual);
             this.Controls.Add(this.cboSexo);
             this.Controls.Add(this.cboTipoDoc);
-            this.Controls.Add(this.txtNroCalle);
-            this.Controls.Add(this.txtCalle);
+            this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -344,14 +327,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtCalle;
-        private System.Windows.Forms.TextBox txtNroCalle;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.ComboBox cboTipoDoc;
         private System.Windows.Forms.ComboBox cboSexo;
         private System.Windows.Forms.ComboBox cboMutual;

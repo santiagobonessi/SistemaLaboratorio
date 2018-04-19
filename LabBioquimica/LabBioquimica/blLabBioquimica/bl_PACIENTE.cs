@@ -108,19 +108,13 @@ namespace blLabBioquimica
             set { p_N_LOCALIDAD = value; }
         }
 
-        private String p_CALLE;
-        public String CALLE
+        private String p_DIRECCION;
+        public String DIRECCION
         {
-            get { return p_CALLE; }
-            set { p_CALLE = value; }
+            get { return p_DIRECCION; }
+            set { p_DIRECCION = value; }
         }
 
-        private Nullable<Int32> p_NRO_CALLE;
-        public Nullable<Int32> NRO_CALLE
-        {
-            get { return p_NRO_CALLE; }
-            set { p_NRO_CALLE = value; }
-        }
         private String p_USR_ING;
         public String USR_ING
         {
@@ -177,13 +171,16 @@ namespace blLabBioquimica
                     this.NOMBRE = ent.NOMBRE;
                     this.DOCUMENTO = ent.DOCUMENTO;
                     this.ID_TIPO_DOC = ent.ID_TIPO_DOC;
+                    this.N_TIPO_DOC = ent.N_TIPO_DOC;
                     this.ID_SEXO = ent.ID_SEXO;
+                    this.N_SEXO = ent.N_SEXO;
                     this.FECHA_NACIMIENTO = ent.FECHA_NACIMIENTO;
                     this.TELEFONO = ent.TELEFONO;
                     this.ID_MUTUAL = ent.ID_MUTUAL;
+                    this.N_MUTUAL = ent.N_MUTUAL;
                     this.ID_LOCALIDAD = ent.ID_LOCALIDAD;
-                    this.CALLE = ent.CALLE;
-                    this.NRO_CALLE = ent.NRO_CALLE;
+                    this.N_LOCALIDAD = ent.N_LOCALIDAD;
+                    this.DIRECCION = ent.DIRECCION;
                     this.USR_ING = ent.USR_ING;
                     this.FEC_ING = ent.FEC_ING;
                     this.USR_MOD = ent.USR_MOD;
@@ -254,10 +251,8 @@ namespace blLabBioquimica
                         ent.ID_LOCALIDAD = Convert.ToInt32(dt.Rows[0]["idLocalidad"]);
                     if (dt.Rows[0]["Localidad"] != DBNull.Value)
                         ent.N_LOCALIDAD = Convert.ToString(dt.Rows[0]["Localidad"]);
-                    if (dt.Rows[0]["calle"] != DBNull.Value)
-                        ent.CALLE = Convert.ToString(dt.Rows[0]["calle"]);
-                    if (dt.Rows[0]["nroCalle"] != DBNull.Value)
-                        ent.NRO_CALLE = Convert.ToInt32(dt.Rows[0]["nroCalle"]);
+                    if (dt.Rows[0]["direccion"] != DBNull.Value)
+                        ent.DIRECCION = Convert.ToString(dt.Rows[0]["direccion"]);
                     if (dt.Rows[0]["usr_ing"] != DBNull.Value)
                         ent.USR_ING = Convert.ToString(dt.Rows[0]["usr_ing"]);
                     if (dt.Rows[0]["fec_ing"] != DBNull.Value)
@@ -330,10 +325,8 @@ namespace blLabBioquimica
                             ent.ID_LOCALIDAD = Convert.ToInt32(dr["idLocalidad"]);
                         if (dr["Localidad"] != DBNull.Value)
                             ent.N_LOCALIDAD = Convert.ToString(dr["Localidad"]);
-                        if (dr["calle"] != DBNull.Value)
-                            ent.CALLE = Convert.ToString(dr["calle"]);
-                        if (dr["nroCalle"] != DBNull.Value)
-                            ent.NRO_CALLE = Convert.ToInt32(dr["nroCalle"]);
+                        if (dr["direccion"] != DBNull.Value)
+                            ent.DIRECCION = Convert.ToString(dr["direccion"]);
                         if (dr["usr_ing"] != DBNull.Value)
                             ent.USR_ING = Convert.ToString(dr["usr_ing"]);
                         if (dr["fec_ing"] != DBNull.Value)
@@ -372,7 +365,7 @@ namespace blLabBioquimica
             try
             {
 
-                ent.ID_PACIENTE = p_da.Insertar(ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.ID_TIPO_DOC, ent.ID_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.ID_MUTUAL, ent.ID_LOCALIDAD, ent.CALLE, ent.NRO_CALLE, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
+                ent.ID_PACIENTE = p_da.Insertar(ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.ID_TIPO_DOC, ent.ID_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.ID_MUTUAL, ent.ID_LOCALIDAD, ent.DIRECCION, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
 
                 return ent;
             }
@@ -391,7 +384,7 @@ namespace blLabBioquimica
         {
             try
             {
-                p_da.Modificar(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.ID_TIPO_DOC, ent.ID_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.ID_MUTUAL, ent.ID_LOCALIDAD, ent.CALLE, ent.NRO_CALLE, ent.USR_MOD, ent.FEC_MOD);
+                p_da.Modificar(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.ID_TIPO_DOC, ent.ID_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.ID_MUTUAL, ent.ID_LOCALIDAD, ent.DIRECCION, ent.USR_MOD, ent.FEC_MOD);
             }
             catch (Exception ex)
             {

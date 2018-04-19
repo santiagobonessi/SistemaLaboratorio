@@ -36,9 +36,9 @@ namespace LabBioquimica.Forms.ABMC
             InitializeComponent();
             p_frm = pac;
 
-            cargarComboMutual();
-            cargarComboSexo();
             cargarComboTipoDoc();
+            cargarComboSexo();
+            cargarComboMutual();
             cargarComboLocalidad();
             this.dtpNacimiento.Value = DateTime.Now;
             this.btnGrabar.Visible = false;
@@ -50,9 +50,9 @@ namespace LabBioquimica.Forms.ABMC
             InitializeComponent();
             np_frm = nuevoP;
 
-            cargarComboMutual();
-            cargarComboSexo();
             cargarComboTipoDoc();
+            cargarComboSexo();
+            cargarComboMutual();
             cargarComboLocalidad();
             this.dtpNacimiento.Value = DateTime.Now;
             this.btnGrabar.Visible = false;
@@ -83,9 +83,16 @@ namespace LabBioquimica.Forms.ABMC
             ent.NOMBRE = this.txtNombre.Text;
             if(!string.IsNullOrWhiteSpace(txtDocumento.Text)) { ent.DOCUMENTO = int.Parse(this.txtDocumento.Text); }
 
-            ent.ID_TIPO_DOC = int.Parse(this.cboTipoDoc.SelectedValue.ToString());
-            ent.ID_SEXO = int.Parse(this.cboSexo.SelectedValue.ToString());
-            
+            if (this.cboTipoDoc.SelectedValue.ToString() != "0")
+            {
+                ent.ID_TIPO_DOC = int.Parse(this.cboTipoDoc.SelectedValue.ToString());
+            }
+
+            if (this.cboSexo.SelectedValue.ToString() != "0")
+            {
+                ent.ID_SEXO = int.Parse(this.cboSexo.SelectedValue.ToString());
+            }
+ 
             //Si la fecha se modifica, se guarda la fecha de nacimiento.
             DateTime fecha = DateTime.Parse(this.dtpNacimiento.Text);
             DateTime fechaActual = System.DateTime.Now;
@@ -97,11 +104,17 @@ namespace LabBioquimica.Forms.ABMC
             
             if(!string.IsNullOrWhiteSpace(txtTelefono.Text)) { ent.TELEFONO = this.txtTelefono.Text; }
             
-            ent.ID_MUTUAL = int.Parse(this.cboMutual.SelectedValue.ToString());
-            ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
+            
+            if (this.cboMutual.SelectedValue.ToString() != "0")
+            {
+                ent.ID_MUTUAL = int.Parse(this.cboMutual.SelectedValue.ToString());
+            }
 
-            if(!string.IsNullOrWhiteSpace(txtCalle.Text)) { ent.CALLE = this.txtCalle.Text; }
-            if(!string.IsNullOrWhiteSpace(txtNroCalle.Text)) { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
+            if (this.cboLocalidad.SelectedValue.ToString() != "0")
+            {
+                ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
+            }
+            if (!string.IsNullOrWhiteSpace(txtDireccion.Text)) { ent.DIRECCION = this.txtDireccion.Text; }
 
             ent.USR_ING = "ADMIN";
             ent.FEC_ING = DateTime.Now;
@@ -132,14 +145,22 @@ namespace LabBioquimica.Forms.ABMC
             this.txtApellido.Text = ent.APELLIDO;
             this.txtNombre.Text = ent.NOMBRE;
             this.txtDocumento.Text = ent.DOCUMENTO.ToString();
-            this.cboTipoDoc.Text = ent.N_TIPO_DOC;
-            this.cboSexo.Text = ent.N_SEXO;
+            if (ent.ID_TIPO_DOC != null) { this.cboTipoDoc.Text = ent.N_TIPO_DOC; }
+            else { this.cboTipoDoc.SelectedIndex = 0; }
+
+            if (ent.ID_SEXO != null) { this.cboSexo.Text = ent.N_SEXO; }
+            else { this.cboSexo.SelectedIndex = 0; }
+            
             this.dtpNacimiento.Text = ent.FECHA_NACIMIENTO.ToString();
             this.txtTelefono.Text = ent.TELEFONO;
-            this.cboMutual.Text = ent.N_MUTUAL;
-            this.cboLocalidad.Text = ent.N_LOCALIDAD;
-            this.txtCalle.Text = ent.CALLE;
-            this.txtNroCalle.Text = ent.NRO_CALLE.ToString();
+
+            if (ent.ID_MUTUAL != null) { this.cboMutual.Text = ent.N_MUTUAL; }
+            else { this.cboMutual.SelectedIndex = 0; }
+
+            if (ent.ID_LOCALIDAD != null) { this.cboLocalidad.Text = ent.N_LOCALIDAD; }
+            else { this.cboLocalidad.SelectedIndex = 0; }
+
+            this.txtDireccion.Text = ent.DIRECCION;
             this.btnInsertar.Visible = false;
             this.btnGrabar.Visible = true;
             
@@ -170,8 +191,15 @@ namespace LabBioquimica.Forms.ABMC
             ent.NOMBRE = this.txtNombre.Text;
             if (this.txtDocumento.Text != "") { ent.DOCUMENTO = int.Parse(this.txtDocumento.Text); }
 
-            ent.ID_TIPO_DOC = int.Parse(this.cboTipoDoc.SelectedValue.ToString());
-            ent.ID_SEXO = int.Parse(this.cboSexo.SelectedValue.ToString());
+            if (this.cboTipoDoc.SelectedValue.ToString() != "0")
+            {
+                ent.ID_TIPO_DOC = int.Parse(this.cboTipoDoc.SelectedValue.ToString());
+            }
+
+            if (this.cboSexo.SelectedValue.ToString() != "0")
+            {
+                ent.ID_SEXO = int.Parse(this.cboSexo.SelectedValue.ToString());
+            }
 
             //Si la fecha se modifica, se guarda la fecha de nacimiento.
             DateTime fecha = DateTime.Parse(this.dtpNacimiento.Text);
@@ -184,11 +212,18 @@ namespace LabBioquimica.Forms.ABMC
 
             if (this.txtTelefono.Text != "") { ent.TELEFONO = this.txtTelefono.Text; }
 
-            ent.ID_MUTUAL = int.Parse(this.cboMutual.SelectedValue.ToString());
-            ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
+            if (this.cboMutual.SelectedValue.ToString() != "0")
+            {
+                ent.ID_MUTUAL = int.Parse(this.cboMutual.SelectedValue.ToString());
+            }
 
-            if (this.txtCalle.Text != "") { ent.CALLE = this.txtCalle.Text; }
-            if (this.txtNroCalle.Text != "") { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
+            if (this.cboLocalidad.SelectedValue.ToString() != "0")
+            {
+                ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
+            }
+
+            if (this.txtDireccion.Text != "") { ent.DIRECCION = this.txtDireccion.Text; }
+            
 
             ent.USR_MOD = "ADMIN";
             ent.FEC_MOD = DateTime.Now;
@@ -217,16 +252,22 @@ namespace LabBioquimica.Forms.ABMC
             this.txtTelefono.Text = "";
             this.cboMutual.SelectedIndex = 0;
             this.cboLocalidad.SelectedIndex = 0;
-            this.txtCalle.Text = "";
-            this.txtNroCalle.Text = "";
+            this.txtDireccion.Text = "";
         }
 
         public void cargarComboMutual()
         {
             blLabBioquimica.bl_MUTUAL blMutual = new blLabBioquimica.bl_MUTUAL();
 
+            DataTable dt = blMutual.dataTableMutual();
+            DataRow nuevaFila = dt.NewRow();
+
+            nuevaFila["idMutual"] = 0;
+            nuevaFila["nombre"] = "--SELECCIONE--";
+            dt.Rows.InsertAt(nuevaFila, 0);
+
             this.cboMutual.DataSource = null;
-            this.cboMutual.DataSource = blMutual.dataTableMutual();
+            this.cboMutual.DataSource = dt;
             this.cboMutual.ValueMember = "idMutual";
             this.cboMutual.DisplayMember = "nombre";
             this.cboMutual.SelectedIndex = 0;
@@ -236,8 +277,15 @@ namespace LabBioquimica.Forms.ABMC
         {
             blLabBioquimica.bl_SEXO blSexo = new blLabBioquimica.bl_SEXO();
 
+            DataTable dt = blSexo.dataTableSexo();
+            DataRow nuevaFila = dt.NewRow();
+
+            nuevaFila["idSexo"] = 0;
+            nuevaFila["nombre"] = "--SELECCIONE--";
+            dt.Rows.InsertAt(nuevaFila, 0);
+
             this.cboSexo.DataSource = null;
-            this.cboSexo.DataSource = blSexo.dataTableSexo();
+            this.cboSexo.DataSource = dt;
             this.cboSexo.ValueMember = "idSexo";
             this.cboSexo.DisplayMember = "nombre";
             this.cboSexo.SelectedIndex = 0;
@@ -247,8 +295,15 @@ namespace LabBioquimica.Forms.ABMC
         {
             blLabBioquimica.bl_TIPO_DOC blTipoDoc = new blLabBioquimica.bl_TIPO_DOC();
 
+            DataTable dt = blTipoDoc.dataTableTipoDoc();
+            DataRow nuevaFila = dt.NewRow();
+
+            nuevaFila["idTipoDoc"] = 0;
+            nuevaFila["nombre"] = "--SELECCIONE--";
+            dt.Rows.InsertAt(nuevaFila, 0);
+
             this.cboTipoDoc.DataSource = null;
-            this.cboTipoDoc.DataSource = blTipoDoc.dataTableTipoDoc();
+            this.cboTipoDoc.DataSource = dt;
             this.cboTipoDoc.ValueMember = "idTipoDoc";
             this.cboTipoDoc.DisplayMember = "nombre";
             this.cboTipoDoc.SelectedIndex = 0;
@@ -258,8 +313,15 @@ namespace LabBioquimica.Forms.ABMC
         {
             blLabBioquimica.bl_LOCALIDAD blLocalidad = new blLabBioquimica.bl_LOCALIDAD();
 
+            DataTable dt = blLocalidad.dataTableLocalidad();
+            DataRow nuevaFila = dt.NewRow();
+
+            nuevaFila["idLocalidad"] = 0;
+            nuevaFila["nombre"] = "--SELECCIONE--";
+            dt.Rows.InsertAt(nuevaFila, 0);
+
             this.cboLocalidad.DataSource = null;
-            this.cboLocalidad.DataSource = blLocalidad.dataTableLocalidad();
+            this.cboLocalidad.DataSource = dt;
             this.cboLocalidad.ValueMember = "idLocalidad";
             this.cboLocalidad.DisplayMember = "nombre";
             this.cboLocalidad.SelectedIndex = 0;

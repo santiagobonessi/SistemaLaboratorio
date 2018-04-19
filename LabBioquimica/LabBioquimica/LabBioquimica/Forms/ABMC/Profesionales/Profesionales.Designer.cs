@@ -41,8 +41,7 @@
             this.matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,8 +60,7 @@
             this.matricula,
             this.telefono,
             this.localidad,
-            this.calle,
-            this.nroCalle});
+            this.direccion});
             this.dgvProfesionales.Location = new System.Drawing.Point(2, 42);
             this.dgvProfesionales.Name = "dgvProfesionales";
             this.dgvProfesionales.ReadOnly = true;
@@ -154,17 +152,11 @@
             this.localidad.Name = "localidad";
             this.localidad.ReadOnly = true;
             // 
-            // calle
+            // direccion
             // 
-            this.calle.HeaderText = "Calle";
-            this.calle.Name = "calle";
-            this.calle.ReadOnly = true;
-            // 
-            // nroCalle
-            // 
-            this.nroCalle.HeaderText = "Nro Calle";
-            this.nroCalle.Name = "nroCalle";
-            this.nroCalle.ReadOnly = true;
+            this.direccion.HeaderText = "Dirección";
+            this.direccion.Name = "direccion";
+            this.direccion.ReadOnly = true;
             // 
             // Profesionales
             // 
@@ -202,7 +194,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn matricula;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn localidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn calle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nroCalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
     }
 }

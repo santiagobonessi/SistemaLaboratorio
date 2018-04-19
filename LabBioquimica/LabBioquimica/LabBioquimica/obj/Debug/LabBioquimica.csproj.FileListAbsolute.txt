@@ -38,3 +38,7 @@ C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioq
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.AltaAnalisis.resources
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.Localidades.resources
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.AltaLocalidades.resources
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.AltaUnidades.resources
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.Unidades.resources
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.Items.resources
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.AltaItems.resources

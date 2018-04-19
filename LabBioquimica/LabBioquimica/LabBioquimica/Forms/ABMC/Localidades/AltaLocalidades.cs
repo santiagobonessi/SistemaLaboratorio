@@ -34,7 +34,7 @@ namespace LabBioquimica.Forms.ABMC
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             blLabBioquimica.bl_LOCALIDAD blLocalidad = new blLabBioquimica.bl_LOCALIDAD();
-            blLabBioquimica.bl_LOCALIDADEnitdad ent = new blLabBioquimica.bl_LOCALIDADEnitdad();
+            blLabBioquimica.bl_LOCALIDADEntidad ent = new blLabBioquimica.bl_LOCALIDADEntidad();
 
             //Validaciones
             if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
@@ -64,7 +64,7 @@ namespace LabBioquimica.Forms.ABMC
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             blLabBioquimica.bl_LOCALIDAD blLocalidad = new blLabBioquimica.bl_LOCALIDAD();
-            blLabBioquimica.bl_LOCALIDADEnitdad ent = new blLabBioquimica.bl_LOCALIDADEnitdad();
+            blLabBioquimica.bl_LOCALIDADEntidad ent = new blLabBioquimica.bl_LOCALIDADEntidad();
 
             //Validaciones
             if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
@@ -93,7 +93,7 @@ namespace LabBioquimica.Forms.ABMC
         public void traerParaEditar(Int32 p_ID_LOCALIDAD)
         {
             blLabBioquimica.bl_LOCALIDAD blLocalidad = new blLabBioquimica.bl_LOCALIDAD();
-            blLabBioquimica.bl_LOCALIDADEnitdad ent = blLocalidad.BuscarPorPK(p_ID_LOCALIDAD);
+            blLabBioquimica.bl_LOCALIDADEntidad ent = blLocalidad.BuscarPorPK(p_ID_LOCALIDAD);
 
             idModificar = p_ID_LOCALIDAD;
             this.lblTitulo.Text = "Modificar Localidad";

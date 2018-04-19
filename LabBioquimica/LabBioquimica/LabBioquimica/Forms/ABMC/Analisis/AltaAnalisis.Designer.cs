@@ -45,7 +45,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(78, 200);
+            this.btnGrabar.Location = new System.Drawing.Point(78, 255);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 71;
@@ -56,7 +56,7 @@
             // txtUnidadBioq
             // 
             this.txtUnidadBioq.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUnidadBioq.Location = new System.Drawing.Point(102, 163);
+            this.txtUnidadBioq.Location = new System.Drawing.Point(102, 218);
             this.txtUnidadBioq.Name = "txtUnidadBioq";
             this.txtUnidadBioq.Size = new System.Drawing.Size(208, 20);
             this.txtUnidadBioq.TabIndex = 65;
@@ -65,7 +65,7 @@
             // txtMetodo
             // 
             this.txtMetodo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMetodo.Location = new System.Drawing.Point(102, 125);
+            this.txtMetodo.Location = new System.Drawing.Point(102, 180);
             this.txtMetodo.Name = "txtMetodo";
             this.txtMetodo.Size = new System.Drawing.Size(208, 20);
             this.txtMetodo.TabIndex = 64;
@@ -74,8 +74,9 @@
             // 
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Location = new System.Drawing.Point(102, 87);
+            this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(208, 20);
+            this.txtNombre.Size = new System.Drawing.Size(208, 77);
             this.txtNombre.TabIndex = 62;
             // 
             // txtCodigo
@@ -99,7 +100,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(-2, 166);
+            this.label11.Location = new System.Drawing.Point(-2, 221);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(98, 13);
             this.label11.TabIndex = 68;
@@ -108,7 +109,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(50, 128);
+            this.label10.Location = new System.Drawing.Point(50, 183);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 13);
             this.label10.TabIndex = 67;
@@ -134,7 +135,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(159, 200);
+            this.btnCancelar.Location = new System.Drawing.Point(159, 255);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 69;
@@ -144,7 +145,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(78, 200);
+            this.btnInsertar.Location = new System.Drawing.Point(78, 255);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 66;
@@ -157,7 +158,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(324, 231);
+            this.ClientSize = new System.Drawing.Size(335, 297);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.txtUnidadBioq);
             this.Controls.Add(this.txtMetodo);

@@ -21,11 +21,11 @@ namespace daLabBioquimica
                 conn.Open();
 
                 String sql = @"SELECT P.idProfesional, P.apellido, P.nombre, P.matricula, "
-                               + "P.telefono, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
+                               + "P.telefono, P.idLocalidad, L.nombre AS Localidad, P.direccion, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
-                               + "FROM Profesionales P, Localidad L "
-                               + "WHERE P.idProfesional = @ID_PROFESIONAL "
-                               + "AND P.idLocalidad = L.idLocalidad ";
+                               + "FROM Profesionales P LEFT JOIN Localidad L ON P.idLocalidad = L.idLocalidad "
+                               + "WHERE P.idProfesional = @ID_PROFESIONAL ";
+                               
 
                 SqlCommand com = new SqlCommand(sql, conn);
 
@@ -56,14 +56,13 @@ namespace daLabBioquimica
                 conn.Open();
 
                 String sql = @"SELECT P.idProfesional, P.apellido, P.nombre, P.apellido + ' ' + P.nombre AS nomape, P.matricula, "
-                               + "P.telefono, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
+                               + "P.telefono, P.idLocalidad, L.nombre AS Localidad, P.direccion, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
-                               + "FROM Profesionales P, Localidad L "
+                               + "FROM Profesionales P LEFT JOIN Localidad L ON P.idLocalidad = L.idLocalidad "
                                + "WHERE (P.idProfesional = @ID_PROFESIONAL OR @ID_PROFESIONAL IS NULL) "
                                + "AND (P.apellido LIKE @APELLIDO + '%' OR @APELLIDO IS NULL) "
                                + "AND (P.nombre LIKE @NOMBRE + '%' OR @NOMBRE IS NULL) "
                                + "AND (P.matricula = @MATRICULA OR @MATRICULA IS NULL) "
-                               + "AND P.idLocalidad = L.idLocalidad "
                                + "AND P.usr_baja IS NULL "
                                + "AND P.fec_baja IS NULL "
                                + "ORDER BY P.apellido, P.nombre";
@@ -109,15 +108,15 @@ namespace daLabBioquimica
             }
         }
 
-        public Int32 Insertar(String p_APELLIDO, String p_NOMBRE, String p_MATRICULA, String p_TELEFONO, Nullable<Int32> p_ID_LOCALIDAD, String p_CALLE, Nullable<Int32> p_NRO_CALLE, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
+        public Int32 Insertar(String p_APELLIDO, String p_NOMBRE, String p_MATRICULA, String p_TELEFONO, Nullable<Int32> p_ID_LOCALIDAD, String p_DIRECCION, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"INSERT INTO Profesionales (apellido, nombre, matricula, telefono, idLocalidad, calle, nroCalle, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja)"
-                            + "VALUES (@APELLIDO, @NOMBRE, @MATRICULA, @TELEFONO, @ID_LOCALIDAD, @CALLE, @NROCALLE, @USR_ING, @FEC_ING, @USR_MOD, @FEC_MOD, @USR_BAJA, @FEC_BAJA)"
+                String sql = @"INSERT INTO Profesionales (apellido, nombre, matricula, telefono, idLocalidad, direccion, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja)"
+                            + "VALUES (@APELLIDO, @NOMBRE, @MATRICULA, @TELEFONO, @ID_LOCALIDAD, @DIRECCION, @USR_ING, @FEC_ING, @USR_MOD, @FEC_MOD, @USR_BAJA, @FEC_BAJA)"
                             + "; SELECT @@Identity as ID";
                 SqlCommand com = new SqlCommand(sql, conn);
 
@@ -146,15 +145,10 @@ namespace daLabBioquimica
                 else
                     com.Parameters.AddWithValue("@ID_LOCALIDAD", DBNull.Value);
 
-                if (p_CALLE != null)
-                    com.Parameters.AddWithValue("@CALLE", p_CALLE);
+                if (p_DIRECCION != null)
+                    com.Parameters.AddWithValue("@DIRECCION", p_DIRECCION);
                 else
-                    com.Parameters.AddWithValue("@CALLE", DBNull.Value);
-
-                if (p_NRO_CALLE != null)
-                    com.Parameters.AddWithValue("@NROCALLE", p_NRO_CALLE);
-                else
-                    com.Parameters.AddWithValue("@NROCALLE", DBNull.Value);
+                    com.Parameters.AddWithValue("@DIRECCION", DBNull.Value);
 
                 if (p_USR_ING != null)
                     com.Parameters.AddWithValue("@USR_ING", p_USR_ING);
@@ -200,7 +194,7 @@ namespace daLabBioquimica
             }
         }//Termina el método Insertar
 
-        public void Modificar(Nullable<Int32> p_ID_PROFESIONAL, String p_APELLIDO, String p_NOMBRE, String p_MATRICULA, String p_TELEFONO, Nullable<Int32> p_ID_LOCALIDAD, String p_CALLE, Nullable<Int32> p_NRO_CALLE, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
+        public void Modificar(Nullable<Int32> p_ID_PROFESIONAL, String p_APELLIDO, String p_NOMBRE, String p_MATRICULA, String p_TELEFONO, Nullable<Int32> p_ID_LOCALIDAD, String p_DIRECCION, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
         {
             try
             {
@@ -209,7 +203,7 @@ namespace daLabBioquimica
 
                 String sql = @"UPDATE Profesionales SET apellido = @APELLIDO, nombre = @NOMBRE, "
                             + "matricula = @MATRICULA, telefono = @TELEFONO, idLocalidad = @ID_LOCALIDAD, "
-                            + "calle = @CALLE, nroCalle = @NROCALLE, usr_mod = @USR_MOD, fec_mod = @FEC_MOD "
+                            + "direccion = @DIRECCION, usr_mod = @USR_MOD, fec_mod = @FEC_MOD "
                             + "WHERE idProfesional = @ID_PROFESIONAL";
 
                 SqlCommand com = new SqlCommand(sql, conn);
@@ -244,15 +238,10 @@ namespace daLabBioquimica
                 else
                     com.Parameters.AddWithValue("@ID_LOCALIDAD", DBNull.Value);
 
-                if (p_CALLE != null)
-                    com.Parameters.AddWithValue("@CALLE", p_CALLE);
+                if (p_DIRECCION != null)
+                    com.Parameters.AddWithValue("@DIRECCION", p_DIRECCION);
                 else
-                    com.Parameters.AddWithValue("@CALLE", DBNull.Value);
-
-                if (p_NRO_CALLE != null)
-                    com.Parameters.AddWithValue("@NROCALLE", p_NRO_CALLE);
-                else
-                    com.Parameters.AddWithValue("@NROCALLE", DBNull.Value);
+                    com.Parameters.AddWithValue("@DIRECCION", DBNull.Value);
 
                 if (p_USR_MOD != null)
                     com.Parameters.AddWithValue("@USR_MOD", p_USR_MOD);

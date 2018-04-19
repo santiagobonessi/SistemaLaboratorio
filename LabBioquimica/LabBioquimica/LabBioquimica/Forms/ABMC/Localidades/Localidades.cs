@@ -34,7 +34,7 @@ namespace LabBioquimica.Forms.ABMC
             blLabBioquimica.bl_LOCALIDAD blLocalidad = new blLabBioquimica.bl_LOCALIDAD();
             blLabBioquimica.bl_LOCALIDADEntidadColeccion col = blLocalidad.Buscar(null, null);
 
-            foreach (blLabBioquimica.bl_LOCALIDADEnitdad ent in col)
+            foreach (blLabBioquimica.bl_LOCALIDADEntidad ent in col)
             {
                 dgvLocalidades.Rows.Add(ent.ID_LOCALIDAD, ent.NOMBRE, ent.CODPOSTAL);
             }
@@ -53,7 +53,7 @@ namespace LabBioquimica.Forms.ABMC
                 blLabBioquimica.bl_LOCALIDAD blLocalidad = new blLabBioquimica.bl_LOCALIDAD();
                 blLabBioquimica.bl_LOCALIDADEntidadColeccion col = blLocalidad.Buscar(null, nombre);
 
-                foreach (blLabBioquimica.bl_LOCALIDADEnitdad ent in col)
+                foreach (blLabBioquimica.bl_LOCALIDADEntidad ent in col)
                 {
                     dgvLocalidades.Rows.Add(ent.ID_LOCALIDAD, ent.NOMBRE, ent.CODPOSTAL);
                 }
@@ -150,7 +150,7 @@ namespace LabBioquimica.Forms.ABMC
         private void Baja(String idLocalidad)
         {
             blLabBioquimica.bl_LOCALIDAD blLocalidad = new blLabBioquimica.bl_LOCALIDAD();
-            blLabBioquimica.bl_LOCALIDADEnitdad ent = new blLabBioquimica.bl_LOCALIDADEnitdad();
+            blLabBioquimica.bl_LOCALIDADEntidad ent = new blLabBioquimica.bl_LOCALIDADEntidad();
 
             ent.ID_LOCALIDAD = int.Parse(idLocalidad);
             ent.USR_BAJA = "ADMIN";

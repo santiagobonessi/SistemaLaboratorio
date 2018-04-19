@@ -38,11 +38,11 @@ namespace LabBioquimica.Forms.ABMC
             {
                 if (ent.FECHA_NACIMIENTO != null)
                 {
-                    dgvPacientes.Rows.Add(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.N_TIPO_DOC, ent.N_SEXO, ent.FECHA_NACIMIENTO.Value.ToShortDateString(), ent.TELEFONO, ent.N_MUTUAL, ent.N_LOCALIDAD, ent.CALLE, ent.NRO_CALLE);
+                    dgvPacientes.Rows.Add(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.N_TIPO_DOC, ent.N_SEXO, ent.FECHA_NACIMIENTO.Value.ToShortDateString(), ent.TELEFONO, ent.N_MUTUAL, ent.N_LOCALIDAD, ent.DIRECCION);
                 }
                 else
                 {
-                    dgvPacientes.Rows.Add(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.N_TIPO_DOC, ent.N_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.N_MUTUAL, ent.N_LOCALIDAD, ent.CALLE, ent.NRO_CALLE);
+                    dgvPacientes.Rows.Add(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.N_TIPO_DOC, ent.N_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.N_MUTUAL, ent.N_LOCALIDAD, ent.DIRECCION);
                 }
             }
 
@@ -64,11 +64,11 @@ namespace LabBioquimica.Forms.ABMC
                 {
                     if (ent.FECHA_NACIMIENTO != null)
                     {
-                        dgvPacientes.Rows.Add(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.N_TIPO_DOC, ent.N_SEXO, ent.FECHA_NACIMIENTO.Value.ToShortDateString(), ent.TELEFONO, ent.N_MUTUAL, ent.N_LOCALIDAD, ent.CALLE, ent.NRO_CALLE);
+                        dgvPacientes.Rows.Add(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.N_TIPO_DOC, ent.N_SEXO, ent.FECHA_NACIMIENTO.Value.ToShortDateString(), ent.TELEFONO, ent.N_MUTUAL, ent.N_LOCALIDAD, ent.DIRECCION);
                     }
                     else
                     {
-                        dgvPacientes.Rows.Add(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.N_TIPO_DOC, ent.N_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.N_MUTUAL, ent.N_LOCALIDAD, ent.CALLE, ent.NRO_CALLE);
+                        dgvPacientes.Rows.Add(ent.ID_PACIENTE, ent.APELLIDO, ent.NOMBRE, ent.DOCUMENTO, ent.N_TIPO_DOC, ent.N_SEXO, ent.FECHA_NACIMIENTO, ent.TELEFONO, ent.N_MUTUAL, ent.N_LOCALIDAD, ent.DIRECCION);
                     }
                 }
                 this.lblCantFilas.Text = col.Count.ToString();

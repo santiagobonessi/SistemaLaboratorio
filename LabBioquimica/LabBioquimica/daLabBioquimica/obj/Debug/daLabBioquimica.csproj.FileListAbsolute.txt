@@ -1,5 +1,5 @@
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\bin\Debug\daLabBioquimica.dll
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\bin\Debug\daLabBioquimica.pdb
-C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\obj\Debug\daLabBioquimica.csprojResolveAssemblyReference.cache
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\obj\Debug\daLabBioquimica.dll
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\obj\Debug\daLabBioquimica.pdb
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\obj\Debug\daLabBioquimica.csprojResolveAssemblyReference.cache
