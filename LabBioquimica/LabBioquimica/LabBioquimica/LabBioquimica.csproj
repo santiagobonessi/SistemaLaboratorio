@@ -259,7 +259,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Clases\" />
     <Folder Include="Reportes\" />
   </ItemGroup>
   <ItemGroup>

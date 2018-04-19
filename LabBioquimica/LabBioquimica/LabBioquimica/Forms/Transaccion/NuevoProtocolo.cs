@@ -22,6 +22,7 @@ namespace LabBioquimica.Forms.Transaccion
             cargarComboPacientes();
             cargarComboProfesionales();
             this.btnModificar.Enabled = false;
+            
         }
 
         private void btnNueoAnalisis_Click(object sender, EventArgs e)
@@ -44,7 +45,6 @@ namespace LabBioquimica.Forms.Transaccion
                 foreach (DataGridViewRow dr in dgvAnalisis.SelectedRows)
                 {
                     dr.Selected = false;
-
                 }
                 
 
@@ -55,7 +55,10 @@ namespace LabBioquimica.Forms.Transaccion
                     miMenu.Items.Add("Nueva Práctica").Name = "NuevaPractica";
                     miMenu.Items.Add("Eliminar Práctica").Name = "EliminarPractica";
                     miMenu.Items.Add("Agregar o Modificar Items de la Práctica").Name = "AgregarModificarItemsPractica";
-
+                }
+                else
+                {
+                    miMenu.Items.Add("Nueva Práctica").Name = "NuevaPractica";
                 }
 
                 miMenu.Show(dgvAnalisis, new Point(e.X, e.Y));
@@ -75,8 +78,10 @@ namespace LabBioquimica.Forms.Transaccion
             switch (eventoSelec)
             {
                 case "NuevaPractica":
-                    Forms.Transaccion.NuevoAnalisis nuevoAnalisis = new Forms.Transaccion.NuevoAnalisis();
-                    nuevoAnalisis.Show();
+                    String numProtocolo = this.txtProtocolo.Text;
+                    Forms.Transaccion.NuevoAnalisis nuevoAnalisis = new Forms.Transaccion.NuevoAnalisis(this, numProtocolo);
+                    nuevoAnalisis.ShowDialog();
+                    nuevoAnalisis.Dispose();
                     break;
 
                 case "EliminarPractica":
@@ -192,7 +197,7 @@ namespace LabBioquimica.Forms.Transaccion
         {
             blLabBioquimica.bl_PROFESIONAL blProfesional = new blLabBioquimica.bl_PROFESIONAL();
             DataTable dt = blProfesional.dataTableProfesional();
-
+            
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             //recorrer y cargar los items para el autocompletado
             foreach (DataRow row in dt.Rows)
@@ -230,9 +235,34 @@ namespace LabBioquimica.Forms.Transaccion
         //Insertar los datos del protocolo
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            this.gbNuevoProtocolo.Enabled = false;
-            this.btnAceptar.Enabled = false;
-            this.btnModificar.Enabled = true;
+            //Validaciones
+            if (string.IsNullOrWhiteSpace(this.txtProtocolo.Text))
+            {
+                MessageBox.Show("Debe ingresar el número de protocolo");
+                this.txtProtocolo.Focus();
+                return;
+            }
+            if (this.cboPaciente.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar el paciente");
+                this.cboPaciente.Focus();
+                return;
+            }
+            if (this.cboProfesional.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar el profesional");
+                this.cboProfesional.Focus();
+                return;
+            }
+
+                //Validar que Nº de Protocolo no esté repetido
+ 
+                //Insertar nuevo protocolo en base de datos
+                this.gbNuevoProtocolo.Enabled = false;
+                this.btnAceptar.Enabled = false;
+                this.btnModificar.Enabled = true;
+                this.dgvAnalisis.Enabled = true;
+    
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -242,7 +272,20 @@ namespace LabBioquimica.Forms.Transaccion
             this.btnModificar.Enabled = false;
         }
 
-
-
+        private void txtProtocolo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

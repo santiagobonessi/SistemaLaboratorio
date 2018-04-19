@@ -33,8 +33,6 @@
             this.txtProtocolo = new System.Windows.Forms.TextBox();
             this.gbNuevoProtocolo = new System.Windows.Forms.GroupBox();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.btnProfesional = new System.Windows.Forms.Button();
             this.btnPaciente = new System.Windows.Forms.Button();
             this.cboProfesional = new System.Windows.Forms.ComboBox();
@@ -43,23 +41,25 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvAnalisis = new System.Windows.Forms.DataGridView();
-            this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conceptoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metodoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conceptoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resultadoPractica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conceptoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorRef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnConsultaProtocolo = new System.Windows.Forms.Button();
             this.txtConsultaProtocolo = new System.Windows.Forms.TextBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.btnNueoAnalisis = new System.Windows.Forms.Button();
+            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conceptoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultadoPractica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conceptoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorRef = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProtocoloDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metodoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbNuevoProtocolo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
@@ -80,8 +80,9 @@
             // 
             this.txtProtocolo.Location = new System.Drawing.Point(111, 20);
             this.txtProtocolo.Name = "txtProtocolo";
-            this.txtProtocolo.Size = new System.Drawing.Size(157, 21);
+            this.txtProtocolo.Size = new System.Drawing.Size(200, 21);
             this.txtProtocolo.TabIndex = 1;
+            this.txtProtocolo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProtocolo_KeyPress);
             // 
             // gbNuevoProtocolo
             // 
@@ -100,8 +101,8 @@
             this.gbNuevoProtocolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNuevoProtocolo.Location = new System.Drawing.Point(12, 2);
             this.gbNuevoProtocolo.Name = "gbNuevoProtocolo";
-            this.gbNuevoProtocolo.Size = new System.Drawing.Size(575, 132);
-            this.gbNuevoProtocolo.TabIndex = 2;
+            this.gbNuevoProtocolo.Size = new System.Drawing.Size(710, 132);
+            this.gbNuevoProtocolo.TabIndex = 0;
             this.gbNuevoProtocolo.TabStop = false;
             this.gbNuevoProtocolo.Text = "Nuevo Protocolo";
             // 
@@ -109,48 +110,28 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(272, 23);
+            this.lblMensaje.Location = new System.Drawing.Point(315, 23);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(185, 15);
             this.lblMensaje.TabIndex = 12;
             this.lblMensaje.Text = "mensaje si protocolo es repetido";
             // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(409, 140);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(86, 27);
-            this.btnModificar.TabIndex = 11;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(501, 140);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(86, 27);
-            this.btnAceptar.TabIndex = 10;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
             // btnProfesional
             // 
-            this.btnProfesional.Location = new System.Drawing.Point(463, 102);
+            this.btnProfesional.Location = new System.Drawing.Point(627, 103);
             this.btnProfesional.Name = "btnProfesional";
             this.btnProfesional.Size = new System.Drawing.Size(66, 23);
-            this.btnProfesional.TabIndex = 9;
+            this.btnProfesional.TabIndex = 6;
             this.btnProfesional.Text = "...";
             this.btnProfesional.UseVisualStyleBackColor = true;
             this.btnProfesional.Click += new System.EventHandler(this.btnProfesional_Click);
             // 
             // btnPaciente
             // 
-            this.btnPaciente.Location = new System.Drawing.Point(463, 73);
+            this.btnPaciente.Location = new System.Drawing.Point(627, 74);
             this.btnPaciente.Name = "btnPaciente";
             this.btnPaciente.Size = new System.Drawing.Size(66, 23);
-            this.btnPaciente.TabIndex = 8;
+            this.btnPaciente.TabIndex = 4;
             this.btnPaciente.Text = "...";
             this.btnPaciente.UseVisualStyleBackColor = true;
             this.btnPaciente.Click += new System.EventHandler(this.btnPaciente_Click);
@@ -160,8 +141,8 @@
             this.cboProfesional.FormattingEnabled = true;
             this.cboProfesional.Location = new System.Drawing.Point(111, 102);
             this.cboProfesional.Name = "cboProfesional";
-            this.cboProfesional.Size = new System.Drawing.Size(346, 23);
-            this.cboProfesional.TabIndex = 7;
+            this.cboProfesional.Size = new System.Drawing.Size(510, 23);
+            this.cboProfesional.TabIndex = 5;
             // 
             // label1
             // 
@@ -178,8 +159,8 @@
             this.cboPaciente.FormattingEnabled = true;
             this.cboPaciente.Location = new System.Drawing.Point(111, 73);
             this.cboPaciente.Name = "cboPaciente";
-            this.cboPaciente.Size = new System.Drawing.Size(346, 23);
-            this.cboPaciente.TabIndex = 5;
+            this.cboPaciente.Size = new System.Drawing.Size(510, 23);
+            this.cboPaciente.TabIndex = 3;
             // 
             // label3
             // 
@@ -195,8 +176,8 @@
             // 
             this.dtpFecha.Location = new System.Drawing.Point(111, 46);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(246, 21);
-            this.dtpFecha.TabIndex = 3;
+            this.dtpFecha.Size = new System.Drawing.Size(267, 21);
+            this.dtpFecha.TabIndex = 2;
             // 
             // lblFecha
             // 
@@ -208,49 +189,52 @@
             this.lblFecha.TabIndex = 2;
             this.lblFecha.Text = "Fecha:";
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(544, 140);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(86, 27);
+            this.btnModificar.TabIndex = 2;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(636, 140);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(86, 27);
+            this.btnAceptar.TabIndex = 1;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
             // dgvAnalisis
             // 
+            this.dgvAnalisis.AllowUserToAddRows = false;
+            this.dgvAnalisis.AllowUserToDeleteRows = false;
             this.dgvAnalisis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAnalisis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idAnalisis,
-            this.conceptoAnalisis,
+            this.idProtocoloDetalle,
+            this.nombreAnalisis,
             this.metodoAnalisis,
             this.codigoAnalisis});
+            this.dgvAnalisis.Enabled = false;
             this.dgvAnalisis.Location = new System.Drawing.Point(14, 172);
             this.dgvAnalisis.Name = "dgvAnalisis";
+            this.dgvAnalisis.ReadOnly = true;
             this.dgvAnalisis.RowHeadersVisible = false;
             this.dgvAnalisis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAnalisis.Size = new System.Drawing.Size(573, 168);
+            this.dgvAnalisis.Size = new System.Drawing.Size(708, 180);
             this.dgvAnalisis.TabIndex = 3;
             this.dgvAnalisis.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAnalisis_MouseClick);
             // 
-            // idAnalisis
-            // 
-            this.idAnalisis.HeaderText = "ID ANALISIS";
-            this.idAnalisis.Name = "idAnalisis";
-            this.idAnalisis.Visible = false;
-            // 
-            // conceptoAnalisis
-            // 
-            this.conceptoAnalisis.HeaderText = "Análisis";
-            this.conceptoAnalisis.Name = "conceptoAnalisis";
-            this.conceptoAnalisis.ReadOnly = true;
-            // 
-            // metodoAnalisis
-            // 
-            this.metodoAnalisis.HeaderText = "Método";
-            this.metodoAnalisis.Name = "metodoAnalisis";
-            this.metodoAnalisis.ReadOnly = true;
-            // 
-            // codigoAnalisis
-            // 
-            this.codigoAnalisis.HeaderText = "Código";
-            this.codigoAnalisis.Name = "codigoAnalisis";
-            this.codigoAnalisis.ReadOnly = true;
-            // 
             // dgvItems
             // 
+            this.dgvItems.AllowUserToAddRows = false;
+            this.dgvItems.AllowUserToDeleteRows = false;
             this.dgvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -259,78 +243,50 @@
             this.resultadoPractica,
             this.conceptoUnidad,
             this.valorRef});
-            this.dgvItems.Location = new System.Drawing.Point(12, 379);
+            this.dgvItems.Enabled = false;
+            this.dgvItems.Location = new System.Drawing.Point(12, 358);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItems.Size = new System.Drawing.Size(575, 170);
+            this.dgvItems.Size = new System.Drawing.Size(710, 180);
             this.dgvItems.TabIndex = 4;
             this.dgvItems.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvItems_MouseClick);
-            // 
-            // idItem
-            // 
-            this.idItem.HeaderText = "IDITEM";
-            this.idItem.Name = "idItem";
-            this.idItem.Visible = false;
-            // 
-            // conceptoItem
-            // 
-            this.conceptoItem.HeaderText = "Item";
-            this.conceptoItem.Name = "conceptoItem";
-            this.conceptoItem.ReadOnly = true;
-            // 
-            // resultadoPractica
-            // 
-            this.resultadoPractica.HeaderText = "Resultado";
-            this.resultadoPractica.Name = "resultadoPractica";
-            // 
-            // conceptoUnidad
-            // 
-            this.conceptoUnidad.HeaderText = "Unidad";
-            this.conceptoUnidad.Name = "conceptoUnidad";
-            this.conceptoUnidad.ReadOnly = true;
-            // 
-            // valorRef
-            // 
-            this.valorRef.HeaderText = "Valor Referencia";
-            this.valorRef.Name = "valorRef";
-            this.valorRef.ReadOnly = true;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnConsultaProtocolo);
             this.groupBox2.Controls.Add(this.txtConsultaProtocolo);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 555);
+            this.groupBox2.Location = new System.Drawing.Point(12, 547);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(384, 52);
+            this.groupBox2.Size = new System.Drawing.Size(478, 52);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Búsqueda por Nº de Protocolo";
+            this.groupBox2.Text = "Localizar Examen por Nº de Protocolo";
             // 
             // btnConsultaProtocolo
             // 
-            this.btnConsultaProtocolo.Location = new System.Drawing.Point(292, 15);
+            this.btnConsultaProtocolo.Location = new System.Drawing.Point(228, 13);
             this.btnConsultaProtocolo.Name = "btnConsultaProtocolo";
-            this.btnConsultaProtocolo.Size = new System.Drawing.Size(86, 27);
-            this.btnConsultaProtocolo.TabIndex = 12;
-            this.btnConsultaProtocolo.Text = "Buscar";
+            this.btnConsultaProtocolo.Size = new System.Drawing.Size(240, 31);
+            this.btnConsultaProtocolo.TabIndex = 1;
+            this.btnConsultaProtocolo.Text = "Buscar Examen por Nº de Protocolo";
             this.btnConsultaProtocolo.UseVisualStyleBackColor = true;
             // 
             // txtConsultaProtocolo
             // 
             this.txtConsultaProtocolo.Location = new System.Drawing.Point(9, 19);
             this.txtConsultaProtocolo.Name = "txtConsultaProtocolo";
-            this.txtConsultaProtocolo.Size = new System.Drawing.Size(277, 20);
-            this.txtConsultaProtocolo.TabIndex = 2;
+            this.txtConsultaProtocolo.Size = new System.Drawing.Size(200, 20);
+            this.txtConsultaProtocolo.TabIndex = 0;
             // 
             // btnImprimir
             // 
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.Location = new System.Drawing.Point(438, 557);
+            this.btnImprimir.Location = new System.Drawing.Point(573, 547);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(149, 52);
-            this.btnImprimir.TabIndex = 6;
+            this.btnImprimir.TabIndex = 5;
             this.btnImprimir.Text = "Imprimir Informe";
             this.btnImprimir.UseVisualStyleBackColor = true;
             // 
@@ -344,24 +300,80 @@
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // btnNueoAnalisis
+            // idItem
             // 
-            this.btnNueoAnalisis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNueoAnalisis.Location = new System.Drawing.Point(480, 346);
-            this.btnNueoAnalisis.Name = "btnNueoAnalisis";
-            this.btnNueoAnalisis.Size = new System.Drawing.Size(107, 27);
-            this.btnNueoAnalisis.TabIndex = 12;
-            this.btnNueoAnalisis.Text = "Nueva Práctica";
-            this.btnNueoAnalisis.UseVisualStyleBackColor = true;
-            this.btnNueoAnalisis.Click += new System.EventHandler(this.btnNueoAnalisis_Click);
+            this.idItem.HeaderText = "IDITEM";
+            this.idItem.Name = "idItem";
+            this.idItem.Visible = false;
+            // 
+            // conceptoItem
+            // 
+            this.conceptoItem.FillWeight = 131.9797F;
+            this.conceptoItem.HeaderText = "Item";
+            this.conceptoItem.Name = "conceptoItem";
+            this.conceptoItem.ReadOnly = true;
+            // 
+            // resultadoPractica
+            // 
+            this.resultadoPractica.FillWeight = 89.3401F;
+            this.resultadoPractica.HeaderText = "Resultado";
+            this.resultadoPractica.Name = "resultadoPractica";
+            // 
+            // conceptoUnidad
+            // 
+            this.conceptoUnidad.FillWeight = 89.3401F;
+            this.conceptoUnidad.HeaderText = "Unidad";
+            this.conceptoUnidad.Name = "conceptoUnidad";
+            this.conceptoUnidad.ReadOnly = true;
+            // 
+            // valorRef
+            // 
+            this.valorRef.FillWeight = 89.3401F;
+            this.valorRef.HeaderText = "Valor Referencia";
+            this.valorRef.Name = "valorRef";
+            this.valorRef.ReadOnly = true;
+            // 
+            // idAnalisis
+            // 
+            this.idAnalisis.HeaderText = "ID ANALISIS";
+            this.idAnalisis.Name = "idAnalisis";
+            this.idAnalisis.ReadOnly = true;
+            this.idAnalisis.Visible = false;
+            // 
+            // idProtocoloDetalle
+            // 
+            this.idProtocoloDetalle.HeaderText = "ID PROCOLO DET";
+            this.idProtocoloDetalle.Name = "idProtocoloDetalle";
+            this.idProtocoloDetalle.ReadOnly = true;
+            this.idProtocoloDetalle.Visible = false;
+            // 
+            // nombreAnalisis
+            // 
+            this.nombreAnalisis.FillWeight = 119.5432F;
+            this.nombreAnalisis.HeaderText = "Análisis";
+            this.nombreAnalisis.Name = "nombreAnalisis";
+            this.nombreAnalisis.ReadOnly = true;
+            // 
+            // metodoAnalisis
+            // 
+            this.metodoAnalisis.FillWeight = 119.5432F;
+            this.metodoAnalisis.HeaderText = "Método";
+            this.metodoAnalisis.Name = "metodoAnalisis";
+            this.metodoAnalisis.ReadOnly = true;
+            // 
+            // codigoAnalisis
+            // 
+            this.codigoAnalisis.FillWeight = 60.9137F;
+            this.codigoAnalisis.HeaderText = "Código";
+            this.codigoAnalisis.Name = "codigoAnalisis";
+            this.codigoAnalisis.ReadOnly = true;
             // 
             // NuevoProtocolo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(599, 610);
-            this.Controls.Add(this.btnNueoAnalisis);
+            this.ClientSize = new System.Drawing.Size(734, 603);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnAceptar);
@@ -407,15 +419,15 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button btnNueoAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conceptoAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn metodoAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn resultadoPractica;
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoUnidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorRef;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProtocoloDetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn metodoAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoAnalisis;
     }
 }

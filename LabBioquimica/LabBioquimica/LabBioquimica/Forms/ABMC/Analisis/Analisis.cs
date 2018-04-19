@@ -88,13 +88,22 @@ namespace LabBioquimica.Forms.ABMC
                 {
                     dgvAnalisis.Rows[position_xy_mouse_row].Selected = true;
 
+                    miMenu.Items.Add("Ver Items").Name = "Ver Items";
+                    ToolStripSeparator tss = new ToolStripSeparator();
+                    miMenu.Items.Add(tss);
                     miMenu.Items.Add("Nuevo").Name = "Nuevo";
                     miMenu.Items.Add("Modificar").Name = "Modificar";
                     miMenu.Items.Add("Eliminar").Name = "Eliminar";
+                    ToolStripSeparator tss2 = new ToolStripSeparator();
+                    miMenu.Items.Add(tss2);
+                    miMenu.Items.Add("Salir").Name = "Salir";
+                }
+                else
+                {
+                    miMenu.Items.Add("Nuevo").Name = "Nuevo";
                     ToolStripSeparator tss = new ToolStripSeparator();
                     miMenu.Items.Add(tss);
                     miMenu.Items.Add("Salir").Name = "Salir";
-
                 }
 
                 miMenu.Show(dgvAnalisis, new Point(e.X, e.Y));
@@ -110,11 +119,18 @@ namespace LabBioquimica.Forms.ABMC
             //Evento seleccionado, para luego realizar la operación necesaria
             String eventoSelec = e.ClickedItem.Name.ToString();
 
-            String idAnalisisSelec = dgvAnalisis.Rows[posSelec].Cells[0].Value.ToString();
-            String nombre = dgvAnalisis.Rows[posSelec].Cells[2].Value.ToString();
-
             switch (eventoSelec)
             {
+                case "Ver Items":
+                    String idAnalisisSelec = dgvAnalisis.Rows[posSelec].Cells[0].Value.ToString();
+                    String nombre = dgvAnalisis.Rows[posSelec].Cells[2].Value.ToString();
+                    Forms.ABMC.Items items = new Forms.ABMC.Items(this);
+                    int idAnalisis = int.Parse(idAnalisisSelec);
+                    items.cargarItemsXAnalisis(idAnalisis, nombre);
+                    items.ShowDialog();
+                    items.Dispose();
+                    break;
+
                 case "Nuevo":
                     Forms.ABMC.AltaAnalisis altaAnalisis = new Forms.ABMC.AltaAnalisis(this);
                     altaAnalisis.ShowDialog();
@@ -122,8 +138,10 @@ namespace LabBioquimica.Forms.ABMC
                     break;
 
                 case "Modificar":
+                    String idAnalisisMod = dgvAnalisis.Rows[posSelec].Cells[0].Value.ToString();
+                    
                     Forms.ABMC.AltaAnalisis modAnalisis = new Forms.ABMC.AltaAnalisis(this);
-                    int idModificar = int.Parse(idAnalisisSelec);
+                    int idModificar = int.Parse(idAnalisisMod);
                     modAnalisis.traerParaEditar(idModificar);
                     modAnalisis.ShowDialog();
                     modAnalisis.Dispose();
@@ -131,11 +149,14 @@ namespace LabBioquimica.Forms.ABMC
                     break;
 
                 case "Eliminar":
+                    String idAnalisisBaja = dgvAnalisis.Rows[posSelec].Cells[0].Value.ToString();
+                    String nomBaja = dgvAnalisis.Rows[posSelec].Cells[2].Value.ToString();
+
                     DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el analisis?", "Eliminar Analisis", MessageBoxButtons.YesNo);
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-                        Baja(idAnalisisSelec);
-                        MessageBox.Show("El analisis " + nombre + " ha sido eliminado");
+                        Baja(idAnalisisBaja);
+                        MessageBox.Show("El analisis " + nomBaja + " ha sido eliminado");
                         cargarAnalisis();
                     }
                     break;
@@ -165,5 +186,6 @@ namespace LabBioquimica.Forms.ABMC
         {
             this.txtConsulta.Text = "";
         }
+
     }
 }

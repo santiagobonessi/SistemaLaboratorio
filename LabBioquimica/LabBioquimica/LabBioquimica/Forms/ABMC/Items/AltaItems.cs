@@ -15,6 +15,9 @@ namespace LabBioquimica.Forms.ABMC
         //Creo una instancia del Form Items para actualizar la grilla
         private Items i_frm;
 
+        //Creo una instancia del Form Items cuando ingreso por analisis y cargo un item
+        private Items axi_frm;
+
         public static Int32 idModificar;
 
         //Constructor sin parámetros
@@ -27,7 +30,7 @@ namespace LabBioquimica.Forms.ABMC
             this.btnGrabar.Visible = false;
         }
 
-        //Constructor con parámetro del form Profesionales
+        //Constructor con parámetro del form Items
         public AltaItems(Items it)
         {
             InitializeComponent();
@@ -37,6 +40,22 @@ namespace LabBioquimica.Forms.ABMC
             cargarComboUnidad();
             this.btnGrabar.Visible = false;
         }
+
+        //Constructor con parámetro del form Items y nombre analisis
+        public AltaItems(Items it, String idAnalisis, String nomAnalisis)
+        {
+            InitializeComponent();
+            axi_frm = it;
+            cargarComboAnalisis();
+            cargarComboUnidad();
+
+            this.cboAnalisis.SelectedValue = idAnalisis;
+            this.cboAnalisis.Text = nomAnalisis;
+
+            this.cboAnalisis.Enabled = false;
+            this.btnGrabar.Visible = false;
+        }
+
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
@@ -61,6 +80,8 @@ namespace LabBioquimica.Forms.ABMC
             ent.NOMBRE = this.txtNombre.Text;
             if (!string.IsNullOrWhiteSpace(txtValorRef.Text)) { ent.VALOR_REF = this.txtValorRef.Text; }
             ent.ID_ANALISIS = int.Parse(this.cboAnalisis.SelectedValue.ToString());
+            ent.N_ANALISIS = this.cboAnalisis.Text;
+
             if (this.cboUnidad.SelectedValue.ToString() != "0")
             {
                 ent.ID_UNIDAD = int.Parse(this.cboUnidad.SelectedValue.ToString());
@@ -78,6 +99,7 @@ namespace LabBioquimica.Forms.ABMC
                 Close();
 
                 if (i_frm != null) { i_frm.cargarItems(); }
+                if(axi_frm != null) { axi_frm.cargarItemsXAnalisis((int) ent.ID_ANALISIS, ent.N_ANALISIS); }
             }
 
         }
@@ -98,6 +120,26 @@ namespace LabBioquimica.Forms.ABMC
             
             this.btnInsertar.Visible = false;
             this.btnGrabar.Visible = true;
+
+        }
+
+        public void traerParaEditarDesdeAnalisis(Int32 p_ID_ITEM)
+        {
+
+            blLabBioquimica.bl_ITEM blItem = new blLabBioquimica.bl_ITEM();
+            blLabBioquimica.bl_ITEMEntidad ent = blItem.BuscarPorPK(p_ID_ITEM);
+
+            idModificar = p_ID_ITEM;
+            this.lblTitulo.Text = "Modificar Item";
+            this.txtNombre.Text = ent.NOMBRE;
+            this.txtValorRef.Text = ent.VALOR_REF;
+            this.cboAnalisis.Text = ent.N_ANALISIS;
+            if (ent.ID_UNIDAD != null) { this.cboUnidad.Text = ent.N_UNIDAD; }
+            else { this.cboUnidad.SelectedIndex = 0; }
+
+            this.btnInsertar.Visible = false;
+            this.btnGrabar.Visible = true;
+            this.cboAnalisis.Enabled = false;
 
         }
 
@@ -127,6 +169,8 @@ namespace LabBioquimica.Forms.ABMC
             ent.NOMBRE = this.txtNombre.Text;
             if (!string.IsNullOrWhiteSpace(txtValorRef.Text)) { ent.VALOR_REF = this.txtValorRef.Text; }
             ent.ID_ANALISIS = int.Parse(this.cboAnalisis.SelectedValue.ToString());
+            ent.N_ANALISIS = this.cboAnalisis.Text;
+
             if (this.cboUnidad.SelectedValue.ToString() != "0")
             {
                 ent.ID_UNIDAD = int.Parse(this.cboUnidad.SelectedValue.ToString());
@@ -139,7 +183,9 @@ namespace LabBioquimica.Forms.ABMC
             //MessageBox.Show("Se modificó con éxito el item " + ent.NOMBRE + "");
             limpiarAltaItems();
             Close();
-            i_frm.cargarItems();
+
+            if (i_frm != null) { i_frm.cargarItems(); }
+            if (axi_frm != null) { axi_frm.cargarItemsXAnalisis((int)ent.ID_ANALISIS, ent.N_ANALISIS); }
         }
 
 
