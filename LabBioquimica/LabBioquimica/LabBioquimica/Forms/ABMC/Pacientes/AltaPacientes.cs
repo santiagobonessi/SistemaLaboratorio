@@ -114,8 +114,7 @@ namespace LabBioquimica.Forms.ABMC
             {
                 ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
             }
-            if (!string.IsNullOrWhiteSpace(txtCalle.Text)) { ent.CALLE = this.txtCalle.Text; }
-            if(!string.IsNullOrWhiteSpace(txtNroCalle.Text)) { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
+            if (!string.IsNullOrWhiteSpace(txtDireccion.Text)) { ent.DIRECCION = this.txtDireccion.Text; }
 
             ent.USR_ING = "ADMIN";
             ent.FEC_ING = DateTime.Now;
@@ -161,8 +160,7 @@ namespace LabBioquimica.Forms.ABMC
             if (ent.ID_LOCALIDAD != null) { this.cboLocalidad.Text = ent.N_LOCALIDAD; }
             else { this.cboLocalidad.SelectedIndex = 0; }
 
-            this.txtCalle.Text = ent.CALLE;
-            this.txtNroCalle.Text = ent.NRO_CALLE.ToString();
+            this.txtDireccion.Text = ent.DIRECCION;
             this.btnInsertar.Visible = false;
             this.btnGrabar.Visible = true;
             
@@ -224,8 +222,8 @@ namespace LabBioquimica.Forms.ABMC
                 ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
             }
 
-            if (this.txtCalle.Text != "") { ent.CALLE = this.txtCalle.Text; }
-            if (this.txtNroCalle.Text != "") { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
+            if (this.txtDireccion.Text != "") { ent.DIRECCION = this.txtDireccion.Text; }
+            
 
             ent.USR_MOD = "ADMIN";
             ent.FEC_MOD = DateTime.Now;
@@ -254,8 +252,7 @@ namespace LabBioquimica.Forms.ABMC
             this.txtTelefono.Text = "";
             this.cboMutual.SelectedIndex = 0;
             this.cboLocalidad.SelectedIndex = 0;
-            this.txtCalle.Text = "";
-            this.txtNroCalle.Text = "";
+            this.txtDireccion.Text = "";
         }
 
         public void cargarComboMutual()

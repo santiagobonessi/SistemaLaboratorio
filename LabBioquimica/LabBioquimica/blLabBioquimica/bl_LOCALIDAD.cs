@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace blLabBioquimica
 {
 
-    public class bl_LOCALIDADEnitdad
+    public class bl_LOCALIDADEntidad
     {
         private Nullable<Int32> p_ID_LOCALIDAD;
         public Nullable<Int32> ID_LOCALIDAD
@@ -68,14 +68,14 @@ namespace blLabBioquimica
             set { p_FEC_BAJA = value; }
         }
 
-        public bl_LOCALIDADEnitdad() { }
+        public bl_LOCALIDADEntidad() { }
 
-        public bl_LOCALIDADEnitdad(Int32 ID_LOCALIDAD)
+        public bl_LOCALIDADEntidad(Int32 ID_LOCALIDAD)
         {
             try
             {
                 bl_LOCALIDAD bl = new bl_LOCALIDAD();
-                bl_LOCALIDADEnitdad ent = bl.BuscarPorPK(ID_LOCALIDAD);
+                bl_LOCALIDADEntidad ent = bl.BuscarPorPK(ID_LOCALIDAD);
 
                 if (ent != null)
                 {
@@ -100,7 +100,7 @@ namespace blLabBioquimica
 
     }
 
-    public class bl_LOCALIDADEntidadColeccion: List<bl_LOCALIDADEnitdad>
+    public class bl_LOCALIDADEntidadColeccion: List<bl_LOCALIDADEntidad>
     {
     }
 
@@ -114,7 +114,7 @@ namespace blLabBioquimica
             p_da = new daLabBioquimica.da_LOCALIDAD();
         }
 
-        public bl_LOCALIDADEnitdad BuscarPorPK(Nullable<Int32> ID_LOCALIDAD)
+        public bl_LOCALIDADEntidad BuscarPorPK(Nullable<Int32> ID_LOCALIDAD)
         {
 
             try
@@ -123,7 +123,7 @@ namespace blLabBioquimica
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    bl_LOCALIDADEnitdad ent = new bl_LOCALIDADEnitdad();
+                    bl_LOCALIDADEntidad ent = new bl_LOCALIDADEntidad();
 
                     if (dt.Rows[0]["idLocalidad"] != DBNull.Value)
                         ent.ID_LOCALIDAD = Convert.ToInt32(dt.Rows[0]["idLocalidad"]);
@@ -175,7 +175,7 @@ namespace blLabBioquimica
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        bl_LOCALIDADEnitdad ent = new bl_LOCALIDADEnitdad();
+                        bl_LOCALIDADEntidad ent = new bl_LOCALIDADEntidad();
 
                         if (dr["idLocalidad"] != DBNull.Value)
                             ent.ID_LOCALIDAD = Convert.ToInt32(dr["idLocalidad"]);
@@ -213,7 +213,7 @@ namespace blLabBioquimica
             }
         }
 
-        public bl_LOCALIDADEnitdad Insertar(bl_LOCALIDADEnitdad ent)
+        public bl_LOCALIDADEntidad Insertar(bl_LOCALIDADEntidad ent)
         {
             try
             {
@@ -233,7 +233,7 @@ namespace blLabBioquimica
 
         }
 
-        public void Modificar(bl_LOCALIDADEnitdad ent)
+        public void Modificar(bl_LOCALIDADEntidad ent)
         {
             try
             {
@@ -245,7 +245,7 @@ namespace blLabBioquimica
             }
         }
 
-        public void Baja(bl_LOCALIDADEnitdad ent)
+        public void Baja(bl_LOCALIDADEntidad ent)
         {
             try
             {

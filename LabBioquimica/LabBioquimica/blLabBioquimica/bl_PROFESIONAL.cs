@@ -58,18 +58,11 @@ namespace blLabBioquimica
             set { p_N_LOCALIDAD = value; }
         }
 
-        private String p_CALLE;
-        public String CALLE
+        private String p_DIRECCION;
+        public String DIRECCION
         {
-            get { return p_CALLE; }
-            set { p_CALLE = value; }
-        }
-
-        private Nullable<Int32> p_NRO_CALLE;
-        public Nullable<Int32> NRO_CALLE
-        {
-            get { return p_NRO_CALLE; }
-            set { p_NRO_CALLE = value; }
+            get { return p_DIRECCION; }
+            set { p_DIRECCION = value; }
         }
 
         private String p_USR_ING;
@@ -129,8 +122,8 @@ namespace blLabBioquimica
                     this.MATRICULA = ent.MATRICULA;
                     this.TELEFONO = ent.TELEFONO;
                     this.ID_LOCALIDAD = ent.ID_LOCALIDAD;
-                    this.CALLE = ent.CALLE;
-                    this.NRO_CALLE = ent.NRO_CALLE;
+                    this.N_LOCALIDAD = ent.N_LOCALIDAD;
+                    this.DIRECCION = ent.DIRECCION;
                     this.USR_ING = ent.USR_ING;
                     this.FEC_ING = ent.FEC_ING;
                     this.USR_MOD = ent.USR_MOD;
@@ -188,10 +181,8 @@ namespace blLabBioquimica
                         ent.ID_LOCALIDAD = Convert.ToInt32(dt.Rows[0]["idLocalidad"]);
                     if (dt.Rows[0]["Localidad"] != DBNull.Value)
                         ent.N_LOCALIDAD = Convert.ToString(dt.Rows[0]["Localidad"]);
-                    if (dt.Rows[0]["calle"] != DBNull.Value)
-                        ent.CALLE = Convert.ToString(dt.Rows[0]["calle"]);
-                    if (dt.Rows[0]["nroCalle"] != DBNull.Value)
-                        ent.NRO_CALLE = Convert.ToInt32(dt.Rows[0]["nroCalle"]);
+                    if (dt.Rows[0]["direccion"] != DBNull.Value)
+                        ent.DIRECCION = Convert.ToString(dt.Rows[0]["direccion"]);
                     if (dt.Rows[0]["usr_ing"] != DBNull.Value)
                         ent.USR_ING = Convert.ToString(dt.Rows[0]["usr_ing"]);
                     if (dt.Rows[0]["fec_ing"] != DBNull.Value)
@@ -250,10 +241,8 @@ namespace blLabBioquimica
                             ent.ID_LOCALIDAD = Convert.ToInt32(dr["idLocalidad"]);
                         if (dr["Localidad"] != DBNull.Value)
                             ent.N_LOCALIDAD = Convert.ToString(dr["Localidad"]);
-                        if (dr["calle"] != DBNull.Value)
-                            ent.CALLE = Convert.ToString(dr["calle"]);
-                        if (dr["nroCalle"] != DBNull.Value)
-                            ent.NRO_CALLE = Convert.ToInt32(dr["nroCalle"]);
+                        if (dr["direccion"] != DBNull.Value)
+                            ent.DIRECCION = Convert.ToString(dr["direccion"]);
                         if (dr["usr_ing"] != DBNull.Value)
                             ent.USR_ING = Convert.ToString(dr["usr_ing"]);
                         if (dr["fec_ing"] != DBNull.Value)
@@ -290,7 +279,7 @@ namespace blLabBioquimica
             try
             {
 
-                ent.ID_PROFESIONAL = p_da.Insertar(ent.APELLIDO, ent.NOMBRE, ent.MATRICULA, ent.TELEFONO, ent.ID_LOCALIDAD, ent.CALLE, ent.NRO_CALLE, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
+                ent.ID_PROFESIONAL = p_da.Insertar(ent.APELLIDO, ent.NOMBRE, ent.MATRICULA, ent.TELEFONO, ent.ID_LOCALIDAD, ent.DIRECCION, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
 
                 return ent;
             }
@@ -309,7 +298,7 @@ namespace blLabBioquimica
         {
             try
             {
-                p_da.Modificar(ent.ID_PROFESIONAL, ent.APELLIDO, ent.NOMBRE, ent.MATRICULA, ent.TELEFONO, ent.ID_LOCALIDAD, ent.CALLE, ent.NRO_CALLE, ent.USR_MOD, ent.FEC_MOD);
+                p_da.Modificar(ent.ID_PROFESIONAL, ent.APELLIDO, ent.NOMBRE, ent.MATRICULA, ent.TELEFONO, ent.ID_LOCALIDAD, ent.DIRECCION, ent.USR_MOD, ent.FEC_MOD);
             }
             catch (Exception ex)
             {

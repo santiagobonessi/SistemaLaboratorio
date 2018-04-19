@@ -32,6 +32,9 @@
             this.txtConsulta = new System.Windows.Forms.TextBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.lblCant = new System.Windows.Forms.Label();
+            this.lblCantFilas = new System.Windows.Forms.Label();
             this.idPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,11 +45,7 @@
             this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mutual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nroCalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.lblCant = new System.Windows.Forms.Label();
-            this.lblCantFilas = new System.Windows.Forms.Label();
+            this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,8 +86,7 @@
             this.telefono,
             this.mutual,
             this.localidad,
-            this.calle,
-            this.nroCalle});
+            this.direccion});
             this.dgvPacientes.Location = new System.Drawing.Point(2, 41);
             this.dgvPacientes.Name = "dgvPacientes";
             this.dgvPacientes.ReadOnly = true;
@@ -97,6 +95,33 @@
             this.dgvPacientes.Size = new System.Drawing.Size(1179, 567);
             this.dgvPacientes.TabIndex = 0;
             this.dgvPacientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPacientes_MouseClick);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(614, 10);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 8;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // lblCant
+            // 
+            this.lblCant.AutoSize = true;
+            this.lblCant.Location = new System.Drawing.Point(1059, 25);
+            this.lblCant.Name = "lblCant";
+            this.lblCant.Size = new System.Drawing.Size(76, 13);
+            this.lblCant.TabIndex = 9;
+            this.lblCant.Text = "Cantidad Filas:";
+            // 
+            // lblCantFilas
+            // 
+            this.lblCantFilas.AutoSize = true;
+            this.lblCantFilas.Location = new System.Drawing.Point(1141, 25);
+            this.lblCantFilas.Name = "lblCantFilas";
+            this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
+            this.lblCantFilas.TabIndex = 10;
             // 
             // idPaciente
             // 
@@ -159,44 +184,11 @@
             this.localidad.Name = "localidad";
             this.localidad.ReadOnly = true;
             // 
-            // calle
+            // direccion
             // 
-            this.calle.HeaderText = "Calle";
-            this.calle.Name = "calle";
-            this.calle.ReadOnly = true;
-            // 
-            // nroCalle
-            // 
-            this.nroCalle.HeaderText = "Nro Calle";
-            this.nroCalle.Name = "nroCalle";
-            this.nroCalle.ReadOnly = true;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(614, 10);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 8;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // lblCant
-            // 
-            this.lblCant.AutoSize = true;
-            this.lblCant.Location = new System.Drawing.Point(1059, 25);
-            this.lblCant.Name = "lblCant";
-            this.lblCant.Size = new System.Drawing.Size(76, 13);
-            this.lblCant.TabIndex = 9;
-            this.lblCant.Text = "Cantidad Filas:";
-            // 
-            // lblCantFilas
-            // 
-            this.lblCantFilas.AutoSize = true;
-            this.lblCantFilas.Location = new System.Drawing.Point(1141, 25);
-            this.lblCantFilas.Name = "lblCantFilas";
-            this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
-            this.lblCantFilas.TabIndex = 10;
+            this.direccion.HeaderText = "Dirección";
+            this.direccion.Name = "direccion";
+            this.direccion.ReadOnly = true;
             // 
             // Pacientes
             // 
@@ -224,6 +216,9 @@
         private System.Windows.Forms.TextBox txtConsulta;
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.DataGridView dgvPacientes;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Label lblCant;
+        private System.Windows.Forms.Label lblCantFilas;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
@@ -234,10 +229,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn mutual;
         private System.Windows.Forms.DataGridViewTextBoxColumn localidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn calle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nroCalle;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Label lblCant;
-        private System.Windows.Forms.Label lblCantFilas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
     }
 }

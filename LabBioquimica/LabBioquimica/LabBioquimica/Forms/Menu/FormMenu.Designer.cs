@@ -41,6 +41,10 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.localidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDePrácticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarProtocolosPorPacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturaciónMutualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictLaboratorio = new System.Windows.Forms.PictureBox();
             this.menuSistema.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictLaboratorio)).BeginInit();
@@ -50,7 +54,10 @@
             // 
             this.menuSistema.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.datosToolStripMenuItem,
-            this.registroDePrácticasToolStripMenuItem});
+            this.registroDePrácticasToolStripMenuItem,
+            this.informesToolStripMenuItem,
+            this.facturaciónMutualesToolStripMenuItem,
+            this.salirToolStripMenuItem});
             this.menuSistema.Location = new System.Drawing.Point(0, 0);
             this.menuSistema.Name = "menuSistema";
             this.menuSistema.Size = new System.Drawing.Size(954, 24);
@@ -110,12 +117,14 @@
             this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
             this.itemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.itemsToolStripMenuItem.Text = "Items";
+            this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click);
             // 
             // unidadToolStripMenuItem
             // 
             this.unidadToolStripMenuItem.Name = "unidadToolStripMenuItem";
             this.unidadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.unidadToolStripMenuItem.Text = "Unidad";
+            this.unidadToolStripMenuItem.Click += new System.EventHandler(this.unidadToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -135,6 +144,33 @@
             this.registroDePrácticasToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
             this.registroDePrácticasToolStripMenuItem.Text = "Registro de Prácticas";
             this.registroDePrácticasToolStripMenuItem.Click += new System.EventHandler(this.registroDePrácticasToolStripMenuItem_Click);
+            // 
+            // informesToolStripMenuItem
+            // 
+            this.informesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buscarProtocolosPorPacienteToolStripMenuItem});
+            this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            this.informesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.informesToolStripMenuItem.Text = "Informes";
+            // 
+            // buscarProtocolosPorPacienteToolStripMenuItem
+            // 
+            this.buscarProtocolosPorPacienteToolStripMenuItem.Name = "buscarProtocolosPorPacienteToolStripMenuItem";
+            this.buscarProtocolosPorPacienteToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.buscarProtocolosPorPacienteToolStripMenuItem.Text = "Buscar Protocolos por Paciente";
+            // 
+            // facturaciónMutualesToolStripMenuItem
+            // 
+            this.facturaciónMutualesToolStripMenuItem.Name = "facturaciónMutualesToolStripMenuItem";
+            this.facturaciónMutualesToolStripMenuItem.Size = new System.Drawing.Size(133, 20);
+            this.facturaciónMutualesToolStripMenuItem.Text = "Facturación Mutuales";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // pictLaboratorio
             // 
@@ -183,5 +219,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem localidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroDePrácticasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facturaciónMutualesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarProtocolosPorPacienteToolStripMenuItem;
     }
 }

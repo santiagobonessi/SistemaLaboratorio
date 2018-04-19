@@ -21,7 +21,7 @@ namespace daLabBioquimica
                 conn.Open();
 
                 String sql = @"SELECT P.idPaciente, P.apellido, P.nombre, P.documento, P.idTipoDoc, TD.nombre AS TipoDoc, P.idSexo, S.nombre AS Sexo, "
-                               + "P.fechaNacimiento, P.telefono, P.idMutual, M.nombre AS Mutual, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
+                               + "P.fechaNacimiento, P.telefono, P.idMutual, M.nombre AS Mutual, P.idLocalidad, L.nombre AS Localidad, P.direccion, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
                                + "FROM Pacientes P LEFT JOIN TipoDocumento TD ON P.idTipoDoc = TD.idTipoDoc LEFT JOIN  Sexo S ON P.idSexo = S.idSexo "
                                + "LEFT JOIN  Mutuales M ON P.idMutual = M.idMutual LEFT JOIN Localidad L ON P.idLocalidad = L.idLocalidad "
@@ -57,7 +57,7 @@ namespace daLabBioquimica
                 conn.Open();
 
                 String sql = @"SELECT P.idPaciente, P.apellido, P.nombre, P.apellido + ' ' + P.nombre AS nomape, P.documento, P.idTipoDoc, TD.nombre AS TipoDoc, P.idSexo, S.nombre AS Sexo, "
-                               + "P.fechaNacimiento, P.telefono, P.idMutual, M.nombre AS Mutual, P.idLocalidad, L.nombre AS Localidad, P.calle, P.nroCalle, "
+                               + "P.fechaNacimiento, P.telefono, P.idMutual, M.nombre AS Mutual, P.idLocalidad, L.nombre AS Localidad, P.direccion, "
                                + "P.usr_ing, P.fec_ing, P.usr_mod, P.fec_mod, P.usr_baja, P.fec_baja "
                                + "FROM Pacientes P LEFT JOIN TipoDocumento TD ON P.idTipoDoc = TD.idTipoDoc LEFT JOIN  Sexo S ON P.idSexo = S.idSexo "
                                + "LEFT JOIN  Mutuales M ON P.idMutual = M.idMutual LEFT JOIN Localidad L ON P.idLocalidad = L.idLocalidad "
@@ -112,15 +112,15 @@ namespace daLabBioquimica
         }
 
         
-        public Int32 Insertar(String p_APELLIDO, String p_NOMBRE, Nullable<Int32> p_DOCUMENTO, Nullable<Int32> p_ID_TIPO_DOC, Nullable<Int32> p_ID_SEXO, Nullable<DateTime> p_FECHA_NACIMIENTO, String p_TELEFONO, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_LOCALIDAD, String p_CALLE, Nullable<Int32> p_NRO_CALLE, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
+        public Int32 Insertar(String p_APELLIDO, String p_NOMBRE, Nullable<Int32> p_DOCUMENTO, Nullable<Int32> p_ID_TIPO_DOC, Nullable<Int32> p_ID_SEXO, Nullable<DateTime> p_FECHA_NACIMIENTO, String p_TELEFONO, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_LOCALIDAD, String p_DIRECCION, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"INSERT INTO Pacientes (apellido, nombre, documento, idTipoDoc, idSexo, fechaNacimiento, telefono, idMutual, idLocalidad, calle, nroCalle, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja)"
-                            + "VALUES (@APELLIDO, @NOMBRE, @DOCUMENTO, @ID_TIPODOC, @ID_SEXO, @FECHANACIMIENTO, @TELEFONO, @ID_MUTUAL, @ID_LOCALIDAD, @CALLE, @NROCALLE, @USR_ING, @FEC_ING, @USR_MOD, @FEC_MOD, @USR_BAJA, @FEC_BAJA)"
+                String sql = @"INSERT INTO Pacientes (apellido, nombre, documento, idTipoDoc, idSexo, fechaNacimiento, telefono, idMutual, idLocalidad, direccion, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja)"
+                            + "VALUES (@APELLIDO, @NOMBRE, @DOCUMENTO, @ID_TIPODOC, @ID_SEXO, @FECHANACIMIENTO, @TELEFONO, @ID_MUTUAL, @ID_LOCALIDAD, @DIRECCION, @USR_ING, @FEC_ING, @USR_MOD, @FEC_MOD, @USR_BAJA, @FEC_BAJA)"
                             + "; SELECT @@Identity as ID";
                 SqlCommand com = new SqlCommand(sql, conn);
 
@@ -169,15 +169,10 @@ namespace daLabBioquimica
                 else
                     com.Parameters.AddWithValue("@ID_LOCALIDAD", DBNull.Value);
 
-                if (p_CALLE != null)
-                    com.Parameters.AddWithValue("@CALLE", p_CALLE);
+                if (p_DIRECCION != null)
+                    com.Parameters.AddWithValue("@DIRECCION", p_DIRECCION);
                 else
-                    com.Parameters.AddWithValue("@CALLE", DBNull.Value);
-
-                if (p_NRO_CALLE != null)
-                    com.Parameters.AddWithValue("@NROCALLE", p_NRO_CALLE);
-                else
-                    com.Parameters.AddWithValue("@NROCALLE", DBNull.Value);
+                    com.Parameters.AddWithValue("@DIRECCION", DBNull.Value);
 
                 if (p_USR_ING != null)
                     com.Parameters.AddWithValue("@USR_ING", p_USR_ING);
@@ -223,7 +218,7 @@ namespace daLabBioquimica
             }
         }//Termina el método Insertar
 
-        public void Modificar(Nullable<Int32> p_ID_PACIENTE, String p_APELLIDO, String p_NOMBRE, Nullable<Int32> p_DOCUMENTO, Nullable<Int32> p_ID_TIPO_DOC, Nullable<Int32> p_ID_SEXO, Nullable<DateTime> p_FECHA_NACIMIENTO, String p_TELEFONO, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_LOCALIDAD, String p_CALLE, Nullable<Int32> p_NRO_CALLE, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
+        public void Modificar(Nullable<Int32> p_ID_PACIENTE, String p_APELLIDO, String p_NOMBRE, Nullable<Int32> p_DOCUMENTO, Nullable<Int32> p_ID_TIPO_DOC, Nullable<Int32> p_ID_SEXO, Nullable<DateTime> p_FECHA_NACIMIENTO, String p_TELEFONO, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_LOCALIDAD, String p_DIRECCION, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
         {
             try
             {
@@ -233,7 +228,7 @@ namespace daLabBioquimica
                 String sql = @"UPDATE Pacientes SET apellido = @APELLIDO, nombre = @NOMBRE, documento = @DOCUMENTO, " 
                             + "idTipoDoc = @ID_TIPODOC,idSexo = @ID_SEXO,fechaNacimiento = @FECHANACIMIENTO, "
                             + "telefono = @TELEFONO, idMutual = @ID_MUTUAL, idLocalidad = @ID_LOCALIDAD, "
-                            + "calle = @CALLE, nroCalle = @NROCALLE, usr_mod = @USR_MOD, fec_mod = @FEC_MOD "
+                            + "direccion = @DIRECCION, usr_mod = @USR_MOD, fec_mod = @FEC_MOD "
                             + "WHERE idPaciente = @ID_PACIENTE";
 
                 SqlCommand com = new SqlCommand(sql, conn);
@@ -288,15 +283,10 @@ namespace daLabBioquimica
                 else
                     com.Parameters.AddWithValue("@ID_LOCALIDAD", DBNull.Value);
 
-                if (p_CALLE != null)
-                    com.Parameters.AddWithValue("@CALLE", p_CALLE);
+                if (p_DIRECCION != null)
+                    com.Parameters.AddWithValue("@DIRECCION", p_DIRECCION);
                 else
-                    com.Parameters.AddWithValue("@CALLE", DBNull.Value);
-
-                if (p_NRO_CALLE != null)
-                    com.Parameters.AddWithValue("@NROCALLE", p_NRO_CALLE);
-                else
-                    com.Parameters.AddWithValue("@NROCALLE", DBNull.Value);
+                    com.Parameters.AddWithValue("@DIRECCION", DBNull.Value);
 
                 if (p_USR_MOD != null)
                     com.Parameters.AddWithValue("@USR_MOD", p_USR_MOD);

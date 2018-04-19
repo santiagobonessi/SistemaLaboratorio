@@ -76,8 +76,8 @@ namespace LabBioquimica.Forms.ABMC
             {
                 ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
             }
-            if (!string.IsNullOrWhiteSpace(txtCalle.Text)) { ent.CALLE = this.txtCalle.Text; }
-            if (!string.IsNullOrWhiteSpace(txtNroCalle.Text)) { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
+            if (!string.IsNullOrWhiteSpace(txtDireccion.Text)) { ent.DIRECCION = this.txtDireccion.Text; }
+            
 
             ent.USR_ING = "ADMIN";
             ent.FEC_ING = DateTime.Now;
@@ -113,8 +113,7 @@ namespace LabBioquimica.Forms.ABMC
             this.txtTelefono.Text = ent.TELEFONO;
             if (ent.ID_LOCALIDAD != null) { this.cboLocalidad.Text = ent.N_LOCALIDAD; }
             else { this.cboLocalidad.SelectedIndex = 0; }
-            this.txtCalle.Text = ent.CALLE;
-            this.txtNroCalle.Text = ent.NRO_CALLE.ToString();
+            this.txtDireccion.Text = ent.DIRECCION;
             this.btnInsertar.Visible = false;
             this.btnGrabar.Visible = true;
 
@@ -149,8 +148,8 @@ namespace LabBioquimica.Forms.ABMC
             {
                 ent.ID_LOCALIDAD = int.Parse(this.cboLocalidad.SelectedValue.ToString());
             }
-            if (!string.IsNullOrWhiteSpace(txtCalle.Text)) { ent.CALLE = this.txtCalle.Text; }
-            if (!string.IsNullOrWhiteSpace(txtNroCalle.Text)) { ent.NRO_CALLE = int.Parse(this.txtNroCalle.Text); }
+            if (!string.IsNullOrWhiteSpace(txtDireccion.Text)) { ent.DIRECCION = this.txtDireccion.Text; }
+            
 
             ent.USR_MOD = "ADMIN";
             ent.FEC_MOD = DateTime.Now;
@@ -174,8 +173,7 @@ namespace LabBioquimica.Forms.ABMC
             this.txtMatricula.Text = "";
             this.txtTelefono.Text = "";
             this.cboLocalidad.SelectedIndex = -1;
-            this.txtCalle.Text = "";
-            this.txtNroCalle.Text = "";
+            this.txtDireccion.Text = "";
         }
 
         public void cargarComboLocalidad()

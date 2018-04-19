@@ -31,14 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AltaProfesional));
             this.btnGrabar = new System.Windows.Forms.Button();
             this.cboLocalidad = new System.Windows.Forms.ComboBox();
-            this.txtNroCalle = new System.Windows.Forms.TextBox();
-            this.txtCalle = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,7 +49,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(81, 253);
+            this.btnGrabar.Location = new System.Drawing.Point(82, 228);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 41;
@@ -68,21 +66,13 @@
             this.cboLocalidad.Size = new System.Drawing.Size(207, 21);
             this.cboLocalidad.TabIndex = 30;
             // 
-            // txtNroCalle
+            // txtDireccion
             // 
-            this.txtNroCalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNroCalle.Location = new System.Drawing.Point(81, 216);
-            this.txtNroCalle.Name = "txtNroCalle";
-            this.txtNroCalle.Size = new System.Drawing.Size(208, 20);
-            this.txtNroCalle.TabIndex = 34;
-            // 
-            // txtCalle
-            // 
-            this.txtCalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCalle.Location = new System.Drawing.Point(81, 188);
-            this.txtCalle.Name = "txtCalle";
-            this.txtCalle.Size = new System.Drawing.Size(208, 20);
-            this.txtCalle.TabIndex = 32;
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDireccion.Location = new System.Drawing.Point(81, 188);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(208, 20);
+            this.txtDireccion.TabIndex = 32;
             // 
             // txtTelefono
             // 
@@ -126,23 +116,14 @@
             this.txtApellido.Size = new System.Drawing.Size(208, 20);
             this.txtApellido.TabIndex = 16;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(23, 218);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 13);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "Nro Calle:";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(43, 190);
+            this.label10.Location = new System.Drawing.Point(21, 191);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.Size = new System.Drawing.Size(55, 13);
             this.label10.TabIndex = 37;
-            this.label10.Text = "Calle:";
+            this.label10.Text = "Dirección:";
             // 
             // label9
             // 
@@ -191,7 +172,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(162, 253);
+            this.btnCancelar.Location = new System.Drawing.Point(163, 228);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 39;
@@ -201,7 +182,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(81, 253);
+            this.btnInsertar.Location = new System.Drawing.Point(82, 228);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 36;
@@ -214,17 +195,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(324, 286);
+            this.ClientSize = new System.Drawing.Size(324, 263);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.cboLocalidad);
-            this.Controls.Add(this.txtNroCalle);
-            this.Controls.Add(this.txtCalle);
+            this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
@@ -245,14 +224,12 @@
 
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.ComboBox cboLocalidad;
-        private System.Windows.Forms.TextBox txtNroCalle;
-        private System.Windows.Forms.TextBox txtCalle;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;

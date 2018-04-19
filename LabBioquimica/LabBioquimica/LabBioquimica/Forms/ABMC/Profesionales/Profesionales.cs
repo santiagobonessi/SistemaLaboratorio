@@ -36,7 +36,7 @@ namespace LabBioquimica.Forms.ABMC
 
             foreach (blLabBioquimica.bl_PROFESIONALEntidad ent in col)
             {
-                dgvProfesionales.Rows.Add(ent.ID_PROFESIONAL, ent.APELLIDO, ent.NOMBRE, ent.MATRICULA, ent.TELEFONO, ent.N_LOCALIDAD, ent.CALLE, ent.NRO_CALLE);
+                dgvProfesionales.Rows.Add(ent.ID_PROFESIONAL, ent.APELLIDO, ent.NOMBRE, ent.MATRICULA, ent.TELEFONO, ent.N_LOCALIDAD, ent.DIRECCION);
             }
 
             this.lblCantFilas.Text = col.Count.ToString();
@@ -55,7 +55,7 @@ namespace LabBioquimica.Forms.ABMC
 
                 foreach (blLabBioquimica.bl_PROFESIONALEntidad ent in col)
                 {
-                    dgvProfesionales.Rows.Add(ent.ID_PROFESIONAL, ent.APELLIDO, ent.NOMBRE, ent.MATRICULA, ent.TELEFONO, ent.N_LOCALIDAD, ent.CALLE, ent.NRO_CALLE);
+                    dgvProfesionales.Rows.Add(ent.ID_PROFESIONAL, ent.APELLIDO, ent.NOMBRE, ent.MATRICULA, ent.TELEFONO, ent.N_LOCALIDAD, ent.DIRECCION);
                 }
                 this.lblCantFilas.Text = col.Count.ToString();
             }

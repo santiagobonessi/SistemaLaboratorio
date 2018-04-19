@@ -81,6 +81,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ABMC\Items\AltaItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Items\AltaItems.Designer.cs">
+      <DependentUpon>AltaItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ABMC\Items\Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Items\Items.Designer.cs">
+      <DependentUpon>Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ABMC\Unidades\AltaUnidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Unidades\AltaUnidades.Designer.cs">
+      <DependentUpon>AltaUnidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ABMC\Localidades\AltaLocalidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +159,12 @@
     <Compile Include="Forms\ABMC\Profesionales\Profesionales.Designer.cs">
       <DependentUpon>Profesionales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ABMC\Unidades\Unidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ABMC\Unidades\Unidades.Designer.cs">
+      <DependentUpon>Unidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Menu\FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +186,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\ABMC\Analisis\AltaAnalisis.resx">
       <DependentUpon>AltaAnalisis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Items\AltaItems.resx">
+      <DependentUpon>AltaItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Items\Items.resx">
+      <DependentUpon>Items.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Localidades\AltaLocalidades.resx">
       <DependentUpon>AltaLocalidades.cs</DependentUpon>
@@ -189,6 +219,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Profesionales\Profesionales.resx">
       <DependentUpon>Profesionales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Unidades\AltaUnidades.resx">
+      <DependentUpon>AltaUnidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ABMC\Unidades\Unidades.resx">
+      <DependentUpon>Unidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
