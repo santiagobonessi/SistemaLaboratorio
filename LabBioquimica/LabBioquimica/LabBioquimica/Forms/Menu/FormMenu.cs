@@ -99,6 +99,11 @@ namespace LabBioquimica.Forms.Menu
             Close();
         }
 
-
+        private void buscarProtocolosPorPacienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Informes.ProtocolosPorPaciente protPorPac = new Informes.ProtocolosPorPaciente();
+            protPorPac.ShowDialog();
+            protPorPac.Dispose();
+        }
     }
 }

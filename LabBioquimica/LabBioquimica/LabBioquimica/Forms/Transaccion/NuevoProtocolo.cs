@@ -254,15 +254,36 @@ namespace LabBioquimica.Forms.Transaccion
                 this.cboProfesional.Focus();
                 return;
             }
+            blLabBioquimica.bl_PROTOCOLO blProtocolo = new blLabBioquimica.bl_PROTOCOLO();
+            //Validar que Nº de Protocolo no esté repetido
+            blLabBioquimica.bl_PROTOCOLOEntidadColeccion col = blProtocolo.Buscar(null, int.Parse(this.txtProtocolo.Text), null, null, null);
+            if (col.Count > 0)
+            {
+                this.lblMensaje.Visible = true;
+                this.txtProtocolo.Focus();
+                return;
+            }
+            else
+            {
+                this.lblMensaje.Visible = false;
+            }
 
-                //Validar que Nº de Protocolo no esté repetido
- 
-                //Insertar nuevo protocolo en base de datos
-                this.gbNuevoProtocolo.Enabled = false;
-                this.btnAceptar.Enabled = false;
-                this.btnModificar.Enabled = true;
-                this.dgvAnalisis.Enabled = true;
-    
+            this.gbNuevoProtocolo.Enabled = false;
+            this.btnAceptar.Enabled = false;
+            this.btnModificar.Enabled = true;
+            this.dgvAnalisis.Enabled = true;
+
+            //Insertar nuevo protocolo en base de datos
+            blLabBioquimica.bl_PROTOCOLOEntidad ent = new blLabBioquimica.bl_PROTOCOLOEntidad();
+
+            //Datos
+            ent.NRO_PROTOCOLO = int.Parse(this.txtProtocolo.Text);
+            ent.FECHA = DateTime.Parse(this.dtpFecha.Text);
+            ent.ID_PACIENTE = int.Parse(this.cboPaciente.SelectedValue.ToString());
+            ent.ID_PROFESIONAL = int.Parse(this.cboProfesional.SelectedValue.ToString());
+
+            int idProtocolo = (int)blProtocolo.Insertar(ent).ID_PROTOCOLO;
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

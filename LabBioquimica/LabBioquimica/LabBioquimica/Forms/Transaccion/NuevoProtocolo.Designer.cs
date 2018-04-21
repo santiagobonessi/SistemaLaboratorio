@@ -50,16 +50,19 @@
             this.txtConsultaProtocolo = new System.Windows.Forms.TextBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.idProtocolo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProtocoloDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metodoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProtocoloDet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPractica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conceptoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultadoPractica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conceptoUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorRef = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProtocoloDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metodoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbNuevoProtocolo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
@@ -112,9 +115,9 @@
             this.lblMensaje.ForeColor = System.Drawing.Color.Red;
             this.lblMensaje.Location = new System.Drawing.Point(315, 23);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(185, 15);
+            this.lblMensaje.Size = new System.Drawing.Size(180, 15);
             this.lblMensaje.TabIndex = 12;
-            this.lblMensaje.Text = "mensaje si protocolo es repetido";
+            this.lblMensaje.Text = "El protocolo ingresado ya existe";
             // 
             // btnProfesional
             // 
@@ -216,8 +219,9 @@
             this.dgvAnalisis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAnalisis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAnalisis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idAnalisis,
+            this.idProtocolo,
             this.idProtocoloDetalle,
+            this.idAnalisis,
             this.nombreAnalisis,
             this.metodoAnalisis,
             this.codigoAnalisis});
@@ -238,6 +242,8 @@
             this.dgvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProtocoloDet,
+            this.idPractica,
             this.idItem,
             this.conceptoItem,
             this.resultadoPractica,
@@ -300,6 +306,60 @@
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // idProtocolo
+            // 
+            this.idProtocolo.HeaderText = "ID PROTOCOLO";
+            this.idProtocolo.Name = "idProtocolo";
+            this.idProtocolo.ReadOnly = true;
+            this.idProtocolo.Visible = false;
+            // 
+            // idProtocoloDetalle
+            // 
+            this.idProtocoloDetalle.HeaderText = "ID PROCOLO DET";
+            this.idProtocoloDetalle.Name = "idProtocoloDetalle";
+            this.idProtocoloDetalle.ReadOnly = true;
+            this.idProtocoloDetalle.Visible = false;
+            // 
+            // idAnalisis
+            // 
+            this.idAnalisis.HeaderText = "ID ANALISIS";
+            this.idAnalisis.Name = "idAnalisis";
+            this.idAnalisis.ReadOnly = true;
+            this.idAnalisis.Visible = false;
+            // 
+            // nombreAnalisis
+            // 
+            this.nombreAnalisis.FillWeight = 119.5432F;
+            this.nombreAnalisis.HeaderText = "Análisis";
+            this.nombreAnalisis.Name = "nombreAnalisis";
+            this.nombreAnalisis.ReadOnly = true;
+            // 
+            // metodoAnalisis
+            // 
+            this.metodoAnalisis.FillWeight = 119.5432F;
+            this.metodoAnalisis.HeaderText = "Método";
+            this.metodoAnalisis.Name = "metodoAnalisis";
+            this.metodoAnalisis.ReadOnly = true;
+            // 
+            // codigoAnalisis
+            // 
+            this.codigoAnalisis.FillWeight = 60.9137F;
+            this.codigoAnalisis.HeaderText = "Código";
+            this.codigoAnalisis.Name = "codigoAnalisis";
+            this.codigoAnalisis.ReadOnly = true;
+            // 
+            // idProtocoloDet
+            // 
+            this.idProtocoloDet.HeaderText = "ID PROTOCOLO DETALLE";
+            this.idProtocoloDet.Name = "idProtocoloDet";
+            this.idProtocoloDet.Visible = false;
+            // 
+            // idPractica
+            // 
+            this.idPractica.HeaderText = "ID PRACTICA";
+            this.idPractica.Name = "idPractica";
+            this.idPractica.Visible = false;
+            // 
             // idItem
             // 
             this.idItem.HeaderText = "IDITEM";
@@ -332,41 +392,6 @@
             this.valorRef.HeaderText = "Valor Referencia";
             this.valorRef.Name = "valorRef";
             this.valorRef.ReadOnly = true;
-            // 
-            // idAnalisis
-            // 
-            this.idAnalisis.HeaderText = "ID ANALISIS";
-            this.idAnalisis.Name = "idAnalisis";
-            this.idAnalisis.ReadOnly = true;
-            this.idAnalisis.Visible = false;
-            // 
-            // idProtocoloDetalle
-            // 
-            this.idProtocoloDetalle.HeaderText = "ID PROCOLO DET";
-            this.idProtocoloDetalle.Name = "idProtocoloDetalle";
-            this.idProtocoloDetalle.ReadOnly = true;
-            this.idProtocoloDetalle.Visible = false;
-            // 
-            // nombreAnalisis
-            // 
-            this.nombreAnalisis.FillWeight = 119.5432F;
-            this.nombreAnalisis.HeaderText = "Análisis";
-            this.nombreAnalisis.Name = "nombreAnalisis";
-            this.nombreAnalisis.ReadOnly = true;
-            // 
-            // metodoAnalisis
-            // 
-            this.metodoAnalisis.FillWeight = 119.5432F;
-            this.metodoAnalisis.HeaderText = "Método";
-            this.metodoAnalisis.Name = "metodoAnalisis";
-            this.metodoAnalisis.ReadOnly = true;
-            // 
-            // codigoAnalisis
-            // 
-            this.codigoAnalisis.FillWeight = 60.9137F;
-            this.codigoAnalisis.HeaderText = "Código";
-            this.codigoAnalisis.Name = "codigoAnalisis";
-            this.codigoAnalisis.ReadOnly = true;
             // 
             // NuevoProtocolo
             // 
@@ -419,15 +444,18 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProtocolo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProtocoloDetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn metodoAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProtocoloDet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPractica;
         private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn resultadoPractica;
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoUnidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorRef;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idProtocoloDetalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn metodoAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoAnalisis;
     }
 }
