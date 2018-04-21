@@ -252,7 +252,7 @@ namespace blLabBioquimica
             try
             {
 
-                ent.ID_PROTOCOLO = p_da.Insertar(ent.ID_PROTOCOLO, ent.ID_ANALISIS, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
+                ent.ID_PROTOCOLO_DETALLE = p_da.Insertar(ent.ID_PROTOCOLO, ent.ID_ANALISIS, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
 
                 return ent;
             }

@@ -56,11 +56,11 @@ namespace daLabBioquimica
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"SSELECT PD.idProtocoloDetalle, P.idProtocolo, PD.idAnalisis, "
+                String sql = @"SELECT PD.idProtocoloDetalle, PD.idProtocolo, PD.idAnalisis, "
                                + "A.nombre, A.metodo, A.codigo, "
                                + "PD.usr_ing, PD.fec_ing, PD.usr_mod, PD.fec_mod, PD.usr_baja, PD.fec_baja "
                                + "FROM ProtocoloDetalle PD INNER JOIN Protocolo P ON PD.idProtocolo = P.idProtocolo "
-                               + "INNER JOIN  Analisis PD ON PD.idAnalisis = A.idAnalisis "
+                               + "INNER JOIN  Analisis A ON PD.idAnalisis = A.idAnalisis "
                                + "WHERE (PD.idProtocoloDetalle = @ID_PROTOCOLO_DET OR @ID_PROTOCOLO_DET IS NULL) "
                                + "AND (PD.idProtocolo = @ID_PROTOCOLO OR @ID_PROTOCOLO IS NULL) "
                                + "AND (PD.idAnalisis = @ID_ANALISIS OR @ID_ANALISIS IS NULL) "
