@@ -132,11 +132,14 @@
             this.dgvItemsAnalisis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idItem,
             this.conceptoItem});
+            this.dgvItemsAnalisis.Enabled = false;
             this.dgvItemsAnalisis.Location = new System.Drawing.Point(7, 93);
             this.dgvItemsAnalisis.Name = "dgvItemsAnalisis";
             this.dgvItemsAnalisis.RowHeadersVisible = false;
+            this.dgvItemsAnalisis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItemsAnalisis.Size = new System.Drawing.Size(493, 208);
             this.dgvItemsAnalisis.TabIndex = 6;
+            this.dgvItemsAnalisis.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvItemsAnalisis_MouseClick);
             // 
             // idItem
             // 

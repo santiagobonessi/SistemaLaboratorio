@@ -26,7 +26,7 @@ namespace daLabBioquimica
                                + "FROM Practica P INNER JOIN ProtocoloDetalle PD ON P.idProtocoloDetalle = PD.idProtocoloDetalle "
                                + "INNER JOIN  Item I ON P.idItem = I.idItem "
                                + "LEFT JOIN Unidad U ON I.idUnidad = U.idUnidad "
-                               + "WHERE PD.idProtocoloDetalle = @ID_PROTOCOLO_DET ";
+                               + "WHERE P.idPractica = @ID_PRACTICA ";
 
                 SqlCommand com = new SqlCommand(sql, conn);
 
@@ -232,6 +232,52 @@ namespace daLabBioquimica
             }
 
         }//Termina método Modificar
+
+        public void ModificarResultado(Nullable<Int32> p_ID_PRACTICA, String p_RESULTADO, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(CadenaDeConexion());
+                conn.Open();
+
+                String sql = @"UPDATE Practica "
+                            + "SET resultado = @RESULTADO, "
+                            + "usr_mod = @USR_MOD, fec_mod = @FEC_MOD "
+                            + "WHERE idPractica = @ID_PRACTICA";
+
+                SqlCommand com = new SqlCommand(sql, conn);
+
+                if (p_ID_PRACTICA != null)
+                    com.Parameters.AddWithValue("@ID_PRACTICA", p_ID_PRACTICA);
+                else
+                    com.Parameters.AddWithValue("@ID_PRACTICA", DBNull.Value);
+
+                if (p_RESULTADO != null)
+                    com.Parameters.AddWithValue("@RESULTADO", p_RESULTADO);
+                else
+                    com.Parameters.AddWithValue("@RESULTADO", DBNull.Value);
+
+                if (p_USR_MOD != null)
+                    com.Parameters.AddWithValue("@USR_MOD", p_USR_MOD);
+                else
+                    com.Parameters.AddWithValue("@USR_MOD", DBNull.Value);
+
+                if (p_FEC_MOD != null)
+                    com.Parameters.AddWithValue("@FEC_MOD", p_FEC_MOD);
+                else
+                    com.Parameters.AddWithValue("@FEC_MOD", DBNull.Value);
+
+
+                com.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new daLabBioquimica.Framework.daException(ex.Message);
+            }
+
+        }//Termina método Modificar Resultado
 
         public void Baja(Nullable<Int32> p_ID_PRACTICA, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
         {

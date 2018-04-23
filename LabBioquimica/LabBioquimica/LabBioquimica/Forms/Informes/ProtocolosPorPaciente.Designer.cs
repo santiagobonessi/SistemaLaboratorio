@@ -63,6 +63,8 @@
             // 
             this.dgvProtocoloPorPaciente.AllowUserToAddRows = false;
             this.dgvProtocoloPorPaciente.AllowUserToDeleteRows = false;
+            this.dgvProtocoloPorPaciente.AllowUserToResizeColumns = false;
+            this.dgvProtocoloPorPaciente.AllowUserToResizeRows = false;
             this.dgvProtocoloPorPaciente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProtocoloPorPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProtocoloPorPaciente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

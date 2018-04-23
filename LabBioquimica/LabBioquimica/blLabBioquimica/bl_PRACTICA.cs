@@ -291,6 +291,18 @@ namespace blLabBioquimica
             }
         }
 
+        public void ModificarResultado(bl_PRACTICAEntidad ent)
+        {
+            try
+            {
+                p_da.ModificarResultado(ent.ID_PRACTICA, ent.RESULTADO, ent.USR_MOD, ent.FEC_MOD);
+            }
+            catch (Exception ex)
+            {
+                throw new blLabBioquimica.Framework.blException(ex.Message);
+            }
+        }
+
         public void Baja(bl_PRACTICAEntidad ent)
         {
             try

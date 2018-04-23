@@ -13,6 +13,10 @@ namespace LabBioquimica.Forms.Transaccion
     public partial class NuevoAnalisis : Form
     {
 
+        public static Int32 posSelec;
+
+        public static Int32 idProtocoloDetActual;
+
         private NuevoProtocolo np_frm;
         
         //Constructor sin parametros
@@ -28,6 +32,46 @@ namespace LabBioquimica.Forms.Transaccion
             np_frm = np;
             this.txtProtocolo.Text = numProtocolo;
             cargarComboAnalisis();
+        }
+
+        //Constructor con parametros del form Nuevo Protocolo
+        //Se llama a este constructor cuando ya existe el Protocolo Detalle
+        public NuevoAnalisis(NuevoProtocolo np, String numProtocolo, blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad ent)
+        {
+            InitializeComponent();
+            np_frm = np;
+            cargarComboAnalisis();
+            this.txtProtocolo.Text = numProtocolo;
+            this.cboAnalisis.Text = ent.NOMBRE_ANALISIS;
+            this.cboAnalisis.Enabled = false;
+            this.btnAceptar.Enabled = false;
+            this.btnCancelar.Enabled = true;
+            this.dgvItemsAnalisis.Enabled = true;
+
+            idProtocoloDetActual = (int)ent.ID_PROTOCOLO_DETALLE;
+
+            cargarPracticasPDExistente();
+        }
+
+        public void cargarPracticasPDExistente()
+        {
+            //Cargar los items a la grilla del analisis elegido
+            int idAnalisis = int.Parse(this.cboAnalisis.SelectedValue.ToString());
+
+            //CARGAR TODOS LOS ITEMS DEL ANALISIS EN LA GRILLA
+            this.dgvItemsAnalisis.Rows.Clear();
+            this.dgvItemsAnalisis.Refresh();
+
+            blLabBioquimica.bl_ITEM blItem = new blLabBioquimica.bl_ITEM();
+            blLabBioquimica.bl_ITEMEntidadColeccion col = blItem.Buscar(null, idAnalisis, null);
+
+            foreach (blLabBioquimica.bl_ITEMEntidad ent in col)
+            {
+                dgvItemsAnalisis.Rows.Add(ent.ID_ITEM, ent.NOMBRE);
+            }
+
+
+
         }
 
         public void cargarComboAnalisis()
@@ -75,8 +119,7 @@ namespace LabBioquimica.Forms.Transaccion
             this.cboAnalisis.Enabled = false;
             this.btnAceptar.Enabled = false;
             this.btnCancelar.Enabled = true;
-
-
+            this.dgvItemsAnalisis.Enabled = true;
 
             //Cargar los items a la grilla del analisis elegido
             int idAnalisis = int.Parse(this.cboAnalisis.SelectedValue.ToString());
@@ -94,6 +137,19 @@ namespace LabBioquimica.Forms.Transaccion
             }
 
             //Cargar en base datos protocolo detalle
+            blLabBioquimica.bl_PROTOCOLO_DETALLE blProtocoloDet = new blLabBioquimica.bl_PROTOCOLO_DETALLE();
+            blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad entPD = new blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad();
+
+            //Datos
+            entPD.ID_PROTOCOLO = np_frm.getProtocoloActual();
+            entPD.ID_ANALISIS = int.Parse(this.cboAnalisis.SelectedValue.ToString());
+            entPD.USR_ING = "ADMIN";
+            entPD.FEC_ING = DateTime.Now;
+
+            idProtocoloDetActual = (int)blProtocoloDet.Insertar(entPD).ID_PROTOCOLO_DETALLE;
+
+            //Cargar el protocolo detalle en la grilla de la pantalla Nuevo Protocolo
+            np_frm.cargarProtocoloDetalle(idProtocoloDetActual);
 
 
         }
@@ -126,7 +182,131 @@ namespace LabBioquimica.Forms.Transaccion
             //Cargar todos los items en el analisis seleccionado del data grid view
 
 
+        }
+
+        private void dgvItemsAnalisis_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenuStrip miMenu = new System.Windows.Forms.ContextMenuStrip();
+
+                //Posicion de la fila que haces click
+                int position_xy_mouse_row = dgvItemsAnalisis.HitTest(e.X, e.Y).RowIndex;
+                posSelec = position_xy_mouse_row;
+
+                foreach (DataGridViewRow dr in dgvItemsAnalisis.SelectedRows)
+                {
+                    dr.Selected = false;
+                }
+
+
+                if (position_xy_mouse_row >= 0)
+                {
+                    dgvItemsAnalisis.Rows[position_xy_mouse_row].Selected = true;
+                    miMenu.Items.Add("Cargar Componente").Name = "Cargar Componente";
+                    miMenu.Items.Add("Cargar Todos").Name = "Cargar Todos";
+                }
+                else
+                {
+                    miMenu.Items.Add("Cargar Todos").Name = "Cargar Todos";
+                }
+
+                miMenu.Show(dgvItemsAnalisis, new Point(e.X, e.Y));
+
+                //Evento menu click
+                miMenu.ItemClicked += new ToolStripItemClickedEventHandler(MiMenu_ItemClicked);
+
+            }
+        }
+
+        private void MiMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //Evento seleccionado, para luego realizar la operación necesaria
+            String eventoSelec = e.ClickedItem.Name.ToString();
+
+            switch (eventoSelec)
+            {
+                case "Cargar Componente":
+
+                    //Cargar  Componente Practica
+                    String idItemGrilla = dgvItemsAnalisis.Rows[posSelec].Cells[0].Value.ToString();
+                    int idItem = int.Parse(idItemGrilla);
+                    cargarComponentePractica(idItem);
+                    break;
+
+                case "Cargar Todos":
+                    //Cargar Todos los Componentes de Practica
+                    cargarTodosComponentesPractica();
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        public void cargarComponentePractica(Int32 p_ID_ITEM)
+        {
+
+            //Cargar Practica en base de datos
+            blLabBioquimica.bl_PRACTICA blPractica = new blLabBioquimica.bl_PRACTICA();
+            blLabBioquimica.bl_PRACTICAEntidad entPrac = new blLabBioquimica.bl_PRACTICAEntidad();
+
+            //Datos
+            entPrac.ID_PROTOCOLO_DETALLE = idProtocoloDetActual;
+            entPrac.ID_ITEM = p_ID_ITEM;
+
+            int idPractica = (int)blPractica.Insertar(entPrac).ID_PRACTICA;
+
+            np_frm.cargarComponentePractica(idPractica);
 
         }
+
+        public void cargarTodosComponentesPractica()
+        {
+
+            //Cargar Practicas en base de datos
+            blLabBioquimica.bl_PRACTICA blPractica = new blLabBioquimica.bl_PRACTICA();
+            blLabBioquimica.bl_PRACTICAEntidadColeccion colPrac = blPractica.Buscar(null, idProtocoloDetActual, null);
+
+            Boolean existe = false;
+            //Insertar las Practicas(items) que no estén en el Protocolo Detalle seleccionado
+            for (int i = 0; i < dgvItemsAnalisis.Rows.Count; i++)
+            {
+                int idItem = 0;
+                existe = false;
+                idItem = int.Parse(dgvItemsAnalisis.Rows[i].Cells[0].Value.ToString());
+
+                foreach (blLabBioquimica.bl_PRACTICAEntidad ent in colPrac)  
+                {
+                    
+                    if (ent.ID_ITEM == idItem)
+                    {
+                        existe = true;
+                    }
+                }
+
+                if (existe == false) 
+                {
+                    //Cargar Practicas en base de datos
+                    blLabBioquimica.bl_PRACTICAEntidad entPrac = new blLabBioquimica.bl_PRACTICAEntidad();
+                    
+                    //Datos
+                    entPrac.ID_PROTOCOLO_DETALLE = idProtocoloDetActual;
+                    entPrac.ID_ITEM = idItem;
+
+                    int idPractica = (int)blPractica.Insertar(entPrac).ID_PRACTICA;
+
+                    np_frm.cargarComponentePractica(idPractica);
+                }
+
+                
+            }
+            
+
+        }
+
+
+
     }
 }
