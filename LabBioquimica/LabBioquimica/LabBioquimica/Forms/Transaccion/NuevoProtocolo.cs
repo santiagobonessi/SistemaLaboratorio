@@ -19,6 +19,8 @@ namespace LabBioquimica.Forms.Transaccion
 
         public static Int32 posSelecPD;
 
+        public static Int32 posSelecPra;
+
         public NuevoProtocolo()
         {
             InitializeComponent();
@@ -213,6 +215,7 @@ namespace LabBioquimica.Forms.Transaccion
 
                 //Posicion de la fila que haces click
                 int position_xy_mouse_row = dgvPractica.HitTest(e.X, e.Y).RowIndex;
+                posSelecPra = position_xy_mouse_row;
 
                 foreach (DataGridViewRow dr in dgvPractica.SelectedRows)
                 {
@@ -243,7 +246,41 @@ namespace LabBioquimica.Forms.Transaccion
             switch (eventoSelec)
             {
                 case "EliminarItem":
-                    MessageBox.Show("EliminarItem");
+                    String idPracticaBaja = dgvPractica.Rows[posSelecPra].Cells[1].Value.ToString();
+
+                    //Borrar Item de la grilla Practica
+                    blLabBioquimica.bl_PRACTICA blPractica = new blLabBioquimica.bl_PRACTICA();
+                    blLabBioquimica.bl_PRACTICAEntidad entPra = new blLabBioquimica.bl_PRACTICAEntidad();
+                    entPra.ID_PRACTICA = int.Parse(idPracticaBaja);
+                    entPra.USR_BAJA = "ADMIN";
+                    entPra.FEC_BAJA = DateTime.Now;
+
+                    blPractica.Baja(entPra);
+
+                    //Actualizar grilla practica
+                    //Carga las Practicas de la primer fila que es la seleccionada inicialmente
+                    DataGridViewRow filSelec = dgvProtocoloDetalle.CurrentRow;
+                    if (filSelec != null)
+                    {
+                        dgvPractica.Rows.Clear();
+                        dgvPractica.Refresh();
+
+                        String idPDGrilla = dgvProtocoloDetalle.Rows[filSelec.Index].Cells[1].Value.ToString();
+
+                        int idPD = int.Parse(idPDGrilla);
+
+                        //Traer datos de la/s practica/s del Protocolo Detalle Seleccionado
+                        blLabBioquimica.bl_PRACTICAEntidadColeccion colPrac = blPractica.Buscar(null, idPD, null);
+
+                        foreach (blLabBioquimica.bl_PRACTICAEntidad ent in colPrac)
+                        {
+                            dgvPractica.Rows.Add(ent.ID_PROTOCOLO_DETALLE, ent.ID_PRACTICA, ent.ID_ITEM, ent.NOMBRE_ITEM, ent.RESULTADO, ent.VALOR_REF_ITEM, ent.NOMBRE_UNIDAD);
+                        }
+
+                    }
+
+
+
                     break;
 
                 default:
@@ -572,12 +609,6 @@ namespace LabBioquimica.Forms.Transaccion
                     dgvPractica.Rows.Add(entPrac.ID_PROTOCOLO_DETALLE, entPrac.ID_PRACTICA, entPrac.ID_ITEM, entPrac.NOMBRE_ITEM, entPrac.RESULTADO, entPrac.VALOR_REF_ITEM, entPrac.NOMBRE_UNIDAD);
                 }
             }
-
-
-            
-
-            
-
         }
 
         private void dgvPractica_CellValueChanged(object sender, DataGridViewCellEventArgs e)

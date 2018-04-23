@@ -173,14 +173,11 @@ namespace LabBioquimica.Forms.Transaccion
         {
             //Cargar un items en el analisis seleccionado del data grid view
 
-
-
         }
 
         private void btnCargarTodos_Click(object sender, EventArgs e)
         {
             //Cargar todos los items en el analisis seleccionado del data grid view
-
 
         }
 
@@ -231,18 +228,44 @@ namespace LabBioquimica.Forms.Transaccion
                     //Cargar  Componente Practica
                     String idItemGrilla = dgvItemsAnalisis.Rows[posSelec].Cells[0].Value.ToString();
                     int idItem = int.Parse(idItemGrilla);
-                    cargarComponentePractica(idItem);
+                    if (existeItemEnPractica(idItem ) == true)
+                    {
+                        //No lo cargo si ya existe
+                        MessageBox.Show("Ya se encuentra cargado ese Item", "Aviso");
+                    }
+                    else
+                    {
+                        cargarComponentePractica(idItem);
+                    }
+                    
                     break;
 
                 case "Cargar Todos":
                     //Cargar Todos los Componentes de Practica
                     cargarTodosComponentesPractica();
-
                     break;
 
                 default:
                     break;
             }
+        }
+
+        public bool existeItemEnPractica(Int32 p_ID_ITEM)
+        {
+
+            blLabBioquimica.bl_PRACTICA blPractica = new blLabBioquimica.bl_PRACTICA();
+            blLabBioquimica.bl_PRACTICAEntidadColeccion colPrac = blPractica.Buscar(null, idProtocoloDetActual, null);
+
+            foreach (blLabBioquimica.bl_PRACTICAEntidad ent in colPrac)
+            {
+                //Ya se encuentra cargada la Practica con ese Item
+                if (ent.ID_ITEM == p_ID_ITEM)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void cargarComponentePractica(Int32 p_ID_ITEM)
