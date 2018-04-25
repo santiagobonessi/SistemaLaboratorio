@@ -186,6 +186,7 @@ namespace LabBioquimica.Forms.ABMC
 
             if (i_frm != null) { i_frm.cargarItems(); }
             if (axi_frm != null) { axi_frm.cargarItemsXAnalisis((int)ent.ID_ANALISIS, ent.N_ANALISIS); }
+
         }
 
 
@@ -252,6 +253,17 @@ namespace LabBioquimica.Forms.ABMC
             Close();
         }
 
+        private void btnUnidad_Click(object sender, EventArgs e)
+        {
+            Forms.ABMC.AltaUnidades altaUnidades = new Forms.ABMC.AltaUnidades(this);
+            altaUnidades.ShowDialog();
+            altaUnidades.Dispose();
+        }
+
+        public void cargarNomAltaUnidad(String nomUnidad)
+        {
+            this.cboUnidad.Text = nomUnidad;
+        }
 
     }
 }

@@ -177,16 +177,22 @@
     <Compile Include="Forms\Menu\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaccion\NuevoAnalisis.cs">
+    <Compile Include="Forms\Transaccion\FacturacionMutuales\PantallaBusqueda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaccion\NuevoAnalisis.Designer.cs">
+    <Compile Include="Forms\Transaccion\FacturacionMutuales\PantallaBusqueda.Designer.cs">
+      <DependentUpon>PantallaBusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaccion\RegistroExamenes\NuevoAnalisis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaccion\RegistroExamenes\NuevoAnalisis.Designer.cs">
       <DependentUpon>NuevoAnalisis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaccion\NuevoProtocolo.cs">
+    <Compile Include="Forms\Transaccion\RegistroExamenes\NuevoProtocolo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaccion\NuevoProtocolo.Designer.cs">
+    <Compile Include="Forms\Transaccion\RegistroExamenes\NuevoProtocolo.Designer.cs">
       <DependentUpon>NuevoProtocolo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,10 +244,13 @@
     <EmbeddedResource Include="Forms\Menu\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaccion\NuevoAnalisis.resx">
+    <EmbeddedResource Include="Forms\Transaccion\FacturacionMutuales\PantallaBusqueda.resx">
+      <DependentUpon>PantallaBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaccion\RegistroExamenes\NuevoAnalisis.resx">
       <DependentUpon>NuevoAnalisis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaccion\NuevoProtocolo.resx">
+    <EmbeddedResource Include="Forms\Transaccion\RegistroExamenes\NuevoProtocolo.resx">
       <DependentUpon>NuevoProtocolo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

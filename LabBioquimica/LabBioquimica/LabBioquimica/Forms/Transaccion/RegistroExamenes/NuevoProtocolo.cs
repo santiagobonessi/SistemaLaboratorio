@@ -145,7 +145,8 @@ namespace LabBioquimica.Forms.Transaccion
                     
 
                     String numProtocolo = this.txtProtocolo.Text;
-                    Forms.Transaccion.NuevoAnalisis nuevoAnalisis = new Forms.Transaccion.NuevoAnalisis(this, numProtocolo);
+                    String paciente = this.cboPaciente.Text;
+                    Forms.Transaccion.NuevoAnalisis nuevoAnalisis = new Forms.Transaccion.NuevoAnalisis(this, numProtocolo, paciente);
                     nuevoAnalisis.ShowDialog();
                     nuevoAnalisis.Dispose();
                     break;
@@ -194,8 +195,8 @@ namespace LabBioquimica.Forms.Transaccion
                         entPD.NOMBRE_ANALISIS = nomAnalisisMod;
 
                         String numProtocoloMod = this.txtProtocolo.Text;
-
-                        Forms.Transaccion.NuevoAnalisis modAnalisis = new Forms.Transaccion.NuevoAnalisis(this, numProtocoloMod, entPD);
+                        String pacienteMod = this.cboPaciente.Text;
+                        Forms.Transaccion.NuevoAnalisis modAnalisis = new Forms.Transaccion.NuevoAnalisis(this, numProtocoloMod, pacienteMod, entPD);
                         modAnalisis.ShowDialog();
                         modAnalisis.Dispose();
                     
@@ -399,18 +400,6 @@ namespace LabBioquimica.Forms.Transaccion
                 return;
             }
             blLabBioquimica.bl_PROTOCOLO blProtocolo = new blLabBioquimica.bl_PROTOCOLO();
-            //Validar que Nº de Protocolo no esté repetido
-            blLabBioquimica.bl_PROTOCOLOEntidadColeccion col = blProtocolo.Buscar(null, int.Parse(this.txtProtocolo.Text), null, null, null);
-            if (col.Count > 0)
-            {
-                this.lblMensaje.Visible = true;
-                this.txtProtocolo.Focus();
-                return;
-            }
-            else
-            {
-                this.lblMensaje.Visible = false;
-            }
 
             this.gbNuevoProtocolo.Enabled = false;
             this.btnAceptar.Enabled = false;
@@ -634,6 +623,37 @@ namespace LabBioquimica.Forms.Transaccion
             }
 
 
+        }
+
+        private void txtProtocolo_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.txtProtocolo.Text))
+            {
+                blLabBioquimica.bl_PROTOCOLO blProtocolo = new blLabBioquimica.bl_PROTOCOLO();
+                //Validar que Nº de Protocolo no esté repetido
+                blLabBioquimica.bl_PROTOCOLOEntidadColeccion col = blProtocolo.Buscar(null, int.Parse(this.txtProtocolo.Text), null, null, null);
+                if (col.Count > 0)
+                {
+                    this.lblMensaje.Visible = true;
+                    this.txtProtocolo.Focus();
+                    btnAceptar.Enabled = false;
+                }
+                else
+                {
+                    this.lblMensaje.Visible = false;
+                    btnAceptar.Enabled = true;
+                }
+            }
+            
+        }
+
+        private void NuevoProtocolo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Está seguro que desea salir?", "Salir", MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
 
 

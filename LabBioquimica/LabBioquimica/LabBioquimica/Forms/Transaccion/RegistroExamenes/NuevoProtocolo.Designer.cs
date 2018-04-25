@@ -85,6 +85,7 @@
             this.txtProtocolo.Name = "txtProtocolo";
             this.txtProtocolo.Size = new System.Drawing.Size(200, 21);
             this.txtProtocolo.TabIndex = 1;
+            this.txtProtocolo.TextChanged += new System.EventHandler(this.txtProtocolo_TextChanged);
             this.txtProtocolo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProtocolo_KeyPress);
             // 
             // gbNuevoProtocolo
@@ -416,6 +417,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NuevoProtocolo";
             this.Text = "Registro de Examenes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NuevoProtocolo_FormClosing);
             this.gbNuevoProtocolo.ResumeLayout(false);
             this.gbNuevoProtocolo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocoloDetalle)).EndInit();

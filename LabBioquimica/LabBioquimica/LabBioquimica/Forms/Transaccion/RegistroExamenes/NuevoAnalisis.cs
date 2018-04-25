@@ -26,22 +26,24 @@ namespace LabBioquimica.Forms.Transaccion
         }
 
         //Constructor con parametro del form Nuevo Protocolo
-        public NuevoAnalisis(NuevoProtocolo np, String numProtocolo)
+        public NuevoAnalisis(NuevoProtocolo np, String numProtocolo, String paciente)
         {
             InitializeComponent();
             np_frm = np;
             this.txtProtocolo.Text = numProtocolo;
+            this.txtPaciente.Text = paciente;
             cargarComboAnalisis();
         }
 
         //Constructor con parametros del form Nuevo Protocolo
         //Se llama a este constructor cuando ya existe el Protocolo Detalle
-        public NuevoAnalisis(NuevoProtocolo np, String numProtocolo, blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad ent)
+        public NuevoAnalisis(NuevoProtocolo np, String numProtocolo, String paciente, blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad ent)
         {
             InitializeComponent();
             np_frm = np;
             cargarComboAnalisis();
             this.txtProtocolo.Text = numProtocolo;
+            this.txtPaciente.Text = paciente;
             this.cboAnalisis.Text = ent.NOMBRE_ANALISIS;
             this.cboAnalisis.Enabled = false;
             this.btnAceptar.Enabled = false;
@@ -67,7 +69,7 @@ namespace LabBioquimica.Forms.Transaccion
 
             foreach (blLabBioquimica.bl_ITEMEntidad ent in col)
             {
-                dgvItemsAnalisis.Rows.Add(ent.ID_ITEM, ent.NOMBRE);
+                dgvItemsAnalisis.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF);
             }
 
 
@@ -133,7 +135,7 @@ namespace LabBioquimica.Forms.Transaccion
 
             foreach (blLabBioquimica.bl_ITEMEntidad ent in col)
             {
-                dgvItemsAnalisis.Rows.Add(ent.ID_ITEM, ent.NOMBRE);
+                dgvItemsAnalisis.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF);
             }
 
             //Cargar en base datos protocolo detalle
@@ -167,18 +169,6 @@ namespace LabBioquimica.Forms.Transaccion
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void btnCargarComp_Click(object sender, EventArgs e)
-        {
-            //Cargar un items en el analisis seleccionado del data grid view
-
-        }
-
-        private void btnCargarTodos_Click(object sender, EventArgs e)
-        {
-            //Cargar todos los items en el analisis seleccionado del data grid view
-
         }
 
         private void dgvItemsAnalisis_MouseClick(object sender, MouseEventArgs e)

@@ -50,31 +50,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2rTyOkyBHKAMNRrLvPPZ4KL5Yb2vSzOVoX7XvyA3wfA=</dsig:DigestValue>
+        <dsig:DigestValue>UeopW1lRoslEEYSCZ0VgZYdHpaJbIBMofJjgkyAzTRY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="daLabBioquimica.dll" size="59904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="daLabBioquimica.dll" size="59392">
       <assemblyIdentity name="daLabBioquimica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>COEr1eaOQaG9vHB91QgB8OF0sF7pVuoxLwHFlgzRysg=</dsig:DigestValue>
+        <dsig:DigestValue>V5U4U8xVFvXZenMiDYDM8fIJrOMgs9E4lHl+kVFWT2I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LabBioquimica.exe" size="1488840">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LabBioquimica.exe" size="1490376">
       <assemblyIdentity name="LabBioquimica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>katUlzo3Ja7fBj9eXHxisA6tJFI40RjwttrXbOz26so=</dsig:DigestValue>
+        <dsig:DigestValue>TKleHO7xxhUdL/LwHFOvAKx3rS4SCndauon6/DGDo2w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
