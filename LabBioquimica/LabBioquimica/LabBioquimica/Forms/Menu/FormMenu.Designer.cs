@@ -82,59 +82,59 @@
             // pacientesToolStripMenuItem
             // 
             this.pacientesToolStripMenuItem.Name = "pacientesToolStripMenuItem";
-            this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.pacientesToolStripMenuItem.Text = "Pacientes";
             this.pacientesToolStripMenuItem.Click += new System.EventHandler(this.pacientesToolStripMenuItem_Click);
             // 
             // profesionalesToolStripMenuItem
             // 
             this.profesionalesToolStripMenuItem.Name = "profesionalesToolStripMenuItem";
-            this.profesionalesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.profesionalesToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.profesionalesToolStripMenuItem.Text = "Profesionales";
             this.profesionalesToolStripMenuItem.Click += new System.EventHandler(this.profesionalesToolStripMenuItem_Click);
             // 
             // mutualesToolStripMenuItem
             // 
             this.mutualesToolStripMenuItem.Name = "mutualesToolStripMenuItem";
-            this.mutualesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mutualesToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.mutualesToolStripMenuItem.Text = "Mutuales";
             this.mutualesToolStripMenuItem.Click += new System.EventHandler(this.mutualesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
             // 
             // análisisToolStripMenuItem
             // 
             this.análisisToolStripMenuItem.Name = "análisisToolStripMenuItem";
-            this.análisisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.análisisToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.análisisToolStripMenuItem.Text = "Análisis";
             this.análisisToolStripMenuItem.Click += new System.EventHandler(this.análisisToolStripMenuItem_Click);
             // 
             // itemsToolStripMenuItem
             // 
             this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
-            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.itemsToolStripMenuItem.Text = "Items";
             this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click);
             // 
             // unidadToolStripMenuItem
             // 
             this.unidadToolStripMenuItem.Name = "unidadToolStripMenuItem";
-            this.unidadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.unidadToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.unidadToolStripMenuItem.Text = "Unidad";
             this.unidadToolStripMenuItem.Click += new System.EventHandler(this.unidadToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(141, 6);
             // 
             // localidadesToolStripMenuItem
             // 
             this.localidadesToolStripMenuItem.Name = "localidadesToolStripMenuItem";
-            this.localidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.localidadesToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.localidadesToolStripMenuItem.Text = "Localidades";
             this.localidadesToolStripMenuItem.Click += new System.EventHandler(this.localidadesToolStripMenuItem_Click);
             // 
@@ -158,6 +158,7 @@
             this.buscarProtocolosPorPacienteToolStripMenuItem.Name = "buscarProtocolosPorPacienteToolStripMenuItem";
             this.buscarProtocolosPorPacienteToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.buscarProtocolosPorPacienteToolStripMenuItem.Text = "Buscar Protocolos por Paciente";
+            this.buscarProtocolosPorPacienteToolStripMenuItem.Click += new System.EventHandler(this.buscarProtocolosPorPacienteToolStripMenuItem_Click);
             // 
             // facturaciónMutualesToolStripMenuItem
             // 

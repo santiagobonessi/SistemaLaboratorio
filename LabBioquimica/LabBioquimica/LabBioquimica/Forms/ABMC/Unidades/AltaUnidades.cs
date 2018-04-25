@@ -16,6 +16,9 @@ namespace LabBioquimica.Forms.ABMC
         //Creo una instancia del Form Unidades para actualizar la grilla
         private Unidades u_frm;
 
+        //Creo una instancia del Form Item para llamar el alta desde la pantalla Items
+        private AltaItems i_frm;
+
         public static Int32 idModificar;
 
         public AltaUnidades()
@@ -28,6 +31,14 @@ namespace LabBioquimica.Forms.ABMC
         {
             InitializeComponent();
             u_frm = unid;
+            this.btnGrabar.Visible = false;
+        }
+
+        //Constructor con parámetro del form Items
+        public AltaUnidades(AltaItems nuevoI)
+        {
+            InitializeComponent();
+            i_frm = nuevoI;
             this.btnGrabar.Visible = false;
         }
 
@@ -57,7 +68,13 @@ namespace LabBioquimica.Forms.ABMC
                 Close();
 
                 if (u_frm != null) { u_frm.cargarUnidades(); }
+                if (i_frm != null)
+                {
+                    i_frm.cargarComboUnidad();
+                    i_frm.cargarNomAltaUnidad(ent.NOMBRE);
+                }
             }
+
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -84,7 +101,12 @@ namespace LabBioquimica.Forms.ABMC
             //MessageBox.Show("Se modificó con éxito la unidad " + ent.NOMBRE + "");
             limpiarAltaUnidad();
             Close();
-            u_frm.cargarUnidades();
+            if (u_frm != null) { u_frm.cargarUnidades(); }
+            if (i_frm != null)
+            {
+                i_frm.cargarComboUnidad();
+                i_frm.cargarNomAltaUnidad(ent.NOMBRE);
+            }
 
         }
 

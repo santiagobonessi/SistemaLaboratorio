@@ -15,11 +15,23 @@ namespace LabBioquimica.Forms.ABMC
 
         public static Int32 posSelec;
 
+        //Creo una instancia del Form Analisis para filtrar por analisis
+        private Analisis a_frm;
+
         public Items()
         {
             InitializeComponent();
             cargarItems();
             cargarComboAnalisis();
+        }
+
+        public Items(Analisis anali)
+        {
+            InitializeComponent();
+            a_frm = anali;
+            
+            //cargarItemsXAnalisis();
+            //cargarComboAnalisis();
         }
 
         public void cargarItems()
@@ -38,6 +50,37 @@ namespace LabBioquimica.Forms.ABMC
             }
 
             this.lblCantFilas.Text = col.Count.ToString();
+        }
+
+        public void cargarItemsXAnalisis(Int32 idAnalisis, String nomAnalisis)
+        {
+            //Bloquear busqueda y limpiezo de combo
+            this.lblBusqueda.Text = "";
+            this.btnBuscar.Visible = false;
+            this.btnLimpiar.Visible = false;
+            this.cboAnalisis.Enabled = false;
+
+            //Cargar nombre del analisis en el combo box
+            this.cboAnalisis.ValueMember = idAnalisis.ToString();
+            this.cboAnalisis.Text = nomAnalisis;
+
+            this.dgvItems.Rows.Clear();
+            this.dgvItems.Refresh();
+
+            //CARGAR TODOS LOS ITEMS DEL ANALISIS EN LA GRILLA
+
+            blLabBioquimica.bl_ITEM blItem = new blLabBioquimica.bl_ITEM();
+            blLabBioquimica.bl_ITEMEntidadColeccion col = blItem.Buscar(null, idAnalisis, null);
+
+            foreach (blLabBioquimica.bl_ITEMEntidad ent in col)
+            {
+                dgvItems.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.N_ANALISIS, ent.N_UNIDAD);
+            }
+
+            this.lblCantFilas.Text = col.Count.ToString();
+
+           
+
         }
 
         private void dgvItems_MouseClick(object sender, MouseEventArgs e)
@@ -65,7 +108,13 @@ namespace LabBioquimica.Forms.ABMC
                     ToolStripSeparator tss = new ToolStripSeparator();
                     miMenu.Items.Add(tss);
                     miMenu.Items.Add("Salir").Name = "Salir";
-
+                }
+                else
+                {
+                    miMenu.Items.Add("Nuevo").Name = "Nuevo";
+                    ToolStripSeparator tss = new ToolStripSeparator();
+                    miMenu.Items.Add(tss);
+                    miMenu.Items.Add("Salir").Name = "Salir";
                 }
 
                 miMenu.Show(dgvItems, new Point(e.X, e.Y));
@@ -82,33 +131,63 @@ namespace LabBioquimica.Forms.ABMC
             //Evento seleccionado, para luego realizar la operación necesaria
             String eventoSelec = e.ClickedItem.Name.ToString();
 
-            String idItemSelec = dgvItems.Rows[posSelec].Cells[0].Value.ToString();
-            String nombre = dgvItems.Rows[posSelec].Cells[1].Value.ToString();
-
             switch (eventoSelec)
             {
                 case "Nuevo":
-                    Forms.ABMC.AltaItems altaItems = new Forms.ABMC.AltaItems(this);
-                    altaItems.ShowDialog();
-                    altaItems.Dispose();
+                    
+                    if(a_frm != null)
+                    {
+                        Forms.ABMC.AltaItems altaItemsAnalisis = new Forms.ABMC.AltaItems(this, this.cboAnalisis.ValueMember, this.cboAnalisis.Text);
+                        altaItemsAnalisis.ShowDialog();
+                        altaItemsAnalisis.Dispose();
+                    }
+                    else
+                    {
+                        Forms.ABMC.AltaItems altaItems = new Forms.ABMC.AltaItems(this);
+                        altaItems.ShowDialog();
+                        altaItems.Dispose();
+                    }
+                    
                     break;
 
                 case "Modificar":
-                    Forms.ABMC.AltaItems modItems = new Forms.ABMC.AltaItems(this);
-                    int idModificar = int.Parse(idItemSelec);
-                    modItems.traerParaEditar(idModificar);
-                    modItems.ShowDialog();
-                    modItems.Dispose();
-
+                    String idItemMod = dgvItems.Rows[posSelec].Cells[0].Value.ToString();
+                    int idModificar = int.Parse(idItemMod);
+                    
+                    if (a_frm != null)
+                    {
+                        Forms.ABMC.AltaItems modItemsAnalisis = new Forms.ABMC.AltaItems(this, this.cboAnalisis.ValueMember, this.cboAnalisis.Text);
+                        modItemsAnalisis.traerParaEditarDesdeAnalisis(idModificar);
+                        modItemsAnalisis.ShowDialog();
+                        modItemsAnalisis.Dispose();
+                    }
+                    else
+                    {
+                        Forms.ABMC.AltaItems modItems = new Forms.ABMC.AltaItems(this);
+                        modItems.traerParaEditar(idModificar);
+                        modItems.ShowDialog();
+                        modItems.Dispose();
+                    }
                     break;
 
                 case "Eliminar":
+                    String idItemBaja = dgvItems.Rows[posSelec].Cells[0].Value.ToString();
+                    String nomBaja = dgvItems.Rows[posSelec].Cells[1].Value.ToString();
+
                     DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el item?", "Eliminar Item", MessageBoxButtons.YesNo);
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-                        Baja(idItemSelec);
-                        MessageBox.Show("El item " + nombre + " ha sido eliminado");
-                        cargarItems();
+                        Baja(idItemBaja);
+                        MessageBox.Show("El item " + nomBaja + " ha sido eliminado");
+                        if(a_frm != null)
+                        {
+                            cargarItemsXAnalisis(int.Parse(this.cboAnalisis.ValueMember), this.cboAnalisis.Text);
+                        }
+                        else
+                        {
+                            cargarItems();
+                        }
+                        
                     }
                     break;
 

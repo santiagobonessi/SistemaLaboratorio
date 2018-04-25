@@ -41,6 +41,7 @@
             this.btnInsertar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cboAnalisis = new System.Windows.Forms.ComboBox();
+            this.btnUnidad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGrabar
@@ -59,7 +60,7 @@
             this.cboUnidad.FormattingEnabled = true;
             this.cboUnidad.Location = new System.Drawing.Point(72, 171);
             this.cboUnidad.Name = "cboUnidad";
-            this.cboUnidad.Size = new System.Drawing.Size(356, 21);
+            this.cboUnidad.Size = new System.Drawing.Size(296, 21);
             this.cboUnidad.TabIndex = 3;
             // 
             // txtValorRef
@@ -151,12 +152,23 @@
             this.cboAnalisis.Size = new System.Drawing.Size(353, 21);
             this.cboAnalisis.TabIndex = 0;
             // 
+            // btnUnidad
+            // 
+            this.btnUnidad.Location = new System.Drawing.Point(374, 171);
+            this.btnUnidad.Name = "btnUnidad";
+            this.btnUnidad.Size = new System.Drawing.Size(54, 21);
+            this.btnUnidad.TabIndex = 59;
+            this.btnUnidad.Text = "...";
+            this.btnUnidad.UseVisualStyleBackColor = true;
+            this.btnUnidad.Click += new System.EventHandler(this.btnUnidad_Click);
+            // 
             // AltaItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(440, 242);
+            this.Controls.Add(this.btnUnidad);
             this.Controls.Add(this.cboAnalisis);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGrabar);
@@ -191,5 +203,6 @@
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboAnalisis;
+        private System.Windows.Forms.Button btnUnidad;
     }
 }

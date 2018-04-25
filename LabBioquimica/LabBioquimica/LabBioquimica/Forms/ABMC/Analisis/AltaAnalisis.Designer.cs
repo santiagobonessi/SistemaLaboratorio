@@ -45,7 +45,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(78, 255);
+            this.btnGrabar.Location = new System.Drawing.Point(87, 262);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 71;
@@ -56,42 +56,42 @@
             // txtUnidadBioq
             // 
             this.txtUnidadBioq.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUnidadBioq.Location = new System.Drawing.Point(102, 218);
+            this.txtUnidadBioq.Location = new System.Drawing.Point(79, 221);
             this.txtUnidadBioq.Name = "txtUnidadBioq";
-            this.txtUnidadBioq.Size = new System.Drawing.Size(208, 20);
+            this.txtUnidadBioq.Size = new System.Drawing.Size(245, 20);
             this.txtUnidadBioq.TabIndex = 65;
             this.txtUnidadBioq.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnidadBioq_KeyPress);
             // 
             // txtMetodo
             // 
             this.txtMetodo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMetodo.Location = new System.Drawing.Point(102, 180);
+            this.txtMetodo.Location = new System.Drawing.Point(78, 183);
             this.txtMetodo.Name = "txtMetodo";
-            this.txtMetodo.Size = new System.Drawing.Size(208, 20);
+            this.txtMetodo.Size = new System.Drawing.Size(245, 20);
             this.txtMetodo.TabIndex = 64;
             // 
             // txtNombre
             // 
             this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNombre.Location = new System.Drawing.Point(102, 87);
+            this.txtNombre.Location = new System.Drawing.Point(78, 87);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(208, 77);
+            this.txtNombre.Size = new System.Drawing.Size(245, 77);
             this.txtNombre.TabIndex = 62;
             // 
             // txtCodigo
             // 
             this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigo.Location = new System.Drawing.Point(102, 49);
+            this.txtCodigo.Location = new System.Drawing.Point(79, 49);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(208, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(244, 20);
             this.txtCodigo.TabIndex = 60;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(79, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(82, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(155, 25);
             this.lblTitulo.TabIndex = 70;
@@ -100,16 +100,16 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(-2, 221);
+            this.label11.Location = new System.Drawing.Point(12, 215);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(98, 13);
+            this.label11.Size = new System.Drawing.Size(61, 26);
             this.label11.TabIndex = 68;
-            this.label11.Text = "Unidad Bioquimica:";
+            this.label11.Text = "Unidad \r\nBioquimica:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(50, 183);
+            this.label10.Location = new System.Drawing.Point(27, 183);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 13);
             this.label10.TabIndex = 67;
@@ -118,7 +118,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(45, 90);
+            this.label7.Location = new System.Drawing.Point(22, 90);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 13);
             this.label7.TabIndex = 63;
@@ -127,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 52);
+            this.label2.Location = new System.Drawing.Point(26, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 61;
@@ -135,7 +135,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(159, 255);
+            this.btnCancelar.Location = new System.Drawing.Point(168, 262);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 69;
@@ -145,7 +145,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(78, 255);
+            this.btnInsertar.Location = new System.Drawing.Point(87, 262);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 66;

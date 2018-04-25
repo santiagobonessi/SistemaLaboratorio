@@ -110,7 +110,14 @@ namespace LabBioquimica.Forms.ABMC
                     miMenu.Items.Add("Salir").Name = "Salir";
 
                 }
-                
+                else
+                {
+                    miMenu.Items.Add("Nuevo").Name = "Nuevo";
+                    ToolStripSeparator tss = new ToolStripSeparator();
+                    miMenu.Items.Add(tss);
+                    miMenu.Items.Add("Salir").Name = "Salir";
+                }
+
                 miMenu.Show(dgvPacientes, new Point(e.X, e.Y));
 
                 //Evento menu click
@@ -125,10 +132,6 @@ namespace LabBioquimica.Forms.ABMC
             //Evento seleccionado, para luego realizar la operación necesaria
             String eventoSelec = e.ClickedItem.Name.ToString();
 
-            String idPacienteSelec = dgvPacientes.Rows[posSelec].Cells[0].Value.ToString();
-            String apellido = dgvPacientes.Rows[posSelec].Cells[1].Value.ToString();
-            String nombre = dgvPacientes.Rows[posSelec].Cells[2].Value.ToString();
-
             switch (eventoSelec)
             {
                 case "Nuevo":
@@ -138,19 +141,23 @@ namespace LabBioquimica.Forms.ABMC
                     break;
 
                 case "Modificar":
+                    String idPacienteMod = dgvPacientes.Rows[posSelec].Cells[0].Value.ToString();
+                    int idModificar = int.Parse(idPacienteMod);
                     Forms.ABMC.AltaPacientes modPacientes = new Forms.ABMC.AltaPacientes(this);
-                    int idModificar = int.Parse(idPacienteSelec);
                     modPacientes.traerParaEditar(idModificar);
                     modPacientes.ShowDialog();
                     modPacientes.Dispose();
                     break;
 
                 case "Eliminar":
+                    String idPacienteBaja = dgvPacientes.Rows[posSelec].Cells[0].Value.ToString();
+                    String apeBaja = dgvPacientes.Rows[posSelec].Cells[1].Value.ToString();
+                    String nomBaja = dgvPacientes.Rows[posSelec].Cells[2].Value.ToString();
                     DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el paciente?", "Eliminar Paciente", MessageBoxButtons.YesNo);
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-                        Baja(idPacienteSelec);
-                        MessageBox.Show("El paciente " + apellido + ", " + nombre + " ha sido eliminado");
+                        Baja(idPacienteBaja);
+                        MessageBox.Show("El paciente " + apeBaja + ", " + nomBaja + " ha sido eliminado");
                         cargarPacientes();
                     }
                     break;

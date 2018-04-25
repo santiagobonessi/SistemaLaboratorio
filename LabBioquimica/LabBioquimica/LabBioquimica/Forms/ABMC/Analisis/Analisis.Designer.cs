@@ -33,20 +33,19 @@
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.txtConsulta = new System.Windows.Forms.TextBox();
             this.dgvAnalisis = new System.Windows.Forms.DataGridView();
-            this.lblCantFilas = new System.Windows.Forms.Label();
-            this.lblCant = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidBioq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblCantFilas = new System.Windows.Forms.Label();
+            this.lblCant = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(590, 10);
+            this.btnLimpiar.Location = new System.Drawing.Point(650, 10);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 14;
@@ -68,7 +67,7 @@
             this.txtConsulta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtConsulta.Location = new System.Drawing.Point(395, 12);
             this.txtConsulta.Name = "txtConsulta";
-            this.txtConsulta.Size = new System.Drawing.Size(189, 20);
+            this.txtConsulta.Size = new System.Drawing.Size(249, 20);
             this.txtConsulta.TabIndex = 12;
             this.txtConsulta.TextChanged += new System.EventHandler(this.txtConsulta_TextChanged);
             // 
@@ -86,40 +85,14 @@
             this.nombre,
             this.metodo,
             this.unidBioq});
-            this.dgvAnalisis.Location = new System.Drawing.Point(3, 39);
+            this.dgvAnalisis.Location = new System.Drawing.Point(4, 39);
             this.dgvAnalisis.Name = "dgvAnalisis";
             this.dgvAnalisis.ReadOnly = true;
             this.dgvAnalisis.RowHeadersVisible = false;
             this.dgvAnalisis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAnalisis.Size = new System.Drawing.Size(1124, 567);
+            this.dgvAnalisis.Size = new System.Drawing.Size(1177, 567);
             this.dgvAnalisis.TabIndex = 15;
             this.dgvAnalisis.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAnalisis_MouseClick);
-            // 
-            // lblCantFilas
-            // 
-            this.lblCantFilas.AutoSize = true;
-            this.lblCantFilas.Location = new System.Drawing.Point(1107, 23);
-            this.lblCantFilas.Name = "lblCantFilas";
-            this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
-            this.lblCantFilas.TabIndex = 17;
-            // 
-            // lblCant
-            // 
-            this.lblCant.AutoSize = true;
-            this.lblCant.Location = new System.Drawing.Point(1025, 23);
-            this.lblCant.Name = "lblCant";
-            this.lblCant.Size = new System.Drawing.Size(76, 13);
-            this.lblCant.TabIndex = 16;
-            this.lblCant.Text = "Cantidad Filas:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1133, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // idAnalisis
             // 
@@ -156,13 +129,29 @@
             this.unidBioq.Name = "unidBioq";
             this.unidBioq.ReadOnly = true;
             // 
+            // lblCantFilas
+            // 
+            this.lblCantFilas.AutoSize = true;
+            this.lblCantFilas.Location = new System.Drawing.Point(1131, 23);
+            this.lblCantFilas.Name = "lblCantFilas";
+            this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
+            this.lblCantFilas.TabIndex = 17;
+            // 
+            // lblCant
+            // 
+            this.lblCant.AutoSize = true;
+            this.lblCant.Location = new System.Drawing.Point(1049, 23);
+            this.lblCant.Name = "lblCant";
+            this.lblCant.Size = new System.Drawing.Size(76, 13);
+            this.lblCant.TabIndex = 16;
+            this.lblCant.Text = "Cantidad Filas:";
+            // 
             // Analisis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1184, 611);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblCantFilas);
             this.Controls.Add(this.lblCant);
             this.Controls.Add(this.dgvAnalisis);
@@ -187,7 +176,6 @@
         private System.Windows.Forms.DataGridView dgvAnalisis;
         private System.Windows.Forms.Label lblCantFilas;
         private System.Windows.Forms.Label lblCant;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;

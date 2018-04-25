@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LabBioquimica.Forms.Transaccion
+namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
 {
-    public partial class NuevoAnalisis : Form
+    public partial class PantallaBusqueda : Form
     {
-        public NuevoAnalisis()
+        public PantallaBusqueda()
         {
             InitializeComponent();
         }

@@ -93,7 +93,13 @@ namespace LabBioquimica.Forms.ABMC
                     ToolStripSeparator tss = new ToolStripSeparator();
                     miMenu.Items.Add(tss);
                     miMenu.Items.Add("Salir").Name = "Salir";
-
+                }
+                else
+                {
+                    miMenu.Items.Add("Nuevo").Name = "Nuevo";
+                    ToolStripSeparator tss = new ToolStripSeparator();
+                    miMenu.Items.Add(tss);
+                    miMenu.Items.Add("Salir").Name = "Salir";
                 }
 
                 miMenu.Show(dgvMutuales, new Point(e.X, e.Y));
@@ -109,8 +115,7 @@ namespace LabBioquimica.Forms.ABMC
             //Evento seleccionado, para luego realizar la operación necesaria
             String eventoSelec = e.ClickedItem.Name.ToString();
 
-            String idMutualSelec = dgvMutuales.Rows[posSelec].Cells[0].Value.ToString();
-            String nombre = dgvMutuales.Rows[posSelec].Cells[1].Value.ToString();
+            
 
             switch (eventoSelec)
             {
@@ -121,8 +126,9 @@ namespace LabBioquimica.Forms.ABMC
                     break;
 
                 case "Modificar":
+                    String idMutualMod = dgvMutuales.Rows[posSelec].Cells[0].Value.ToString();
+                    int idModificar = int.Parse(idMutualMod);
                     Forms.ABMC.AltaMutuales modMutuales = new Forms.ABMC.AltaMutuales(this);
-                    int idModificar = int.Parse(idMutualSelec);
                     modMutuales.traerParaEditar(idModificar);
                     modMutuales.ShowDialog();
                     modMutuales.Dispose();
@@ -130,11 +136,13 @@ namespace LabBioquimica.Forms.ABMC
                     break;
 
                 case "Eliminar":
+                    String idMutualBaja = dgvMutuales.Rows[posSelec].Cells[0].Value.ToString();
+                    String nomBaja = dgvMutuales.Rows[posSelec].Cells[1].Value.ToString();
                     DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar la mutual?", "Eliminar Mutual", MessageBoxButtons.YesNo);
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-                        Baja(idMutualSelec);
-                        MessageBox.Show("La mutual " + nombre + " ha sido eliminado");
+                        Baja(idMutualBaja);
+                        MessageBox.Show("La mutual " + nomBaja + " ha sido eliminado");
                         cargarMutuales();
                     }
                     break;

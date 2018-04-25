@@ -66,7 +66,13 @@ namespace LabBioquimica.Forms.ABMC
                     ToolStripSeparator tss = new ToolStripSeparator();
                     miMenu.Items.Add(tss);
                     miMenu.Items.Add("Salir").Name = "Salir";
-
+                }
+                else
+                {
+                    miMenu.Items.Add("Nuevo").Name = "Nuevo";
+                    ToolStripSeparator tss = new ToolStripSeparator();
+                    miMenu.Items.Add(tss);
+                    miMenu.Items.Add("Salir").Name = "Salir";
                 }
 
                 miMenu.Show(dgvUnidades, new Point(e.X, e.Y));
@@ -82,9 +88,6 @@ namespace LabBioquimica.Forms.ABMC
             //Evento seleccionado, para luego realizar la operación necesaria
             String eventoSelec = e.ClickedItem.Name.ToString();
 
-            String idUnidadSelec = dgvUnidades.Rows[posSelec].Cells[0].Value.ToString();
-            String nombre = dgvUnidades.Rows[posSelec].Cells[1].Value.ToString();
-
             switch (eventoSelec)
             {
                 case "Nuevo":
@@ -94,8 +97,9 @@ namespace LabBioquimica.Forms.ABMC
                     break;
 
                 case "Modificar":
+                    String idUnidadMod = dgvUnidades.Rows[posSelec].Cells[0].Value.ToString();
+                    int idModificar = int.Parse(idUnidadMod);
                     Forms.ABMC.AltaUnidades modUnidades = new Forms.ABMC.AltaUnidades(this);
-                    int idModificar = int.Parse(idUnidadSelec);
                     modUnidades.traerParaEditar(idModificar);
                     modUnidades.ShowDialog();
                     modUnidades.Dispose();
@@ -103,11 +107,13 @@ namespace LabBioquimica.Forms.ABMC
                     break;
 
                 case "Eliminar":
+                    String idUnidadBaja = dgvUnidades.Rows[posSelec].Cells[0].Value.ToString();
+                    String nomBaja = dgvUnidades.Rows[posSelec].Cells[1].Value.ToString();
                     DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar la unidad?", "Eliminar Unidad", MessageBoxButtons.YesNo);
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-                        Baja(idUnidadSelec);
-                        MessageBox.Show("La unidad " + nombre + " ha sido eliminado");
+                        Baja(idUnidadBaja);
+                        MessageBox.Show("La unidad " + nomBaja + " ha sido eliminado");
                         cargarUnidades();
                     }
                     break;
