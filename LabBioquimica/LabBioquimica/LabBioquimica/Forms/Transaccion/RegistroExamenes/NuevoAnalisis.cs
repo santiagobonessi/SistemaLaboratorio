@@ -153,7 +153,6 @@ namespace LabBioquimica.Forms.Transaccion
             //Cargar el protocolo detalle en la grilla de la pantalla Nuevo Protocolo
             np_frm.cargarProtocoloDetalle(idProtocoloDetActual);
 
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

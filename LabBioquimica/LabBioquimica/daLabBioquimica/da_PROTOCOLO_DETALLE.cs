@@ -67,8 +67,8 @@ namespace daLabBioquimica
                                + "AND (PD.idProtocolo = @ID_PROTOCOLO OR @ID_PROTOCOLO IS NULL) "
                                + "AND (PD.idAnalisis = @ID_ANALISIS OR @ID_ANALISIS IS NULL) "
                                + "AND PD.usr_baja IS NULL "
-                               + "AND PD.fec_baja IS NULL "
-                               + "ORDER BY A.nombre";
+                               + "AND PD.fec_baja IS NULL ";
+                               
 
                 SqlCommand com = new SqlCommand(sql, conn);
 

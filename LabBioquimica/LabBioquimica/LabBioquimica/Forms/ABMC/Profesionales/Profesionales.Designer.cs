@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profesionales));
             this.dgvProfesionales = new System.Windows.Forms.DataGridView();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.lblBusqueda = new System.Windows.Forms.Label();
-            this.txtConsulta = new System.Windows.Forms.TextBox();
-            this.lblCantFilas = new System.Windows.Forms.Label();
-            this.lblCant = new System.Windows.Forms.Label();
             this.idPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +37,11 @@
             this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.lblBusqueda = new System.Windows.Forms.Label();
+            this.txtConsulta = new System.Windows.Forms.TextBox();
+            this.lblCantFilas = new System.Windows.Forms.Label();
+            this.lblCant = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +69,49 @@
             this.dgvProfesionales.Size = new System.Drawing.Size(1179, 567);
             this.dgvProfesionales.TabIndex = 1;
             this.dgvProfesionales.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProfesionales_MouseClick);
+            // 
+            // idPaciente
+            // 
+            this.idPaciente.HeaderText = "ID";
+            this.idPaciente.Name = "idPaciente";
+            this.idPaciente.ReadOnly = true;
+            this.idPaciente.Visible = false;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // matricula
+            // 
+            this.matricula.HeaderText = "Matrícula";
+            this.matricula.Name = "matricula";
+            this.matricula.ReadOnly = true;
+            // 
+            // telefono
+            // 
+            this.telefono.HeaderText = "Telefono";
+            this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
+            // 
+            // localidad
+            // 
+            this.localidad.HeaderText = "Localidad";
+            this.localidad.Name = "localidad";
+            this.localidad.ReadOnly = true;
+            // 
+            // direccion
+            // 
+            this.direccion.HeaderText = "Dirección";
+            this.direccion.Name = "direccion";
+            this.direccion.ReadOnly = true;
             // 
             // btnLimpiar
             // 
@@ -115,49 +158,6 @@
             this.lblCant.TabIndex = 12;
             this.lblCant.Text = "Cantidad Filas:";
             // 
-            // idPaciente
-            // 
-            this.idPaciente.HeaderText = "ID";
-            this.idPaciente.Name = "idPaciente";
-            this.idPaciente.ReadOnly = true;
-            this.idPaciente.Visible = false;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
-            // matricula
-            // 
-            this.matricula.HeaderText = "Matrícula";
-            this.matricula.Name = "matricula";
-            this.matricula.ReadOnly = true;
-            // 
-            // telefono
-            // 
-            this.telefono.HeaderText = "Telefono";
-            this.telefono.Name = "telefono";
-            this.telefono.ReadOnly = true;
-            // 
-            // localidad
-            // 
-            this.localidad.HeaderText = "Localidad";
-            this.localidad.Name = "localidad";
-            this.localidad.ReadOnly = true;
-            // 
-            // direccion
-            // 
-            this.direccion.HeaderText = "Dirección";
-            this.direccion.Name = "direccion";
-            this.direccion.ReadOnly = true;
-            // 
             // Profesionales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +174,7 @@
             this.Name = "Profesionales";
             this.Text = "Profesionales";
             this.Load += new System.EventHandler(this.Profesionales_Load);
+            this.Resize += new System.EventHandler(this.Profesionales_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesionales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

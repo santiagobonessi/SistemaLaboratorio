@@ -77,7 +77,7 @@
             this.dgvProtocoloPorPaciente.ReadOnly = true;
             this.dgvProtocoloPorPaciente.RowHeadersVisible = false;
             this.dgvProtocoloPorPaciente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProtocoloPorPaciente.Size = new System.Drawing.Size(510, 256);
+            this.dgvProtocoloPorPaciente.Size = new System.Drawing.Size(510, 280);
             this.dgvProtocoloPorPaciente.TabIndex = 7;
             this.dgvProtocoloPorPaciente.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProtocoloPorPaciente_MouseClick);
             // 
@@ -111,9 +111,9 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(424, 327);
+            this.btnSalir.Location = new System.Drawing.Point(15, 351);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(101, 23);
+            this.btnSalir.Size = new System.Drawing.Size(101, 33);
             this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(534, 356);
+            this.ClientSize = new System.Drawing.Size(534, 389);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dgvProtocoloPorPaciente);
             this.Controls.Add(this.cboPaciente);

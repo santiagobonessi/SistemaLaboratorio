@@ -142,6 +142,7 @@
             this.Name = "Localidades";
             this.Text = "Localidades";
             this.Load += new System.EventHandler(this.Localidades_Load);
+            this.Resize += new System.EventHandler(this.Localidades_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

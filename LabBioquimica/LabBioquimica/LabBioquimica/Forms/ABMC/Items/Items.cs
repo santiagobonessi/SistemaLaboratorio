@@ -273,5 +273,17 @@ namespace LabBioquimica.Forms.ABMC
             this.cboAnalisis.SelectedIndex = -1;
             cargarItems();
         }
+
+        private void Items_Load(object sender, EventArgs e)
+        {
+            this.dgvItems.Width = this.Width - 40;
+            this.dgvItems.Height = this.Height - 40;
+        }
+
+        private void Items_Resize(object sender, EventArgs e)
+        {
+            this.dgvItems.Width = this.Width - 40;
+            this.dgvItems.Height = this.Height - 40;
+        }
     }
 }

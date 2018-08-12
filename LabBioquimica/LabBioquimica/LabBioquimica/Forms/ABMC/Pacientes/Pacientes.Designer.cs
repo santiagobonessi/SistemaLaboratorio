@@ -32,9 +32,6 @@
             this.txtConsulta = new System.Windows.Forms.TextBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.lblCant = new System.Windows.Forms.Label();
-            this.lblCantFilas = new System.Windows.Forms.Label();
             this.idPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +43,9 @@
             this.mutual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.lblCant = new System.Windows.Forms.Label();
+            this.lblCantFilas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,36 +92,9 @@
             this.dgvPacientes.ReadOnly = true;
             this.dgvPacientes.RowHeadersVisible = false;
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientes.Size = new System.Drawing.Size(1179, 567);
+            this.dgvPacientes.Size = new System.Drawing.Size(1179, 561);
             this.dgvPacientes.TabIndex = 0;
             this.dgvPacientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPacientes_MouseClick);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(614, 10);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 8;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // lblCant
-            // 
-            this.lblCant.AutoSize = true;
-            this.lblCant.Location = new System.Drawing.Point(1059, 25);
-            this.lblCant.Name = "lblCant";
-            this.lblCant.Size = new System.Drawing.Size(76, 13);
-            this.lblCant.TabIndex = 9;
-            this.lblCant.Text = "Cantidad Filas:";
-            // 
-            // lblCantFilas
-            // 
-            this.lblCantFilas.AutoSize = true;
-            this.lblCantFilas.Location = new System.Drawing.Point(1141, 25);
-            this.lblCantFilas.Name = "lblCantFilas";
-            this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
-            this.lblCantFilas.TabIndex = 10;
             // 
             // idPaciente
             // 
@@ -190,12 +163,39 @@
             this.direccion.Name = "direccion";
             this.direccion.ReadOnly = true;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(614, 10);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 8;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // lblCant
+            // 
+            this.lblCant.AutoSize = true;
+            this.lblCant.Location = new System.Drawing.Point(1059, 25);
+            this.lblCant.Name = "lblCant";
+            this.lblCant.Size = new System.Drawing.Size(76, 13);
+            this.lblCant.TabIndex = 9;
+            this.lblCant.Text = "Cantidad Filas:";
+            // 
+            // lblCantFilas
+            // 
+            this.lblCantFilas.AutoSize = true;
+            this.lblCantFilas.Location = new System.Drawing.Point(1141, 25);
+            this.lblCantFilas.Name = "lblCantFilas";
+            this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
+            this.lblCantFilas.TabIndex = 10;
+            // 
             // Pacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1184, 611);
+            this.ClientSize = new System.Drawing.Size(1188, 604);
             this.Controls.Add(this.lblCantFilas);
             this.Controls.Add(this.lblCant);
             this.Controls.Add(this.btnLimpiar);
@@ -204,8 +204,10 @@
             this.Controls.Add(this.txtConsulta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pacientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pacientes";
             this.Load += new System.EventHandler(this.Pacientes_Load);
+            this.Resize += new System.EventHandler(this.Pacientes_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

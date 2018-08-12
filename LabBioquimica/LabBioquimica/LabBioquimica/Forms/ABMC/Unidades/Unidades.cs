@@ -23,6 +23,14 @@ namespace LabBioquimica.Forms.ABMC
         private void Unidades_Load(object sender, EventArgs e)
         {
             cargarUnidades();
+            this.dgvUnidades.Width = this.Width - 40;
+            this.dgvUnidades.Height = this.Height - 40;
+        }
+
+        private void Unidades_Resize(object sender, EventArgs e)
+        {
+            this.dgvUnidades.Width = this.Width - 40;
+            this.dgvUnidades.Height = this.Height - 40;
         }
 
         public void cargarUnidades()

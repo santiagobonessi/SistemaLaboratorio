@@ -106,9 +106,13 @@ namespace LabBioquimica.Forms.Informes
             switch (eventoSelec)
             {
                 case "Detalle Protocolo":
-                    Forms.Transaccion.NuevoProtocolo detalleProtocolo = new Forms.Transaccion.NuevoProtocolo();
+                    String nroProtocolo = dgvProtocoloPorPaciente.Rows[posSelec].Cells[1].Value.ToString();
+
+                    Forms.Transaccion.NuevoProtocolo detalleProtocolo = new Forms.Transaccion.NuevoProtocolo(int.Parse(nroProtocolo));
                     detalleProtocolo.ShowDialog();
                     detalleProtocolo.Dispose();
+
+
                     break;
 
                 case "Salir":
