@@ -158,6 +158,7 @@
             this.Name = "Mutuales";
             this.Text = "Mutuales";
             this.Load += new System.EventHandler(this.Mutuales_Load);
+            this.Resize += new System.EventHandler(this.Mutuales_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMutuales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

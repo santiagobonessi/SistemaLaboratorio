@@ -23,6 +23,14 @@ namespace LabBioquimica.Forms.ABMC
         private void Profesionales_Load(object sender, EventArgs e)
         {
             cargarProfesionales();
+            this.dgvProfesionales.Width = this.Width - 20;
+            this.dgvProfesionales.Height = this.Height - 20;
+        }
+
+        private void Profesionales_Resize(object sender, EventArgs e)
+        {
+            this.dgvProfesionales.Width = this.Width - 20;
+            this.dgvProfesionales.Height = this.Height - 20;
         }
 
         public void cargarProfesionales()

@@ -168,6 +168,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Items";
             this.Text = "Items";
+            this.Load += new System.EventHandler(this.Items_Load);
+            this.Resize += new System.EventHandler(this.Items_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

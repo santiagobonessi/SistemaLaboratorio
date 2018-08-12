@@ -151,7 +151,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1184, 611);
+            this.ClientSize = new System.Drawing.Size(1192, 608);
             this.Controls.Add(this.lblCantFilas);
             this.Controls.Add(this.lblCant);
             this.Controls.Add(this.dgvAnalisis);
@@ -162,6 +162,7 @@
             this.Name = "Analisis";
             this.Text = "Analisis";
             this.Load += new System.EventHandler(this.Analisis_Load);
+            this.Resize += new System.EventHandler(this.Analisis_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisis)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

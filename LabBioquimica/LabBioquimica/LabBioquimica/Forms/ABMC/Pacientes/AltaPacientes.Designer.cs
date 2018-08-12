@@ -44,7 +44,6 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtDocumento = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.cboTipoDoc = new System.Windows.Forms.ComboBox();
@@ -53,6 +52,7 @@
             this.cboLocalidad = new System.Windows.Forms.ComboBox();
             this.dtpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.btnGrabar = new System.Windows.Forms.Button();
+            this.txtDocumento = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // btnInsertar
@@ -70,7 +70,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(154, 323);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -191,14 +191,6 @@
             this.txtNombre.Size = new System.Drawing.Size(208, 20);
             this.txtNombre.TabIndex = 1;
             // 
-            // txtDocumento
-            // 
-            this.txtDocumento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDocumento.Location = new System.Drawing.Point(103, 97);
-            this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Size = new System.Drawing.Size(208, 20);
-            this.txtDocumento.TabIndex = 2;
-            // 
             // txtTelefono
             // 
             this.txtTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -270,10 +262,18 @@
             this.btnGrabar.Location = new System.Drawing.Point(73, 323);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
-            this.btnGrabar.TabIndex = 15;
+            this.btnGrabar.TabIndex = 10;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // txtDocumento
+            // 
+            this.txtDocumento.Location = new System.Drawing.Point(104, 96);
+            this.txtDocumento.Mask = "99999999";
+            this.txtDocumento.Name = "txtDocumento";
+            this.txtDocumento.Size = new System.Drawing.Size(206, 20);
+            this.txtDocumento.TabIndex = 2;
             // 
             // AltaPacientes
             // 
@@ -281,6 +281,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(324, 359);
+            this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.dtpNacimiento);
             this.Controls.Add(this.cboLocalidad);
@@ -289,7 +290,6 @@
             this.Controls.Add(this.cboTipoDoc);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtApellido);
@@ -307,6 +307,7 @@
             this.Controls.Add(this.btnInsertar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AltaPacientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paciente";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -330,7 +331,6 @@
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.ComboBox cboTipoDoc;
@@ -339,5 +339,6 @@
         private System.Windows.Forms.ComboBox cboLocalidad;
         private System.Windows.Forms.DateTimePicker dtpNacimiento;
         private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.MaskedTextBox txtDocumento;
     }
 }

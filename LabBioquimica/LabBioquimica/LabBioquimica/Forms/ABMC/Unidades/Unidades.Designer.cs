@@ -78,6 +78,7 @@
             this.Name = "Unidades";
             this.Text = "Unidades";
             this.Load += new System.EventHandler(this.Unidades_Load);
+            this.Resize += new System.EventHandler(this.Unidades_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnidades)).EndInit();
             this.ResumeLayout(false);
 

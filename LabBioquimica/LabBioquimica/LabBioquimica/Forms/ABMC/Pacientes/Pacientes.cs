@@ -23,6 +23,14 @@ namespace LabBioquimica.Forms.ABMC
         private void Pacientes_Load(object sender, EventArgs e)
         {
             cargarPacientes();
+            this.dgvPacientes.Width = this.Width - 20;
+            this.dgvPacientes.Height = this.Height - 20;
+        }
+
+        private void Pacientes_Resize(object sender, EventArgs e)
+        {
+            this.dgvPacientes.Width = this.Width - 20;
+            this.dgvPacientes.Height = this.Height - 20;
         }
 
         public void cargarPacientes()
