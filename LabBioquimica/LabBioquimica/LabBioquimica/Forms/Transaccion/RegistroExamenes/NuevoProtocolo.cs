@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 
 namespace LabBioquimica.Forms.Transaccion
@@ -757,6 +759,32 @@ namespace LabBioquimica.Forms.Transaccion
             Close();
         }
 
-       
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            String idProtocolo = this.idProtocoloActual.ToString();
+
+
+            //Creamos una instancia del formulario del reporte
+            Reportes.RPT_EXAMENES formRPT = new Reportes.RPT_EXAMENES();
+            ReportDocument oRep = new ReportDocument();
+
+
+            ParameterField pf = new ParameterField();
+            ParameterFields pfs = new ParameterFields();
+            ParameterDiscreteValue pdv = new ParameterDiscreteValue();
+
+            pf.Name = "@ID_PROTOCOLO"; // variable del store procedure
+            pdv.Value = idProtocolo; // variable donde se  guarda el nro de protocolo
+            pf.CurrentValues.Add(pdv);
+            pfs.Add(pf);
+            formRPT.crvExamenes.ParameterFieldInfo = pfs;
+
+            oRep.Load(@"C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\Reportes\Examenes.rpt");
+            formRPT.crvExamenes.ReportSource = oRep;
+            formRPT.Show();
+            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\ReportesSalida\Examenes.pdf");
+
+
+        }
     }
 }
