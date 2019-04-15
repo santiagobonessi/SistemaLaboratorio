@@ -184,11 +184,11 @@
     <Compile Include="Forms\Menu\FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaccion\FacturacionMutuales\PantallaBusqueda.cs">
+    <Compile Include="Forms\Transaccion\FacturacionMutuales\FacturacionMutual.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaccion\FacturacionMutuales\PantallaBusqueda.Designer.cs">
-      <DependentUpon>PantallaBusqueda.cs</DependentUpon>
+    <Compile Include="Forms\Transaccion\FacturacionMutuales\FacturacionMutual.Designer.cs">
+      <DependentUpon>FacturacionMutual.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transaccion\RegistroExamenes\NuevoAnalisis.cs">
       <SubType>Form</SubType>
@@ -269,8 +269,8 @@
     <EmbeddedResource Include="Forms\Menu\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaccion\FacturacionMutuales\PantallaBusqueda.resx">
-      <DependentUpon>PantallaBusqueda.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Transaccion\FacturacionMutuales\FacturacionMutual.resx">
+      <DependentUpon>FacturacionMutual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaccion\RegistroExamenes\NuevoAnalisis.resx">
       <DependentUpon>NuevoAnalisis.cs</DependentUpon>

@@ -165,6 +165,7 @@
             this.facturaciónMutualesToolStripMenuItem.Name = "facturaciónMutualesToolStripMenuItem";
             this.facturaciónMutualesToolStripMenuItem.Size = new System.Drawing.Size(133, 20);
             this.facturaciónMutualesToolStripMenuItem.Text = "Facturación Mutuales";
+            this.facturaciónMutualesToolStripMenuItem.Click += new System.EventHandler(this.facturaciónMutualesToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 

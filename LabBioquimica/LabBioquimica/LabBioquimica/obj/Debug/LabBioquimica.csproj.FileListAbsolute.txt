@@ -26,7 +26,6 @@ C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioq
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.ABMC.Unidades.resources
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Informes.ProtocolosPorPaciente.resources
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Menu.FormMenu.resources
-C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Transaccion.FacturacionMutuales.PantallaBusqueda.resources
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Transaccion.NuevoAnalisis.resources
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Transaccion.NuevoProtocolo.resources
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Properties.Resources.resources
@@ -64,3 +63,4 @@ C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioq
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\bin\Debug\daLabBioquimica.pdb
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.exe.manifest
 C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.application
+C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Transaccion.FacturacionMutuales.FacturacionMutual.resources

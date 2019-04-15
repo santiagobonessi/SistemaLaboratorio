@@ -94,16 +94,23 @@ namespace LabBioquimica.Forms.Menu
             nuevoProtocolo.Dispose();
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void buscarProtocolosPorPacienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Informes.ProtocolosPorPaciente protPorPac = new Informes.ProtocolosPorPaciente();
             protPorPac.ShowDialog();
             protPorPac.Dispose();
+        }
+
+        private void facturaciónMutualesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Transaccion.FacturacionMutuales.FacturacionMutual factMutual = new Transaccion.FacturacionMutuales.FacturacionMutual();
+            factMutual.ShowDialog();
+            factMutual.Dispose();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
