@@ -122,7 +122,7 @@
             // 
             // btnProfesional
             // 
-            this.btnProfesional.Location = new System.Drawing.Point(582, 100);
+            this.btnProfesional.Location = new System.Drawing.Point(582, 101);
             this.btnProfesional.Name = "btnProfesional";
             this.btnProfesional.Size = new System.Drawing.Size(66, 23);
             this.btnProfesional.TabIndex = 6;
@@ -132,7 +132,7 @@
             // 
             // btnPaciente
             // 
-            this.btnPaciente.Location = new System.Drawing.Point(582, 71);
+            this.btnPaciente.Location = new System.Drawing.Point(582, 72);
             this.btnPaciente.Name = "btnPaciente";
             this.btnPaciente.Size = new System.Drawing.Size(66, 23);
             this.btnPaciente.TabIndex = 4;
