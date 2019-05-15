@@ -87,6 +87,7 @@ namespace LabBioquimica.Forms.ABMC
                 ent.ID_UNIDAD = int.Parse(this.cboUnidad.SelectedValue.ToString());
             }
 
+            if (!string.IsNullOrWhiteSpace(txtNroOrden.Text)) { ent.NRO_ORDEN = int.Parse(this.txtNroOrden.Text); }
 
             ent.USR_ING = "ADMIN";
             ent.FEC_ING = DateTime.Now;
@@ -117,7 +118,8 @@ namespace LabBioquimica.Forms.ABMC
             this.cboAnalisis.Text = ent.N_ANALISIS;
             if (ent.ID_UNIDAD != null) { this.cboUnidad.Text = ent.N_UNIDAD; }
             else { this.cboUnidad.SelectedIndex = 0; }
-            
+            this.txtNroOrden.Text = ent.NRO_ORDEN.ToString();
+
             this.btnInsertar.Visible = false;
             this.btnGrabar.Visible = true;
 
@@ -136,6 +138,7 @@ namespace LabBioquimica.Forms.ABMC
             this.cboAnalisis.Text = ent.N_ANALISIS;
             if (ent.ID_UNIDAD != null) { this.cboUnidad.Text = ent.N_UNIDAD; }
             else { this.cboUnidad.SelectedIndex = 0; }
+            this.txtNroOrden.Text = ent.NRO_ORDEN.ToString();
 
             this.btnInsertar.Visible = false;
             this.btnGrabar.Visible = true;
@@ -175,6 +178,8 @@ namespace LabBioquimica.Forms.ABMC
             {
                 ent.ID_UNIDAD = int.Parse(this.cboUnidad.SelectedValue.ToString());
             }
+
+            if (!string.IsNullOrWhiteSpace(txtNroOrden.Text)) { ent.NRO_ORDEN = int.Parse(this.txtNroOrden.Text); }
 
             ent.USR_MOD = "ADMIN";
             ent.FEC_MOD = DateTime.Now;
