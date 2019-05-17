@@ -59,6 +59,13 @@ namespace blLabBioquimica
             set { p_N_UNIDAD = value; }
         }
 
+        private Nullable<Int32> p_NRO_ORDEN;
+        public Nullable<Int32> NRO_ORDEN
+        {
+            get { return p_NRO_ORDEN; }
+            set { p_NRO_ORDEN = value; }
+        }
+
         private String p_USR_ING;
         public String USR_ING
         {
@@ -96,6 +103,8 @@ namespace blLabBioquimica
             set { p_FEC_BAJA = value; }
         }
 
+
+
         public bl_ITEMEntidad() { }
 
         public bl_ITEMEntidad(Int32 ID_ITEM)
@@ -106,10 +115,8 @@ namespace blLabBioquimica
                 bl_ITEM bl = new bl_ITEM();
                 bl_ITEMEntidad ent = bl.BuscarPorPK(ID_ITEM);
 
-
                 if (ent != null)
                 {
-
                     this.ID_ITEM = ent.ID_ITEM;
                     this.NOMBRE = ent.NOMBRE;
                     this.VALOR_REF = ent.VALOR_REF;
@@ -117,15 +124,16 @@ namespace blLabBioquimica
                     this.N_ANALISIS = ent.N_ANALISIS;
                     this.ID_UNIDAD = ent.ID_UNIDAD;
                     this.N_UNIDAD = ent.N_UNIDAD;
+                    this.NRO_ORDEN = ent.NRO_ORDEN;
                     this.USR_ING = ent.USR_ING;
                     this.FEC_ING = ent.FEC_ING;
                     this.USR_MOD = ent.USR_MOD;
                     this.FEC_MOD = ent.FEC_MOD;
                     this.USR_BAJA = ent.USR_BAJA;
                     this.FEC_BAJA = ent.FEC_BAJA;
+                    
                 }
             }
-
             catch (Exception ex)
             {
                 throw ex;
@@ -170,6 +178,8 @@ namespace blLabBioquimica
                         ent.ID_UNIDAD = Convert.ToInt32(dt.Rows[0]["idUnidad"]);
                     if (dt.Rows[0]["Unidad"] != DBNull.Value)
                         ent.N_UNIDAD = Convert.ToString(dt.Rows[0]["Unidad"]);
+                    if (dt.Rows[0]["nroOrden"] != DBNull.Value)
+                        ent.NRO_ORDEN = Convert.ToInt32(dt.Rows[0]["nroOrden"]);
                     if (dt.Rows[0]["usr_ing"] != DBNull.Value)
                         ent.USR_ING = Convert.ToString(dt.Rows[0]["usr_ing"]);
                     if (dt.Rows[0]["fec_ing"] != DBNull.Value)
@@ -182,6 +192,7 @@ namespace blLabBioquimica
                         ent.USR_BAJA = Convert.ToString(dt.Rows[0]["usr_baja"]);
                     if (dt.Rows[0]["fec_baja"] != DBNull.Value)
                         ent.FEC_BAJA = Convert.ToDateTime(dt.Rows[0]["fec_baja"]);
+                    
 
                     return ent;
                 }
@@ -229,6 +240,8 @@ namespace blLabBioquimica
                             ent.ID_UNIDAD = Convert.ToInt32(dr["idUnidad"]);
                         if (dr["Unidad"] != DBNull.Value)
                             ent.N_UNIDAD = Convert.ToString(dr["Unidad"]);
+                        if (dr["nroOrden"] != DBNull.Value)
+                            ent.NRO_ORDEN = Convert.ToInt32(dr["nroOrden"]);
                         if (dr["usr_ing"] != DBNull.Value)
                             ent.USR_ING = Convert.ToString(dr["usr_ing"]);
                         if (dr["fec_ing"] != DBNull.Value)
@@ -241,7 +254,7 @@ namespace blLabBioquimica
                             ent.USR_BAJA = Convert.ToString(dr["usr_baja"]);
                         if (dr["fec_baja"] != DBNull.Value)
                             ent.FEC_BAJA = Convert.ToDateTime(dr["fec_baja"]);
-
+                        
 
                         lista.Add(ent);
                     }
@@ -265,7 +278,7 @@ namespace blLabBioquimica
             try
             {
 
-                ent.ID_ITEM = p_da.Insertar(ent.NOMBRE, ent.VALOR_REF, ent.ID_ANALISIS, ent.ID_UNIDAD, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
+                ent.ID_ITEM = p_da.Insertar(ent.NOMBRE, ent.VALOR_REF, ent.ID_ANALISIS, ent.ID_UNIDAD, ent.NRO_ORDEN, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
 
                 return ent;
             }
@@ -284,7 +297,7 @@ namespace blLabBioquimica
         {
             try
             {
-                p_da.Modificar(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.ID_ANALISIS, ent.ID_UNIDAD, ent.USR_MOD, ent.FEC_MOD);
+                p_da.Modificar(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.ID_ANALISIS, ent.NRO_ORDEN, ent.ID_UNIDAD, ent.USR_MOD, ent.FEC_MOD);
             }
             catch (Exception ex)
             {

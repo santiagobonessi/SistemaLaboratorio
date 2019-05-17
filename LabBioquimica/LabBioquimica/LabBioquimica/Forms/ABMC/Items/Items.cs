@@ -46,7 +46,7 @@ namespace LabBioquimica.Forms.ABMC
 
             foreach (blLabBioquimica.bl_ITEMEntidad ent in col)
             {
-                dgvItems.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.N_ANALISIS, ent.N_UNIDAD);
+                dgvItems.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.N_ANALISIS, ent.N_UNIDAD, ent.NRO_ORDEN);
             }
 
             this.lblCantFilas.Text = col.Count.ToString();
@@ -74,13 +74,10 @@ namespace LabBioquimica.Forms.ABMC
 
             foreach (blLabBioquimica.bl_ITEMEntidad ent in col)
             {
-                dgvItems.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.N_ANALISIS, ent.N_UNIDAD);
+                dgvItems.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.N_ANALISIS, ent.N_UNIDAD, ent.NRO_ORDEN);
             }
 
             this.lblCantFilas.Text = col.Count.ToString();
-
-           
-
         }
 
         private void dgvItems_MouseClick(object sender, MouseEventArgs e)
@@ -257,7 +254,7 @@ namespace LabBioquimica.Forms.ABMC
 
                 foreach (blLabBioquimica.bl_ITEMEntidad ent in col)
                 {
-                    dgvItems.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.N_ANALISIS, ent.N_UNIDAD);
+                    dgvItems.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.N_ANALISIS, ent.N_UNIDAD, ent.NRO_ORDEN);
                 }
 
                 this.lblCantFilas.Text = col.Count.ToString();

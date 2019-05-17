@@ -21,7 +21,7 @@ namespace daLabBioquimica
                 conn.Open();
                 
                 String sql = @"SELECT I.idItem, I.nombre, I.valorReferencia, " 
-                            + "I.idAnalisis, A.nombre AS Analisis, I.idUnidad, U.nombre AS Unidad, "
+                            + "I.idAnalisis, A.nombre AS Analisis, I.idUnidad, U.nombre AS Unidad, I.nroOrden, "
                             + "I.usr_ing, I.fec_ing, I.usr_mod, I.fec_mod, I.usr_baja, I.fec_baja "
                             + "FROM Item I LEFT JOIN Analisis A ON I.idAnalisis = A.idAnalisis "
                             + "LEFT JOIN Unidad U ON I.idUnidad = U.idUnidad "
@@ -56,7 +56,7 @@ namespace daLabBioquimica
                 conn.Open();
 
                 String sql = @"SELECT I.idItem, I.nombre, I.valorReferencia, "
-                               + "I.idAnalisis, A.nombre AS Analisis, I.idUnidad, U.nombre AS Unidad, "
+                               + "I.idAnalisis, A.nombre AS Analisis, I.idUnidad, U.nombre AS Unidad,  I.nroOrden,  "
                                + "I.usr_ing, I.fec_ing, I.usr_mod, I.fec_mod, I.usr_baja, I.fec_baja "
                                + "FROM Item I LEFT JOIN Analisis A ON I.idAnalisis = A.idAnalisis "
                                + "LEFT JOIN Unidad U ON I.idUnidad = U.idUnidad "
@@ -101,15 +101,15 @@ namespace daLabBioquimica
             }
         }
 
-        public Int32 Insertar(String p_NOMBRE, String p_VALOR_REF, Nullable<Int32> p_ID_ANALISIS,  Nullable<Int32> p_ID_UNIDAD, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
+        public Int32 Insertar(String p_NOMBRE, String p_VALOR_REF, Nullable<Int32> p_ID_ANALISIS,  Nullable<Int32> p_ID_UNIDAD, Nullable<Int32> p_NRO_ORDEN, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"INSERT INTO Item (nombre, valorReferencia, idAnalisis, idUnidad, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja) "
-                            + "VALUES (@NOMBRE, @VALOR_REF, @ID_ANALISIS, @ID_UNIDAD, @USR_ING, @FEC_ING, @USR_MOD, @FEC_MOD, @USR_BAJA, @FEC_BAJA)"
+                String sql = @"INSERT INTO Item (nombre, valorReferencia, idAnalisis, idUnidad, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja, nroOrden) "
+                            + "VALUES (@NOMBRE, @VALOR_REF, @ID_ANALISIS, @ID_UNIDAD, @USR_ING, @FEC_ING, @USR_MOD, @FEC_MOD, @USR_BAJA, @FEC_BAJA, @NRO_ORDEN)"
                             + "; SELECT @@Identity as ID";
 
                 SqlCommand com = new SqlCommand(sql, conn);
@@ -133,6 +133,11 @@ namespace daLabBioquimica
                     com.Parameters.AddWithValue("@ID_UNIDAD", p_ID_UNIDAD);
                 else
                     com.Parameters.AddWithValue("@ID_UNIDAD", DBNull.Value);
+
+                if (p_NRO_ORDEN != null)
+                    com.Parameters.AddWithValue("@NRO_ORDEN", p_NRO_ORDEN);
+                else
+                    com.Parameters.AddWithValue("@NRO_ORDEN", DBNull.Value);
 
                 if (p_USR_ING != null)
                     com.Parameters.AddWithValue("@USR_ING", p_USR_ING);
@@ -165,6 +170,8 @@ namespace daLabBioquimica
                     com.Parameters.AddWithValue("@FEC_BAJA", DBNull.Value);
 
 
+
+
                 int idItem = Convert.ToInt32(com.ExecuteScalar());
 
 
@@ -178,7 +185,7 @@ namespace daLabBioquimica
             }
         }//Termina el método Insertar
 
-        public void Modificar(Nullable<Int32> p_ID_ITEM, String p_NOMBRE, String p_VALOR_REF,Nullable<Int32> p_ID_ANALISIS, Nullable<Int32> p_ID_UNIDAD, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
+        public void Modificar(Nullable<Int32> p_ID_ITEM, String p_NOMBRE, String p_VALOR_REF,Nullable<Int32> p_ID_ANALISIS, Nullable<Int32> p_ID_UNIDAD, Nullable<Int32> p_NRO_ORDEN, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
         {
             try
             {
@@ -186,7 +193,7 @@ namespace daLabBioquimica
                 conn.Open();
 
                 String sql = @"UPDATE Item SET nombre = @NOMBRE, valorReferencia = @VALOR_REF, "
-                            + "idAnalisis = @ID_ANALISIS, idUnidad = @ID_UNIDAD, "
+                            + "idAnalisis = @ID_ANALISIS, idUnidad = @ID_UNIDAD, nroOrden = @NRO_ORDEN, "
                             + "usr_mod = @USR_MOD, fec_mod = @FEC_MOD "
                             + "WHERE idItem = @ID_ITEM";
 
@@ -217,6 +224,11 @@ namespace daLabBioquimica
                 else
                     com.Parameters.AddWithValue("@ID_UNIDAD", DBNull.Value);
 
+                if (p_NRO_ORDEN != null)
+                    com.Parameters.AddWithValue("@NRO_ORDEN", p_NRO_ORDEN);
+                else
+                    com.Parameters.AddWithValue("@NRO_ORDEN", DBNull.Value);
+
                 if (p_USR_MOD != null)
                     com.Parameters.AddWithValue("@USR_MOD", p_USR_MOD);
                 else
@@ -226,6 +238,7 @@ namespace daLabBioquimica
                     com.Parameters.AddWithValue("@FEC_MOD", p_FEC_MOD);
                 else
                     com.Parameters.AddWithValue("@FEC_MOD", DBNull.Value);
+
 
 
                 com.ExecuteNonQuery();

@@ -42,11 +42,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cboAnalisis = new System.Windows.Forms.ComboBox();
             this.btnUnidad = new System.Windows.Forms.Button();
+            this.txtNroOrden = new System.Windows.Forms.TextBox();
+            this.lblNroOrden = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(143, 207);
+            this.btnGrabar.Location = new System.Drawing.Point(143, 226);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 4;
@@ -58,14 +60,14 @@
             // 
             this.cboUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUnidad.FormattingEnabled = true;
-            this.cboUnidad.Location = new System.Drawing.Point(72, 171);
+            this.cboUnidad.Location = new System.Drawing.Point(72, 168);
             this.cboUnidad.Name = "cboUnidad";
             this.cboUnidad.Size = new System.Drawing.Size(296, 21);
             this.cboUnidad.TabIndex = 3;
             // 
             // txtValorRef
             // 
-            this.txtValorRef.Location = new System.Drawing.Point(75, 113);
+            this.txtValorRef.Location = new System.Drawing.Point(75, 106);
             this.txtValorRef.Multiline = true;
             this.txtValorRef.Name = "txtValorRef";
             this.txtValorRef.Size = new System.Drawing.Size(353, 52);
@@ -73,7 +75,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(75, 81);
+            this.txtNombre.Location = new System.Drawing.Point(75, 76);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(353, 20);
             this.txtNombre.TabIndex = 1;
@@ -117,7 +119,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(224, 207);
+            this.btnCancelar.Location = new System.Drawing.Point(224, 226);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 5;
@@ -127,7 +129,7 @@
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(143, 207);
+            this.btnInsertar.Location = new System.Drawing.Point(143, 226);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(75, 23);
             this.btnInsertar.TabIndex = 53;
@@ -154,7 +156,7 @@
             // 
             // btnUnidad
             // 
-            this.btnUnidad.Location = new System.Drawing.Point(374, 171);
+            this.btnUnidad.Location = new System.Drawing.Point(374, 168);
             this.btnUnidad.Name = "btnUnidad";
             this.btnUnidad.Size = new System.Drawing.Size(54, 21);
             this.btnUnidad.TabIndex = 59;
@@ -162,12 +164,30 @@
             this.btnUnidad.UseVisualStyleBackColor = true;
             this.btnUnidad.Click += new System.EventHandler(this.btnUnidad_Click);
             // 
+            // txtNroOrden
+            // 
+            this.txtNroOrden.Location = new System.Drawing.Point(75, 199);
+            this.txtNroOrden.Name = "txtNroOrden";
+            this.txtNroOrden.Size = new System.Drawing.Size(353, 20);
+            this.txtNroOrden.TabIndex = 60;
+            // 
+            // lblNroOrden
+            // 
+            this.lblNroOrden.AutoSize = true;
+            this.lblNroOrden.Location = new System.Drawing.Point(10, 202);
+            this.lblNroOrden.Name = "lblNroOrden";
+            this.lblNroOrden.Size = new System.Drawing.Size(59, 13);
+            this.lblNroOrden.TabIndex = 61;
+            this.lblNroOrden.Text = "Nro Orden:";
+            // 
             // AltaItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(440, 242);
+            this.ClientSize = new System.Drawing.Size(440, 261);
+            this.Controls.Add(this.lblNroOrden);
+            this.Controls.Add(this.txtNroOrden);
             this.Controls.Add(this.btnUnidad);
             this.Controls.Add(this.cboAnalisis);
             this.Controls.Add(this.label1);
@@ -204,5 +224,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboAnalisis;
         private System.Windows.Forms.Button btnUnidad;
+        private System.Windows.Forms.TextBox txtNroOrden;
+        private System.Windows.Forms.Label lblNroOrden;
     }
 }
