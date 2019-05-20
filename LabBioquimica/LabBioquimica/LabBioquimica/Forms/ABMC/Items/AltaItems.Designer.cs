@@ -51,7 +51,7 @@
             this.btnGrabar.Location = new System.Drawing.Point(143, 226);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
-            this.btnGrabar.TabIndex = 4;
+            this.btnGrabar.TabIndex = 6;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
@@ -122,7 +122,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(224, 226);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -159,7 +159,7 @@
             this.btnUnidad.Location = new System.Drawing.Point(374, 168);
             this.btnUnidad.Name = "btnUnidad";
             this.btnUnidad.Size = new System.Drawing.Size(54, 21);
-            this.btnUnidad.TabIndex = 59;
+            this.btnUnidad.TabIndex = 4;
             this.btnUnidad.Text = "...";
             this.btnUnidad.UseVisualStyleBackColor = true;
             this.btnUnidad.Click += new System.EventHandler(this.btnUnidad_Click);
@@ -169,7 +169,7 @@
             this.txtNroOrden.Location = new System.Drawing.Point(75, 199);
             this.txtNroOrden.Name = "txtNroOrden";
             this.txtNroOrden.Size = new System.Drawing.Size(353, 20);
-            this.txtNroOrden.TabIndex = 60;
+            this.txtNroOrden.TabIndex = 5;
             // 
             // lblNroOrden
             // 
