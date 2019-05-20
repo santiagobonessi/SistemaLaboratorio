@@ -48,7 +48,7 @@ namespace daLabBioquimica
         }
 
 
-        public DataTable Buscar(Nullable<Int32> p_ID_PACIENTE, String p_APELLIDO, String p_NOMBRE, String p_DOCUMENTO)
+        public DataTable Buscar(Nullable<Int32> p_ID_PACIENTE, String p_APELLIDO, String p_NOMBRE, String p_DOCUMENTO, Nullable<Int32> p_ID_MUTUAL)
         {
             try
             {
@@ -65,6 +65,7 @@ namespace daLabBioquimica
                                + "AND (P.apellido LIKE @APELLIDO + '%' OR @APELLIDO IS NULL) "
                                + "AND (P.nombre LIKE @NOMBRE + '%' OR @NOMBRE IS NULL) "
                                + "AND (P.documento = @DOCUMENTO OR @DOCUMENTO IS NULL) "
+                               + "AND (P.idMutual = @ID_MUTUAL OR @ID_MUTUAL IS NULL) "
                                + "AND P.usr_baja IS NULL "
                                + "AND P.fec_baja IS NULL "
                                + "ORDER BY P.apellido, P.nombre";
@@ -90,6 +91,11 @@ namespace daLabBioquimica
                     com.Parameters.AddWithValue("@DOCUMENTO", p_DOCUMENTO);
                 else
                     com.Parameters.AddWithValue("@DOCUMENTO", DBNull.Value);
+
+                if (p_ID_MUTUAL != null)
+                    com.Parameters.AddWithValue("@ID_MUTUAL", p_ID_MUTUAL);
+                else
+                    com.Parameters.AddWithValue("@ID_MUTUAL", DBNull.Value);
 
 
                 SqlDataAdapter da = new SqlDataAdapter(com);

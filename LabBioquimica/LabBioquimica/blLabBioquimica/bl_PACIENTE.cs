@@ -286,11 +286,11 @@ namespace blLabBioquimica
         }
 
 
-        public bl_PACIENTEEntidadColeccion Buscar(Nullable<Int32> p_ID_PACIENTE, string p_APELLIDO, string p_NOMBRE, string p_DOCUMENTO)
+        public bl_PACIENTEEntidadColeccion Buscar(Nullable<Int32> p_ID_PACIENTE, string p_APELLIDO, string p_NOMBRE, string p_DOCUMENTO, Nullable<Int32> p_ID_MUTUAL)
         {
             try
             {
-                DataTable dt = p_da.Buscar(p_ID_PACIENTE, p_APELLIDO, p_NOMBRE, p_DOCUMENTO);
+                DataTable dt = p_da.Buscar(p_ID_PACIENTE, p_APELLIDO, p_NOMBRE, p_DOCUMENTO, p_ID_MUTUAL);
                 bl_PACIENTEEntidadColeccion lista = new bl_PACIENTEEntidadColeccion();
 
                 if (dt != null) { 
@@ -409,7 +409,7 @@ namespace blLabBioquimica
         {
             try
             {
-                DataTable dt = p_da.Buscar(null, null, null, null);
+                DataTable dt = p_da.Buscar(null, null, null, null, null);
 
                 if (dt != null)
                 {
