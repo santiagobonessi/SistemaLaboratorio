@@ -1,9 +1,4 @@
-
 LabBioquimica/LabBioquimica/.vs/LabBioquimica/v14/.suo
-LabBioquimica/LabBioquimica/.vs/LabBioquimica/v14/.suo
-LabBioquimica/LabBioquimica/.vs/LabBioquimica/v14/.suo
-LabBioquimica/LabBioquimica/.vs/LabBioquimica/v14/.suo
-*.pdb
 LabBioquimica/LabBioquimica/blLabBioquimica/bin/Debug/blLabBioquimica.dll
 LabBioquimica/LabBioquimica/.vs/LabBioquimica/v14/.suo
 LabBioquimica/LabBioquimica/.vs/LabBioquimica/v14/.suo
@@ -40,7 +35,6 @@ LabBioquimica/LabBioquimica/LabBioquimica/obj/Debug/LabBioquimica.csprojResolveA
 LabBioquimica/LabBioquimica/LabBioquimica/obj/Debug/LabBioquimica.exe
 LabBioquimica/LabBioquimica/LabBioquimica/obj/Debug/LabBioquimica.exe.manifest
 LabBioquimica/LabBioquimica/LabBioquimica/obj/Debug/LabBioquimica.pdb
-*.cache
 LabBioquimica/LabBioquimica/LabBioquimica/App.config
 LabBioquimica/LabBioquimica/.vs/LabBioquimica/v14/.suo
 LabBioquimica/LabBioquimica/blLabBioquimica/bin/Debug/blLabBioquimica.dll
@@ -75,3 +69,9 @@ LabBioquimica/LabBioquimica/LabBioquimica/obj/Debug/LabBioquimica.exe.manifest
 LabBioquimica/LabBioquimica/LabBioquimica/obj/Debug/LabBioquimica.pdb
 LabBioquimica/LabBioquimica/.vs/LabBioquimica/v14/.suo
 LabBioquimica/LabBioquimica/.vs/LabBioquimica/v14/.suo
+*.pdb
+*.cache
+*.suo
+*.dll
+*.manifest
+*.exe

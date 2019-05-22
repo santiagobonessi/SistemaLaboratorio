@@ -297,7 +297,7 @@ namespace blLabBioquimica
         {
             try
             {
-                p_da.Modificar(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.ID_ANALISIS, ent.NRO_ORDEN, ent.ID_UNIDAD, ent.USR_MOD, ent.FEC_MOD);
+                p_da.Modificar(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF, ent.ID_ANALISIS, ent.ID_UNIDAD, ent.NRO_ORDEN, ent.USR_MOD, ent.FEC_MOD);
             }
             catch (Exception ex)
             {

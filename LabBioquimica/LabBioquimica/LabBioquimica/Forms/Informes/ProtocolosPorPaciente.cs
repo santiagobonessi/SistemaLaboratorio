@@ -27,7 +27,7 @@ namespace LabBioquimica.Forms.Informes
 
             this.cboPaciente.SelectedIndex = -1;
             this.cboPaciente.DataSource = null;
-            this.cboPaciente.DataSource = blPaciente.dataTablePaciente();
+            this.cboPaciente.DataSource = blPaciente.dataTablePaciente(null, null, null, null, null);
             this.cboPaciente.ValueMember = "idPaciente";
             this.cboPaciente.DisplayMember = "nomape";
             this.cboPaciente.SelectedIndex = -1;
@@ -42,7 +42,7 @@ namespace LabBioquimica.Forms.Informes
         public AutoCompleteStringCollection AutocompletePaciente()
         {
             blLabBioquimica.bl_PACIENTE blPaciente = new blLabBioquimica.bl_PACIENTE();
-            DataTable dt = blPaciente.dataTablePaciente();
+            DataTable dt = blPaciente.dataTablePaciente(null, null, null, null, null);
 
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             //recorrer y cargar los items para el autocompletado

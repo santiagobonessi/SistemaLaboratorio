@@ -40,7 +40,7 @@ namespace LabBioquimica.Forms.ABMC
 
             //CARGAR TODOS LOS PACIENTES EN LA GRILLA
             blLabBioquimica.bl_PACIENTE blPaciente = new blLabBioquimica.bl_PACIENTE();
-            blLabBioquimica.bl_PACIENTEEntidadColeccion col = blPaciente.Buscar(null, null, null, null);
+            blLabBioquimica.bl_PACIENTEEntidadColeccion col = blPaciente.Buscar(null, null, null, null, null);
 
             foreach (blLabBioquimica.bl_PACIENTEEntidad ent in col)
             {
@@ -66,7 +66,7 @@ namespace LabBioquimica.Forms.ABMC
 
                 String apellido = txtConsulta.Text;
                 blLabBioquimica.bl_PACIENTE blPaciente = new blLabBioquimica.bl_PACIENTE();
-                blLabBioquimica.bl_PACIENTEEntidadColeccion col = blPaciente.Buscar(null, apellido, null, null);
+                blLabBioquimica.bl_PACIENTEEntidadColeccion col = blPaciente.Buscar(null, apellido, null, null, null);
 
                 foreach (blLabBioquimica.bl_PACIENTEEntidad ent in col)
                 {

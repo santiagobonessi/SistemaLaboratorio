@@ -339,7 +339,7 @@ namespace LabBioquimica.Forms.Transaccion
             blLabBioquimica.bl_PACIENTE blPaciente = new blLabBioquimica.bl_PACIENTE();
 
             this.cboPaciente.DataSource = null;
-            this.cboPaciente.DataSource = blPaciente.dataTablePaciente();
+            this.cboPaciente.DataSource = blPaciente.dataTablePaciente(null, null, null, null, null);
             this.cboPaciente.ValueMember = "idPaciente";
             this.cboPaciente.DisplayMember = "nomape";
             this.cboPaciente.SelectedIndex = -1;
@@ -354,7 +354,7 @@ namespace LabBioquimica.Forms.Transaccion
         public AutoCompleteStringCollection AutocompletePaciente()
         {
             blLabBioquimica.bl_PACIENTE blPaciente = new blLabBioquimica.bl_PACIENTE();
-            DataTable dt = blPaciente.dataTablePaciente();
+            DataTable dt = blPaciente.dataTablePaciente(null, null, null, null, null);
 
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             //recorrer y cargar los items para el autocompletado
@@ -376,7 +376,7 @@ namespace LabBioquimica.Forms.Transaccion
             this.cboProfesional.DisplayMember = "nomape";
             this.cboProfesional.SelectedIndex = -1;
 
-            // cargo la lista de items para el autocomplete dle combobox
+            // cargo la lista de items para el autocomplete del combobox
             this.cboProfesional.AutoCompleteCustomSource = AutocompleteProfesional();
             this.cboProfesional.AutoCompleteMode = AutoCompleteMode.Suggest;
             this.cboProfesional.AutoCompleteSource = AutoCompleteSource.CustomSource;
