@@ -15,16 +15,16 @@
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
-          Opciones del manifiesto de Control de cuentas de usuario
-          Si desea cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el 
-          nodo requestedExecutionLevel por alguno de los siguientes.
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         Si desea usar la virtualización de archivos y del Registro para la 
-         compatibilidad con versiones anteriores, elimine el nodo requestedExecutionLevel.
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
@@ -55,7 +55,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0eed50e+FD9Hj6QaJViod7EZ8l6D0/Xcfz78aRRatTQ=</dsig:DigestValue>
+        <dsig:DigestValue>kK9OE9WjJQKXlEOq2mGJtNcDrtbAUx4dd1LWmimjfjc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -259,7 +259,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>16LZQSn5Rk7nmin3efAVY25Rwafxd5k68NKKtYbpxxQ=</dsig:DigestValue>
+        <dsig:DigestValue>8z6Ojf0ZD4yo/w/E2t1zDWmTbnx2rL5buwfUgoV+cac=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -283,7 +283,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0nvw0d87x95w/wAYKcpeP5K/47quWeYDFamR5T06JLg=</dsig:DigestValue>
+        <dsig:DigestValue>uebWP2+DSiTdajGJBldfiS/RyNGiM6GKx0mAk/camtM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -307,7 +307,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jMi19KrJNkB1ILLnkqK/8gftgN9goxalLVafnSSLWHI=</dsig:DigestValue>
+        <dsig:DigestValue>ccSMkzF+j3P5M04/k8tY2uttF429A2x9HfI8Fom8/HU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -320,13 +320,13 @@
       <dsig:DigestValue>p6AtCwatA20Uq9GH+jcqwM+zN34JUHNxOJ6Z66NUDOM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="LabBioquimica.exe.config" size="386">
+  <file name="LabBioquimica.exe.config" size="387">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Bq/rgALVJJPye3PmVSUbk+qnQp+xcaKfifw1n4m/CYM=</dsig:DigestValue>
+      <dsig:DigestValue>pJK6uxeqP1uFKlKsuaifpW00MBdRK0I53CQ5qX1ruk4=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
