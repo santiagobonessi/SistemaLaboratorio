@@ -405,11 +405,11 @@ namespace blLabBioquimica
 
         }
 
-        public DataTable dataTablePaciente()
+        public DataTable dataTablePaciente(Nullable<Int32> p_ID_PACIENTE, string p_APELLIDO, string p_NOMBRE, string p_DOCUMENTO, Nullable<Int32> p_ID_MUTUAL)
         {
             try
             {
-                DataTable dt = p_da.Buscar(null, null, null, null, null);
+                DataTable dt = p_da.Buscar(p_ID_PACIENTE, p_APELLIDO, p_NOMBRE, p_DOCUMENTO, p_ID_MUTUAL);
 
                 if (dt != null)
                 {
