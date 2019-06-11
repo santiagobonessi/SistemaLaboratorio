@@ -335,7 +335,7 @@
             this.dgvPacientesXAnalisisFacturados.ReadOnly = true;
             this.dgvPacientesXAnalisisFacturados.RowHeadersVisible = false;
             this.dgvPacientesXAnalisisFacturados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientesXAnalisisFacturados.Size = new System.Drawing.Size(813, 126);
+            this.dgvPacientesXAnalisisFacturados.Size = new System.Drawing.Size(813, 138);
             this.dgvPacientesXAnalisisFacturados.TabIndex = 13;
             // 
             // lblAnalisisFacturados
@@ -370,7 +370,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(12, 571);
+            this.btnSalir.Location = new System.Drawing.Point(12, 583);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(86, 52);
             this.btnSalir.TabIndex = 17;
@@ -381,7 +381,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.Location = new System.Drawing.Point(677, 571);
+            this.btnImprimir.Location = new System.Drawing.Point(677, 583);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(149, 52);
             this.btnImprimir.TabIndex = 18;
@@ -424,7 +424,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(834, 626);
+            this.ClientSize = new System.Drawing.Size(834, 638);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnSalir);

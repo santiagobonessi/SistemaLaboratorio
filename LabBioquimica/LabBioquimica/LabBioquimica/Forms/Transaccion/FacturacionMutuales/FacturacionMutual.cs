@@ -195,12 +195,15 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         private void btnCargar_Click(object sender, EventArgs e)
         {
             //Recorro los analisis seleccionados
-            int contador = 0;
             foreach (DataGridViewRow row in dgvAnalisisXProtocolo.Rows)
             {
+                //Filtro por los checks seleccionados
                 if (row.Cells[7].Value.Equals(true))//Columna de checks
                 {
-                    contador++;
+                    //Guardo en la grilla dgvPacientesXAnalisisFacturados los analisis
+
+
+
                 }
             }
 
