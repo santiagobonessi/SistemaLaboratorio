@@ -786,5 +786,10 @@ namespace LabBioquimica.Forms.Transaccion
 
 
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            // TO DO : Limpiar todos los campos, que arranque de cero.
+        }
     }
 }

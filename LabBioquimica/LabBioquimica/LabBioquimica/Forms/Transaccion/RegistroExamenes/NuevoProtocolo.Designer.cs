@@ -63,6 +63,7 @@
             this.txtConsultaProtocolo = new System.Windows.Forms.TextBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.gbNuevoProtocolo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocoloDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPracticas)).BeginInit();
@@ -195,7 +196,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(778, 94);
+            this.btnModificar.Location = new System.Drawing.Point(780, 48);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(86, 40);
             this.btnModificar.TabIndex = 2;
@@ -409,12 +410,23 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(780, 94);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(86, 40);
+            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // NuevoProtocolo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(968, 627);
+            this.ClientSize = new System.Drawing.Size(968, 626);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnImprimir);
@@ -474,5 +486,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valorRef;
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoUnidad;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

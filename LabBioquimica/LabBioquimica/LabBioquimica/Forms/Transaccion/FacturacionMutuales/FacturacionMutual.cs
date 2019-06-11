@@ -46,7 +46,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             //Busca todos los pacientes que esten adheridos a la mutual seleccionada
             try
             {
-
+                if (txtPrecioUnidBioq.Text == "") { return; }
                 int filaSelec = this.cboMutual.SelectedIndex;
                 String valueMember = this.cboMutual.ValueMember.ToString();
 
@@ -65,12 +65,16 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                     this.cboPacientesAdheridos.DataSource = blPaciente.dataTablePaciente(null, null, null, null, idMutual);
                     this.cboPacientesAdheridos.ValueMember = "idPaciente";
                     this.cboPacientesAdheridos.DisplayMember = "nomape";
+                    
 
                     // cargo la lista de items para el autocomplete dle combobox
                     this.cboPacientesAdheridos.AutoCompleteCustomSource = AutocompletePaciente();
                     this.cboPacientesAdheridos.AutoCompleteMode = AutoCompleteMode.Suggest;
                     this.cboPacientesAdheridos.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    
                 }
+
+
             }
             catch (Exception)
             {
@@ -110,6 +114,9 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         {
             try
             {
+                //Limpio la grilla de analisis por protocolo
+                this.dgvAnalisisXProtocolo.Rows.Clear();
+
                 int filaSelec = this.cboPacientesAdheridos.SelectedIndex;
                 String valueMember = this.cboPacientesAdheridos.ValueMember.ToString();
                
@@ -128,7 +135,13 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                         {
                             dgvProtocolosXPaciente.Rows.Add(ent.ID_PROTOCOLO, ent.NRO_PROTOCOLO, ent.FECHA.Value.ToShortDateString(), ent.N_PROFESIONAL);
                         }
-                    }
+
+                        //Saco el select de la primer fila por defecto en la grilla
+                        foreach (DataGridViewRow dr in dgvProtocolosXPaciente.SelectedRows)
+                        {
+                            dr.Selected = false;
+                        }
+                }
             }
             catch (Exception)
             {
@@ -178,44 +191,30 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             }
         }
 
-        private void dgvAnalisisXProtocolo_MouseClick(object sender, MouseEventArgs e)
+
+        private void btnCargar_Click(object sender, EventArgs e)
         {
-            //if (e.Button == MouseButtons.Left)
-            //{
-            //    //Cargar Practicas del Protocolo Detalle seleccionado
-            //    //Posicion de la fila que haces click
-            //    int position_xy_mouse_row = dgvProtocoloDetalle.HitTest(e.X, e.Y).RowIndex;
-            //    posSelecPD = position_xy_mouse_row;
+            //Recorro los analisis seleccionados
+            int contador = 0;
+            foreach (DataGridViewRow row in dgvAnalisisXProtocolo.Rows)
+            {
+                if (row.Cells[7].Value.Equals(true))//Columna de checks
+                {
+                    contador++;
+                }
+            }
 
-            //    foreach (DataGridViewRow dr in dgvProtocoloDetalle.SelectedRows)
-            //    {
-            //        dr.Selected = false;
-            //    }
-
-            //    dgvPracticas.Rows.Clear();
-            //    dgvPracticas.Refresh();
-
-            //    //Si selecciona un protocolo detalle
-            //    if (position_xy_mouse_row >= 0)
-            //    {
-            //        dgvPracticas.Enabled = true;
-
-            //        dgvProtocoloDetalle.Rows[position_xy_mouse_row].Selected = true;
-
-            //        //Cargar Practicas del Protocolo Detalle seleccionado
-            //        String idPDGrilla = dgvProtocoloDetalle.Rows[posSelecPD].Cells[1].Value.ToString();
-            //        int idPD = int.Parse(idPDGrilla);
-
-            //        blLabBioquimica.bl_PRACTICA blPractica = new blLabBioquimica.bl_PRACTICA();
-            //        blLabBioquimica.bl_PRACTICAEntidadColeccion colPrac = blPractica.Buscar(null, idPD, null);
-
-            //        foreach (blLabBioquimica.bl_PRACTICAEntidad entPrac in colPrac)
-            //        {
-            //            dgvPracticas.Rows.Add(entPrac.ID_PROTOCOLO_DETALLE, entPrac.ID_PRACTICA, entPrac.ID_ITEM, entPrac.NOMBRE_ITEM, entPrac.RESULTADO, entPrac.VALOR_REF_ITEM, entPrac.NOMBRE_UNIDAD);
-            //        }
-
-            //    }
-            //}
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            //TO DO : Limpiar todos los campos
+        }
+
     }
 }

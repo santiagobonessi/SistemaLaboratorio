@@ -33,6 +33,14 @@
             this.lblMutualBusq = new System.Windows.Forms.Label();
             this.btnAceptarMutual = new System.Windows.Forms.Button();
             this.dgvAnalisisXProtocolo = new System.Windows.Forms.DataGridView();
+            this.idProtocoloAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProtocoloDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metodoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidadBioquimica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkCargar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgvProtocolosXPaciente = new System.Windows.Forms.DataGridView();
             this.idProtocolo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nroProtocolo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,23 +53,19 @@
             this.lblPesos = new System.Windows.Forms.Label();
             this.lblPrecioUnidBioq = new System.Windows.Forms.Label();
             this.txtPrecioUnidBioq = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
             this.dgvPacientesXAnalisisFacturados = new System.Windows.Forms.DataGridView();
+            this.lblAnalisisFacturados = new System.Windows.Forms.Label();
+            this.cboPacientesAdheridos = new System.Windows.Forms.ComboBox();
+            this.gbPacientesAdheridos = new System.Windows.Forms.GroupBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.ID_PACIENTES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apePaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listaCodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblAnalisisFacturados = new System.Windows.Forms.Label();
-            this.cboPacientesAdheridos = new System.Windows.Forms.ComboBox();
-            this.gbPacientesAdheridos = new System.Windows.Forms.GroupBox();
-            this.idProtocoloAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idProtocoloDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metodoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidadBioquimica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkCargar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisisXProtocolo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocolosXPaciente)).BeginInit();
             this.gbInfoMutual.SuspendLayout();
@@ -71,6 +75,7 @@
             // 
             // cboMutual
             // 
+            this.cboMutual.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMutual.FormattingEnabled = true;
             this.cboMutual.Location = new System.Drawing.Point(77, 19);
             this.cboMutual.Name = "cboMutual";
@@ -88,9 +93,9 @@
             // 
             // btnAceptarMutual
             // 
-            this.btnAceptarMutual.Location = new System.Drawing.Point(733, 17);
+            this.btnAceptarMutual.Location = new System.Drawing.Point(751, 12);
             this.btnAceptarMutual.Name = "btnAceptarMutual";
-            this.btnAceptarMutual.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptarMutual.Size = new System.Drawing.Size(75, 40);
             this.btnAceptarMutual.TabIndex = 5;
             this.btnAceptarMutual.Text = "Aceptar";
             this.btnAceptarMutual.UseVisualStyleBackColor = true;
@@ -117,215 +122,8 @@
             this.dgvAnalisisXProtocolo.Name = "dgvAnalisisXProtocolo";
             this.dgvAnalisisXProtocolo.RowHeadersVisible = false;
             this.dgvAnalisisXProtocolo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAnalisisXProtocolo.Size = new System.Drawing.Size(814, 125);
+            this.dgvAnalisisXProtocolo.Size = new System.Drawing.Size(814, 120);
             this.dgvAnalisisXProtocolo.TabIndex = 6;
-            this.dgvAnalisisXProtocolo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAnalisisXProtocolo_MouseClick);
-            // 
-            // dgvProtocolosXPaciente
-            // 
-            this.dgvProtocolosXPaciente.AllowUserToAddRows = false;
-            this.dgvProtocolosXPaciente.AllowUserToDeleteRows = false;
-            this.dgvProtocolosXPaciente.AllowUserToResizeColumns = false;
-            this.dgvProtocolosXPaciente.AllowUserToResizeRows = false;
-            this.dgvProtocolosXPaciente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProtocolosXPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProtocolosXPaciente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idProtocolo,
-            this.nroProtocolo,
-            this.fechaProtocolo,
-            this.nomapeProfesional});
-            this.dgvProtocolosXPaciente.Location = new System.Drawing.Point(12, 133);
-            this.dgvProtocolosXPaciente.Name = "dgvProtocolosXPaciente";
-            this.dgvProtocolosXPaciente.ReadOnly = true;
-            this.dgvProtocolosXPaciente.RowHeadersVisible = false;
-            this.dgvProtocolosXPaciente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProtocolosXPaciente.Size = new System.Drawing.Size(814, 118);
-            this.dgvProtocolosXPaciente.TabIndex = 7;
-            this.dgvProtocolosXPaciente.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProtocolosXPaciente_MouseClick);
-            // 
-            // idProtocolo
-            // 
-            this.idProtocolo.HeaderText = "ID PROTOCOLO";
-            this.idProtocolo.Name = "idProtocolo";
-            this.idProtocolo.ReadOnly = true;
-            this.idProtocolo.Visible = false;
-            // 
-            // nroProtocolo
-            // 
-            this.nroProtocolo.FillWeight = 119.5432F;
-            this.nroProtocolo.HeaderText = "Nro Protocolo";
-            this.nroProtocolo.Name = "nroProtocolo";
-            this.nroProtocolo.ReadOnly = true;
-            this.nroProtocolo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // fechaProtocolo
-            // 
-            this.fechaProtocolo.FillWeight = 119.5432F;
-            this.fechaProtocolo.HeaderText = "Fecha";
-            this.fechaProtocolo.Name = "fechaProtocolo";
-            this.fechaProtocolo.ReadOnly = true;
-            this.fechaProtocolo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // nomapeProfesional
-            // 
-            this.nomapeProfesional.FillWeight = 60.9137F;
-            this.nomapeProfesional.HeaderText = "Dr/a Solicitante";
-            this.nomapeProfesional.Name = "nomapeProfesional";
-            this.nomapeProfesional.ReadOnly = true;
-            this.nomapeProfesional.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // lblPacAdheridos
-            // 
-            this.lblPacAdheridos.AutoSize = true;
-            this.lblPacAdheridos.Location = new System.Drawing.Point(84, 22);
-            this.lblPacAdheridos.Name = "lblPacAdheridos";
-            this.lblPacAdheridos.Size = new System.Drawing.Size(107, 13);
-            this.lblPacAdheridos.TabIndex = 8;
-            this.lblPacAdheridos.Text = "Pacientes Adheridos:";
-            // 
-            // lblProtocolosPaciente
-            // 
-            this.lblProtocolosPaciente.AutoSize = true;
-            this.lblProtocolosPaciente.Location = new System.Drawing.Point(9, 117);
-            this.lblProtocolosPaciente.Name = "lblProtocolosPaciente";
-            this.lblProtocolosPaciente.Size = new System.Drawing.Size(122, 13);
-            this.lblProtocolosPaciente.TabIndex = 9;
-            this.lblProtocolosPaciente.Text = "Protocolos del Paciente:";
-            // 
-            // lblAnalisPorProtocolo
-            // 
-            this.lblAnalisPorProtocolo.AutoSize = true;
-            this.lblAnalisPorProtocolo.Location = new System.Drawing.Point(12, 257);
-            this.lblAnalisPorProtocolo.Name = "lblAnalisPorProtocolo";
-            this.lblAnalisPorProtocolo.Size = new System.Drawing.Size(110, 13);
-            this.lblAnalisPorProtocolo.TabIndex = 10;
-            this.lblAnalisPorProtocolo.Text = "Analisis del Protocolo:";
-            // 
-            // gbInfoMutual
-            // 
-            this.gbInfoMutual.Controls.Add(this.lblPesos);
-            this.gbInfoMutual.Controls.Add(this.lblPrecioUnidBioq);
-            this.gbInfoMutual.Controls.Add(this.txtPrecioUnidBioq);
-            this.gbInfoMutual.Controls.Add(this.cboMutual);
-            this.gbInfoMutual.Controls.Add(this.lblMutualBusq);
-            this.gbInfoMutual.Controls.Add(this.btnAceptarMutual);
-            this.gbInfoMutual.Location = new System.Drawing.Point(12, 10);
-            this.gbInfoMutual.Name = "gbInfoMutual";
-            this.gbInfoMutual.Size = new System.Drawing.Size(814, 48);
-            this.gbInfoMutual.TabIndex = 11;
-            this.gbInfoMutual.TabStop = false;
-            this.gbInfoMutual.Text = "Información Mutual";
-            // 
-            // lblPesos
-            // 
-            this.lblPesos.AutoSize = true;
-            this.lblPesos.Location = new System.Drawing.Point(596, 22);
-            this.lblPesos.Name = "lblPesos";
-            this.lblPesos.Size = new System.Drawing.Size(13, 13);
-            this.lblPesos.TabIndex = 8;
-            this.lblPesos.Text = "$";
-            // 
-            // lblPrecioUnidBioq
-            // 
-            this.lblPrecioUnidBioq.AutoSize = true;
-            this.lblPrecioUnidBioq.Location = new System.Drawing.Point(453, 22);
-            this.lblPrecioUnidBioq.Name = "lblPrecioUnidBioq";
-            this.lblPrecioUnidBioq.Size = new System.Drawing.Size(131, 13);
-            this.lblPrecioUnidBioq.TabIndex = 7;
-            this.lblPrecioUnidBioq.Text = "Precio Unidad Bioquimica:";
-            // 
-            // txtPrecioUnidBioq
-            // 
-            this.txtPrecioUnidBioq.Location = new System.Drawing.Point(615, 19);
-            this.txtPrecioUnidBioq.Name = "txtPrecioUnidBioq";
-            this.txtPrecioUnidBioq.Size = new System.Drawing.Size(79, 20);
-            this.txtPrecioUnidBioq.TabIndex = 6;
-            // 
-            // btnCargar
-            // 
-            this.btnCargar.Location = new System.Drawing.Point(751, 404);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(75, 35);
-            this.btnCargar.TabIndex = 12;
-            this.btnCargar.Text = "Cargar";
-            this.btnCargar.UseVisualStyleBackColor = true;
-            // 
-            // dgvPacientesXAnalisisFacturados
-            // 
-            this.dgvPacientesXAnalisisFacturados.AllowUserToAddRows = false;
-            this.dgvPacientesXAnalisisFacturados.AllowUserToDeleteRows = false;
-            this.dgvPacientesXAnalisisFacturados.AllowUserToResizeColumns = false;
-            this.dgvPacientesXAnalisisFacturados.AllowUserToResizeRows = false;
-            this.dgvPacientesXAnalisisFacturados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPacientesXAnalisisFacturados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPacientesXAnalisisFacturados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID_PACIENTES,
-            this.apePaciente,
-            this.nomPaciente,
-            this.listaCodAnalisis});
-            this.dgvPacientesXAnalisisFacturados.Enabled = false;
-            this.dgvPacientesXAnalisisFacturados.Location = new System.Drawing.Point(12, 445);
-            this.dgvPacientesXAnalisisFacturados.Name = "dgvPacientesXAnalisisFacturados";
-            this.dgvPacientesXAnalisisFacturados.ReadOnly = true;
-            this.dgvPacientesXAnalisisFacturados.RowHeadersVisible = false;
-            this.dgvPacientesXAnalisisFacturados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientesXAnalisisFacturados.Size = new System.Drawing.Size(813, 120);
-            this.dgvPacientesXAnalisisFacturados.TabIndex = 13;
-            // 
-            // ID_PACIENTES
-            // 
-            this.ID_PACIENTES.HeaderText = "ID PACIENTES";
-            this.ID_PACIENTES.Name = "ID_PACIENTES";
-            this.ID_PACIENTES.ReadOnly = true;
-            this.ID_PACIENTES.Visible = false;
-            // 
-            // apePaciente
-            // 
-            this.apePaciente.HeaderText = "Apellido";
-            this.apePaciente.Name = "apePaciente";
-            this.apePaciente.ReadOnly = true;
-            // 
-            // nomPaciente
-            // 
-            this.nomPaciente.HeaderText = "Nombre";
-            this.nomPaciente.Name = "nomPaciente";
-            this.nomPaciente.ReadOnly = true;
-            // 
-            // listaCodAnalisis
-            // 
-            this.listaCodAnalisis.HeaderText = "Códigos Analisis";
-            this.listaCodAnalisis.Name = "listaCodAnalisis";
-            this.listaCodAnalisis.ReadOnly = true;
-            // 
-            // lblAnalisisFacturados
-            // 
-            this.lblAnalisisFacturados.AutoSize = true;
-            this.lblAnalisisFacturados.Location = new System.Drawing.Point(11, 429);
-            this.lblAnalisisFacturados.Name = "lblAnalisisFacturados";
-            this.lblAnalisisFacturados.Size = new System.Drawing.Size(172, 13);
-            this.lblAnalisisFacturados.TabIndex = 14;
-            this.lblAnalisisFacturados.Text = "Pacientes con Analisis Facturados:";
-            // 
-            // cboPacientesAdheridos
-            // 
-            this.cboPacientesAdheridos.FormattingEnabled = true;
-            this.cboPacientesAdheridos.Location = new System.Drawing.Point(197, 19);
-            this.cboPacientesAdheridos.Name = "cboPacientesAdheridos";
-            this.cboPacientesAdheridos.Size = new System.Drawing.Size(387, 21);
-            this.cboPacientesAdheridos.TabIndex = 15;
-            this.cboPacientesAdheridos.SelectedIndexChanged += new System.EventHandler(this.cboPacientesAdheridos_SelectedIndexChanged);
-            // 
-            // gbPacientesAdheridos
-            // 
-            this.gbPacientesAdheridos.Controls.Add(this.cboPacientesAdheridos);
-            this.gbPacientesAdheridos.Controls.Add(this.lblPacAdheridos);
-            this.gbPacientesAdheridos.Enabled = false;
-            this.gbPacientesAdheridos.Location = new System.Drawing.Point(12, 64);
-            this.gbPacientesAdheridos.Name = "gbPacientesAdheridos";
-            this.gbPacientesAdheridos.Size = new System.Drawing.Size(814, 48);
-            this.gbPacientesAdheridos.TabIndex = 16;
-            this.gbPacientesAdheridos.TabStop = false;
-            this.gbPacientesAdheridos.Text = "Información Pacientes Adheridos";
             // 
             // idProtocoloAnalisis
             // 
@@ -378,16 +176,263 @@
             this.checkCargar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.checkCargar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // dgvProtocolosXPaciente
+            // 
+            this.dgvProtocolosXPaciente.AllowUserToAddRows = false;
+            this.dgvProtocolosXPaciente.AllowUserToDeleteRows = false;
+            this.dgvProtocolosXPaciente.AllowUserToResizeColumns = false;
+            this.dgvProtocolosXPaciente.AllowUserToResizeRows = false;
+            this.dgvProtocolosXPaciente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProtocolosXPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProtocolosXPaciente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProtocolo,
+            this.nroProtocolo,
+            this.fechaProtocolo,
+            this.nomapeProfesional});
+            this.dgvProtocolosXPaciente.Location = new System.Drawing.Point(12, 133);
+            this.dgvProtocolosXPaciente.Name = "dgvProtocolosXPaciente";
+            this.dgvProtocolosXPaciente.ReadOnly = true;
+            this.dgvProtocolosXPaciente.RowHeadersVisible = false;
+            this.dgvProtocolosXPaciente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProtocolosXPaciente.Size = new System.Drawing.Size(814, 120);
+            this.dgvProtocolosXPaciente.TabIndex = 7;
+            this.dgvProtocolosXPaciente.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProtocolosXPaciente_MouseClick);
+            // 
+            // idProtocolo
+            // 
+            this.idProtocolo.HeaderText = "ID PROTOCOLO";
+            this.idProtocolo.Name = "idProtocolo";
+            this.idProtocolo.ReadOnly = true;
+            this.idProtocolo.Visible = false;
+            // 
+            // nroProtocolo
+            // 
+            this.nroProtocolo.FillWeight = 119.5432F;
+            this.nroProtocolo.HeaderText = "Nro Protocolo";
+            this.nroProtocolo.Name = "nroProtocolo";
+            this.nroProtocolo.ReadOnly = true;
+            this.nroProtocolo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // fechaProtocolo
+            // 
+            this.fechaProtocolo.FillWeight = 119.5432F;
+            this.fechaProtocolo.HeaderText = "Fecha";
+            this.fechaProtocolo.Name = "fechaProtocolo";
+            this.fechaProtocolo.ReadOnly = true;
+            this.fechaProtocolo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // nomapeProfesional
+            // 
+            this.nomapeProfesional.FillWeight = 60.9137F;
+            this.nomapeProfesional.HeaderText = "Dr/a Solicitante";
+            this.nomapeProfesional.Name = "nomapeProfesional";
+            this.nomapeProfesional.ReadOnly = true;
+            this.nomapeProfesional.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // lblPacAdheridos
+            // 
+            this.lblPacAdheridos.AutoSize = true;
+            this.lblPacAdheridos.Location = new System.Drawing.Point(105, 22);
+            this.lblPacAdheridos.Name = "lblPacAdheridos";
+            this.lblPacAdheridos.Size = new System.Drawing.Size(107, 13);
+            this.lblPacAdheridos.TabIndex = 8;
+            this.lblPacAdheridos.Text = "Pacientes Adheridos:";
+            // 
+            // lblProtocolosPaciente
+            // 
+            this.lblProtocolosPaciente.AutoSize = true;
+            this.lblProtocolosPaciente.Location = new System.Drawing.Point(9, 117);
+            this.lblProtocolosPaciente.Name = "lblProtocolosPaciente";
+            this.lblProtocolosPaciente.Size = new System.Drawing.Size(122, 13);
+            this.lblProtocolosPaciente.TabIndex = 9;
+            this.lblProtocolosPaciente.Text = "Protocolos del Paciente:";
+            // 
+            // lblAnalisPorProtocolo
+            // 
+            this.lblAnalisPorProtocolo.AutoSize = true;
+            this.lblAnalisPorProtocolo.Location = new System.Drawing.Point(12, 257);
+            this.lblAnalisPorProtocolo.Name = "lblAnalisPorProtocolo";
+            this.lblAnalisPorProtocolo.Size = new System.Drawing.Size(110, 13);
+            this.lblAnalisPorProtocolo.TabIndex = 10;
+            this.lblAnalisPorProtocolo.Text = "Analisis del Protocolo:";
+            // 
+            // gbInfoMutual
+            // 
+            this.gbInfoMutual.Controls.Add(this.lblPesos);
+            this.gbInfoMutual.Controls.Add(this.lblPrecioUnidBioq);
+            this.gbInfoMutual.Controls.Add(this.txtPrecioUnidBioq);
+            this.gbInfoMutual.Controls.Add(this.cboMutual);
+            this.gbInfoMutual.Controls.Add(this.lblMutualBusq);
+            this.gbInfoMutual.Location = new System.Drawing.Point(12, 3);
+            this.gbInfoMutual.Name = "gbInfoMutual";
+            this.gbInfoMutual.Size = new System.Drawing.Size(637, 55);
+            this.gbInfoMutual.TabIndex = 11;
+            this.gbInfoMutual.TabStop = false;
+            this.gbInfoMutual.Text = "Información Mutual";
+            // 
+            // lblPesos
+            // 
+            this.lblPesos.AutoSize = true;
+            this.lblPesos.Location = new System.Drawing.Point(532, 22);
+            this.lblPesos.Name = "lblPesos";
+            this.lblPesos.Size = new System.Drawing.Size(13, 13);
+            this.lblPesos.TabIndex = 8;
+            this.lblPesos.Text = "$";
+            // 
+            // lblPrecioUnidBioq
+            // 
+            this.lblPrecioUnidBioq.AutoSize = true;
+            this.lblPrecioUnidBioq.Location = new System.Drawing.Point(389, 22);
+            this.lblPrecioUnidBioq.Name = "lblPrecioUnidBioq";
+            this.lblPrecioUnidBioq.Size = new System.Drawing.Size(131, 13);
+            this.lblPrecioUnidBioq.TabIndex = 7;
+            this.lblPrecioUnidBioq.Text = "Precio Unidad Bioquimica:";
+            // 
+            // txtPrecioUnidBioq
+            // 
+            this.txtPrecioUnidBioq.Location = new System.Drawing.Point(551, 19);
+            this.txtPrecioUnidBioq.Name = "txtPrecioUnidBioq";
+            this.txtPrecioUnidBioq.Size = new System.Drawing.Size(79, 20);
+            this.txtPrecioUnidBioq.TabIndex = 6;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(655, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(86, 40);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.Location = new System.Drawing.Point(751, 396);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(75, 40);
+            this.btnCargar.TabIndex = 12;
+            this.btnCargar.Text = "Cargar";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
+            // dgvPacientesXAnalisisFacturados
+            // 
+            this.dgvPacientesXAnalisisFacturados.AllowUserToAddRows = false;
+            this.dgvPacientesXAnalisisFacturados.AllowUserToDeleteRows = false;
+            this.dgvPacientesXAnalisisFacturados.AllowUserToResizeColumns = false;
+            this.dgvPacientesXAnalisisFacturados.AllowUserToResizeRows = false;
+            this.dgvPacientesXAnalisisFacturados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPacientesXAnalisisFacturados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPacientesXAnalisisFacturados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID_PACIENTES,
+            this.apePaciente,
+            this.nomPaciente,
+            this.listaCodAnalisis,
+            this.subtotal});
+            this.dgvPacientesXAnalisisFacturados.Enabled = false;
+            this.dgvPacientesXAnalisisFacturados.Location = new System.Drawing.Point(13, 439);
+            this.dgvPacientesXAnalisisFacturados.Name = "dgvPacientesXAnalisisFacturados";
+            this.dgvPacientesXAnalisisFacturados.ReadOnly = true;
+            this.dgvPacientesXAnalisisFacturados.RowHeadersVisible = false;
+            this.dgvPacientesXAnalisisFacturados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPacientesXAnalisisFacturados.Size = new System.Drawing.Size(813, 126);
+            this.dgvPacientesXAnalisisFacturados.TabIndex = 13;
+            // 
+            // lblAnalisisFacturados
+            // 
+            this.lblAnalisisFacturados.AutoSize = true;
+            this.lblAnalisisFacturados.Location = new System.Drawing.Point(12, 423);
+            this.lblAnalisisFacturados.Name = "lblAnalisisFacturados";
+            this.lblAnalisisFacturados.Size = new System.Drawing.Size(172, 13);
+            this.lblAnalisisFacturados.TabIndex = 14;
+            this.lblAnalisisFacturados.Text = "Pacientes con Analisis Facturados:";
+            // 
+            // cboPacientesAdheridos
+            // 
+            this.cboPacientesAdheridos.FormattingEnabled = true;
+            this.cboPacientesAdheridos.Location = new System.Drawing.Point(218, 19);
+            this.cboPacientesAdheridos.Name = "cboPacientesAdheridos";
+            this.cboPacientesAdheridos.Size = new System.Drawing.Size(387, 21);
+            this.cboPacientesAdheridos.TabIndex = 15;
+            this.cboPacientesAdheridos.SelectedIndexChanged += new System.EventHandler(this.cboPacientesAdheridos_SelectedIndexChanged);
+            // 
+            // gbPacientesAdheridos
+            // 
+            this.gbPacientesAdheridos.Controls.Add(this.cboPacientesAdheridos);
+            this.gbPacientesAdheridos.Controls.Add(this.lblPacAdheridos);
+            this.gbPacientesAdheridos.Enabled = false;
+            this.gbPacientesAdheridos.Location = new System.Drawing.Point(12, 64);
+            this.gbPacientesAdheridos.Name = "gbPacientesAdheridos";
+            this.gbPacientesAdheridos.Size = new System.Drawing.Size(814, 50);
+            this.gbPacientesAdheridos.TabIndex = 16;
+            this.gbPacientesAdheridos.TabStop = false;
+            this.gbPacientesAdheridos.Text = "Información Pacientes Adheridos";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(12, 571);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(86, 52);
+            this.btnSalir.TabIndex = 17;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Location = new System.Drawing.Point(677, 571);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(149, 52);
+            this.btnImprimir.TabIndex = 18;
+            this.btnImprimir.Text = "Imprimir Informe";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            // 
+            // ID_PACIENTES
+            // 
+            this.ID_PACIENTES.HeaderText = "ID PACIENTES";
+            this.ID_PACIENTES.Name = "ID_PACIENTES";
+            this.ID_PACIENTES.ReadOnly = true;
+            this.ID_PACIENTES.Visible = false;
+            // 
+            // apePaciente
+            // 
+            this.apePaciente.HeaderText = "Apellido";
+            this.apePaciente.Name = "apePaciente";
+            this.apePaciente.ReadOnly = true;
+            // 
+            // nomPaciente
+            // 
+            this.nomPaciente.HeaderText = "Nombre";
+            this.nomPaciente.Name = "nomPaciente";
+            this.nomPaciente.ReadOnly = true;
+            // 
+            // listaCodAnalisis
+            // 
+            this.listaCodAnalisis.HeaderText = "Códigos Analisis";
+            this.listaCodAnalisis.Name = "listaCodAnalisis";
+            this.listaCodAnalisis.ReadOnly = true;
+            // 
+            // subtotal
+            // 
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.Name = "subtotal";
+            this.subtotal.ReadOnly = true;
+            // 
             // FacturacionMutual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(835, 575);
+            this.ClientSize = new System.Drawing.Size(834, 626);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gbPacientesAdheridos);
             this.Controls.Add(this.lblAnalisisFacturados);
             this.Controls.Add(this.dgvPacientesXAnalisisFacturados);
             this.Controls.Add(this.btnCargar);
+            this.Controls.Add(this.btnAceptarMutual);
             this.Controls.Add(this.gbInfoMutual);
             this.Controls.Add(this.lblAnalisPorProtocolo);
             this.Controls.Add(this.lblProtocolosPaciente);
@@ -431,10 +476,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nroProtocolo;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaProtocolo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomapeProfesional;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_PACIENTES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apePaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomPaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn listaCodAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProtocoloAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProtocoloDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn idAnalisis;
@@ -443,5 +484,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn unidadBioquimica;
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkCargar;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_PACIENTES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apePaciente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomPaciente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn listaCodAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
     }
 }
