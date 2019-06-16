@@ -50,6 +50,8 @@
             this.lblProtocolosPaciente = new System.Windows.Forms.Label();
             this.lblAnalisPorProtocolo = new System.Windows.Forms.Label();
             this.gbInfoMutual = new System.Windows.Forms.GroupBox();
+            this.cboMesFact = new System.Windows.Forms.ComboBox();
+            this.lblMesFact = new System.Windows.Forms.Label();
             this.lblPesos = new System.Windows.Forms.Label();
             this.lblPrecioUnidBioq = new System.Windows.Forms.Label();
             this.txtPrecioUnidBioq = new System.Windows.Forms.TextBox();
@@ -61,17 +63,14 @@
             this.gbPacientesAdheridos = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.ID_PACIENTES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apePaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listaCodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotalUnidBioq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chCargarCod1 = new System.Windows.Forms.CheckBox();
             this.lblTotalFacturacion = new System.Windows.Forms.Label();
             this.txtTotalFacturacion = new System.Windows.Forms.TextBox();
-            this.lblMesFact = new System.Windows.Forms.Label();
-            this.cboMesFact = new System.Windows.Forms.ComboBox();
+            this.ID_PACIENTES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listaCodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalUnidBioq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisisXProtocolo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocolosXPaciente)).BeginInit();
             this.gbInfoMutual.SuspendLayout();
@@ -278,6 +277,37 @@
             this.gbInfoMutual.TabStop = false;
             this.gbInfoMutual.Text = "Información General";
             // 
+            // cboMesFact
+            // 
+            this.cboMesFact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMesFact.FormattingEnabled = true;
+            this.cboMesFact.Items.AddRange(new object[] {
+            "ENERO",
+            "FEBRERO",
+            "MARZO",
+            "ABRIL",
+            "MAYO",
+            "JUNIO",
+            "JULIO",
+            "AGOSTO",
+            "SEPTIEMBRE",
+            "OCTUBRE",
+            "NOVIEMBRE",
+            "DICIEMBRE"});
+            this.cboMesFact.Location = new System.Drawing.Point(320, 20);
+            this.cboMesFact.Name = "cboMesFact";
+            this.cboMesFact.Size = new System.Drawing.Size(111, 21);
+            this.cboMesFact.TabIndex = 10;
+            // 
+            // lblMesFact
+            // 
+            this.lblMesFact.AutoSize = true;
+            this.lblMesFact.Location = new System.Drawing.Point(284, 24);
+            this.lblMesFact.Name = "lblMesFact";
+            this.lblMesFact.Size = new System.Drawing.Size(30, 13);
+            this.lblMesFact.TabIndex = 9;
+            this.lblMesFact.Text = "Mes:";
+            // 
             // lblPesos
             // 
             this.lblPesos.AutoSize = true;
@@ -319,7 +349,7 @@
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(64, 46);
             this.btnCargar.TabIndex = 12;
-            this.btnCargar.Text = "Cargar";
+            this.btnCargar.Text = "Cargar Orden";
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
@@ -333,12 +363,10 @@
             this.dgvPacientesXAnalisisFacturados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientesXAnalisisFacturados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID_PACIENTES,
-            this.apePaciente,
-            this.nomPaciente,
+            this.paciente,
             this.listaCodAnalisis,
             this.subtotalUnidBioq,
             this.subtotal});
-            this.dgvPacientesXAnalisisFacturados.Enabled = false;
             this.dgvPacientesXAnalisisFacturados.Location = new System.Drawing.Point(13, 444);
             this.dgvPacientesXAnalisisFacturados.Name = "dgvPacientesXAnalisisFacturados";
             this.dgvPacientesXAnalisisFacturados.ReadOnly = true;
@@ -350,7 +378,7 @@
             // lblAnalisisFacturados
             // 
             this.lblAnalisisFacturados.AutoSize = true;
-            this.lblAnalisisFacturados.Location = new System.Drawing.Point(12, 412);
+            this.lblAnalisisFacturados.Location = new System.Drawing.Point(12, 428);
             this.lblAnalisisFacturados.Name = "lblAnalisisFacturados";
             this.lblAnalisisFacturados.Size = new System.Drawing.Size(172, 13);
             this.lblAnalisisFacturados.TabIndex = 14;
@@ -398,43 +426,6 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
-            // ID_PACIENTES
-            // 
-            this.ID_PACIENTES.HeaderText = "ID PACIENTES";
-            this.ID_PACIENTES.Name = "ID_PACIENTES";
-            this.ID_PACIENTES.ReadOnly = true;
-            this.ID_PACIENTES.Visible = false;
-            // 
-            // apePaciente
-            // 
-            this.apePaciente.HeaderText = "Apellido";
-            this.apePaciente.Name = "apePaciente";
-            this.apePaciente.ReadOnly = true;
-            // 
-            // nomPaciente
-            // 
-            this.nomPaciente.HeaderText = "Nombre";
-            this.nomPaciente.Name = "nomPaciente";
-            this.nomPaciente.ReadOnly = true;
-            // 
-            // listaCodAnalisis
-            // 
-            this.listaCodAnalisis.HeaderText = "Códigos Analisis";
-            this.listaCodAnalisis.Name = "listaCodAnalisis";
-            this.listaCodAnalisis.ReadOnly = true;
-            // 
-            // subtotalUnidBioq
-            // 
-            this.subtotalUnidBioq.HeaderText = "Cantidad Unid Bioq";
-            this.subtotalUnidBioq.Name = "subtotalUnidBioq";
-            this.subtotalUnidBioq.ReadOnly = true;
-            // 
-            // subtotal
-            // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
-            // 
             // chCargarCod1
             // 
             this.chCargarCod1.AutoSize = true;
@@ -464,36 +455,36 @@
             this.txtTotalFacturacion.Size = new System.Drawing.Size(120, 20);
             this.txtTotalFacturacion.TabIndex = 1;
             // 
-            // lblMesFact
+            // ID_PACIENTES
             // 
-            this.lblMesFact.AutoSize = true;
-            this.lblMesFact.Location = new System.Drawing.Point(284, 24);
-            this.lblMesFact.Name = "lblMesFact";
-            this.lblMesFact.Size = new System.Drawing.Size(30, 13);
-            this.lblMesFact.TabIndex = 9;
-            this.lblMesFact.Text = "Mes:";
+            this.ID_PACIENTES.HeaderText = "ID PACIENTES";
+            this.ID_PACIENTES.Name = "ID_PACIENTES";
+            this.ID_PACIENTES.ReadOnly = true;
+            this.ID_PACIENTES.Visible = false;
             // 
-            // cboMesFact
+            // paciente
             // 
-            this.cboMesFact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMesFact.FormattingEnabled = true;
-            this.cboMesFact.Items.AddRange(new object[] {
-            "ENERO",
-            "FEBRERO",
-            "MARZO",
-            "ABRIL",
-            "MAYO",
-            "JUNIO",
-            "JULIO",
-            "AGOSTO",
-            "SEPTIEMBRE",
-            "OCTUBRE",
-            "NOVIEMBRE",
-            "DICIEMBRE"});
-            this.cboMesFact.Location = new System.Drawing.Point(320, 20);
-            this.cboMesFact.Name = "cboMesFact";
-            this.cboMesFact.Size = new System.Drawing.Size(111, 21);
-            this.cboMesFact.TabIndex = 10;
+            this.paciente.HeaderText = "Paciente";
+            this.paciente.Name = "paciente";
+            this.paciente.ReadOnly = true;
+            // 
+            // listaCodAnalisis
+            // 
+            this.listaCodAnalisis.HeaderText = "Códigos Analisis";
+            this.listaCodAnalisis.Name = "listaCodAnalisis";
+            this.listaCodAnalisis.ReadOnly = true;
+            // 
+            // subtotalUnidBioq
+            // 
+            this.subtotalUnidBioq.HeaderText = "Cantidad Unid Bioq";
+            this.subtotalUnidBioq.Name = "subtotalUnidBioq";
+            this.subtotalUnidBioq.ReadOnly = true;
+            // 
+            // subtotal
+            // 
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.Name = "subtotal";
+            this.subtotal.ReadOnly = true;
             // 
             // FacturacionMutual
             // 
@@ -566,16 +557,15 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_PACIENTES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apePaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomPaciente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn listaCodAnalisis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalUnidBioq;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
         private System.Windows.Forms.CheckBox chCargarCod1;
         private System.Windows.Forms.Label lblTotalFacturacion;
         private System.Windows.Forms.TextBox txtTotalFacturacion;
         private System.Windows.Forms.ComboBox cboMesFact;
         private System.Windows.Forms.Label lblMesFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_PACIENTES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paciente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn listaCodAnalisis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotalUnidBioq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
     }
 }

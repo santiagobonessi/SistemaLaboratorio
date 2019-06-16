@@ -194,19 +194,28 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            string nomapePaciente = this.cboPacientesAdheridos.Text;
+            List<string> listaCodigos = new List<string>();
+            int cantUnidBioq = 0;
+            decimal subtotal = 0;
+
             //Recorro los analisis seleccionados
             foreach (DataGridViewRow row in dgvAnalisisXProtocolo.Rows)
             {
-                //Filtro por los checks seleccionados
-                if (row.Cells[7].Value.Equals(true))//Columna de checks
-                {
-                    //Guardo en la grilla dgvPacientesXAnalisisFacturados los analisis
-
-
-
+                if (row.Cells[7].Value != null) { 
+                    string codigo = "";
+                    string unidadBioq = "";
+                    //Filtro por los checks seleccionados
+                    if (row.Cells[7].Value.Equals(true))//Columna de checks
+                    {
+                     //Guardo en la grilla dgvPacientesXAnalisisFacturados los analisis
+                     codigo = row.Cells[5].Value.ToString();
+                     unidadBioq = row.Cells[6].Value.ToString();
+                    }
                 }
+                
             }
-
+            dgvPacientesXAnalisisFacturados.Rows.Add(0, nomapePaciente, codigo, unidadBioq, "");
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
