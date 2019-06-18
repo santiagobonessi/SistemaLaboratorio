@@ -195,27 +195,61 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         private void btnCargar_Click(object sender, EventArgs e)
         {
             string nomapePaciente = this.cboPacientesAdheridos.Text;
-            List<string> listaCodigos = new List<string>();
+            string cadenaCodigos = "";
             int cantUnidBioq = 0;
-            decimal subtotal = 0;
+            decimal precioUnidBioq = decimal.Parse(this.txtPrecioUnidBioq.Text);
+            bool codigo1 = this.chCargarCod1.Checked;
 
             //Recorro los analisis seleccionados
             foreach (DataGridViewRow row in dgvAnalisisXProtocolo.Rows)
             {
-                if (row.Cells[7].Value != null) { 
+                if (row.Cells[7].Value != null)
+                { 
                     string codigo = "";
-                    string unidadBioq = "";
+                    int unidadBioq = 0;
+
+                    //Codigo 1 
+                    if (codigo1)
+                    {
+                        codigo = "1";
+                        cadenaCodigos += codigo + " - ";
+                        cantUnidBioq = 1; //TO DO: Ver de cuanto es la unidad bioquimica.
+
+                        codigo1 = false; // Para cargarlo solo una vez por orden.
+                    }
+
                     //Filtro por los checks seleccionados
                     if (row.Cells[7].Value.Equals(true))//Columna de checks
                     {
                      //Guardo en la grilla dgvPacientesXAnalisisFacturados los analisis
                      codigo = row.Cells[5].Value.ToString();
-                     unidadBioq = row.Cells[6].Value.ToString();
+                     cadenaCodigos += codigo + " - ";
+
+                         if (row.Cells[6].Value.ToString() != "")
+                         {
+                            unidadBioq = int.Parse(row.Cells[6].Value.ToString());
+                            cantUnidBioq += unidadBioq;
+                         }
+
                     }
                 }
                 
             }
-            dgvPacientesXAnalisisFacturados.Rows.Add(0, nomapePaciente, codigo, unidadBioq, "");
+            
+            decimal subtotal = Math.Round(cantUnidBioq * precioUnidBioq, 2);
+            decimal total = 0;
+            if (this.txtTotalFacturacion.Text == "")
+            {
+                total = subtotal;
+            }
+            else
+            {
+                decimal totalAnterior = decimal.Parse(this.txtTotalFacturacion.Text);
+                total = Math.Round(totalAnterior + subtotal, 2);
+            }
+            this.txtTotalFacturacion.Text = total.ToString();
+
+            dgvPacientesXAnalisisFacturados.Rows.Add(nomapePaciente, cadenaCodigos, cantUnidBioq.ToString(), subtotal.ToString());
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -229,45 +263,62 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         }
 
         /// <summary>
-        /// 
+        /// Metodo que exporta a excel los datos de facturacion de mutuales.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            ExportarDataGridViewExcel(dgvProtocolosXPaciente);
+            ExportarDataGridViewExcel(dgvPacientesXAnalisisFacturados);
         }
 
         /// <summary>
-        /// Método que exporta a un fichero Excel el contenido de un DataGridView
+        /// Método que exporta a un fichero Excel el contenido de un DataGridView.
         /// </summary>
-        /// <param name="grd">DataGridView que contiene los datos a exportar</param>
-        private void ExportarDataGridViewExcel(DataGridView grd)
+        /// <param name="dgv">DataGridView que contiene los datos a exportar</param>
+        private void ExportarDataGridViewExcel(DataGridView dgv)
         {
-            SaveFileDialog fichero = new SaveFileDialog();
-            fichero.Filter = "Excel (*.xls)|*.xls";
-            if (fichero.ShowDialog() == DialogResult.OK)
+            try
             {
-                Microsoft.Office.Interop.Excel.Application aplicacion;
-                Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
-                Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
-                aplicacion = new Microsoft.Office.Interop.Excel.Application();
-                libros_trabajo = aplicacion.Workbooks.Add();
-                hoja_trabajo =
-                    (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
-                //Recorremos el DataGridView rellenando la hoja de trabajo
-                for (int i = 0; i < grd.Rows.Count - 1; i++)
+                SaveFileDialog fichero = new SaveFileDialog();
+                fichero.Filter = "Excel (*.xls)|*.xls";
+                if (fichero.ShowDialog() == DialogResult.OK)
                 {
-                    for (int j = 0; j < grd.Columns.Count; j++)
+                    Microsoft.Office.Interop.Excel.Application aplicacion = new Microsoft.Office.Interop.Excel.Application();
+                    Microsoft.Office.Interop.Excel.Workbook libros_trabajo = aplicacion.Workbooks.Add();
+                    Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+
+                    hoja_trabajo.Cells[1, 1] = "FACTURACIÓN " + this.cboMesFact.Text + " " + DateTime.Now.Year.ToString();
+
+                    //Cargar cabecera
+                    for (int j = 0; j < dgv.ColumnCount; j++)
                     {
-                        hoja_trabajo.Cells[i + 1, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
+                        hoja_trabajo.Cells[2, j + 1] = dgv.Columns[j].HeaderText.ToUpper();
                     }
+
+                    //Recorremos el DataGridView rellenando la hoja de trabajo
+                    for (int i = 0; i < dgv.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgv.Columns.Count; j++)
+                        {
+                            hoja_trabajo.Cells[i + 3, j + 1] = dgv.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    hoja_trabajo.Cells[dgv.Rows.Count + 3, 3] = "TOTAL";
+                    hoja_trabajo.Cells[dgv.Rows.Count + 3, 4] = this.txtTotalFacturacion.Text;
+
+                    libros_trabajo.SaveAs(fichero.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                    libros_trabajo.Close(true);
+                    aplicacion.Quit();
                 }
-                libros_trabajo.SaveAs(fichero.FileName,
-                    Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
-                libros_trabajo.Close(true);
-                aplicacion.Quit();
             }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
         }
 
     }

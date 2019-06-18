@@ -66,7 +66,6 @@
             this.chCargarCod1 = new System.Windows.Forms.CheckBox();
             this.lblTotalFacturacion = new System.Windows.Forms.Label();
             this.txtTotalFacturacion = new System.Windows.Forms.TextBox();
-            this.ID_PACIENTES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listaCodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotalUnidBioq = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -362,7 +361,6 @@
             this.dgvPacientesXAnalisisFacturados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPacientesXAnalisisFacturados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientesXAnalisisFacturados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID_PACIENTES,
             this.paciente,
             this.listaCodAnalisis,
             this.subtotalUnidBioq,
@@ -422,7 +420,7 @@
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(149, 37);
             this.btnImprimir.TabIndex = 18;
-            this.btnImprimir.Text = "Imprimir Informe";
+            this.btnImprimir.Text = "Exportar Informe";
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
@@ -441,7 +439,7 @@
             // lblTotalFacturacion
             // 
             this.lblTotalFacturacion.AutoSize = true;
-            this.lblTotalFacturacion.Location = new System.Drawing.Point(658, 608);
+            this.lblTotalFacturacion.Location = new System.Drawing.Point(674, 610);
             this.lblTotalFacturacion.Name = "lblTotalFacturacion";
             this.lblTotalFacturacion.Size = new System.Drawing.Size(49, 13);
             this.lblTotalFacturacion.TabIndex = 0;
@@ -450,17 +448,11 @@
             // txtTotalFacturacion
             // 
             this.txtTotalFacturacion.Enabled = false;
-            this.txtTotalFacturacion.Location = new System.Drawing.Point(706, 605);
+            this.txtTotalFacturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalFacturacion.Location = new System.Drawing.Point(721, 605);
             this.txtTotalFacturacion.Name = "txtTotalFacturacion";
-            this.txtTotalFacturacion.Size = new System.Drawing.Size(120, 20);
+            this.txtTotalFacturacion.Size = new System.Drawing.Size(105, 22);
             this.txtTotalFacturacion.TabIndex = 1;
-            // 
-            // ID_PACIENTES
-            // 
-            this.ID_PACIENTES.HeaderText = "ID PACIENTES";
-            this.ID_PACIENTES.Name = "ID_PACIENTES";
-            this.ID_PACIENTES.ReadOnly = true;
-            this.ID_PACIENTES.Visible = false;
             // 
             // paciente
             // 
@@ -470,19 +462,19 @@
             // 
             // listaCodAnalisis
             // 
-            this.listaCodAnalisis.HeaderText = "Códigos Analisis";
+            this.listaCodAnalisis.HeaderText = "Analisis";
             this.listaCodAnalisis.Name = "listaCodAnalisis";
             this.listaCodAnalisis.ReadOnly = true;
             // 
             // subtotalUnidBioq
             // 
-            this.subtotalUnidBioq.HeaderText = "Cantidad Unid Bioq";
+            this.subtotalUnidBioq.HeaderText = "Unidades Bioq";
             this.subtotalUnidBioq.Name = "subtotalUnidBioq";
             this.subtotalUnidBioq.ReadOnly = true;
             // 
             // subtotal
             // 
-            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.HeaderText = "Costo";
             this.subtotal.Name = "subtotal";
             this.subtotal.ReadOnly = true;
             // 
@@ -562,7 +554,6 @@
         private System.Windows.Forms.TextBox txtTotalFacturacion;
         private System.Windows.Forms.ComboBox cboMesFact;
         private System.Windows.Forms.Label lblMesFact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_PACIENTES;
         private System.Windows.Forms.DataGridViewTextBoxColumn paciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn listaCodAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotalUnidBioq;

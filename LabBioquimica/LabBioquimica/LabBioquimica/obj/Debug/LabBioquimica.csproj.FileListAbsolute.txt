@@ -174,3 +174,4 @@ C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimic
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.csproj.GenerateResource.Cache
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.exe.manifest
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.application
+C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.csproj.ResolveComReference.cache

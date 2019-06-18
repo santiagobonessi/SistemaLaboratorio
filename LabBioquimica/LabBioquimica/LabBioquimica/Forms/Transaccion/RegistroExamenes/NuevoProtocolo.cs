@@ -779,10 +779,10 @@ namespace LabBioquimica.Forms.Transaccion
             pfs.Add(pf);
             formRPT.crvExamenes.ParameterFieldInfo = pfs;
 
-            oRep.Load(@"C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\Reportes\Examenes.rpt");
+            oRep.Load(@"C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\Reportes\Examenes.rpt");
             formRPT.crvExamenes.ReportSource = oRep;
             formRPT.Show();
-            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\Santiago\Desktop\SistemaLaboratorio\LabBioquimica\ReportesSalida\Examenes.pdf");
+            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\ReportesSalida\Examenes.pdf");
 
 
         }
