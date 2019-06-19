@@ -16,6 +16,9 @@ namespace LabBioquimica.Forms.Transaccion
 {
     public partial class NuevoProtocolo : Form
     {
+        //Configuracion ruta de acceso a reporte
+        private string rutaReporteExamenes = ConfigurationManager.AppSettings["ruta.reporte.examenes"];
+
         //Id protocolo para manejo dentro de la clase
         private int idProtocoloActual;
 
@@ -778,11 +781,11 @@ namespace LabBioquimica.Forms.Transaccion
             pf.CurrentValues.Add(pdv);
             pfs.Add(pf);
             formRPT.crvExamenes.ParameterFieldInfo = pfs;
-
-            oRep.Load(@"C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\Reportes\Examenes.rpt");
+            
+            oRep.Load(@rutaReporteExamenes.ToString());
             formRPT.crvExamenes.ReportSource = oRep;
             formRPT.Show();
-            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\ReportesSalida\Examenes.pdf");
+            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"Nombre_Examenes.pdf");
 
 
         }

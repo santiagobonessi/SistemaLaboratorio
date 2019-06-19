@@ -196,7 +196,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         {
             string nomapePaciente = this.cboPacientesAdheridos.Text;
             string cadenaCodigos = "";
-            int cantUnidBioq = 0;
+            decimal cantUnidBioq = 0;
             decimal precioUnidBioq = decimal.Parse(this.txtPrecioUnidBioq.Text);
             bool codigo1 = this.chCargarCod1.Checked;
 
@@ -206,14 +206,14 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                 if (row.Cells[7].Value != null)
                 { 
                     string codigo = "";
-                    int unidadBioq = 0;
+                    decimal unidadBioq = 0;
 
                     //Codigo 1 
                     if (codigo1)
                     {
                         codigo = "1";
                         cadenaCodigos += codigo + " - ";
-                        cantUnidBioq = 1; //TO DO: Ver de cuanto es la unidad bioquimica.
+                        cantUnidBioq = decimal.Parse(txtUnidBioqCod1.Text);
 
                         codigo1 = false; // Para cargarlo solo una vez por orden.
                     }
