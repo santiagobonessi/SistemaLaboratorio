@@ -213,7 +213,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                     {
                         codigo = "1";
                         cadenaCodigos += codigo + " - ";
-                        cantUnidBioq = 1; //TO DO: Ver de cuanto es la unidad bioquimica.
+                        cantUnidBioq = 3; //TO DO: Ver de cuanto es la unidad bioquimica.
 
                         codigo1 = false; // Para cargarlo solo una vez por orden.
                     }
