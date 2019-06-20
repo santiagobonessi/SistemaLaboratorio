@@ -18,6 +18,8 @@ namespace LabBioquimica.Forms.Transaccion
     {
         //Configuracion ruta de acceso a reporte
         private string rutaReporteExamenes = ConfigurationManager.AppSettings["ruta.reporte.examenes"];
+        //Configuracion ruta de salida para reportes en pdf
+        private string rutaSalidaReportesExamenes = ConfigurationManager.AppSettings["ruta.salida.pdf.examenes"];
 
         //Id protocolo para manejo dentro de la clase
         private int idProtocoloActual;
@@ -766,6 +768,9 @@ namespace LabBioquimica.Forms.Transaccion
         {
             String idProtocolo = this.idProtocoloActual.ToString();
 
+            blLabBioquimica.bl_PROTOCOLO blProtocolo = new blLabBioquimica.bl_PROTOCOLO();
+            blLabBioquimica.bl_PROTOCOLOEntidad entProt = blProtocolo.BuscarPorPK(int.Parse(idProtocolo));
+             
 
             //Creamos una instancia del formulario del reporte
             Reportes.RPT_EXAMENES formRPT = new Reportes.RPT_EXAMENES();
@@ -785,8 +790,13 @@ namespace LabBioquimica.Forms.Transaccion
             oRep.Load(@rutaReporteExamenes.ToString());
             formRPT.crvExamenes.ReportSource = oRep;
             formRPT.Show();
-            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"Nombre_Examenes.pdf");
 
+            //Nombre de cada reporte de salida, con fecha, hora e id de protocolo.
+            //TO DO: Agregar nombre y apellido del Paciente.
+            string nombreReportePDF = DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + "_" +
+            DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString() + "_" + entProt.NRO_PROTOCOLO.ToString() + "_" + entProt.N_PACIENTE + ".pdf";
+
+            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @rutaSalidaReportesExamenes+nombreReportePDF);
 
         }
 

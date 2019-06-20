@@ -113,7 +113,9 @@ namespace blLabBioquimica
                     this.NRO_PROTOCOLO = ent.NRO_PROTOCOLO;
                     this.FECHA = ent.FECHA;
                     this.ID_PACIENTE = ent.ID_PACIENTE;
+                    this.N_PACIENTE = ent.N_PACIENTE;
                     this.ID_PROFESIONAL = ent.ID_PROFESIONAL;
+                    this.N_PROFESIONAL = ent.N_PROFESIONAL;
                     this.USR_ING = ent.USR_ING;
                     this.FEC_ING = ent.FEC_ING;
                     this.USR_MOD = ent.USR_MOD;

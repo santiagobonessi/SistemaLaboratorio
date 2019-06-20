@@ -25,7 +25,7 @@ namespace daLabBioquimica
                                + "Prot.usr_ing, Prot.fec_ing, Prot.usr_mod, Prot.fec_mod, Prot.usr_baja, Prot.fec_baja "
                                + "FROM Protocolo Prot INNER JOIN Pacientes Pac ON Prot.idPaciente = Pac.idPaciente "
                                + "INNER JOIN  Profesionales Prof ON Prot.idProfesional = Prof.idProfesional "
-                               + "WHERE P.idProtocolo = @ID_PROTOCOLO ";
+                               + "WHERE Prot.idProtocolo = @ID_PROTOCOLO ";
 
                 SqlCommand com = new SqlCommand(sql, conn);
 
