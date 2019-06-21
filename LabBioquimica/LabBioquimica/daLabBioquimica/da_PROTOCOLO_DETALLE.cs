@@ -22,7 +22,7 @@ namespace daLabBioquimica
                 conn.Open();
 
                 String sql = @"SELECT PD.idProtocoloDetalle, PD.idProtocolo, PD.idAnalisis, "
-                               + "A.nombre, A.metodo, A.codigo, "
+                               + "A.nombre, A.metodo, A.codigo, A.unidadBioquimica, "
                                + "PD.usr_ing, PD.fec_ing, PD.usr_mod, PD.fec_mod, PD.usr_baja, PD.fec_baja "
                                + "FROM ProtocoloDetalle PD INNER JOIN Protocolo P ON PD.idProtocolo = P.idProtocolo "
                                + "INNER JOIN  Analisis A ON PD.idAnalisis = A.idAnalisis "
@@ -59,7 +59,7 @@ namespace daLabBioquimica
                 conn.Open();
 
                 String sql = @"SELECT PD.idProtocoloDetalle, PD.idProtocolo, PD.idAnalisis, "
-                               + "A.nombre, A.metodo, A.codigo, "
+                               + "A.nombre, A.metodo, A.codigo, A.unidadBioquimica, "
                                + "PD.usr_ing, PD.fec_ing, PD.usr_mod, PD.fec_mod, PD.usr_baja, PD.fec_baja "
                                + "FROM ProtocoloDetalle PD INNER JOIN Protocolo P ON PD.idProtocolo = P.idProtocolo "
                                + "INNER JOIN  Analisis A ON PD.idAnalisis = A.idAnalisis "

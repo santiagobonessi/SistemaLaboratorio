@@ -51,6 +51,13 @@ namespace blLabBioquimica
             set { p_METODO_ANALISIS = value; }
         }
 
+        private Nullable<Double> p_UNIDAD_BIOQ_ANALISIS;
+        public Nullable<Double> UNIDAD_BIOQ_ANALISIS
+        {
+            get { return p_UNIDAD_BIOQ_ANALISIS; }
+            set { p_UNIDAD_BIOQ_ANALISIS = value; }
+        }
+
         private String p_USR_ING;
         public String USR_ING
         {
@@ -107,6 +114,7 @@ namespace blLabBioquimica
                     this.NOMBRE_ANALISIS = ent.NOMBRE_ANALISIS;
                     this.METODO_ANALISIS = ent.METODO_ANALISIS;
                     this.CODIGO_ANALISIS = ent.CODIGO_ANALISIS;
+                    this.UNIDAD_BIOQ_ANALISIS = ent.UNIDAD_BIOQ_ANALISIS;
                     this.USR_ING = ent.USR_ING;
                     this.FEC_ING = ent.FEC_ING;
                     this.USR_MOD = ent.USR_MOD;
@@ -159,6 +167,8 @@ namespace blLabBioquimica
                         ent.METODO_ANALISIS = Convert.ToString(dt.Rows[0]["metodo"]);
                     if (dt.Rows[0]["codigo"] != DBNull.Value)
                         ent.CODIGO_ANALISIS = Convert.ToString(dt.Rows[0]["codigo"]);
+                    if (dt.Rows[0]["unidadBioquimica"] != DBNull.Value)
+                        ent.UNIDAD_BIOQ_ANALISIS = Convert.ToDouble(dt.Rows[0]["unidadBioquimica"]);
                     if (dt.Rows[0]["usr_ing"] != DBNull.Value)
                         ent.USR_ING = Convert.ToString(dt.Rows[0]["usr_ing"]);
                     if (dt.Rows[0]["fec_ing"] != DBNull.Value)
@@ -216,6 +226,8 @@ namespace blLabBioquimica
                             ent.METODO_ANALISIS = Convert.ToString(dr["metodo"]);
                         if (dr["codigo"] != DBNull.Value)
                             ent.CODIGO_ANALISIS = Convert.ToString(dr["codigo"]);
+                        if (dr["unidadBioquimica"] != DBNull.Value)
+                            ent.UNIDAD_BIOQ_ANALISIS = Convert.ToDouble(dr["unidadBioquimica"]);
                         if (dr["usr_ing"] != DBNull.Value)
                             ent.USR_ING = Convert.ToString(dr["usr_ing"]);
                         if (dr["fec_ing"] != DBNull.Value)
