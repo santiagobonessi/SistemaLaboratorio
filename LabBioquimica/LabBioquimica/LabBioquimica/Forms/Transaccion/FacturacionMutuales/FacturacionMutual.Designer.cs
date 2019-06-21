@@ -284,19 +284,6 @@
             // 
             this.cboMesFact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMesFact.FormattingEnabled = true;
-            this.cboMesFact.Items.AddRange(new object[] {
-            "ENERO",
-            "FEBRERO",
-            "MARZO",
-            "ABRIL",
-            "MAYO",
-            "JUNIO",
-            "JULIO",
-            "AGOSTO",
-            "SEPTIEMBRE",
-            "OCTUBRE",
-            "NOVIEMBRE",
-            "DICIEMBRE"});
             this.cboMesFact.Location = new System.Drawing.Point(320, 20);
             this.cboMesFact.Name = "cboMesFact";
             this.cboMesFact.Size = new System.Drawing.Size(111, 21);

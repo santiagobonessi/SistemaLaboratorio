@@ -23,6 +23,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         {
             InitializeComponent();
             cargarComboMutual();
+            cargarComboMes();
         }
 
         public void cargarComboMutual()
@@ -41,6 +42,25 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             this.cboMutual.ValueMember = "idMutual";
             this.cboMutual.DisplayMember = "nombre";
             this.cboMutual.SelectedIndex = 0;
+        }
+
+        public void cargarComboMes()
+        {
+          
+            blLabBioquimica.bl_FACTURACION_MES blFacturacionMes = new blLabBioquimica.bl_FACTURACION_MES();
+
+            DataTable dt = blFacturacionMes.dataTableFacturacionMes();
+            DataRow nuevaFila = dt.NewRow();
+
+            nuevaFila["idFacturacionMes"] = 0;
+            nuevaFila["nombre"] = "--SELECCIONE--";
+            dt.Rows.InsertAt(nuevaFila, 0);
+
+            this.cboMesFact.DataSource = null;
+            this.cboMesFact.DataSource = dt;
+            this.cboMesFact.ValueMember = "idFacturacionMes";
+            this.cboMesFact.DisplayMember = "nombre";
+            this.cboMesFact.SelectedIndex = 0;
         }
 
         
