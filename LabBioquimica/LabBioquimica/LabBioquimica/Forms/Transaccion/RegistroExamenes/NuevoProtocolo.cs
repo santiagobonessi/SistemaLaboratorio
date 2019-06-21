@@ -271,7 +271,6 @@ namespace LabBioquimica.Forms.Transaccion
                 foreach (DataGridViewRow dr in dgvPracticas.SelectedRows)
                 {
                     dr.Selected = false;
-
                 }
 
 

@@ -71,8 +71,8 @@
             this.lblTotalFacturacion = new System.Windows.Forms.Label();
             this.txtTotalFacturacion = new System.Windows.Forms.TextBox();
             this.gbCodigoUno = new System.Windows.Forms.GroupBox();
-            this.txtUnidBioqCod1 = new System.Windows.Forms.TextBox();
             this.lblUunidBioqCod1 = new System.Windows.Forms.Label();
+            this.txtUnidBioqCod1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisisXProtocolo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocolosXPaciente)).BeginInit();
             this.gbInfoMutual.SuspendLayout();
@@ -376,6 +376,7 @@
             this.dgvPacientesXAnalisisFacturados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPacientesXAnalisisFacturados.Size = new System.Drawing.Size(813, 157);
             this.dgvPacientesXAnalisisFacturados.TabIndex = 13;
+            this.dgvPacientesXAnalisisFacturados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPacientesXAnalisisFacturados_MouseClick);
             // 
             // paciente
             // 
@@ -494,14 +495,6 @@
             this.gbCodigoUno.TabStop = false;
             this.gbCodigoUno.Text = "Código 1";
             // 
-            // txtUnidBioqCod1
-            // 
-            this.txtUnidBioqCod1.Location = new System.Drawing.Point(73, 16);
-            this.txtUnidBioqCod1.Name = "txtUnidBioqCod1";
-            this.txtUnidBioqCod1.Size = new System.Drawing.Size(37, 20);
-            this.txtUnidBioqCod1.TabIndex = 21;
-            this.txtUnidBioqCod1.Text = "3";
-            // 
             // lblUunidBioqCod1
             // 
             this.lblUunidBioqCod1.AutoSize = true;
@@ -510,6 +503,14 @@
             this.lblUunidBioqCod1.Size = new System.Drawing.Size(56, 13);
             this.lblUunidBioqCod1.TabIndex = 22;
             this.lblUunidBioqCod1.Text = "Unid Bioq:";
+            // 
+            // txtUnidBioqCod1
+            // 
+            this.txtUnidBioqCod1.Location = new System.Drawing.Point(73, 16);
+            this.txtUnidBioqCod1.Name = "txtUnidBioqCod1";
+            this.txtUnidBioqCod1.Size = new System.Drawing.Size(37, 20);
+            this.txtUnidBioqCod1.TabIndex = 21;
+            this.txtUnidBioqCod1.Text = "3";
             // 
             // FacturacionMutual
             // 

@@ -16,6 +16,9 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         //Variable de la posicion seleccionada en la grilla dgvProtocolosXPaciente
         public static Int32 posSelecPP;
 
+        //Variable de la posicion seleccionada en la grilla dgvPacientesXAnalisisFacturados
+        public static Int32 posSelecPAF;
+
         public FacturacionMutual()
         {
             InitializeComponent();
@@ -322,6 +325,78 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             }
             
         }
+
+        //Evento que se desencadena cuando hago click en la grilla
+        private void dgvPacientesXAnalisisFacturados_MouseClick(object sender, MouseEventArgs e)
+        {
+            //Click con el boton derecho
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenuStrip miMenu = new System.Windows.Forms.ContextMenuStrip();
+
+                //Posicion de la fila que haces click
+                int position_xy_mouse_row = dgvPacientesXAnalisisFacturados.HitTest(e.X, e.Y).RowIndex;
+                posSelecPAF = position_xy_mouse_row;
+
+                foreach (DataGridViewRow dr in dgvPacientesXAnalisisFacturados.SelectedRows)
+                {
+                    dr.Selected = false;
+                }
+
+                //Si selecciona un protocolo detalle
+                if (position_xy_mouse_row >= 0)
+                {
+                    dgvPacientesXAnalisisFacturados.Rows[position_xy_mouse_row].Selected = true;
+                    miMenu.Items.Add("Eliminar Orden").Name = "EliminarOrden";
+                }
+
+                miMenu.Show(dgvPacientesXAnalisisFacturados, new Point(e.X, e.Y));
+                //Evento menu click
+                miMenu.ItemClicked += new ToolStripItemClickedEventHandler(MiMenu_ItemClicked);
+
+
+            }
+        }
+
+        private void MiMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //Evento seleccionado, para luego realizar la operación necesaria
+            String eventoSelec = e.ClickedItem.Name.ToString();
+
+            switch (eventoSelec)
+            {
+                case "EliminarOrden":
+                    DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar la Orden?", "Eliminar Orden", MessageBoxButtons.YesNo);
+                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        //Borrar orden
+                        //blLabBioquimica.bl_PROTOCOLO_DETALLE blProtocoloDet = new blLabBioquimica.bl_PROTOCOLO_DETALLE();
+                        //blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad entPDBaja = new blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad();
+                        //String idProtocoloBaja = dgvProtocoloDetalle.Rows[posSelecPD].Cells[0].Value.ToString();
+                        //String idPDBaja = dgvProtocoloDetalle.Rows[posSelecPD].Cells[1].Value.ToString();
+
+                        //entPDBaja.ID_PROTOCOLO_DETALLE = int.Parse(idPDBaja);
+                        //entPDBaja.USR_BAJA = "ADMIN";
+                        //entPDBaja.FEC_BAJA = DateTime.Now;
+
+                        //blProtocoloDet.Baja(entPDBaja);
+
+                        ////Actualizar grilla Protocolo Detalle y Practica
+                        //cargarGrillaPDyP(int.Parse(idProtocoloBaja));
+
+                    }
+
+                    break;
+
+                default:
+                    break;
+
+            }
+
+
+       }
+
+
 
     }
 }
