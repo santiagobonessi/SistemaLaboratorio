@@ -10,6 +10,6 @@ C:\Users\Dicsys\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\
 C:\Users\Dicsys\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\obj\Debug\daLabBioquimica.pdb
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\bin\Debug\daLabBioquimica.dll
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\bin\Debug\daLabBioquimica.pdb
-C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\obj\Debug\daLabBioquimica.csprojResolveAssemblyReference.cache
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\obj\Debug\daLabBioquimica.dll
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\obj\Debug\daLabBioquimica.pdb
+C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\daLabBioquimica\obj\Debug\daLabBioquimica.csprojResolveAssemblyReference.cache
