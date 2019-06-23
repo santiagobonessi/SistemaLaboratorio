@@ -1,14 +1,28 @@
 ﻿using System;
-using System.Data;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace blLabBioquimica
 {
-    public class bl_ANALISISEntidad
+    public class bl_FACTURACION_ANALISISEntidad
     {
+        private Nullable<Int32> p_ID_FACTURACION_ANALISIS;
+        public Nullable<Int32> ID_FACTURACION_ANALISIS
+        {
+            get { return p_ID_FACTURACION_ANALISIS; }
+            set { p_ID_FACTURACION_ANALISIS = value; }
+        }
+
+        private Nullable<Int32> p_ID_FACTURACION_ORDEN;
+        public Nullable<Int32> ID_FACTURACION_ORDEN
+        {
+            get { return p_ID_FACTURACION_ORDEN; }
+            set { p_ID_FACTURACION_ORDEN = value; }
+        }
+
         private Nullable<Int32> p_ID_ANALISIS;
         public Nullable<Int32> ID_ANALISIS
         {
@@ -16,25 +30,32 @@ namespace blLabBioquimica
             set { p_ID_ANALISIS = value; }
         }
 
-        private String p_CODIGO;
-        public String CODIGO
+        private String p_CODIGO_ANALISIS;
+        public String CODIGO_ANALISIS
         {
-            get { return p_CODIGO; }
-            set { p_CODIGO = value; }
+            get { return p_CODIGO_ANALISIS; }
+            set { p_CODIGO_ANALISIS = value; }
         }
 
-        private String p_NOMBRE;
-        public String NOMBRE
+        private String p_NOMBRE_ANALISIS;
+        public String NOMBRE_ANALISIS
         {
-            get { return p_NOMBRE; }
-            set { p_NOMBRE = value; }
+            get { return p_NOMBRE_ANALISIS; }
+            set { p_NOMBRE_ANALISIS = value; }
         }
 
-        private Nullable<Double> p_UNIDAD_BIOQ;
-        public Nullable<Double> UNIDAD_BIOQ
+        private String p_METODO_ANALISIS;
+        public String METODO_ANALISIS
         {
-            get { return p_UNIDAD_BIOQ; }
-            set { p_UNIDAD_BIOQ = value; }
+            get { return p_METODO_ANALISIS; }
+            set { p_METODO_ANALISIS = value; }
+        }
+
+        private Nullable<Decimal> p_UNIDAD_BIOQ_ANALISIS;
+        public Nullable<Decimal> UNIDAD_BIOQ_ANALSIS
+        {
+            get { return p_UNIDAD_BIOQ_ANALISIS; }
+            set { p_UNIDAD_BIOQ_ANALISIS = value; }
         }
 
         private String p_USR_ING;
@@ -74,23 +95,28 @@ namespace blLabBioquimica
             set { p_FEC_BAJA = value; }
         }
 
-        public bl_ANALISISEntidad() { }
 
-        public bl_ANALISISEntidad(Int32 ID_ANALISIS)
+
+        public bl_FACTURACION_ANALISISEntidad() { }
+
+        public bl_FACTURACION_ANALISISEntidad(Int32 ID_FACTURACION_ANALISIS)
         {
             try
             {
-                
-                bl_ANALISIS bl = new bl_ANALISIS();
-                bl_ANALISISEntidad ent = bl.BuscarPorPK(ID_ANALISIS);
+
+                bl_FACTURACION_ANALISIS bl = new bl_FACTURACION_ANALISIS();
+                bl_FACTURACION_ANALISISEntidad ent = bl.BuscarPorPK(ID_FACTURACION_ANALISIS);
+
 
                 if (ent != null)
                 {
+                    this.ID_FACTURACION_ANALISIS = ent.ID_FACTURACION_ANALISIS;
+                    this.ID_FACTURACION_ORDEN = ent.ID_FACTURACION_ORDEN;
                     this.ID_ANALISIS = ent.ID_ANALISIS;
-                    this.CODIGO = ent.CODIGO;
-                    this.NOMBRE = ent.NOMBRE;
-                    this.METODO = ent.METODO;
-                    this.UNIDAD_BIOQ = ent.UNIDAD_BIOQ;
+                    this.CODIGO_ANALISIS = ent.CODIGO_ANALISIS;
+                    this.NOMBRE_ANALISIS = ent.NOMBRE_ANALISIS;
+                    this.METODO_ANALISIS = ent.METODO_ANALISIS;
+                    this.UNIDAD_BIOQ_ANALSIS = ent.UNIDAD_BIOQ_ANALSIS;
                     this.USR_ING = ent.USR_ING;
                     this.FEC_ING = ent.FEC_ING;
                     this.USR_MOD = ent.USR_MOD;
@@ -99,48 +125,53 @@ namespace blLabBioquimica
                     this.FEC_BAJA = ent.FEC_BAJA;
                 }
             }
-            
+
             catch (Exception ex)
             {
                 throw ex;
             }
         }
 
+
     }
 
-    public class bl_ANALISISEntidadColeccion : List<bl_ANALISISEntidad>
+    public class bl_FACTURACION_ANALISISEntidadColeccion : List<bl_FACTURACION_ANALISISEntidad>
     {
     }
 
-    public class bl_ANALISIS
+    public class bl_FACTURACION_ANALISIS
     {
-        private daLabBioquimica.da_ANALISIS p_da;
+        private daLabBioquimica.da_FACTURACION_ANALISIS p_da;
 
-        public bl_ANALISIS()
+        public bl_FACTURACION_ANALISIS()
         {
-            p_da = new daLabBioquimica.da_ANALISIS();
+            p_da = new daLabBioquimica.da_FACTURACION_ANALISIS();
         }
 
-        public bl_ANALISISEntidad BuscarPorPK(Nullable<Int32> ID_ANALISIS)
+        public bl_FACTURACION_ANALISISEntidad BuscarPorPK(Nullable<Int32> p_ID_FACTURACION_ANALISIS)
         {
             try
             {
-                DataTable dt = p_da.BuscarPorPK(ID_ANALISIS);
-                
-                if(dt != null && dt.Rows.Count > 0)
-                {
-                    bl_ANALISISEntidad ent = new bl_ANALISISEntidad();
+                DataTable dt = p_da.BuscarPorPK(p_ID_FACTURACION_ANALISIS);
 
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    bl_FACTURACION_ANALISISEntidad ent = new bl_FACTURACION_ANALISISEntidad();
+
+                    if (dt.Rows[0]["idFacturacionAnalisis"] != DBNull.Value)
+                        ent.ID_FACTURACION_ANALISIS = Convert.ToInt32(dt.Rows[0]["idFacturacionAnalisis"]);
+                    if (dt.Rows[0]["idFacturacionOrden"] != DBNull.Value)
+                        ent.ID_FACTURACION_ORDEN = Convert.ToInt32(dt.Rows[0]["idFacturacionOrden"]);
                     if (dt.Rows[0]["idAnalisis"] != DBNull.Value)
                         ent.ID_ANALISIS = Convert.ToInt32(dt.Rows[0]["idAnalisis"]);
                     if (dt.Rows[0]["codigo"] != DBNull.Value)
-                        ent.CODIGO = Convert.ToString(dt.Rows[0]["codigo"]);
+                        ent.CODIGO_ANALISIS = Convert.ToString(dt.Rows[0]["codigo"]);
                     if (dt.Rows[0]["nombre"] != DBNull.Value)
-                        ent.NOMBRE = Convert.ToString(dt.Rows[0]["nombre"]);
+                        ent.NOMBRE_ANALISIS = Convert.ToString(dt.Rows[0]["nombre"]);
                     if (dt.Rows[0]["metodo"] != DBNull.Value)
-                        ent.METODO = Convert.ToString(dt.Rows[0]["metodo"]);
+                        ent.METODO_ANALISIS = Convert.ToString(dt.Rows[0]["metodo"]);
                     if (dt.Rows[0]["unidadBioquimica"] != DBNull.Value)
-                        ent.UNIDAD_BIOQ = Convert.ToDouble(dt.Rows[0]["unidadBioquimica"]);
+                        ent.UNIDAD_BIOQ_ANALSIS = Convert.ToDecimal(dt.Rows[0]["unidadBioquimica"]);
                     if (dt.Rows[0]["usr_ing"] != DBNull.Value)
                         ent.USR_ING = Convert.ToString(dt.Rows[0]["usr_ing"]);
                     if (dt.Rows[0]["fec_ing"] != DBNull.Value)
@@ -173,29 +204,34 @@ namespace blLabBioquimica
             }
         }
 
-        public bl_ANALISISEntidadColeccion Buscar(Nullable<Int32> p_ID_ANALISIS, String p_NOMBRE)
+
+        public bl_FACTURACION_ANALISISEntidadColeccion Buscar(Nullable<Int32> p_ID_FACTURACION_ANALISIS, Nullable<Int32> p_ID_FACTURACION_ORDEN, Nullable<Int32> p_ID_ANALISIS)
         {
             try
             {
-                DataTable dt = p_da.Buscar(p_ID_ANALISIS, p_NOMBRE);
-                bl_ANALISISEntidadColeccion lista = new bl_ANALISISEntidadColeccion();
+                DataTable dt = p_da.Buscar(p_ID_FACTURACION_ANALISIS, p_ID_FACTURACION_ORDEN, p_ID_ANALISIS);
+                bl_FACTURACION_ANALISISEntidadColeccion lista = new bl_FACTURACION_ANALISISEntidadColeccion();
 
                 if (dt != null)
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        bl_ANALISISEntidad ent = new bl_ANALISISEntidad();
+                        bl_FACTURACION_ANALISISEntidad ent = new bl_FACTURACION_ANALISISEntidad();
 
+                        if (dr["idFacturacionAnalisis"] != DBNull.Value)
+                            ent.ID_FACTURACION_ANALISIS = Convert.ToInt32(dr["idFacturacionAnalisis"]);
+                        if (dr["idFacturacionOrden"] != DBNull.Value)
+                            ent.ID_FACTURACION_ORDEN = Convert.ToInt32(dr["idFacturacionOrden"]);
                         if (dr["idAnalisis"] != DBNull.Value)
                             ent.ID_ANALISIS = Convert.ToInt32(dr["idAnalisis"]);
                         if (dr["codigo"] != DBNull.Value)
-                            ent.CODIGO = Convert.ToString(dr["codigo"]);
+                            ent.CODIGO_ANALISIS = Convert.ToString(dr["codigo"]);
                         if (dr["nombre"] != DBNull.Value)
-                            ent.NOMBRE = Convert.ToString(dr["nombre"]);
+                            ent.NOMBRE_ANALISIS = Convert.ToString(dr["nombre"]);
                         if (dr["metodo"] != DBNull.Value)
-                            ent.METODO = Convert.ToString(dr["metodo"]);
+                            ent.METODO_ANALISIS = Convert.ToString(dr["metodo"]);
                         if (dr["unidadBioquimica"] != DBNull.Value)
-                            ent.UNIDAD_BIOQ = Convert.ToDouble(dr["unidadBioquimica"]);
+                            ent.UNIDAD_BIOQ_ANALSIS = Convert.ToDecimal(dr["unidadBioquimica"]);
                         if (dr["usr_ing"] != DBNull.Value)
                             ent.USR_ING = Convert.ToString(dr["usr_ing"]);
                         if (dr["fec_ing"] != DBNull.Value)
@@ -209,13 +245,14 @@ namespace blLabBioquimica
                         if (dr["fec_baja"] != DBNull.Value)
                             ent.FEC_BAJA = Convert.ToDateTime(dr["fec_baja"]);
 
+
                         lista.Add(ent);
                     }
                 }
 
                 return lista;
-            }
 
+            }
             catch (blLabBioquimica.Framework.blException ex)
             {
                 throw ex;
@@ -226,12 +263,13 @@ namespace blLabBioquimica
             }
         }
 
-        public bl_ANALISISEntidad Insertar(bl_ANALISISEntidad ent)
+
+        public bl_FACTURACION_ANALISISEntidad Insertar(bl_FACTURACION_ANALISISEntidad ent)
         {
             try
             {
 
-                ent.ID_ANALISIS = p_da.Insertar(ent.CODIGO, ent.NOMBRE, ent.METODO, ent.UNIDAD_BIOQ, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
+                ent.ID_FACTURACION_ANALISIS = p_da.Insertar(ent.ID_FACTURACION_ORDEN, ent.ID_ANALISIS, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
 
                 return ent;
             }
@@ -246,11 +284,11 @@ namespace blLabBioquimica
 
         }
 
-        public void Modificar(bl_ANALISISEntidad ent)
+        public void Modificar(bl_FACTURACION_ANALISISEntidad ent)
         {
             try
             {
-                p_da.Modificar(ent.ID_ANALISIS, ent.CODIGO, ent.NOMBRE, ent.METODO, ent.UNIDAD_BIOQ, ent.USR_MOD, ent.FEC_MOD);
+                p_da.Modificar(ent.ID_FACTURACION_ANALISIS, ent.ID_FACTURACION_ORDEN, ent.ID_ANALISIS, ent.USR_MOD, ent.FEC_MOD);
             }
             catch (Exception ex)
             {
@@ -258,11 +296,11 @@ namespace blLabBioquimica
             }
         }
 
-        public void Baja(bl_ANALISISEntidad ent)
+        public void Baja(bl_FACTURACION_ANALISISEntidad ent)
         {
             try
             {
-                p_da.Baja(ent.ID_ANALISIS, ent.USR_BAJA, ent.FEC_BAJA);
+                p_da.Baja(ent.ID_FACTURACION_ANALISIS, ent.USR_BAJA, ent.FEC_BAJA);
             }
             catch (Exception ex)
             {
@@ -271,11 +309,11 @@ namespace blLabBioquimica
 
         }
 
-        public DataTable dataTableAnalisis()
+        public DataTable dataTableFacturacionMutual(Nullable<Int32> p_ID_FACTURACION_ANALISIS, Nullable<Int32> p_ID_FACTURACION_ORDEN, Nullable<Int32> p_ID_ANALISIS)
         {
             try
             {
-                DataTable dt = p_da.Buscar(null, null);
+                DataTable dt = p_da.Buscar(p_ID_FACTURACION_ANALISIS, p_ID_FACTURACION_ORDEN, p_ID_ANALISIS);
 
                 if (dt != null)
                 {
