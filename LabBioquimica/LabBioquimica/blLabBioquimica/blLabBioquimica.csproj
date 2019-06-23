@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bl_ANALISIS.cs" />
+    <Compile Include="bl_FACTURACION_ANALISIS.cs" />
     <Compile Include="bl_FACTURACION_MES.cs" />
     <Compile Include="bl_FACTURACION_MUTUAL.cs" />
+    <Compile Include="bl_FACTURACION_ORDEN.cs" />
     <Compile Include="bl_ITEM.cs" />
     <Compile Include="bl_LOCALIDAD.cs" />
     <Compile Include="bl_MUTUAL.cs" />

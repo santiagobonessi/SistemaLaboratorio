@@ -221,7 +221,9 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             string cadenaCodigos = "";
             decimal cantUnidBioq = 0;
             decimal precioUnidBioq = decimal.Parse(this.txtPrecioUnidBioq.Text);
-            bool codigo1 = this.chCargarCod1.Checked;
+
+            bool checkActoBioquimico = this.chActoBioquimico.Checked;
+            string codigoActoBioquimico = "660001";
 
             //Recorro los analisis seleccionados
             foreach (DataGridViewRow row in dgvAnalisisXProtocolo.Rows)
@@ -231,16 +233,20 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                     string codigo = "";
                     decimal unidadBioq = 0;
 
-                    //Codigo 1 
-                    if (codigo1)
+                    //Agrego al incio el analisis ACTO BIOQUIMICO
+                    if (checkActoBioquimico)
                     {
-                        codigo = "1";
-                        cadenaCodigos += codigo + " - ";
+                        //Consultar por analisis ACTO BIOQUIMICO.
 
-                        cantUnidBioq = decimal.Parse(txtUnidBioqCod1.Text);
+                        blLabBioquimica.bl_ANALISIS blAnalisis = new blLabBioquimica.bl_ANALISIS();
+                        blLabBioquimica.bl_ANALISISEntidad ent = blAnalisis.BuscarPorCodigo(codigoActoBioquimico);
+
+                        cadenaCodigos += ent.CODIGO + " - ";
+
+                        cantUnidBioq = (decimal)ent.UNIDAD_BIOQ;
 
 
-                        codigo1 = false; // Para cargarlo solo una vez por orden.
+                        checkActoBioquimico = false; // Para cargarlo solo una vez por orden.
                     }
 
                     //Filtro por los checks seleccionados
@@ -252,7 +258,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
 
                          if (row.Cells[6].Value.ToString() != "")
                          {
-                            unidadBioq = int.Parse(row.Cells[6].Value.ToString());
+                            unidadBioq = decimal.Parse(row.Cells[6].Value.ToString());
                             cantUnidBioq += unidadBioq;
                          }
 
@@ -416,6 +422,41 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
 
        }
 
+        /// <summary>
+        /// Evento que me permite ingresar solo numeros con coma.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtPrecioUnidBioq_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtPrecioUnidBioq.Text.Length; i++)
+            {
+                if (txtPrecioUnidBioq.Text[i] == ',')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 44)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
 
 
     }
