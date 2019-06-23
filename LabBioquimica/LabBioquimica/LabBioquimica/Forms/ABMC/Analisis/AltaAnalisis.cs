@@ -54,7 +54,7 @@ namespace LabBioquimica.Forms.ABMC
             ent.CODIGO = this.txtCodigo.Text;
             ent.NOMBRE = this.txtNombre.Text;
             if (!string.IsNullOrWhiteSpace(this.txtMetodo.Text)) { ent.METODO = this.txtMetodo.Text; }
-            if (!string.IsNullOrWhiteSpace(this.txtUnidadBioq.Text) && this.txtUnidadBioq.Text != ".") { ent.UNIDAD_BIOQ = Double.Parse(this.txtUnidadBioq.Text); }
+            if (!string.IsNullOrWhiteSpace(this.txtUnidadBioq.Text)) { ent.UNIDAD_BIOQ = decimal.Parse(this.txtUnidadBioq.Text); }
             ent.USR_ING = "ADMIN";
             ent.FEC_ING = DateTime.Now;
 
@@ -93,7 +93,7 @@ namespace LabBioquimica.Forms.ABMC
             ent.CODIGO = this.txtCodigo.Text;
             ent.NOMBRE = this.txtNombre.Text;
             if (!string.IsNullOrWhiteSpace(this.txtMetodo.Text)) { ent.METODO = this.txtMetodo.Text; }
-            if (!string.IsNullOrWhiteSpace(this.txtUnidadBioq.Text) && this.txtUnidadBioq.Text != ".") { ent.UNIDAD_BIOQ = Double.Parse(this.txtUnidadBioq.Text); }
+            if (!string.IsNullOrWhiteSpace(this.txtUnidadBioq.Text)) { ent.UNIDAD_BIOQ = decimal.Parse(this.txtUnidadBioq.Text); }
             ent.USR_MOD = "ADMIN";
             ent.FEC_MOD = DateTime.Now;
 
@@ -129,46 +129,40 @@ namespace LabBioquimica.Forms.ABMC
             this.txtUnidadBioq.Text = "";
         }
 
+        /// <summary>
+        /// Evento que me permite ingresar solo numeros con coma.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUnidadBioq_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar))
+            if (e.KeyChar == 8)
             {
                 e.Handled = false;
+                return;
             }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (e.KeyChar == '.')
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-            for (int c = 0; c < txtUnidadBioq.Text.Length; c++)
-            {
 
-                if (txtUnidadBioq.Text.Length >= 8)
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtUnidadBioq.Text.Length; i++)
+            {
+                if (txtUnidadBioq.Text[i] == ',')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
                 {
-                    if (char.IsControl(e.KeyChar))
-                    {
-                        e.Handled = false;
-                    }
-                    else
-                    {
-                        e.Handled = true;
-                    }
-                }
-                if (txtUnidadBioq.Text[c] == '.')
-                {
-                    if (e.KeyChar == '.')
-                    {
-                        e.Handled = true;
-                    }
+                    e.Handled = true;
+                    return;
                 }
             }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 44)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

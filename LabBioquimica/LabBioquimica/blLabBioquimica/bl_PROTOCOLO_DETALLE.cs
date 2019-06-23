@@ -51,8 +51,8 @@ namespace blLabBioquimica
             set { p_METODO_ANALISIS = value; }
         }
 
-        private Nullable<Double> p_UNIDAD_BIOQ_ANALISIS;
-        public Nullable<Double> UNIDAD_BIOQ_ANALISIS
+        private Nullable<Decimal> p_UNIDAD_BIOQ_ANALISIS;
+        public Nullable<Decimal> UNIDAD_BIOQ_ANALISIS
         {
             get { return p_UNIDAD_BIOQ_ANALISIS; }
             set { p_UNIDAD_BIOQ_ANALISIS = value; }
@@ -168,7 +168,7 @@ namespace blLabBioquimica
                     if (dt.Rows[0]["codigo"] != DBNull.Value)
                         ent.CODIGO_ANALISIS = Convert.ToString(dt.Rows[0]["codigo"]);
                     if (dt.Rows[0]["unidadBioquimica"] != DBNull.Value)
-                        ent.UNIDAD_BIOQ_ANALISIS = Convert.ToDouble(dt.Rows[0]["unidadBioquimica"]);
+                        ent.UNIDAD_BIOQ_ANALISIS = Convert.ToDecimal(dt.Rows[0]["unidadBioquimica"]);
                     if (dt.Rows[0]["usr_ing"] != DBNull.Value)
                         ent.USR_ING = Convert.ToString(dt.Rows[0]["usr_ing"]);
                     if (dt.Rows[0]["fec_ing"] != DBNull.Value)
@@ -227,7 +227,7 @@ namespace blLabBioquimica
                         if (dr["codigo"] != DBNull.Value)
                             ent.CODIGO_ANALISIS = Convert.ToString(dr["codigo"]);
                         if (dr["unidadBioquimica"] != DBNull.Value)
-                            ent.UNIDAD_BIOQ_ANALISIS = Convert.ToDouble(dr["unidadBioquimica"]);
+                            ent.UNIDAD_BIOQ_ANALISIS = Convert.ToDecimal(dr["unidadBioquimica"]);
                         if (dr["usr_ing"] != DBNull.Value)
                             ent.USR_ING = Convert.ToString(dr["usr_ing"]);
                         if (dr["fec_ing"] != DBNull.Value)
