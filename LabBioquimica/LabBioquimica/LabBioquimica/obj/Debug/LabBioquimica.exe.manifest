@@ -55,7 +55,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SLTVSfA4T3eAtnX/9WhFhXMQ7pkK9lfcXpWWzyf0XkQ=</dsig:DigestValue>
+        <dsig:DigestValue>VGgwxPcaooonafGbCXdKV+8wwLM2IOk/t32kvb1vHM4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -259,7 +259,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>I3K7H9ljivesEn/OhMuulB6nzxVEeJBLDNxWElCWoy8=</dsig:DigestValue>
+        <dsig:DigestValue>ZrCxhEuXMvEzYobpn0kb0C0QxbywQYiEgMSqFaL9T5Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -276,14 +276,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LabBioquimica.exe" size="1778688">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LabBioquimica.exe" size="1779200">
       <assemblyIdentity name="LabBioquimica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Koqc2lCkCl4psacotlI0y1UZGhVZ8jEy5LZiX2I+DjY=</dsig:DigestValue>
+        <dsig:DigestValue>NBwYnNZdNNKRW6YKJbnVTOGz2fzcDz5cl7Rwpix6r1Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -90,6 +90,7 @@
             this.dgvFacturacionesPorMutual.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFacturacionesPorMutual.Size = new System.Drawing.Size(510, 280);
             this.dgvFacturacionesPorMutual.TabIndex = 9;
+            this.dgvFacturacionesPorMutual.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFacturacionesPorMutual_MouseClick);
             // 
             // idFacturacionMutual
             // 
