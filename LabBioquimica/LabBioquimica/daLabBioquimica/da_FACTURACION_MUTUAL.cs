@@ -26,7 +26,8 @@ namespace daLabBioquimica
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"SELECT FM.idFacturacionMutual, FM.idMutual, M.nombre AS nomMutual, FM.idFacturacionMes, FMes.nombre AS nomMes, FM.precioUnidadBioquimica, "
+                String sql = @"SELECT FM.idFacturacionMutual, FM.idMutual, M.nombre AS nomMutual, FM.idFacturacionMes, "
+                               + "FMes.nombre AS nomMes, FM.anio, FM.precioUnidadBioquimica, "
                                + "FM.usr_ing, FM.fec_ing, FM.usr_mod, FM.fec_mod, FM.usr_baja, FM.fec_baja "
                                + "FROM FacturacionMutual FM INNER JOIN Mutuales M ON FM.idMutual = M.idMutual "
                                + "INNER JOIN  FacturacionMes FMes ON FM.idFacturacionMes = FMes.idFacturacionMes "
@@ -59,7 +60,7 @@ namespace daLabBioquimica
         /// <param name="p_ID_MUTUAL"></param>
         /// <param name="p_ID_FACTURACION_MES"></param>
         /// <returns name="DateTable"></returns>
-        public DataTable Buscar(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES)
+        public DataTable Buscar(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES, Nullable<Int32> p_ANIO)
         {
             try
             {
@@ -67,13 +68,15 @@ namespace daLabBioquimica
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"SELECT FM.idFacturacionMutual, FM.idMutual, M.nombre AS nomMutual, FM.idFacturacionMes, FMes.nombre AS nomMes, FM.precioUnidadBioquimica, "
+                String sql = @"SELECT FM.idFacturacionMutual, FM.idMutual, M.nombre AS nomMutual, FM.idFacturacionMes, " 
+                               + "FMes.nombre AS nomMes, FM.anio, FM.precioUnidadBioquimica, "
                                + "FM.usr_ing, FM.fec_ing, FM.usr_mod, FM.fec_mod, FM.usr_baja, FM.fec_baja "
                                + "FROM FacturacionMutual FM INNER JOIN Mutuales M ON FM.idMutual = M.idMutual "
                                + "INNER JOIN  FacturacionMes FMes ON FM.idFacturacionMes = FMes.idFacturacionMes "
                                + "WHERE (FM.idFacturacionMutual = @ID_FACTURACION_MUTUAL OR @ID_FACTURACION_MUTUAL IS NULL) "
                                + "AND (FM.idMutual = @ID_MUTUAL OR @ID_MUTUAL IS NULL) "
                                + "AND (FM.idFacturacionMes = @ID_FACTURACION_MES OR @ID_FACTURACION_MES IS NULL) "
+                               + "AND (FM.anio = @ANIO OR @ANIO IS NULL) "
                                + "AND FM.usr_baja IS NULL "
                                + "AND FM.fec_baja IS NULL ";
                                
@@ -94,6 +97,86 @@ namespace daLabBioquimica
                     com.Parameters.AddWithValue("@ID_FACTURACION_MES", p_ID_FACTURACION_MES);
                 else
                     com.Parameters.AddWithValue("@ID_FACTURACION_MES", DBNull.Value);
+
+                if (p_ANIO != null)
+                    com.Parameters.AddWithValue("@ANIO", p_ANIO);
+                else
+                    com.Parameters.AddWithValue("@ANIO", DBNull.Value);
+
+
+                SqlDataAdapter da = new SqlDataAdapter(com);
+
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                if (ds.Tables.Count > 0)
+                {
+                    return ds.Tables[0];
+                }
+
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new daLabBioquimica.Framework.daException(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Metodo que retorna un DataTable con los datos encontrados.
+        /// </summary>
+        /// <param name="p_ID_FACTURACION_MUTUAL"></param>
+        /// <param name="p_ID_MUTUAL"></param>
+        /// <param name="p_ID_FACTURACION_MES"></param>
+        /// <returns name="DateTable"></returns>
+        public DataTable BuscarConTotal(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES, Nullable<Int32> p_ANIO)
+        {
+            try
+            {
+
+                SqlConnection conn = new SqlConnection(CadenaDeConexion());
+                conn.Open();
+
+                String sql = @"SELECT FM.idFacturacionMutual, FM.idMutual, M.nombre AS nomMutual, FM.idFacturacionMes, "
+                               + "FMes.nombre AS nomMes, FM.anio, FM.precioUnidadBioquimica, "
+                               + "FM.usr_ing, FM.fec_ing, FM.usr_mod, FM.fec_mod, FM.usr_baja, FM.fec_baja, "
+                               + "(SELECT SUM(A.unidadBioquimica) FROM FacturacionOrden FO "
+                               + "INNER JOIN FacturacionAnalisis FA ON (FO.idFacturacionOrden = FA.idFacturacionOrden) "
+                               + "INNER JOIN Analisis A ON (FA.idAnalisis = A.idAnalisis) "
+                               + "WHERE FO.idFacturacionMutual = FM.idFacturacionMutual) AS TotalUnidadBioq "
+                               + "FROM FacturacionMutual FM INNER JOIN Mutuales M ON FM.idMutual = M.idMutual "
+                               + "INNER JOIN  FacturacionMes FMes ON FM.idFacturacionMes = FMes.idFacturacionMes "
+                               + "WHERE (FM.idFacturacionMutual = @ID_FACTURACION_MUTUAL OR @ID_FACTURACION_MUTUAL IS NULL) "
+                               + "AND (FM.idMutual = @ID_MUTUAL OR @ID_MUTUAL IS NULL) "
+                               + "AND (FM.idFacturacionMes = @ID_FACTURACION_MES OR @ID_FACTURACION_MES IS NULL) "
+                               + "AND (FM.anio = @ANIO OR @ANIO IS NULL) "
+                               + "AND FM.usr_baja IS NULL "
+                               + "AND FM.fec_baja IS NULL "
+                               + "ORDER BY FM.anio, FM.idFacturacionMes";
+
+
+                SqlCommand com = new SqlCommand(sql, conn);
+
+                if (p_ID_FACTURACION_MUTUAL != null)
+                    com.Parameters.AddWithValue("@ID_FACTURACION_MUTUAL", p_ID_FACTURACION_MUTUAL);
+                else
+                    com.Parameters.AddWithValue("@ID_FACTURACION_MUTUAL", DBNull.Value);
+
+                if (p_ID_MUTUAL != null)
+                    com.Parameters.AddWithValue("@ID_MUTUAL", p_ID_MUTUAL);
+                else
+                    com.Parameters.AddWithValue("@ID_MUTUAL", DBNull.Value);
+
+                if (p_ID_FACTURACION_MES != null)
+                    com.Parameters.AddWithValue("@ID_FACTURACION_MES", p_ID_FACTURACION_MES);
+                else
+                    com.Parameters.AddWithValue("@ID_FACTURACION_MES", DBNull.Value);
+
+                if (p_ANIO != null)
+                    com.Parameters.AddWithValue("@ANIO", p_ANIO);
+                else
+                    com.Parameters.AddWithValue("@ANIO", DBNull.Value);
 
 
                 SqlDataAdapter da = new SqlDataAdapter(com);
@@ -128,15 +211,15 @@ namespace daLabBioquimica
         /// <param name="p_USR_BAJA"></param>
         /// <param name="p_FEC_BAJA"></param>
         /// <returns name ="idFacturacionMutual"></returns>
-        public Int32 Insertar(Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES, Nullable<Decimal> p_PRECIO_UNID_BIOQ, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
+        public Int32 Insertar(Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES, Nullable<Int32> p_ANIO, Nullable<Decimal> p_PRECIO_UNID_BIOQ, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"INSERT INTO FacturacionMutual (idMutual, idFacturacionMes, precioUnidadBioquimica, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja)"
-                            + "VALUES (@ID_MUTUAL, @ID_FACTURACION_MES, @PRECIO_UNID_BIOQ, @USR_ING, @FEC_ING, @USR_MOD, @FEC_MOD, @USR_BAJA, @FEC_BAJA)"
+                String sql = @"INSERT INTO FacturacionMutual (idMutual, idFacturacionMes, anio, precioUnidadBioquimica, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja)"
+                            + "VALUES (@ID_MUTUAL, @ID_FACTURACION_MES, @ANIO, @PRECIO_UNID_BIOQ, @USR_ING, @FEC_ING, @USR_MOD, @FEC_MOD, @USR_BAJA, @FEC_BAJA)"
                             + "; SELECT @@Identity as ID";
 
                 SqlCommand com = new SqlCommand(sql, conn);
@@ -150,6 +233,11 @@ namespace daLabBioquimica
                     com.Parameters.AddWithValue("@ID_FACTURACION_MES", p_ID_FACTURACION_MES);
                 else
                     com.Parameters.AddWithValue("@ID_FACTURACION_MES", DBNull.Value);
+
+                if (p_ANIO != null)
+                    com.Parameters.AddWithValue("@ANIO", p_ANIO);
+                else
+                    com.Parameters.AddWithValue("@ANIO", DBNull.Value);
 
                 if (p_PRECIO_UNID_BIOQ != null)
                     com.Parameters.AddWithValue("@PRECIO_UNID_BIOQ", p_PRECIO_UNID_BIOQ);
@@ -209,15 +297,15 @@ namespace daLabBioquimica
         /// <param name="p_PRECIO_UNID_BIOQ"></param>
         /// <param name="p_USR_MOD"></param>
         /// <param name="p_FEC_MOD"></param>
-        public void Modificar(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES, Nullable<Decimal> p_PRECIO_UNID_BIOQ, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
+        public void Modificar(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES, Nullable<Int32> p_ANIO, Nullable<Decimal> p_PRECIO_UNID_BIOQ, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"UPDATE FacturacionMutual SET idMutual = @ID_MUTUAL, "
-                            + "idFacturacionMes = @ID_FACTURACION_MES, precioUnidadBioquimica = @PRECIO_UNID_BIOQ, "
+                String sql = @"UPDATE FacturacionMutual SET idMutual = @ID_MUTUAL, idFacturacionMes = @ID_FACTURACION_MES, "
+                            + "anio = @ANIO, precioUnidadBioquimica = @PRECIO_UNID_BIOQ, "
                             + "usr_mod = @USR_MOD, fec_mod = @FEC_MOD "
                             + "WHERE idFacturacionMutual = @ID_FACTURACION_MUTUAL";
 
@@ -237,6 +325,11 @@ namespace daLabBioquimica
                     com.Parameters.AddWithValue("@ID_FACTURACION_MES", p_ID_FACTURACION_MES);
                 else
                     com.Parameters.AddWithValue("@ID_FACTURACION_MES", DBNull.Value);
+
+                if (p_ANIO != null)
+                    com.Parameters.AddWithValue("@ANIO", p_ANIO);
+                else
+                    com.Parameters.AddWithValue("@ANIO", DBNull.Value);
 
                 if (p_PRECIO_UNID_BIOQ != null)
                     com.Parameters.AddWithValue("@PRECIO_UNID_BIOQ", p_PRECIO_UNID_BIOQ);

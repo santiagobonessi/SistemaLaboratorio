@@ -44,11 +44,25 @@ namespace blLabBioquimica
             set { p_N_FACTURACION_MES = value; }
         }
 
+        private Nullable<Int32> p_ANIO;
+        public Nullable<Int32> ANIO
+        {
+            get { return p_ANIO; }
+            set { p_ANIO = value; }
+        }
+
         private Nullable<Decimal> p_PRECIO_UNID_BIOQ;
         public Nullable<Decimal> PRECIO_UNID_BIOQ
         {
             get { return p_PRECIO_UNID_BIOQ; }
             set { p_PRECIO_UNID_BIOQ = value; }
+        }
+
+        private Nullable<Decimal> p_TOTAL_UNID_BIOQ;
+        public Nullable<Decimal> TOTAL_UNID_BIOQ
+        {
+            get { return p_TOTAL_UNID_BIOQ; }
+            set { p_TOTAL_UNID_BIOQ = value; }
         }
 
         private String p_USR_ING;
@@ -107,7 +121,9 @@ namespace blLabBioquimica
                     this.N_MUTUAL = ent.N_MUTUAL;
                     this.ID_FACTURACION_MES = ent.ID_FACTURACION_MES;
                     this.N_FACTURACION_MES = ent.N_FACTURACION_MES;
+                    this.ANIO = ent.ANIO;
                     this.PRECIO_UNID_BIOQ = ent.PRECIO_UNID_BIOQ;
+                    this.TOTAL_UNID_BIOQ = ent.TOTAL_UNID_BIOQ;
                     this.USR_ING = ent.USR_ING;
                     this.FEC_ING = ent.FEC_ING;
                     this.USR_MOD = ent.USR_MOD;
@@ -160,6 +176,8 @@ namespace blLabBioquimica
                         ent.ID_FACTURACION_MES = Convert.ToInt32(dt.Rows[0]["idFacturacionMes"]);
                     if (dt.Rows[0]["nomMes"] != DBNull.Value)
                         ent.N_FACTURACION_MES = Convert.ToString(dt.Rows[0]["nomMes"]);
+                    if (dt.Rows[0]["anio"] != DBNull.Value)
+                        ent.ANIO = Convert.ToInt32(dt.Rows[0]["anio"]);
                     if (dt.Rows[0]["precioUnidadBioquimica"] != DBNull.Value)
                         ent.PRECIO_UNID_BIOQ = Convert.ToDecimal(dt.Rows[0]["precioUnidadBioquimica"]);
                     if (dt.Rows[0]["usr_ing"] != DBNull.Value)
@@ -195,11 +213,11 @@ namespace blLabBioquimica
         }
 
 
-        public bl_FACTURACION_MUTUALEntidadColeccion Buscar(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES)
+        public bl_FACTURACION_MUTUALEntidadColeccion Buscar(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES, Nullable<Int32> p_ANIO)
         {
             try
             {
-                DataTable dt = p_da.Buscar(p_ID_FACTURACION_MUTUAL, p_ID_MUTUAL, p_ID_FACTURACION_MES);
+                DataTable dt = p_da.Buscar(p_ID_FACTURACION_MUTUAL, p_ID_MUTUAL, p_ID_FACTURACION_MES, p_ANIO);
                 bl_FACTURACION_MUTUALEntidadColeccion lista = new bl_FACTURACION_MUTUALEntidadColeccion();
 
                 if (dt != null)
@@ -217,8 +235,69 @@ namespace blLabBioquimica
                             ent.ID_FACTURACION_MES = Convert.ToInt32(dr["idFacturacionMes"]);
                         if (dr["nomMes"] != DBNull.Value)
                             ent.N_FACTURACION_MES = Convert.ToString(dr["nomMes"]);
+                        if (dr["anio"] != DBNull.Value)
+                            ent.ANIO = Convert.ToInt32(dr["anio"]);
                         if (dr["precioUnidadBioquimica"] != DBNull.Value)
-                            ent.PRECIO_UNID_BIOQ = Convert.ToInt32(dr["precioUnidadBioquimica"]);
+                            ent.PRECIO_UNID_BIOQ = Convert.ToDecimal(dr["precioUnidadBioquimica"]);
+                        if (dr["usr_ing"] != DBNull.Value)
+                            ent.USR_ING = Convert.ToString(dr["usr_ing"]);
+                        if (dr["fec_ing"] != DBNull.Value)
+                            ent.FEC_ING = Convert.ToDateTime(dr["fec_ing"]);
+                        if (dr["usr_mod"] != DBNull.Value)
+                            ent.USR_MOD = Convert.ToString(dr["usr_mod"]);
+                        if (dr["fec_mod"] != DBNull.Value)
+                            ent.FEC_MOD = Convert.ToDateTime(dr["fec_mod"]);
+                        if (dr["usr_baja"] != DBNull.Value)
+                            ent.USR_BAJA = Convert.ToString(dr["usr_baja"]);
+                        if (dr["fec_baja"] != DBNull.Value)
+                            ent.FEC_BAJA = Convert.ToDateTime(dr["fec_baja"]);
+
+
+                        lista.Add(ent);
+                    }
+                }
+
+                return lista;
+
+            }
+            catch (blLabBioquimica.Framework.blException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw new blLabBioquimica.Framework.blException(ex.Message);
+            }
+        }
+
+        public bl_FACTURACION_MUTUALEntidadColeccion BuscarConTotal(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES, Nullable<Int32> p_ANIO)
+        {
+            try
+            {
+                DataTable dt = p_da.BuscarConTotal(p_ID_FACTURACION_MUTUAL, p_ID_MUTUAL, p_ID_FACTURACION_MES, p_ANIO);
+                bl_FACTURACION_MUTUALEntidadColeccion lista = new bl_FACTURACION_MUTUALEntidadColeccion();
+
+                if (dt != null)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        bl_FACTURACION_MUTUALEntidad ent = new bl_FACTURACION_MUTUALEntidad();
+                        if (dr["idFacturacionMutual"] != DBNull.Value)
+                            ent.ID_FACTURACION_MUTUAL = Convert.ToInt32(dr["idFacturacionMutual"]);
+                        if (dr["idMutual"] != DBNull.Value)
+                            ent.ID_MUTUAL = Convert.ToInt32(dr["idMutual"]);
+                        if (dr["nomMutual"] != DBNull.Value)
+                            ent.N_MUTUAL = Convert.ToString(dr["nomMutual"]);
+                        if (dr["idFacturacionMes"] != DBNull.Value)
+                            ent.ID_FACTURACION_MES = Convert.ToInt32(dr["idFacturacionMes"]);
+                        if (dr["nomMes"] != DBNull.Value)
+                            ent.N_FACTURACION_MES = Convert.ToString(dr["nomMes"]);
+                        if (dr["anio"] != DBNull.Value)
+                            ent.ANIO = Convert.ToInt32(dr["anio"]);
+                        if (dr["precioUnidadBioquimica"] != DBNull.Value)
+                            ent.PRECIO_UNID_BIOQ = Convert.ToDecimal(dr["precioUnidadBioquimica"]);
+                        if (dr["TotalUnidadBioq"] != DBNull.Value)
+                            ent.TOTAL_UNID_BIOQ = Convert.ToDecimal(dr["TotalUnidadBioq"]);
                         if (dr["usr_ing"] != DBNull.Value)
                             ent.USR_ING = Convert.ToString(dr["usr_ing"]);
                         if (dr["fec_ing"] != DBNull.Value)
@@ -256,7 +335,7 @@ namespace blLabBioquimica
             try
             {
 
-                ent.ID_FACTURACION_MUTUAL = p_da.Insertar(ent.ID_MUTUAL, ent.ID_FACTURACION_MES, ent.PRECIO_UNID_BIOQ, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
+                ent.ID_FACTURACION_MUTUAL = p_da.Insertar(ent.ID_MUTUAL, ent.ID_FACTURACION_MES, ent.ANIO, ent.PRECIO_UNID_BIOQ, ent.USR_ING, ent.FEC_ING, ent.USR_MOD, ent.FEC_MOD, ent.USR_BAJA, ent.FEC_BAJA);
 
                 return ent;
             }
@@ -275,7 +354,7 @@ namespace blLabBioquimica
         {
             try
             {
-                p_da.Modificar(ent.ID_FACTURACION_MUTUAL, ent.ID_MUTUAL, ent.ID_FACTURACION_MES, ent.PRECIO_UNID_BIOQ, ent.USR_MOD, ent.FEC_MOD);
+                p_da.Modificar(ent.ID_FACTURACION_MUTUAL, ent.ID_MUTUAL, ent.ID_FACTURACION_MES, ent.ANIO, ent.PRECIO_UNID_BIOQ, ent.USR_MOD, ent.FEC_MOD);
             }
             catch (Exception ex)
             {
@@ -296,11 +375,11 @@ namespace blLabBioquimica
 
         }
 
-        public DataTable dataTableFacturacionMutual(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES)
+        public DataTable dataTableFacturacionMutual(Nullable<Int32> p_ID_FACTURACION_MUTUAL, Nullable<Int32> p_ID_MUTUAL, Nullable<Int32> p_ID_FACTURACION_MES, Nullable<Int32> p_ANIO)
         {
             try
             {
-                DataTable dt = p_da.Buscar(p_ID_FACTURACION_MUTUAL, p_ID_MUTUAL, p_ID_FACTURACION_MES);
+                DataTable dt = p_da.Buscar(p_ID_FACTURACION_MUTUAL, p_ID_MUTUAL, p_ID_FACTURACION_MES, p_ANIO);
 
                 if (dt != null)
                 {
