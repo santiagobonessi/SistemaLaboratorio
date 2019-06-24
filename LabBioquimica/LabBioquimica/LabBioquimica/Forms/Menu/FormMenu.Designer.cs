@@ -43,6 +43,7 @@
             this.registroDePrácticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarProtocolosPorPacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarFacturacionesPorMutualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónMutualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictLaboratorio = new System.Windows.Forms.PictureBox();
@@ -148,7 +149,8 @@
             // informesToolStripMenuItem
             // 
             this.informesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.buscarProtocolosPorPacienteToolStripMenuItem});
+            this.buscarProtocolosPorPacienteToolStripMenuItem,
+            this.buscarFacturacionesPorMutualToolStripMenuItem});
             this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
             this.informesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.informesToolStripMenuItem.Text = "Informes";
@@ -156,9 +158,16 @@
             // buscarProtocolosPorPacienteToolStripMenuItem
             // 
             this.buscarProtocolosPorPacienteToolStripMenuItem.Name = "buscarProtocolosPorPacienteToolStripMenuItem";
-            this.buscarProtocolosPorPacienteToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.buscarProtocolosPorPacienteToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.buscarProtocolosPorPacienteToolStripMenuItem.Text = "Buscar Protocolos por Paciente";
             this.buscarProtocolosPorPacienteToolStripMenuItem.Click += new System.EventHandler(this.buscarProtocolosPorPacienteToolStripMenuItem_Click);
+            // 
+            // buscarFacturacionesPorMutualToolStripMenuItem
+            // 
+            this.buscarFacturacionesPorMutualToolStripMenuItem.Name = "buscarFacturacionesPorMutualToolStripMenuItem";
+            this.buscarFacturacionesPorMutualToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.buscarFacturacionesPorMutualToolStripMenuItem.Text = "Buscar Facturaciones por Mutual";
+            this.buscarFacturacionesPorMutualToolStripMenuItem.Click += new System.EventHandler(this.buscarFacturacionesPorMutualToolStripMenuItem_Click);
             // 
             // facturaciónMutualesToolStripMenuItem
             // 
@@ -225,5 +234,6 @@
         private System.Windows.Forms.ToolStripMenuItem facturaciónMutualesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarProtocolosPorPacienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarFacturacionesPorMutualToolStripMenuItem;
     }
 }

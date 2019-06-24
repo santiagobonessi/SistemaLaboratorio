@@ -173,6 +173,12 @@
     <Compile Include="Forms\ABMC\Unidades\Unidades.Designer.cs">
       <DependentUpon>Unidades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Informes\FacturacionPorMutuales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Informes\FacturacionPorMutuales.Designer.cs">
+      <DependentUpon>FacturacionPorMutuales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Informes\ProtocolosPorPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ABMC\Unidades\Unidades.resx">
       <DependentUpon>Unidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Informes\FacturacionPorMutuales.resx">
+      <DependentUpon>FacturacionPorMutuales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Informes\ProtocolosPorPaciente.resx">
       <DependentUpon>ProtocolosPorPaciente.cs</DependentUpon>

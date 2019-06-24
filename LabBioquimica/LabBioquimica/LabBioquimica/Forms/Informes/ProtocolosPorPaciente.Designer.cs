@@ -124,7 +124,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(534, 389);
+            this.ClientSize = new System.Drawing.Size(534, 391);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dgvProtocoloPorPaciente);
             this.Controls.Add(this.cboPaciente);

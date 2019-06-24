@@ -41,7 +41,7 @@ namespace LabBioquimica.Forms.ABMC
             //CARGAR TODAS LAS MUTUALES EN LA GRILLA
 
             blLabBioquimica.bl_ANALISIS blAnalisis = new blLabBioquimica.bl_ANALISIS();
-            blLabBioquimica.bl_ANALISISEntidadColeccion col = blAnalisis.Buscar(null, null);
+            blLabBioquimica.bl_ANALISISEntidadColeccion col = blAnalisis.Buscar(null, null, null);
 
             foreach (blLabBioquimica.bl_ANALISISEntidad ent in col)
             {
@@ -61,7 +61,7 @@ namespace LabBioquimica.Forms.ABMC
 
                 String nombre = txtConsulta.Text;
                 blLabBioquimica.bl_ANALISIS blAnalisis = new blLabBioquimica.bl_ANALISIS();
-                blLabBioquimica.bl_ANALISISEntidadColeccion col = blAnalisis.Buscar(null, nombre);
+                blLabBioquimica.bl_ANALISISEntidadColeccion col = blAnalisis.Buscar(null, null, nombre);
 
                 foreach (blLabBioquimica.bl_ANALISISEntidad ent in col)
                 {

@@ -37,8 +37,8 @@ namespace blLabBioquimica
             set { p_METODO = value; }
         }
 
-        private Nullable<Double> p_UNIDAD_BIOQ;
-        public Nullable<Double> UNIDAD_BIOQ
+        private Nullable<Decimal> p_UNIDAD_BIOQ;
+        public Nullable<Decimal> UNIDAD_BIOQ
         {
             get { return p_UNIDAD_BIOQ; }
             set { p_UNIDAD_BIOQ = value; }
@@ -147,7 +147,7 @@ namespace blLabBioquimica
                     if (dt.Rows[0]["metodo"] != DBNull.Value)
                         ent.METODO = Convert.ToString(dt.Rows[0]["metodo"]);
                     if (dt.Rows[0]["unidadBioquimica"] != DBNull.Value)
-                        ent.UNIDAD_BIOQ = Convert.ToDouble(dt.Rows[0]["unidadBioquimica"]);
+                        ent.UNIDAD_BIOQ = Convert.ToDecimal(dt.Rows[0]["unidadBioquimica"]);
                     if (dt.Rows[0]["usr_ing"] != DBNull.Value)
                         ent.USR_ING = Convert.ToString(dt.Rows[0]["usr_ing"]);
                     if (dt.Rows[0]["fec_ing"] != DBNull.Value)
@@ -180,11 +180,63 @@ namespace blLabBioquimica
             }
         }
 
-        public bl_ANALISISEntidadColeccion Buscar(Nullable<Int32> p_ID_ANALISIS, String p_NOMBRE)
+        public bl_ANALISISEntidad BuscarPorCodigo(String p_CODIGO)
         {
             try
             {
-                DataTable dt = p_da.Buscar(p_ID_ANALISIS, p_NOMBRE);
+                DataTable dt = p_da.BuscarPorCodigo(p_CODIGO);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    bl_ANALISISEntidad ent = new bl_ANALISISEntidad();
+
+                    if (dt.Rows[0]["idAnalisis"] != DBNull.Value)
+                        ent.ID_ANALISIS = Convert.ToInt32(dt.Rows[0]["idAnalisis"]);
+                    if (dt.Rows[0]["codigo"] != DBNull.Value)
+                        ent.CODIGO = Convert.ToString(dt.Rows[0]["codigo"]);
+                    if (dt.Rows[0]["nombre"] != DBNull.Value)
+                        ent.NOMBRE = Convert.ToString(dt.Rows[0]["nombre"]);
+                    if (dt.Rows[0]["metodo"] != DBNull.Value)
+                        ent.METODO = Convert.ToString(dt.Rows[0]["metodo"]);
+                    if (dt.Rows[0]["unidadBioquimica"] != DBNull.Value)
+                        ent.UNIDAD_BIOQ = Convert.ToDecimal(dt.Rows[0]["unidadBioquimica"]);
+                    if (dt.Rows[0]["usr_ing"] != DBNull.Value)
+                        ent.USR_ING = Convert.ToString(dt.Rows[0]["usr_ing"]);
+                    if (dt.Rows[0]["fec_ing"] != DBNull.Value)
+                        ent.FEC_ING = Convert.ToDateTime(dt.Rows[0]["fec_ing"]);
+                    if (dt.Rows[0]["usr_mod"] != DBNull.Value)
+                        ent.USR_MOD = Convert.ToString(dt.Rows[0]["usr_mod"]);
+                    if (dt.Rows[0]["fec_mod"] != DBNull.Value)
+                        ent.FEC_MOD = Convert.ToDateTime(dt.Rows[0]["fec_mod"]);
+                    if (dt.Rows[0]["usr_baja"] != DBNull.Value)
+                        ent.USR_BAJA = Convert.ToString(dt.Rows[0]["usr_baja"]);
+                    if (dt.Rows[0]["fec_baja"] != DBNull.Value)
+                        ent.FEC_BAJA = Convert.ToDateTime(dt.Rows[0]["fec_baja"]);
+
+                    return ent;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+
+            catch (blLabBioquimica.Framework.blException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw new blLabBioquimica.Framework.blException(ex.Message);
+            }
+        }
+
+        public bl_ANALISISEntidadColeccion Buscar(Nullable<Int32> p_ID_ANALISIS, String p_CODIGO, String p_NOMBRE)
+        {
+            try
+            {
+                DataTable dt = p_da.Buscar(p_ID_ANALISIS, p_CODIGO, p_NOMBRE);
                 bl_ANALISISEntidadColeccion lista = new bl_ANALISISEntidadColeccion();
 
                 if (dt != null)
@@ -202,7 +254,7 @@ namespace blLabBioquimica
                         if (dr["metodo"] != DBNull.Value)
                             ent.METODO = Convert.ToString(dr["metodo"]);
                         if (dr["unidadBioquimica"] != DBNull.Value)
-                            ent.UNIDAD_BIOQ = Convert.ToDouble(dr["unidadBioquimica"]);
+                            ent.UNIDAD_BIOQ = Convert.ToDecimal(dr["unidadBioquimica"]);
                         if (dr["usr_ing"] != DBNull.Value)
                             ent.USR_ING = Convert.ToString(dr["usr_ing"]);
                         if (dr["fec_ing"] != DBNull.Value)
@@ -282,7 +334,7 @@ namespace blLabBioquimica
         {
             try
             {
-                DataTable dt = p_da.Buscar(null, null);
+                DataTable dt = p_da.Buscar(null, null, null);
 
                 if (dt != null)
                 {

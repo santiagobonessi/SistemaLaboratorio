@@ -101,6 +101,13 @@ namespace LabBioquimica.Forms.Menu
             protPorPac.Dispose();
         }
 
+        private void buscarFacturacionesPorMutualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Informes.FacturacionPorMutuales factPorMut = new Informes.FacturacionPorMutuales();
+            factPorMut.ShowDialog();
+            factPorMut.Dispose();
+        }
+
         private void facturaciónMutualesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Transaccion.FacturacionMutuales.FacturacionMutual factMutual = new Transaccion.FacturacionMutuales.FacturacionMutual();
@@ -112,5 +119,7 @@ namespace LabBioquimica.Forms.Menu
         {
             Close();
         }
+
+
     }
 }

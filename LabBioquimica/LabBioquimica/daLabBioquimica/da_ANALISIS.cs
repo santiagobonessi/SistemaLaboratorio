@@ -44,7 +44,39 @@ namespace daLabBioquimica
             }
         }
 
-        public DataTable Buscar(Nullable<Int32> p_ID_ANALISIS, String p_NOMBRE)
+        public DataTable BuscarPorCodigo(String p_CODIGO)
+        {
+            try
+            {
+
+                SqlConnection conn = new SqlConnection(CadenaDeConexion());
+                conn.Open();
+
+                String sql = @"SELECT A.idAnalisis, A.codigo, A.nombre, A.metodo, A.unidadBioquimica, "
+                            + "A.usr_ing, A.fec_ing, A.usr_mod, A.fec_mod, A.usr_baja, A.fec_baja "
+                            + "FROM Analisis A WHERE codigo = @CODIGO";
+
+                SqlCommand com = new SqlCommand(sql, conn);
+
+                com.Parameters.AddWithValue("@CODIGO", p_CODIGO);
+
+                SqlDataAdapter da = new SqlDataAdapter(com);
+
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                if (ds.Tables.Count > 0)
+                    return ds.Tables[0];
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new daLabBioquimica.Framework.daException(ex.Message);
+            }
+        }
+
+        public DataTable Buscar(Nullable<Int32> p_ID_ANALISIS, String p_CODIGO,  String p_NOMBRE)
         {
             try
             {
@@ -56,6 +88,7 @@ namespace daLabBioquimica
                                + "A.usr_ing, A.fec_ing, A.usr_mod, A.fec_mod, A.usr_baja, A.fec_baja "
                                + "FROM Analisis A "
                                + "WHERE (A.idAnalisis = @ID_ANALISIS OR @ID_ANALISIS IS NULL) "
+                               + "AND (A.codigo = @CODIGO OR @CODIGO IS NULL) "
                                + "AND (A.nombre LIKE @NOMBRE + '%' OR @NOMBRE IS NULL) "
                                + "AND A.usr_baja IS NULL "
                                + "AND A.fec_baja IS NULL "
@@ -73,6 +106,11 @@ namespace daLabBioquimica
                 else
                     com.Parameters.AddWithValue("@NOMBRE", DBNull.Value);
 
+                if (p_CODIGO != null)
+                    com.Parameters.AddWithValue("@CODIGO", p_CODIGO);
+                else
+                    com.Parameters.AddWithValue("@CODIGO", DBNull.Value);
+                
 
                 SqlDataAdapter da = new SqlDataAdapter(com);
 
@@ -92,7 +130,7 @@ namespace daLabBioquimica
             }
         }
 
-        public Int32 Insertar(String p_CODIGO, String p_NOMBRE, String p_METODO, Nullable<Double> p_UNIDAD_BIOQ, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
+        public Int32 Insertar(String p_CODIGO, String p_NOMBRE, String p_METODO, Nullable<Decimal> p_UNIDAD_BIOQ, String p_USR_ING, Nullable<DateTime> p_FEC_ING, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD, String p_USR_BAJA, Nullable<DateTime> p_FEC_BAJA)
         {
             try
             {
@@ -168,7 +206,7 @@ namespace daLabBioquimica
             }
         }//Termina el método Insertar
 
-        public void Modificar(Nullable<Int32> p_ID_ANALISIS, String p_CODIGO, String p_NOMBRE, String p_METODO, Nullable<Double> p_UNIDAD_BIOQ, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
+        public void Modificar(Nullable<Int32> p_ID_ANALISIS, String p_CODIGO, String p_NOMBRE, String p_METODO, Nullable<Decimal> p_UNIDAD_BIOQ, String p_USR_MOD, Nullable<DateTime> p_FEC_MOD)
         {
             try
             {
