@@ -66,6 +66,7 @@
             this.chActoBioquimico = new System.Windows.Forms.CheckBox();
             this.lblTotalFacturacion = new System.Windows.Forms.Label();
             this.txtTotalFacturacion = new System.Windows.Forms.TextBox();
+            this.idFacturacionOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listaCodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotalUnidBioq = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -349,6 +350,7 @@
             this.dgvPacientesXAnalisisFacturados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPacientesXAnalisisFacturados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientesXAnalisisFacturados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idFacturacionOrden,
             this.paciente,
             this.listaCodAnalisis,
             this.subtotalUnidBioq,
@@ -442,6 +444,13 @@
             this.txtTotalFacturacion.Name = "txtTotalFacturacion";
             this.txtTotalFacturacion.Size = new System.Drawing.Size(116, 22);
             this.txtTotalFacturacion.TabIndex = 1;
+            // 
+            // idFacturacionOrden
+            // 
+            this.idFacturacionOrden.HeaderText = "ID_FACTURACION_ORDEN";
+            this.idFacturacionOrden.Name = "idFacturacionOrden";
+            this.idFacturacionOrden.ReadOnly = true;
+            this.idFacturacionOrden.Visible = false;
             // 
             // paciente
             // 
@@ -553,6 +562,7 @@
         private System.Windows.Forms.TextBox txtTotalFacturacion;
         private System.Windows.Forms.ComboBox cboMesFact;
         private System.Windows.Forms.Label lblMesFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idFacturacionOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn paciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn listaCodAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotalUnidBioq;
