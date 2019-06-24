@@ -12,12 +12,14 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
 {
     public partial class FacturacionMutual : Form
     {
+        //Variable del id  de FacturacionMutual usado actualmente.
+        public static int idFacturacionMutualActual = 0;  
 
         //Variable de la posicion seleccionada en la grilla dgvProtocolosXPaciente
-        public static Int32 posSelecPP;
+        public static int posSelecPP;
 
         //Variable de la posicion seleccionada en la grilla dgvPacientesXAnalisisFacturados
-        public static Int32 posSelecPAF;
+        public static int posSelecPAF;
 
         public FacturacionMutual()
         {
@@ -69,13 +71,16 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             //Busca todos los pacientes que esten adheridos a la mutual seleccionada
             try
             {
-                if (txtPrecioUnidBioq.Text == "") { return; }
+                //Verifico que complete los campos.
+                if (this.txtPrecioUnidBioq.Text == "") { return; }
+                if(this.cboMesFact.SelectedIndex == 0) { return; }
+
                 int filaSelec = this.cboMutual.SelectedIndex;
                 String valueMember = this.cboMutual.ValueMember.ToString();
 
                 if (!string.IsNullOrEmpty(valueMember) && filaSelec >= 0 && this.cboMutual.SelectedValue != null)
                 {
-                    //Falta validar que se lleno el text box de precio Unid Bioq
+                   
                     this.gbInfoMutual.Enabled = false;
                     this.gbPacientesAdheridos.Enabled = true;
 
@@ -90,11 +95,26 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                     this.cboPacientesAdheridos.DisplayMember = "nomape";
                     
 
-                    // cargo la lista de items para el autocomplete dle combobox
+                    //Cargo la lista de items para el autocomplete del combobox
                     this.cboPacientesAdheridos.AutoCompleteCustomSource = AutocompletePaciente();
                     this.cboPacientesAdheridos.AutoCompleteMode = AutoCompleteMode.Suggest;
                     this.cboPacientesAdheridos.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                    
+
+                    if (idFacturacionMutualActual == 0)
+                    {
+                        //Insertar FacturacionMutual en base de datos
+                        blLabBioquimica.bl_FACTURACION_MUTUAL blFactMutual = new blLabBioquimica.bl_FACTURACION_MUTUAL();
+                        blLabBioquimica.bl_FACTURACION_MUTUALEntidad ent = new blLabBioquimica.bl_FACTURACION_MUTUALEntidad();
+
+                        ent.ID_MUTUAL = idMutual;
+                        ent.ID_FACTURACION_MES = int.Parse(this.cboMesFact.SelectedValue.ToString()); ;
+                        ent.USR_ING = "ADMIN";
+                        ent.FEC_ING = DateTime.Now;
+
+                        int idFacturacionMutual = (int)blFactMutual.Insertar(ent).ID_FACTURACION_MUTUAL;
+                        idFacturacionMutualActual = idFacturacionMutual;
+                    }                    
+
                 }
 
 
@@ -217,13 +237,49 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            string nomapePaciente = this.cboPacientesAdheridos.Text;
+            
             string cadenaCodigos = "";
             decimal cantUnidBioq = 0;
             decimal precioUnidBioq = decimal.Parse(this.txtPrecioUnidBioq.Text);
 
             bool checkActoBioquimico = this.chActoBioquimico.Checked;
             string codigoActoBioquimico = "660001";
+
+            int idPaciente = int.Parse(this.cboPacientesAdheridos.SelectedValue.ToString());
+            string nomapePaciente = this.cboPacientesAdheridos.Text;
+
+            int idFacturacionOrden = 0;
+
+            if (idFacturacionMutualActual != 0 && idPaciente != 0)
+            {
+                //Insertar en base de datos FacturacionOrden
+                blLabBioquimica.bl_FACTURACION_ORDEN blFacturacionOrden = new blLabBioquimica.bl_FACTURACION_ORDEN();
+                blLabBioquimica.bl_FACTURACION_ORDENEntidad entFO = new blLabBioquimica.bl_FACTURACION_ORDENEntidad();
+                entFO.ID_FACTURACION_MUTUAL = idFacturacionMutualActual;
+                entFO.ID_PACIENTE = idPaciente;
+                entFO.USR_ING = "ADMIN";
+                entFO.FEC_ING = DateTime.Now;
+
+                idFacturacionOrden = (int) blFacturacionOrden.Insertar(entFO).ID_FACTURACION_ORDEN;
+            }
+
+            //Insertar en base de datos FacturacionAnalisis  
+            blLabBioquimica.bl_FACTURACION_ANALISIS blFacturacionAnalisis = new blLabBioquimica.bl_FACTURACION_ANALISIS();
+            blLabBioquimica.bl_FACTURACION_ANALISISEntidad entFA = new blLabBioquimica.bl_FACTURACION_ANALISISEntidad();
+
+            //Agrego al incio el analisis ACTO BIOQUIMICO
+            if (checkActoBioquimico)
+            {
+                //Consultar por analisis ACTO BIOQUIMICO.
+                blLabBioquimica.bl_ANALISIS blAnalisis = new blLabBioquimica.bl_ANALISIS();
+                blLabBioquimica.bl_ANALISISEntidad ent = blAnalisis.BuscarPorCodigo(codigoActoBioquimico);
+
+                if (ent != null)
+                {
+                    cadenaCodigos += ent.CODIGO + " - ";
+                    cantUnidBioq = (decimal)ent.UNIDAD_BIOQ;
+                }
+            }
 
             //Recorro los analisis seleccionados
             foreach (DataGridViewRow row in dgvAnalisisXProtocolo.Rows)
@@ -232,22 +288,6 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                 { 
                     string codigo = "";
                     decimal unidadBioq = 0;
-
-                    //Agrego al incio el analisis ACTO BIOQUIMICO
-                    if (checkActoBioquimico)
-                    {
-                        //Consultar por analisis ACTO BIOQUIMICO.
-
-                        blLabBioquimica.bl_ANALISIS blAnalisis = new blLabBioquimica.bl_ANALISIS();
-                        blLabBioquimica.bl_ANALISISEntidad ent = blAnalisis.BuscarPorCodigo(codigoActoBioquimico);
-
-                        cadenaCodigos += ent.CODIGO + " - ";
-
-                        cantUnidBioq = (decimal)ent.UNIDAD_BIOQ;
-
-
-                        checkActoBioquimico = false; // Para cargarlo solo una vez por orden.
-                    }
 
                     //Filtro por los checks seleccionados
                     if (row.Cells[7].Value.Equals(true))//Columna de checks
@@ -263,6 +303,9 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                          }
 
                     }
+
+                    //Insertar en base de datos 
+
                 }
                 
             }
