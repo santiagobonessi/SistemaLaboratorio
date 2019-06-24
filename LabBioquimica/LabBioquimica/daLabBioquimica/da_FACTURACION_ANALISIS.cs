@@ -134,7 +134,7 @@ namespace daLabBioquimica
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"INSERT INTO FacturacionOrden (idFacturacionOrden, idAnalisis, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja)"
+                String sql = @"INSERT INTO FacturacionAnalisis (idFacturacionOrden, idAnalisis, usr_ing, fec_ing, usr_mod, fec_mod, usr_baja, fec_baja)"
                             + "VALUES (@ID_FACTURACION_ORDEN, @ID_ANALISIS,@USR_ING, @FEC_ING, @USR_MOD, @FEC_MOD, @USR_BAJA, @FEC_BAJA)"
                             + "; SELECT @@Identity as ID";
 

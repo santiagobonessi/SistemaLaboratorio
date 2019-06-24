@@ -19,7 +19,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         public static int posSelecPP;
 
         //Variable de la posicion seleccionada en la grilla dgvPacientesXAnalisisFacturados
-        public static int posSelecPAF;
+        public static int posSelecFO;
 
         public FacturacionMutual()
         {
@@ -107,7 +107,8 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                         blLabBioquimica.bl_FACTURACION_MUTUALEntidad ent = new blLabBioquimica.bl_FACTURACION_MUTUALEntidad();
 
                         ent.ID_MUTUAL = idMutual;
-                        ent.ID_FACTURACION_MES = int.Parse(this.cboMesFact.SelectedValue.ToString()); ;
+                        ent.ID_FACTURACION_MES = int.Parse(this.cboMesFact.SelectedValue.ToString());
+                        ent.PRECIO_UNID_BIOQ = decimal.Parse(this.txtPrecioUnidBioq.Text);
                         ent.USR_ING = "ADMIN";
                         ent.FEC_ING = DateTime.Now;
 
@@ -272,12 +273,23 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             {
                 //Consultar por analisis ACTO BIOQUIMICO.
                 blLabBioquimica.bl_ANALISIS blAnalisis = new blLabBioquimica.bl_ANALISIS();
-                blLabBioquimica.bl_ANALISISEntidad ent = blAnalisis.BuscarPorCodigo(codigoActoBioquimico);
+                blLabBioquimica.bl_ANALISISEntidad entAnalisis = blAnalisis.BuscarPorCodigo(codigoActoBioquimico);
 
-                if (ent != null)
+                if (entAnalisis != null)
                 {
-                    cadenaCodigos += ent.CODIGO + " - ";
-                    cantUnidBioq = (decimal)ent.UNIDAD_BIOQ;
+                    cadenaCodigos += entAnalisis.CODIGO + " - ";
+                    cantUnidBioq = (decimal)entAnalisis.UNIDAD_BIOQ;
+
+                    //Insertar en base de datos FacturacionAnalisis
+                    if (idFacturacionOrden != 0)
+                    {
+                        entFA.ID_ANALISIS = entAnalisis.ID_ANALISIS;
+                        entFA.ID_FACTURACION_ORDEN = idFacturacionOrden;
+                        entFA.USR_ING = "ADMIN";
+                        entFA.FEC_ING = DateTime.Now;
+
+                        int idFacturacionAnalisis = (int)blFacturacionAnalisis.Insertar(entFA).ID_FACTURACION_ANALISIS;
+                    }
                 }
             }
 
@@ -300,11 +312,21 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                          {
                             unidadBioq = decimal.Parse(row.Cells[6].Value.ToString());
                             cantUnidBioq += unidadBioq;
-                         }
 
+                            if (idFacturacionOrden != 0)
+                            {
+                                //Insertar en base de datos FacturacionAnalisis
+                                entFA.ID_ANALISIS = int.Parse(row.Cells[2].Value.ToString());
+                                entFA.ID_FACTURACION_ORDEN = idFacturacionOrden;
+                                entFA.USR_ING = "ADMIN";
+                                entFA.FEC_ING = DateTime.Now;
+
+                                int idFacturacionAnalisis = (int)blFacturacionAnalisis.Insertar(entFA).ID_FACTURACION_ANALISIS;
+                            }
+                        }
                     }
 
-                    //Insertar en base de datos 
+                    
 
                 }
                 
@@ -323,7 +345,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             }
             this.txtTotalFacturacion.Text = total.ToString();
 
-            dgvPacientesXAnalisisFacturados.Rows.Add(nomapePaciente, cadenaCodigos, cantUnidBioq.ToString(), subtotal.ToString());
+            dgvPacientesXAnalisisFacturados.Rows.Add(idFacturacionOrden, nomapePaciente, cadenaCodigos, cantUnidBioq.ToString(), subtotal.ToString());
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -405,7 +427,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
 
                 //Posicion de la fila que haces click
                 int position_xy_mouse_row = dgvPacientesXAnalisisFacturados.HitTest(e.X, e.Y).RowIndex;
-                posSelecPAF = position_xy_mouse_row;
+                posSelecFO = position_xy_mouse_row;
 
                 foreach (DataGridViewRow dr in dgvPacientesXAnalisisFacturados.SelectedRows)
                 {
@@ -439,19 +461,31 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
                         //Borrar orden
-                        //blLabBioquimica.bl_PROTOCOLO_DETALLE blProtocoloDet = new blLabBioquimica.bl_PROTOCOLO_DETALLE();
-                        //blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad entPDBaja = new blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad();
-                        //String idProtocoloBaja = dgvProtocoloDetalle.Rows[posSelecPD].Cells[0].Value.ToString();
-                        //String idPDBaja = dgvProtocoloDetalle.Rows[posSelecPD].Cells[1].Value.ToString();
+                        blLabBioquimica.bl_FACTURACION_ORDEN blFacturacionOrden = new blLabBioquimica.bl_FACTURACION_ORDEN();
+                        blLabBioquimica.bl_FACTURACION_ORDENEntidad entFO = new blLabBioquimica.bl_FACTURACION_ORDENEntidad();
+                        String idFactOrdenBaja = dgvPacientesXAnalisisFacturados.Rows[posSelecFO].Cells[0].Value.ToString();
+                        String subtotalBaja = dgvPacientesXAnalisisFacturados.Rows[posSelecFO].Cells[4].Value.ToString();
 
-                        //entPDBaja.ID_PROTOCOLO_DETALLE = int.Parse(idPDBaja);
-                        //entPDBaja.USR_BAJA = "ADMIN";
-                        //entPDBaja.FEC_BAJA = DateTime.Now;
+                        entFO.ID_FACTURACION_ORDEN = int.Parse(idFactOrdenBaja);
+                        entFO.USR_BAJA = "ADMIN";
+                        entFO.FEC_BAJA = DateTime.Now;
 
-                        //blProtocoloDet.Baja(entPDBaja);
+                        blFacturacionOrden.Baja(entFO);
 
-                        ////Actualizar grilla Protocolo Detalle y Practica
-                        //cargarGrillaPDyP(int.Parse(idProtocoloBaja));
+                        //Borrar de la grilla el elemento dado de baja.
+                        foreach (DataGridViewRow c in dgvPacientesXAnalisisFacturados.Rows)
+                        {
+                            if (c.Cells[0].Value.ToString() == idFactOrdenBaja)
+                            {
+                                dgvPacientesXAnalisisFacturados.Rows.Remove(c);
+                            }
+                        }
+
+                        //Actualizar el monto total de facturacion
+                        decimal totalAnterior = decimal.Parse(this.txtTotalFacturacion.Text);
+                        decimal subtotal = decimal.Parse(subtotalBaja);
+                        decimal total = Math.Round(totalAnterior - subtotal, 2);
+                        this.txtTotalFacturacion.Text = total.ToString();
 
                     }
 
