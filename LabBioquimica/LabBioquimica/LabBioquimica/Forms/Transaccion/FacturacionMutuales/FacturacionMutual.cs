@@ -386,20 +386,20 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                     Microsoft.Office.Interop.Excel.Workbook libros_trabajo = aplicacion.Workbooks.Add();
                     Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
 
-                    hoja_trabajo.Cells[1, 1] = "FACTURACIÓN " + this.cboMesFact.Text + " " + DateTime.Now.Year.ToString();
+                    hoja_trabajo.Cells[1, 1] = "FACTURACIÓN " + this.cboMesFact.Text + " " + this.txtAnioFacturacion.Text;
 
                     //Cargar cabecera
-                    for (int j = 0; j < dgv.ColumnCount; j++)
+                    for (int j = 1; j < dgv.ColumnCount; j++)
                     {
-                        hoja_trabajo.Cells[2, j + 1] = dgv.Columns[j].HeaderText.ToUpper();
+                        hoja_trabajo.Cells[2, j] = dgv.Columns[j].HeaderText.ToUpper();
                     }
 
                     //Recorremos el DataGridView rellenando la hoja de trabajo
                     for (int i = 0; i < dgv.Rows.Count; i++)
                     {
-                        for (int j = 0; j < dgv.Columns.Count; j++)
+                        for (int j = 1; j < dgv.Columns.Count; j++)
                         {
-                            hoja_trabajo.Cells[i + 3, j + 1] = dgv.Rows[i].Cells[j].Value.ToString();
+                            hoja_trabajo.Cells[i + 3, j] = dgv.Rows[i].Cells[j].Value.ToString();
                         }
                     }
 
