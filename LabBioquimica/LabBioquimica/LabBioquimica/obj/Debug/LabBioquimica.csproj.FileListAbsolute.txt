@@ -177,3 +177,4 @@ C:\Users\Dicsys\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\
 C:\Users\Dicsys\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.application
 C:\Users\Dicsys\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.exe
 C:\Users\Dicsys\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.pdb
+C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\LabBioquimica\obj\Debug\LabBioquimica.Forms.Informes.FacturacionPorMutuales.resources
