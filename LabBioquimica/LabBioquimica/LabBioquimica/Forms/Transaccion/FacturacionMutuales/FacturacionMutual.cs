@@ -29,6 +29,68 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             this.txtAnioFacturacion.Text = DateTime.Now.Year.ToString();
         }
 
+        //Constructor con parámetro de id facturacion mutual para traer una facturacion a pantalla
+        //Es llamado desde el informe Facturacion por mutuales
+        public FacturacionMutual(Nullable<Int32> p_ID_FACTURACION_MUTUAL)
+        {
+            InitializeComponent();
+            cargarComboMutual();
+            cargarComboMes();
+            this.txtAnioFacturacion.Text = DateTime.Now.Year.ToString();
+
+            cargarPantallaFacturacionMutual(p_ID_FACTURACION_MUTUAL);
+
+        }
+
+        //Cargar datos de una facturacion mutual ya creada
+        public void cargarPantallaFacturacionMutual(Nullable<Int32> p_ID_FACTURACION_MUTUAL)
+        {
+            //Traer datos de la facturacion
+            blLabBioquimica.bl_FACTURACION_MUTUAL blFacturacionMutual = new blLabBioquimica.bl_FACTURACION_MUTUAL();
+            blLabBioquimica.bl_FACTURACION_MUTUALEntidad entFacturacionMutual = blFacturacionMutual.BuscarPorPK(p_ID_FACTURACION_MUTUAL);
+
+            if (entFacturacionMutual != null)
+            {
+                //Carga de datos Informacion General 
+                this.gbInfoMutual.Enabled = false;
+                this.cboMutual.Text = entFacturacionMutual.N_MUTUAL;
+                this.cboMesFact.Text = entFacturacionMutual.N_FACTURACION_MES;
+                this.txtAnioFacturacion.Text = entFacturacionMutual.ANIO.ToString();
+                this.txtPrecioUnidBioq.Text = entFacturacionMutual.PRECIO_UNID_BIOQ.ToString();
+
+                int filaSelec = this.cboMutual.SelectedIndex;
+                String valueMember = this.cboMutual.ValueMember.ToString();
+
+                if (!string.IsNullOrEmpty(valueMember) && filaSelec >= 0 && this.cboMutual.SelectedValue != null)
+                {
+
+                    this.gbInfoMutual.Enabled = false;
+                    this.gbPacientesAdheridos.Enabled = true;
+
+                    //Llenar el combo box con los pacientes adheridos a la mutual seleccionada
+                    int idMutual = int.Parse(this.cboMutual.SelectedValue.ToString());
+                    blLabBioquimica.bl_PACIENTE blPaciente = new blLabBioquimica.bl_PACIENTE();
+
+                    this.cboPacientesAdheridos.SelectedIndex = -1;
+                    this.cboPacientesAdheridos.DataSource = null;
+                    this.cboPacientesAdheridos.DataSource = blPaciente.dataTablePaciente(null, null, null, null, idMutual);
+                    this.cboPacientesAdheridos.ValueMember = "idPaciente";
+                    this.cboPacientesAdheridos.DisplayMember = "nomape";
+
+
+                    //Cargo la lista de items para el autocomplete del combobox
+                    this.cboPacientesAdheridos.AutoCompleteCustomSource = AutocompletePaciente();
+                    this.cboPacientesAdheridos.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    this.cboPacientesAdheridos.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                    idFacturacionMutualActual = (int) p_ID_FACTURACION_MUTUAL;
+
+                }
+
+            }
+
+        }
+
         public void cargarComboMutual()
         {
             blLabBioquimica.bl_MUTUAL blMutual = new blLabBioquimica.bl_MUTUAL();
@@ -64,6 +126,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             this.cboMesFact.ValueMember = "idFacturacionMes";
             this.cboMesFact.DisplayMember = "nombre";
             this.cboMesFact.SelectedIndex = 0;
+
         }
 
         

@@ -276,14 +276,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LabBioquimica.exe" size="1779712">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LabBioquimica.exe" size="1780736">
       <assemblyIdentity name="LabBioquimica" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2EzWfRB6bF8pfd7ZDNj6xAqmZmOSQe0HXxK/XKtmD5E=</dsig:DigestValue>
+        <dsig:DigestValue>SqBWlsxzuR6448JvMKKysmDLV/c7564zd6GyoR0+slw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -137,10 +137,9 @@ namespace LabBioquimica.Forms.Informes
                 {
                     case "Detalle Facturacion":
                         String idFacturacionMutual = dgvFacturacionesPorMutual.Rows[posSelec].Cells[0].Value.ToString();
-
-                        //Forms.Transaccion.NuevoProtocolo detalleProtocolo = new Forms.Transaccion.NuevoProtocolo(int.Parse(nroProtocolo));
-                        //detalleProtocolo.ShowDialog();
-                        //detalleProtocolo.Dispose();
+                        Forms.Transaccion.FacturacionMutuales.FacturacionMutual facturacionMutual = new Transaccion.FacturacionMutuales.FacturacionMutual(int.Parse(idFacturacionMutual));
+                        facturacionMutual.ShowDialog();
+                        facturacionMutual.Dispose();
 
                         break;
 
