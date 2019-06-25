@@ -26,7 +26,6 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             InitializeComponent();
             cargarComboMutual();
             cargarComboMes();
-            this.txtAnioFacturacion.Text = DateTime.Now.Year.ToString();
         }
 
         public void cargarComboMutual()
@@ -109,7 +108,6 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
 
                         ent.ID_MUTUAL = idMutual;
                         ent.ID_FACTURACION_MES = int.Parse(this.cboMesFact.SelectedValue.ToString());
-                        ent.ANIO = int.Parse(this.txtAnioFacturacion.Text);
                         ent.PRECIO_UNID_BIOQ = decimal.Parse(this.txtPrecioUnidBioq.Text);
                         ent.USR_ING = "ADMIN";
                         ent.FEC_ING = DateTime.Now;
