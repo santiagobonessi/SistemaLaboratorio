@@ -69,7 +69,7 @@ namespace daLabBioquimica
 
                 String sql = @"SELECT FO.idFacturacionOrden, FO.idFacturacionMutual, FO.idPaciente, P.apellido + ' ' + P.nombre AS nomapePac, "
                                + "FO.usr_ing, FO.fec_ing, FO.usr_mod, FO.fec_mod, FO.usr_baja, FO.fec_baja "
-                               + "FROM FacturacionOrden FO INNER JOIN FacturacionMutual FM ON FO.idFacturacionMutual = FM.idFacturacionMutual"
+                               + "FROM FacturacionOrden FO INNER JOIN FacturacionMutual FM ON FO.idFacturacionMutual = FM.idFacturacionMutual "
                                + "INNER JOIN Pacientes P ON FO.idPaciente = P.idPaciente "
                                + "WHERE (FO.idFacturacionOrden = @ID_FACTURACION_ORDEN OR @ID_FACTURACION_ORDEN IS NULL) "
                                + "AND (FO.idFacturacionMutual = @ID_FACTURACION_MUTUAL OR @ID_FACTURACION_MUTUAL IS NULL) "
