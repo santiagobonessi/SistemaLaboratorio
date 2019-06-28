@@ -50,6 +50,8 @@
             this.lblProtocolosPaciente = new System.Windows.Forms.Label();
             this.lblAnalisPorProtocolo = new System.Windows.Forms.Label();
             this.gbInfoMutual = new System.Windows.Forms.GroupBox();
+            this.txtAnioFacturacion = new System.Windows.Forms.MaskedTextBox();
+            this.lblAnio = new System.Windows.Forms.Label();
             this.cboMesFact = new System.Windows.Forms.ComboBox();
             this.lblMesFact = new System.Windows.Forms.Label();
             this.lblPesos = new System.Windows.Forms.Label();
@@ -71,8 +73,6 @@
             this.chActoBioquimico = new System.Windows.Forms.CheckBox();
             this.lblTotalFacturacion = new System.Windows.Forms.Label();
             this.txtTotalFacturacion = new System.Windows.Forms.TextBox();
-            this.lblAnio = new System.Windows.Forms.Label();
-            this.txtAnioFacturacion = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisisXProtocolo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocolosXPaciente)).BeginInit();
             this.gbInfoMutual.SuspendLayout();
@@ -281,6 +281,23 @@
             this.gbInfoMutual.TabStop = false;
             this.gbInfoMutual.Text = "Información General";
             // 
+            // txtAnioFacturacion
+            // 
+            this.txtAnioFacturacion.Location = new System.Drawing.Point(530, 22);
+            this.txtAnioFacturacion.Mask = "9999";
+            this.txtAnioFacturacion.Name = "txtAnioFacturacion";
+            this.txtAnioFacturacion.Size = new System.Drawing.Size(33, 20);
+            this.txtAnioFacturacion.TabIndex = 13;
+            // 
+            // lblAnio
+            // 
+            this.lblAnio.AutoSize = true;
+            this.lblAnio.Location = new System.Drawing.Point(495, 25);
+            this.lblAnio.Name = "lblAnio";
+            this.lblAnio.Size = new System.Drawing.Size(29, 13);
+            this.lblAnio.TabIndex = 12;
+            this.lblAnio.Text = "Año:";
+            // 
             // cboMesFact
             // 
             this.cboMesFact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -333,7 +350,7 @@
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCargar
             // 
@@ -489,23 +506,6 @@
             this.txtTotalFacturacion.Name = "txtTotalFacturacion";
             this.txtTotalFacturacion.Size = new System.Drawing.Size(116, 22);
             this.txtTotalFacturacion.TabIndex = 1;
-            // 
-            // lblAnio
-            // 
-            this.lblAnio.AutoSize = true;
-            this.lblAnio.Location = new System.Drawing.Point(495, 25);
-            this.lblAnio.Name = "lblAnio";
-            this.lblAnio.Size = new System.Drawing.Size(29, 13);
-            this.lblAnio.TabIndex = 12;
-            this.lblAnio.Text = "Año:";
-            // 
-            // txtAnioFacturacion
-            // 
-            this.txtAnioFacturacion.Location = new System.Drawing.Point(530, 22);
-            this.txtAnioFacturacion.Mask = "9999";
-            this.txtAnioFacturacion.Name = "txtAnioFacturacion";
-            this.txtAnioFacturacion.Size = new System.Drawing.Size(33, 20);
-            this.txtAnioFacturacion.TabIndex = 13;
             // 
             // FacturacionMutual
             // 

@@ -21,12 +21,14 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         //Variable de la posicion seleccionada en la grilla dgvPacientesXAnalisisFacturados
         public static int posSelecFO;
 
+
         public FacturacionMutual()
         {
             InitializeComponent();
             cargarComboMutual();
             cargarComboMes();
             this.txtAnioFacturacion.Text = DateTime.Now.Year.ToString();
+
         }
 
         //Constructor con parámetro de id facturacion mutual para traer una facturacion a pantalla
@@ -462,9 +464,26 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             Close();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            //TO DO : Limpiar todos los campos
+            //Limpiar todos los campos
+            limpiarCampos();
+        }
+
+        public void limpiarCampos()
+        {
+            this.gbInfoMutual.Enabled = true;
+            this.cboMutual.SelectedIndex = 0;
+            this.cboMesFact.SelectedIndex = 0;
+            this.txtAnioFacturacion.Text = DateTime.Now.Year.ToString();
+            this.txtPrecioUnidBioq.Text = "";
+
+            this.cboPacientesAdheridos.Text = "";
+            this.dgvProtocolosXPaciente.Rows.Clear();
+            this.dgvAnalisisXProtocolo.Rows.Clear();
+            this.dgvPacientesXAnalisisFacturados.Rows.Clear();
+            this.txtTotalFacturacion.Text = "";
+
         }
 
         /// <summary>
