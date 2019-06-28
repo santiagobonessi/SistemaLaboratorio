@@ -531,6 +531,7 @@
             this.Controls.Add(this.dgvAnalisisXProtocolo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FacturacionMutual";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturacion Mutual";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisisXProtocolo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocolosXPaciente)).EndInit();

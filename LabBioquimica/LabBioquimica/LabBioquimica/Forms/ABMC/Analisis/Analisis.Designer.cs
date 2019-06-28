@@ -90,7 +90,7 @@
             this.dgvAnalisis.ReadOnly = true;
             this.dgvAnalisis.RowHeadersVisible = false;
             this.dgvAnalisis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAnalisis.Size = new System.Drawing.Size(1177, 567);
+            this.dgvAnalisis.Size = new System.Drawing.Size(1177, 557);
             this.dgvAnalisis.TabIndex = 15;
             this.dgvAnalisis.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvAnalisis_MouseClick);
             // 
@@ -148,10 +148,9 @@
             // 
             // Analisis
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1192, 608);
+            this.ClientSize = new System.Drawing.Size(1192, 601);
             this.Controls.Add(this.lblCantFilas);
             this.Controls.Add(this.lblCant);
             this.Controls.Add(this.dgvAnalisis);
@@ -160,6 +159,7 @@
             this.Controls.Add(this.txtConsulta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Analisis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Analisis";
             this.Load += new System.EventHandler(this.Analisis_Load);
             this.Resize += new System.EventHandler(this.Analisis_Resize);

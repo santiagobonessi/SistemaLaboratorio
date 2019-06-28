@@ -172,6 +172,7 @@
             this.Controls.Add(this.dgvProfesionales);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Profesionales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profesionales";
             this.Load += new System.EventHandler(this.Profesionales_Load);
             this.Resize += new System.EventHandler(this.Profesionales_Resize);

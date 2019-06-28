@@ -512,7 +512,9 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                     Microsoft.Office.Interop.Excel.Workbook libros_trabajo = aplicacion.Workbooks.Add();
                     Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
 
-                    hoja_trabajo.Cells[1, 1] = "FACTURACIÓN " + this.cboMesFact.Text + " " + this.txtAnioFacturacion.Text;
+                    hoja_trabajo.Name = this.cboMesFact.Text +" "+ this.txtAnioFacturacion.Text;
+
+                    hoja_trabajo.Cells[1, 1] = "FACTURACIÓN " + this.cboMutual.Text + " " + this.cboMesFact.Text + " " + this.txtAnioFacturacion.Text;
 
                     //Cargar cabecera
                     for (int j = 1; j < dgv.ColumnCount; j++)

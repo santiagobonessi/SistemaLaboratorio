@@ -23,6 +23,7 @@ namespace LabBioquimica.Forms.Menu
 
         public FormMenu()
         {
+            this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
         }
 

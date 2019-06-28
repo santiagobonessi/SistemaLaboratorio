@@ -70,7 +70,12 @@ namespace LabBioquimica.Forms.Informes
 
                     foreach (var ent in col)
                     {
-                        decimal totalFacturado = Math.Round((decimal)ent.PRECIO_UNID_BIOQ * (decimal)ent.TOTAL_UNID_BIOQ, 2);
+                        decimal totalFacturado = 0;
+                        if (ent.PRECIO_UNID_BIOQ > 0 && ent.TOTAL_UNID_BIOQ > 0)
+                        {
+                             totalFacturado = Math.Round((decimal)ent.PRECIO_UNID_BIOQ * (decimal)ent.TOTAL_UNID_BIOQ, 2);
+                        }
+                        
                         dgvFacturacionesPorMutual.Rows.Add(ent.ID_FACTURACION_MUTUAL, ent.ANIO, ent.N_FACTURACION_MES, totalFacturado);
                     }
 

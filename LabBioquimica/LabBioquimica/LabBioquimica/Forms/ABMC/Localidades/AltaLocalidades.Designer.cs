@@ -129,6 +129,7 @@
             this.Controls.Add(this.btnInsertar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AltaLocalidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Localidades";
             this.ResumeLayout(false);
             this.PerformLayout();

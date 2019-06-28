@@ -129,6 +129,7 @@
             this.Controls.Add(this.lblTitulos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FacturacionPorMutuales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Búsqueda Facturacion de Mutuales";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturacionesPorMutual)).EndInit();
             this.ResumeLayout(false);

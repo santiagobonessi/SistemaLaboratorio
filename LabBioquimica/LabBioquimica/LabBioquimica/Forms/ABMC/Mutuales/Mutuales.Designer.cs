@@ -156,6 +156,7 @@
             this.Controls.Add(this.txtConsulta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Mutuales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mutuales";
             this.Load += new System.EventHandler(this.Mutuales_Load);
             this.Resize += new System.EventHandler(this.Mutuales_Resize);

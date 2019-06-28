@@ -437,7 +437,7 @@
             this.Controls.Add(this.gbNuevoProtocolo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NuevoProtocolo";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Examenes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NuevoProtocolo_FormClosing);
             this.gbNuevoProtocolo.ResumeLayout(false);

@@ -76,6 +76,7 @@
             this.Controls.Add(this.dgvUnidades);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Unidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unidades";
             this.Load += new System.EventHandler(this.Unidades_Load);
             this.Resize += new System.EventHandler(this.Unidades_Resize);

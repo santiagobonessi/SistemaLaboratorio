@@ -140,6 +140,7 @@
             this.Controls.Add(this.txtConsulta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Localidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Localidades";
             this.Load += new System.EventHandler(this.Localidades_Load);
             this.Resize += new System.EventHandler(this.Localidades_Resize);
