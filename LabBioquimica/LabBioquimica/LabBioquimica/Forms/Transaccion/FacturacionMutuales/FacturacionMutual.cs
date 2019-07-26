@@ -121,7 +121,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                             }
                             this.txtTotalFacturacion.Text = total.ToString();
 
-                            dgvPacientesXAnalisisFacturados.Rows.Add(idFacturacionOrden, entFO.N_PACIENTE, cadenaCodigos, cantUnidBioq.ToString(), subtotal.ToString());
+                            dgvPacientesXAnalisisFacturados.Rows.Add(entFO.ID_FACTURACION_ORDEN, entFO.N_PACIENTE, cadenaCodigos, cantUnidBioq.ToString(), subtotal.ToString());
 
                         }
 

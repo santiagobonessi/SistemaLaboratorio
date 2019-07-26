@@ -48,7 +48,7 @@
             // lblCantFilas
             // 
             this.lblCantFilas.AutoSize = true;
-            this.lblCantFilas.Location = new System.Drawing.Point(1003, 25);
+            this.lblCantFilas.Location = new System.Drawing.Point(991, 25);
             this.lblCantFilas.Name = "lblCantFilas";
             this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
             this.lblCantFilas.TabIndex = 24;
@@ -56,7 +56,7 @@
             // lblCant
             // 
             this.lblCant.AutoSize = true;
-            this.lblCant.Location = new System.Drawing.Point(921, 25);
+            this.lblCant.Location = new System.Drawing.Point(909, 25);
             this.lblCant.Name = "lblCant";
             this.lblCant.Size = new System.Drawing.Size(76, 13);
             this.lblCant.TabIndex = 23;
@@ -80,6 +80,7 @@
             this.lblBusqueda.Size = new System.Drawing.Size(212, 13);
             this.lblBusqueda.TabIndex = 21;
             this.lblBusqueda.Text = "Búsqueda de Items por Nombre de Análisis:";
+            this.lblBusqueda.Click += new System.EventHandler(this.lblBusqueda_Click);
             // 
             // dgvItems
             // 

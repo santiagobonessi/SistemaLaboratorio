@@ -23,14 +23,14 @@ namespace LabBioquimica.Forms.ABMC
         private void Mutuales_Load(object sender, EventArgs e)
         {
             cargarMutuales();
-            this.dgvMutuales.Width = this.Width - 30;
-            this.dgvMutuales.Height = this.Height - 30;
+            this.dgvMutuales.Width = this.Width - 25;
+            this.dgvMutuales.Height = this.Height - 85;
         }
 
         private void Mutuales_Resize(object sender, EventArgs e)
         {
-            this.dgvMutuales.Width = this.Width - 30;
-            this.dgvMutuales.Height = this.Height - 30;
+            this.dgvMutuales.Width = this.Width - 25;
+            this.dgvMutuales.Height = this.Height - 85;
         }
 
         public void cargarMutuales()
