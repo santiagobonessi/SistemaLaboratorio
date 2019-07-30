@@ -74,7 +74,7 @@
             // 
             this.lblProtocolo.AutoSize = true;
             this.lblProtocolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProtocolo.Location = new System.Drawing.Point(58, 25);
+            this.lblProtocolo.Location = new System.Drawing.Point(56, 23);
             this.lblProtocolo.Name = "lblProtocolo";
             this.lblProtocolo.Size = new System.Drawing.Size(70, 13);
             this.lblProtocolo.TabIndex = 0;
@@ -82,7 +82,7 @@
             // 
             // txtNroProtocolo
             // 
-            this.txtNroProtocolo.Location = new System.Drawing.Point(134, 20);
+            this.txtNroProtocolo.Location = new System.Drawing.Point(132, 18);
             this.txtNroProtocolo.Name = "txtNroProtocolo";
             this.txtNroProtocolo.Size = new System.Drawing.Size(200, 21);
             this.txtNroProtocolo.TabIndex = 1;
@@ -104,9 +104,9 @@
             this.gbNuevoProtocolo.Controls.Add(this.txtNroProtocolo);
             this.gbNuevoProtocolo.Controls.Add(this.lblProtocolo);
             this.gbNuevoProtocolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbNuevoProtocolo.Location = new System.Drawing.Point(57, 2);
+            this.gbNuevoProtocolo.Location = new System.Drawing.Point(135, 2);
             this.gbNuevoProtocolo.Name = "gbNuevoProtocolo";
-            this.gbNuevoProtocolo.Size = new System.Drawing.Size(717, 132);
+            this.gbNuevoProtocolo.Size = new System.Drawing.Size(708, 132);
             this.gbNuevoProtocolo.TabIndex = 0;
             this.gbNuevoProtocolo.TabStop = false;
             this.gbNuevoProtocolo.Text = "Nuevo Protocolo";
@@ -115,7 +115,7 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(338, 23);
+            this.lblMensaje.Location = new System.Drawing.Point(336, 21);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(180, 15);
             this.lblMensaje.TabIndex = 12;
@@ -123,7 +123,7 @@
             // 
             // btnProfesional
             // 
-            this.btnProfesional.Location = new System.Drawing.Point(582, 101);
+            this.btnProfesional.Location = new System.Drawing.Point(580, 100);
             this.btnProfesional.Name = "btnProfesional";
             this.btnProfesional.Size = new System.Drawing.Size(66, 23);
             this.btnProfesional.TabIndex = 6;
@@ -133,7 +133,7 @@
             // 
             // btnPaciente
             // 
-            this.btnPaciente.Location = new System.Drawing.Point(582, 72);
+            this.btnPaciente.Location = new System.Drawing.Point(580, 71);
             this.btnPaciente.Name = "btnPaciente";
             this.btnPaciente.Size = new System.Drawing.Size(66, 23);
             this.btnPaciente.TabIndex = 4;
@@ -144,7 +144,7 @@
             // cboProfesional
             // 
             this.cboProfesional.FormattingEnabled = true;
-            this.cboProfesional.Location = new System.Drawing.Point(134, 102);
+            this.cboProfesional.Location = new System.Drawing.Point(132, 100);
             this.cboProfesional.Name = "cboProfesional";
             this.cboProfesional.Size = new System.Drawing.Size(442, 23);
             this.cboProfesional.TabIndex = 5;
@@ -153,7 +153,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 106);
+            this.label1.Location = new System.Drawing.Point(64, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 6;
@@ -162,7 +162,7 @@
             // cboPaciente
             // 
             this.cboPaciente.FormattingEnabled = true;
-            this.cboPaciente.Location = new System.Drawing.Point(134, 73);
+            this.cboPaciente.Location = new System.Drawing.Point(132, 71);
             this.cboPaciente.Name = "cboPaciente";
             this.cboPaciente.Size = new System.Drawing.Size(442, 23);
             this.cboPaciente.TabIndex = 3;
@@ -171,7 +171,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(76, 79);
+            this.label3.Location = new System.Drawing.Point(74, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 4;
@@ -179,7 +179,7 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(134, 46);
+            this.dtpFecha.Location = new System.Drawing.Point(132, 44);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(267, 21);
             this.dtpFecha.TabIndex = 2;
@@ -188,7 +188,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(88, 52);
+            this.lblFecha.Location = new System.Drawing.Point(86, 50);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(40, 13);
             this.lblFecha.TabIndex = 2;
@@ -196,7 +196,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(780, 48);
+            this.btnModificar.Location = new System.Drawing.Point(850, 47);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(86, 40);
             this.btnModificar.TabIndex = 2;
@@ -206,7 +206,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(870, 94);
+            this.btnAceptar.Location = new System.Drawing.Point(940, 93);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(86, 40);
             this.btnAceptar.TabIndex = 1;
@@ -235,7 +235,7 @@
             this.dgvProtocoloDetalle.ReadOnly = true;
             this.dgvProtocoloDetalle.RowHeadersVisible = false;
             this.dgvProtocoloDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProtocoloDetalle.Size = new System.Drawing.Size(943, 214);
+            this.dgvProtocoloDetalle.Size = new System.Drawing.Size(1056, 214);
             this.dgvProtocoloDetalle.TabIndex = 3;
             this.dgvProtocoloDetalle.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvProtocoloDetalle_KeyUp);
             this.dgvProtocoloDetalle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProtocoloDetalle_MouseClick);
@@ -306,7 +306,7 @@
             this.dgvPracticas.Name = "dgvPracticas";
             this.dgvPracticas.RowHeadersVisible = false;
             this.dgvPracticas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPracticas.Size = new System.Drawing.Size(945, 197);
+            this.dgvPracticas.Size = new System.Drawing.Size(1058, 197);
             this.dgvPracticas.TabIndex = 4;
             this.dgvPracticas.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPracticas_CellValueChanged);
             this.dgvPracticas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPracticas_MouseClick);
@@ -365,7 +365,7 @@
             this.gbBusqueda.Controls.Add(this.btnConsultaProtocolo);
             this.gbBusqueda.Controls.Add(this.txtConsultaProtocolo);
             this.gbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBusqueda.Location = new System.Drawing.Point(126, 563);
+            this.gbBusqueda.Location = new System.Drawing.Point(135, 563);
             this.gbBusqueda.Name = "gbBusqueda";
             this.gbBusqueda.Size = new System.Drawing.Size(524, 52);
             this.gbBusqueda.TabIndex = 5;
@@ -392,7 +392,7 @@
             // btnImprimir
             // 
             this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.Location = new System.Drawing.Point(807, 563);
+            this.btnImprimir.Location = new System.Drawing.Point(920, 565);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(149, 52);
             this.btnImprimir.TabIndex = 5;
@@ -412,7 +412,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(780, 94);
+            this.btnCancelar.Location = new System.Drawing.Point(850, 93);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(86, 40);
             this.btnCancelar.TabIndex = 10;
@@ -425,7 +425,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(968, 626);
+            this.ClientSize = new System.Drawing.Size(1081, 626);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnModificar);
@@ -436,6 +436,9 @@
             this.Controls.Add(this.dgvProtocoloDetalle);
             this.Controls.Add(this.gbNuevoProtocolo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1097, 665);
+            this.MinimumSize = new System.Drawing.Size(1097, 665);
             this.Name = "NuevoProtocolo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Examenes";
