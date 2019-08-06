@@ -34,21 +34,21 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.cboAnalisis = new System.Windows.Forms.ComboBox();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.idItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorRef = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nroOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboAnalisis = new System.Windows.Forms.ComboBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCantFilas
             // 
             this.lblCantFilas.AutoSize = true;
-            this.lblCantFilas.Location = new System.Drawing.Point(1003, 25);
+            this.lblCantFilas.Location = new System.Drawing.Point(991, 25);
             this.lblCantFilas.Name = "lblCantFilas";
             this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
             this.lblCantFilas.TabIndex = 24;
@@ -56,7 +56,7 @@
             // lblCant
             // 
             this.lblCant.AutoSize = true;
-            this.lblCant.Location = new System.Drawing.Point(921, 25);
+            this.lblCant.Location = new System.Drawing.Point(909, 25);
             this.lblCant.Name = "lblCant";
             this.lblCant.Size = new System.Drawing.Size(76, 13);
             this.lblCant.TabIndex = 23;
@@ -80,6 +80,7 @@
             this.lblBusqueda.Size = new System.Drawing.Size(212, 13);
             this.lblBusqueda.TabIndex = 21;
             this.lblBusqueda.Text = "Búsqueda de Items por Nombre de Análisis:";
+            this.lblBusqueda.Click += new System.EventHandler(this.lblBusqueda_Click);
             // 
             // dgvItems
             // 
@@ -104,24 +105,6 @@
             this.dgvItems.Size = new System.Drawing.Size(1014, 394);
             this.dgvItems.TabIndex = 25;
             this.dgvItems.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvItems_MouseClick);
-            // 
-            // cboAnalisis
-            // 
-            this.cboAnalisis.FormattingEnabled = true;
-            this.cboAnalisis.Location = new System.Drawing.Point(230, 12);
-            this.cboAnalisis.Name = "cboAnalisis";
-            this.cboAnalisis.Size = new System.Drawing.Size(492, 21);
-            this.cboAnalisis.TabIndex = 26;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(809, 12);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 27;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // idItems
             // 
@@ -160,6 +143,24 @@
             this.nroOrden.Name = "nroOrden";
             this.nroOrden.ReadOnly = true;
             // 
+            // cboAnalisis
+            // 
+            this.cboAnalisis.FormattingEnabled = true;
+            this.cboAnalisis.Location = new System.Drawing.Point(230, 12);
+            this.cboAnalisis.Name = "cboAnalisis";
+            this.cboAnalisis.Size = new System.Drawing.Size(492, 21);
+            this.cboAnalisis.TabIndex = 26;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(809, 12);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 27;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +176,7 @@
             this.Controls.Add(this.lblBusqueda);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Items";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Items";
             this.Load += new System.EventHandler(this.Items_Load);
             this.Resize += new System.EventHandler(this.Items_Resize);

@@ -23,14 +23,14 @@ namespace LabBioquimica.Forms.ABMC
         private void Analisis_Load(object sender, EventArgs e)
         {
             cargarAnalisis();
-            this.dgvAnalisis.Width = this.Width -20;
-            this.dgvAnalisis.Height = this.Height - 20;
+            this.dgvAnalisis.Width = this.Width -25;
+            this.dgvAnalisis.Height = this.Height - 85;
         }
 
         private void Analisis_Resize(object sender, EventArgs e)
         {
-            this.dgvAnalisis.Width = this.Width - 20;
-            this.dgvAnalisis.Height = this.Height - 20;
+            this.dgvAnalisis.Width = this.Width - 25;
+            this.dgvAnalisis.Height = this.Height - 85;
         }
 
         public void cargarAnalisis()

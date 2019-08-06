@@ -171,6 +171,7 @@
             this.Controls.Add(this.btnInsertar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AltaMutuales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mutual";
             this.ResumeLayout(false);
             this.PerformLayout();

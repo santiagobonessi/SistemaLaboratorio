@@ -90,6 +90,7 @@
             this.dgvFacturacionesPorMutual.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFacturacionesPorMutual.Size = new System.Drawing.Size(510, 280);
             this.dgvFacturacionesPorMutual.TabIndex = 9;
+            this.dgvFacturacionesPorMutual.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFacturacionesPorMutual_MouseClick);
             // 
             // idFacturacionMutual
             // 
@@ -128,6 +129,7 @@
             this.Controls.Add(this.lblTitulos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FacturacionPorMutuales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Búsqueda Facturacion de Mutuales";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturacionesPorMutual)).EndInit();
             this.ResumeLayout(false);

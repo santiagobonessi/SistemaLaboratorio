@@ -21,11 +21,120 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
         //Variable de la posicion seleccionada en la grilla dgvPacientesXAnalisisFacturados
         public static int posSelecFO;
 
+
         public FacturacionMutual()
         {
             InitializeComponent();
             cargarComboMutual();
             cargarComboMes();
+            this.txtAnioFacturacion.Text = DateTime.Now.Year.ToString();
+
+        }
+
+        //Constructor con parámetro de id facturacion mutual para traer una facturacion a pantalla
+        //Es llamado desde el informe Facturacion por mutuales
+        public FacturacionMutual(Nullable<Int32> p_ID_FACTURACION_MUTUAL)
+        {
+            InitializeComponent();
+            cargarComboMutual();
+            cargarComboMes();
+            this.txtAnioFacturacion.Text = DateTime.Now.Year.ToString();
+
+            cargarPantallaFacturacionMutual(p_ID_FACTURACION_MUTUAL);
+
+        }
+
+        //Cargar datos de una facturacion mutual ya creada
+        public void cargarPantallaFacturacionMutual(Nullable<Int32> p_ID_FACTURACION_MUTUAL)
+        {
+            try
+            {
+                //Traer datos de la facturacion
+                blLabBioquimica.bl_FACTURACION_MUTUAL blFacturacionMutual = new blLabBioquimica.bl_FACTURACION_MUTUAL();
+                blLabBioquimica.bl_FACTURACION_MUTUALEntidad entFacturacionMutual = blFacturacionMutual.BuscarPorPK(p_ID_FACTURACION_MUTUAL);
+
+                if (entFacturacionMutual != null)
+                {
+                    //Carga de datos Informacion General 
+                    this.gbInfoMutual.Enabled = false;
+                    this.cboMutual.Text = entFacturacionMutual.N_MUTUAL;
+                    this.cboMesFact.Text = entFacturacionMutual.N_FACTURACION_MES;
+                    this.txtAnioFacturacion.Text = entFacturacionMutual.ANIO.ToString();
+                    this.txtPrecioUnidBioq.Text = entFacturacionMutual.PRECIO_UNID_BIOQ.ToString();
+
+                    int filaSelec = this.cboMutual.SelectedIndex;
+                    String valueMember = this.cboMutual.ValueMember.ToString();
+
+                    if (!string.IsNullOrEmpty(valueMember) && filaSelec >= 0 && this.cboMutual.SelectedValue != null)
+                    {
+
+                        this.gbInfoMutual.Enabled = false;
+                        this.gbPacientesAdheridos.Enabled = true;
+
+                        //Llenar el combo box con los pacientes adheridos a la mutual seleccionada
+                        int idMutual = int.Parse(this.cboMutual.SelectedValue.ToString());
+                        blLabBioquimica.bl_PACIENTE blPaciente = new blLabBioquimica.bl_PACIENTE();
+
+                        this.cboPacientesAdheridos.SelectedIndex = -1;
+                        this.cboPacientesAdheridos.DataSource = null;
+                        this.cboPacientesAdheridos.DataSource = blPaciente.dataTablePaciente(null, null, null, null, idMutual);
+                        this.cboPacientesAdheridos.ValueMember = "idPaciente";
+                        this.cboPacientesAdheridos.DisplayMember = "nomape";
+
+
+                        //Cargo la lista de items para el autocomplete del combobox
+                        this.cboPacientesAdheridos.AutoCompleteCustomSource = AutocompletePaciente();
+                        this.cboPacientesAdheridos.AutoCompleteMode = AutoCompleteMode.Suggest;
+                        this.cboPacientesAdheridos.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                        idFacturacionMutualActual = (int)p_ID_FACTURACION_MUTUAL;
+
+                        blLabBioquimica.bl_FACTURACION_ORDEN blFacturacionOrden = new blLabBioquimica.bl_FACTURACION_ORDEN();
+                        blLabBioquimica.bl_FACTURACION_ORDENEntidadColeccion colFO  = blFacturacionOrden.Buscar(null, idFacturacionMutualActual, null);
+
+                        //Recorro las ordenes para la faturacion mutual
+                        foreach (var entFO in colFO)
+                        {
+                            blLabBioquimica.bl_FACTURACION_ANALISIS blFacturacionAnalisis = new blLabBioquimica.bl_FACTURACION_ANALISIS();
+                            blLabBioquimica.bl_FACTURACION_ANALISISEntidadColeccion colFA = blFacturacionAnalisis.Buscar(null, entFO.ID_FACTURACION_ORDEN, null);
+
+                            string cadenaCodigos = "";
+                            decimal cantUnidBioq = 0;
+
+                            //Recorro las facturaciones analisis para cada orden
+                            foreach (var entFA in colFA)
+                            {
+                                cadenaCodigos += entFA.CODIGO_ANALISIS + " - ";
+                                cantUnidBioq += (decimal) entFA.UNIDAD_BIOQ_ANALSIS;
+                            }
+
+                            decimal subtotal = Math.Round(cantUnidBioq * (decimal) entFacturacionMutual.PRECIO_UNID_BIOQ, 2);
+                            decimal total = 0;
+                            if (this.txtTotalFacturacion.Text == "")
+                            {
+                                total = subtotal;
+                            }
+                            else
+                            {
+                                decimal totalAnterior = decimal.Parse(this.txtTotalFacturacion.Text);
+                                total = Math.Round(totalAnterior + subtotal, 2);
+                            }
+                            this.txtTotalFacturacion.Text = total.ToString();
+
+                            dgvPacientesXAnalisisFacturados.Rows.Add(entFO.ID_FACTURACION_ORDEN, entFO.N_PACIENTE, cadenaCodigos, cantUnidBioq.ToString(), subtotal.ToString());
+
+                        }
+
+
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void cargarComboMutual()
@@ -63,6 +172,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             this.cboMesFact.ValueMember = "idFacturacionMes";
             this.cboMesFact.DisplayMember = "nombre";
             this.cboMesFact.SelectedIndex = 0;
+
         }
 
         
@@ -108,6 +218,7 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
 
                         ent.ID_MUTUAL = idMutual;
                         ent.ID_FACTURACION_MES = int.Parse(this.cboMesFact.SelectedValue.ToString());
+                        ent.ANIO = int.Parse(this.txtAnioFacturacion.Text);
                         ent.PRECIO_UNID_BIOQ = decimal.Parse(this.txtPrecioUnidBioq.Text);
                         ent.USR_ING = "ADMIN";
                         ent.FEC_ING = DateTime.Now;
@@ -353,9 +464,26 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
             Close();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            //TO DO : Limpiar todos los campos
+            //Limpiar todos los campos
+            limpiarCampos();
+        }
+
+        public void limpiarCampos()
+        {
+            this.gbInfoMutual.Enabled = true;
+            this.cboMutual.SelectedIndex = 0;
+            this.cboMesFact.SelectedIndex = 0;
+            this.txtAnioFacturacion.Text = DateTime.Now.Year.ToString();
+            this.txtPrecioUnidBioq.Text = "";
+
+            this.cboPacientesAdheridos.Text = "";
+            this.dgvProtocolosXPaciente.Rows.Clear();
+            this.dgvAnalisisXProtocolo.Rows.Clear();
+            this.dgvPacientesXAnalisisFacturados.Rows.Clear();
+            this.txtTotalFacturacion.Text = "";
+
         }
 
         /// <summary>
@@ -384,20 +512,22 @@ namespace LabBioquimica.Forms.Transaccion.FacturacionMutuales
                     Microsoft.Office.Interop.Excel.Workbook libros_trabajo = aplicacion.Workbooks.Add();
                     Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
 
-                    hoja_trabajo.Cells[1, 1] = "FACTURACIÓN " + this.cboMesFact.Text + " " + DateTime.Now.Year.ToString();
+                    hoja_trabajo.Name = this.cboMesFact.Text +" "+ this.txtAnioFacturacion.Text;
+
+                    hoja_trabajo.Cells[1, 1] = "FACTURACIÓN " + this.cboMutual.Text + " " + this.cboMesFact.Text + " " + this.txtAnioFacturacion.Text;
 
                     //Cargar cabecera
-                    for (int j = 0; j < dgv.ColumnCount; j++)
+                    for (int j = 1; j < dgv.ColumnCount; j++)
                     {
-                        hoja_trabajo.Cells[2, j + 1] = dgv.Columns[j].HeaderText.ToUpper();
+                        hoja_trabajo.Cells[2, j] = dgv.Columns[j].HeaderText.ToUpper();
                     }
 
                     //Recorremos el DataGridView rellenando la hoja de trabajo
                     for (int i = 0; i < dgv.Rows.Count; i++)
                     {
-                        for (int j = 0; j < dgv.Columns.Count; j++)
+                        for (int j = 1; j < dgv.Columns.Count; j++)
                         {
-                            hoja_trabajo.Cells[i + 3, j + 1] = dgv.Rows[i].Cells[j].Value.ToString();
+                            hoja_trabajo.Cells[i + 3, j] = dgv.Rows[i].Cells[j].Value.ToString();
                         }
                     }
 

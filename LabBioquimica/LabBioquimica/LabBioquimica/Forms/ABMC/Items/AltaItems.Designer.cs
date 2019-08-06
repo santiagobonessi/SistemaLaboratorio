@@ -203,6 +203,7 @@
             this.Controls.Add(this.btnInsertar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AltaItems";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Items";
             this.ResumeLayout(false);
             this.PerformLayout();

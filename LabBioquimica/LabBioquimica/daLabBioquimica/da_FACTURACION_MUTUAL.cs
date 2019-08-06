@@ -142,7 +142,7 @@ namespace daLabBioquimica
                                + "FMes.nombre AS nomMes, FM.anio, FM.precioUnidadBioquimica, "
                                + "FM.usr_ing, FM.fec_ing, FM.usr_mod, FM.fec_mod, FM.usr_baja, FM.fec_baja, "
                                + "(SELECT SUM(A.unidadBioquimica) FROM FacturacionOrden FO "
-                               + "INNER JOIN FacturacionAnalisis FA ON (FO.idFacturacionOrden = FA.idFacturacionOrden) "
+                               + "INNER JOIN FacturacionAnalisis FA ON (FO.idFacturacionOrden = FA.idFacturacionOrden AND FO.usr_baja IS NULL AND FO.fec_baja IS NULL) "
                                + "INNER JOIN Analisis A ON (FA.idAnalisis = A.idAnalisis) "
                                + "WHERE FO.idFacturacionMutual = FM.idFacturacionMutual) AS TotalUnidadBioq "
                                + "FROM FacturacionMutual FM INNER JOIN Mutuales M ON FM.idMutual = M.idMutual "

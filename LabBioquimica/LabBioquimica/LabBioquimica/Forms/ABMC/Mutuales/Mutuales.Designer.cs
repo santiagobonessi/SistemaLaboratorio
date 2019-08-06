@@ -128,7 +128,7 @@
             // lblCantFilas
             // 
             this.lblCantFilas.AutoSize = true;
-            this.lblCantFilas.Location = new System.Drawing.Point(1166, 23);
+            this.lblCantFilas.Location = new System.Drawing.Point(1160, 23);
             this.lblCantFilas.Name = "lblCantFilas";
             this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
             this.lblCantFilas.TabIndex = 15;
@@ -136,7 +136,7 @@
             // lblCant
             // 
             this.lblCant.AutoSize = true;
-            this.lblCant.Location = new System.Drawing.Point(1084, 23);
+            this.lblCant.Location = new System.Drawing.Point(1078, 23);
             this.lblCant.Name = "lblCant";
             this.lblCant.Size = new System.Drawing.Size(76, 13);
             this.lblCant.TabIndex = 14;
@@ -156,6 +156,7 @@
             this.Controls.Add(this.txtConsulta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Mutuales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mutuales";
             this.Load += new System.EventHandler(this.Mutuales_Load);
             this.Resize += new System.EventHandler(this.Mutuales_Resize);

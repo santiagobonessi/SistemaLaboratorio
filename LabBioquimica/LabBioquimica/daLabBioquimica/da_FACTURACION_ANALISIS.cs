@@ -26,7 +26,7 @@ namespace daLabBioquimica
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"SELECT FA.idFacturacionAnalisis, FA.idFacturacionOrden, FA.idAnalisis, A.codigo, A.nombre, A.metodo, A.unidadBioquimica "
+                String sql = @"SELECT FA.idFacturacionAnalisis, FA.idFacturacionOrden, FA.idAnalisis, A.codigo, A.nombre, A.metodo, A.unidadBioquimica, "
                                + "FA.usr_ing, FA.fec_ing, FA.usr_mod, FA.fec_mod, FA.usr_baja, FA.fec_baja "
                                + "FROM FacturacionAnalisis FA INNER JOIN FacturacionOrden FO ON FA.idFacturacionOrden =  FO.idFacturacionOrden"
                                + "INNER JOIN  Analisis A ON FA.idAnalisis = A.idAnalisis "
@@ -67,9 +67,9 @@ namespace daLabBioquimica
                 SqlConnection conn = new SqlConnection(CadenaDeConexion());
                 conn.Open();
 
-                String sql = @"SELECT FA.idFacturacionAnalisis, FA.idFacturacionOrden, FA.idAnalisis, A.codigo, A.nombre, A.metodo, A.unidadBioquimica "
+                String sql = @"SELECT FA.idFacturacionAnalisis, FA.idFacturacionOrden, FA.idAnalisis, A.codigo, A.nombre, A.metodo, A.unidadBioquimica, "
                                + "FA.usr_ing, FA.fec_ing, FA.usr_mod, FA.fec_mod, FA.usr_baja, FA.fec_baja "
-                               + "FROM FacturacionAnalisis FA INNER JOIN FacturacionOrden FO ON FA.idFacturacionOrden =  FO.idFacturacionOrden"
+                               + "FROM FacturacionAnalisis FA INNER JOIN FacturacionOrden FO ON FA.idFacturacionOrden = FO.idFacturacionOrden "
                                + "INNER JOIN  Analisis A ON FA.idAnalisis = A.idAnalisis "
                                + "WHERE (FA.idFacturacionAnalisis = @ID_FACTURACION_ANALISIS OR @ID_FACTURACION_ANALISIS IS NULL) "
                                + "AND (FA.idFacturacionOrden = @ID_FACTURACION_ORDEN OR @ID_FACTURACION_ORDEN IS NULL) "

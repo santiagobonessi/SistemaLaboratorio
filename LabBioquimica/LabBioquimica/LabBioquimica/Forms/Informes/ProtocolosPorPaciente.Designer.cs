@@ -131,6 +131,7 @@
             this.Controls.Add(this.label3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProtocolosPorPaciente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Búsqueda de Protocolo por Paciente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocoloPorPaciente)).EndInit();
             this.ResumeLayout(false);

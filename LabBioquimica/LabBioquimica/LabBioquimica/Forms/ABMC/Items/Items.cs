@@ -34,6 +34,18 @@ namespace LabBioquimica.Forms.ABMC
             //cargarComboAnalisis();
         }
 
+        private void Items_Load(object sender, EventArgs e)
+        {
+            this.dgvItems.Width = this.Width - 35;
+            this.dgvItems.Height = this.Height - 85;
+        }
+
+        private void Items_Resize(object sender, EventArgs e)
+        {
+            this.dgvItems.Width = this.Width - 35;
+            this.dgvItems.Height = this.Height - 85;
+        }
+
         public void cargarItems()
         {
             this.dgvItems.Rows.Clear();
@@ -271,16 +283,9 @@ namespace LabBioquimica.Forms.ABMC
             cargarItems();
         }
 
-        private void Items_Load(object sender, EventArgs e)
+        private void lblBusqueda_Click(object sender, EventArgs e)
         {
-            this.dgvItems.Width = this.Width - 40;
-            this.dgvItems.Height = this.Height - 40;
-        }
 
-        private void Items_Resize(object sender, EventArgs e)
-        {
-            this.dgvItems.Width = this.Width - 40;
-            this.dgvItems.Height = this.Height - 40;
         }
     }
 }

@@ -199,6 +199,7 @@
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NuevoAnalisis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insertar Nueva Práctica";
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemsAnalisis)).EndInit();
             this.ResumeLayout(false);

@@ -173,6 +173,7 @@
             this.Controls.Add(this.btnInsertar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AltaAnalisis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Analisis";
             this.ResumeLayout(false);
             this.PerformLayout();

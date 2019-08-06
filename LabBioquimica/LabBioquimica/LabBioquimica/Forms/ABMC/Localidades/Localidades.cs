@@ -22,14 +22,14 @@ namespace LabBioquimica.Forms.ABMC
         private void Localidades_Load(object sender, EventArgs e)
         {
             cargarLocalidades();
-            this.dgvLocalidades.Width = this.Width - 40;
-            this.dgvLocalidades.Height = this.Height - 40;
+            this.dgvLocalidades.Width = this.Width - 35;
+            this.dgvLocalidades.Height = this.Height - 85;
         }
 
         private void Localidades_Resize(object sender, EventArgs e)
         {
-            this.dgvLocalidades.Width = this.Width - 40;
-            this.dgvLocalidades.Height = this.Height - 40;
+            this.dgvLocalidades.Width = this.Width - 35;
+            this.dgvLocalidades.Height = this.Height - 85;
         }
 
         public void cargarLocalidades()

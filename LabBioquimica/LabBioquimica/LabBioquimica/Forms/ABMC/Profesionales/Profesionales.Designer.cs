@@ -144,7 +144,7 @@
             // lblCantFilas
             // 
             this.lblCantFilas.AutoSize = true;
-            this.lblCantFilas.Location = new System.Drawing.Point(1166, 26);
+            this.lblCantFilas.Location = new System.Drawing.Point(1152, 26);
             this.lblCantFilas.Name = "lblCantFilas";
             this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
             this.lblCantFilas.TabIndex = 13;
@@ -152,7 +152,7 @@
             // lblCant
             // 
             this.lblCant.AutoSize = true;
-            this.lblCant.Location = new System.Drawing.Point(1084, 26);
+            this.lblCant.Location = new System.Drawing.Point(1070, 26);
             this.lblCant.Name = "lblCant";
             this.lblCant.Size = new System.Drawing.Size(76, 13);
             this.lblCant.TabIndex = 12;
@@ -172,6 +172,7 @@
             this.Controls.Add(this.dgvProfesionales);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Profesionales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profesionales";
             this.Load += new System.EventHandler(this.Profesionales_Load);
             this.Resize += new System.EventHandler(this.Profesionales_Resize);

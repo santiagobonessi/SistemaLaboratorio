@@ -50,6 +50,8 @@
             this.lblProtocolosPaciente = new System.Windows.Forms.Label();
             this.lblAnalisPorProtocolo = new System.Windows.Forms.Label();
             this.gbInfoMutual = new System.Windows.Forms.GroupBox();
+            this.txtAnioFacturacion = new System.Windows.Forms.MaskedTextBox();
+            this.lblAnio = new System.Windows.Forms.Label();
             this.cboMesFact = new System.Windows.Forms.ComboBox();
             this.lblMesFact = new System.Windows.Forms.Label();
             this.lblPesos = new System.Windows.Forms.Label();
@@ -58,6 +60,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCargar = new System.Windows.Forms.Button();
             this.dgvPacientesXAnalisisFacturados = new System.Windows.Forms.DataGridView();
+            this.idFacturacionOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listaCodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotalUnidBioq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblAnalisisFacturados = new System.Windows.Forms.Label();
             this.cboPacientesAdheridos = new System.Windows.Forms.ComboBox();
             this.gbPacientesAdheridos = new System.Windows.Forms.GroupBox();
@@ -66,11 +73,6 @@
             this.chActoBioquimico = new System.Windows.Forms.CheckBox();
             this.lblTotalFacturacion = new System.Windows.Forms.Label();
             this.txtTotalFacturacion = new System.Windows.Forms.TextBox();
-            this.idFacturacionOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listaCodAnalisis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotalUnidBioq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisisXProtocolo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocolosXPaciente)).BeginInit();
             this.gbInfoMutual.SuspendLayout();
@@ -82,7 +84,7 @@
             // 
             this.cboMutual.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMutual.FormattingEnabled = true;
-            this.cboMutual.Location = new System.Drawing.Point(82, 21);
+            this.cboMutual.Location = new System.Drawing.Point(59, 21);
             this.cboMutual.Name = "cboMutual";
             this.cboMutual.Size = new System.Drawing.Size(240, 21);
             this.cboMutual.TabIndex = 0;
@@ -90,7 +92,7 @@
             // lblMutualBusq
             // 
             this.lblMutualBusq.AutoSize = true;
-            this.lblMutualBusq.Location = new System.Drawing.Point(34, 24);
+            this.lblMutualBusq.Location = new System.Drawing.Point(11, 24);
             this.lblMutualBusq.Name = "lblMutualBusq";
             this.lblMutualBusq.Size = new System.Drawing.Size(42, 13);
             this.lblMutualBusq.TabIndex = 1;
@@ -98,7 +100,7 @@
             // 
             // btnAceptarMutual
             // 
-            this.btnAceptarMutual.Location = new System.Drawing.Point(930, 10);
+            this.btnAceptarMutual.Location = new System.Drawing.Point(955, 10);
             this.btnAceptarMutual.Name = "btnAceptarMutual";
             this.btnAceptarMutual.Size = new System.Drawing.Size(64, 46);
             this.btnAceptarMutual.TabIndex = 5;
@@ -127,7 +129,7 @@
             this.dgvAnalisisXProtocolo.Name = "dgvAnalisisXProtocolo";
             this.dgvAnalisisXProtocolo.RowHeadersVisible = false;
             this.dgvAnalisisXProtocolo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAnalisisXProtocolo.Size = new System.Drawing.Size(982, 120);
+            this.dgvAnalisisXProtocolo.Size = new System.Drawing.Size(1007, 120);
             this.dgvAnalisisXProtocolo.TabIndex = 6;
             // 
             // idProtocoloAnalisis
@@ -199,7 +201,7 @@
             this.dgvProtocolosXPaciente.ReadOnly = true;
             this.dgvProtocolosXPaciente.RowHeadersVisible = false;
             this.dgvProtocolosXPaciente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProtocolosXPaciente.Size = new System.Drawing.Size(982, 120);
+            this.dgvProtocolosXPaciente.Size = new System.Drawing.Size(1007, 120);
             this.dgvProtocolosXPaciente.TabIndex = 7;
             this.dgvProtocolosXPaciente.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvProtocolosXPaciente_MouseClick);
             // 
@@ -263,6 +265,8 @@
             // 
             // gbInfoMutual
             // 
+            this.gbInfoMutual.Controls.Add(this.txtAnioFacturacion);
+            this.gbInfoMutual.Controls.Add(this.lblAnio);
             this.gbInfoMutual.Controls.Add(this.cboMesFact);
             this.gbInfoMutual.Controls.Add(this.lblMesFact);
             this.gbInfoMutual.Controls.Add(this.lblPesos);
@@ -272,16 +276,33 @@
             this.gbInfoMutual.Controls.Add(this.lblMutualBusq);
             this.gbInfoMutual.Location = new System.Drawing.Point(12, 3);
             this.gbInfoMutual.Name = "gbInfoMutual";
-            this.gbInfoMutual.Size = new System.Drawing.Size(842, 55);
+            this.gbInfoMutual.Size = new System.Drawing.Size(860, 55);
             this.gbInfoMutual.TabIndex = 11;
             this.gbInfoMutual.TabStop = false;
             this.gbInfoMutual.Text = "Información General";
+            // 
+            // txtAnioFacturacion
+            // 
+            this.txtAnioFacturacion.Location = new System.Drawing.Point(530, 22);
+            this.txtAnioFacturacion.Mask = "9999";
+            this.txtAnioFacturacion.Name = "txtAnioFacturacion";
+            this.txtAnioFacturacion.Size = new System.Drawing.Size(33, 20);
+            this.txtAnioFacturacion.TabIndex = 13;
+            // 
+            // lblAnio
+            // 
+            this.lblAnio.AutoSize = true;
+            this.lblAnio.Location = new System.Drawing.Point(495, 25);
+            this.lblAnio.Name = "lblAnio";
+            this.lblAnio.Size = new System.Drawing.Size(29, 13);
+            this.lblAnio.TabIndex = 12;
+            this.lblAnio.Text = "Año:";
             // 
             // cboMesFact
             // 
             this.cboMesFact.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMesFact.FormattingEnabled = true;
-            this.cboMesFact.Location = new System.Drawing.Point(388, 20);
+            this.cboMesFact.Location = new System.Drawing.Point(342, 22);
             this.cboMesFact.Name = "cboMesFact";
             this.cboMesFact.Size = new System.Drawing.Size(142, 21);
             this.cboMesFact.TabIndex = 10;
@@ -289,7 +310,7 @@
             // lblMesFact
             // 
             this.lblMesFact.AutoSize = true;
-            this.lblMesFact.Location = new System.Drawing.Point(352, 24);
+            this.lblMesFact.Location = new System.Drawing.Point(306, 24);
             this.lblMesFact.Name = "lblMesFact";
             this.lblMesFact.Size = new System.Drawing.Size(30, 13);
             this.lblMesFact.TabIndex = 9;
@@ -298,7 +319,7 @@
             // lblPesos
             // 
             this.lblPesos.AutoSize = true;
-            this.lblPesos.Location = new System.Drawing.Point(707, 23);
+            this.lblPesos.Location = new System.Drawing.Point(738, 24);
             this.lblPesos.Name = "lblPesos";
             this.lblPesos.Size = new System.Drawing.Size(13, 13);
             this.lblPesos.TabIndex = 8;
@@ -307,7 +328,7 @@
             // lblPrecioUnidBioq
             // 
             this.lblPrecioUnidBioq.AutoSize = true;
-            this.lblPrecioUnidBioq.Location = new System.Drawing.Point(570, 24);
+            this.lblPrecioUnidBioq.Location = new System.Drawing.Point(601, 25);
             this.lblPrecioUnidBioq.Name = "lblPrecioUnidBioq";
             this.lblPrecioUnidBioq.Size = new System.Drawing.Size(131, 13);
             this.lblPrecioUnidBioq.TabIndex = 7;
@@ -315,7 +336,7 @@
             // 
             // txtPrecioUnidBioq
             // 
-            this.txtPrecioUnidBioq.Location = new System.Drawing.Point(726, 20);
+            this.txtPrecioUnidBioq.Location = new System.Drawing.Point(757, 21);
             this.txtPrecioUnidBioq.Name = "txtPrecioUnidBioq";
             this.txtPrecioUnidBioq.Size = new System.Drawing.Size(79, 20);
             this.txtPrecioUnidBioq.TabIndex = 6;
@@ -323,17 +344,17 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(860, 10);
+            this.btnCancelar.Location = new System.Drawing.Point(885, 10);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(64, 46);
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCargar
             // 
-            this.btnCargar.Location = new System.Drawing.Point(906, 398);
+            this.btnCargar.Location = new System.Drawing.Point(931, 398);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(88, 46);
             this.btnCargar.TabIndex = 12;
@@ -360,90 +381,9 @@
             this.dgvPacientesXAnalisisFacturados.ReadOnly = true;
             this.dgvPacientesXAnalisisFacturados.RowHeadersVisible = false;
             this.dgvPacientesXAnalisisFacturados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientesXAnalisisFacturados.Size = new System.Drawing.Size(981, 157);
+            this.dgvPacientesXAnalisisFacturados.Size = new System.Drawing.Size(1006, 157);
             this.dgvPacientesXAnalisisFacturados.TabIndex = 13;
             this.dgvPacientesXAnalisisFacturados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvPacientesXAnalisisFacturados_MouseClick);
-            // 
-            // lblAnalisisFacturados
-            // 
-            this.lblAnalisisFacturados.AutoSize = true;
-            this.lblAnalisisFacturados.Location = new System.Drawing.Point(12, 431);
-            this.lblAnalisisFacturados.Name = "lblAnalisisFacturados";
-            this.lblAnalisisFacturados.Size = new System.Drawing.Size(172, 13);
-            this.lblAnalisisFacturados.TabIndex = 14;
-            this.lblAnalisisFacturados.Text = "Pacientes con Analisis Facturados:";
-            // 
-            // cboPacientesAdheridos
-            // 
-            this.cboPacientesAdheridos.FormattingEnabled = true;
-            this.cboPacientesAdheridos.Location = new System.Drawing.Point(324, 19);
-            this.cboPacientesAdheridos.Name = "cboPacientesAdheridos";
-            this.cboPacientesAdheridos.Size = new System.Drawing.Size(387, 21);
-            this.cboPacientesAdheridos.TabIndex = 15;
-            this.cboPacientesAdheridos.SelectedIndexChanged += new System.EventHandler(this.cboPacientesAdheridos_SelectedIndexChanged);
-            // 
-            // gbPacientesAdheridos
-            // 
-            this.gbPacientesAdheridos.Controls.Add(this.cboPacientesAdheridos);
-            this.gbPacientesAdheridos.Controls.Add(this.lblPacAdheridos);
-            this.gbPacientesAdheridos.Enabled = false;
-            this.gbPacientesAdheridos.Location = new System.Drawing.Point(12, 64);
-            this.gbPacientesAdheridos.Name = "gbPacientesAdheridos";
-            this.gbPacientesAdheridos.Size = new System.Drawing.Size(982, 50);
-            this.gbPacientesAdheridos.TabIndex = 16;
-            this.gbPacientesAdheridos.TabStop = false;
-            this.gbPacientesAdheridos.Text = "Información Pacientes Adheridos";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(15, 610);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(86, 37);
-            this.btnSalir.TabIndex = 17;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.Location = new System.Drawing.Point(668, 610);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(149, 37);
-            this.btnImprimir.TabIndex = 18;
-            this.btnImprimir.Text = "Exportar a Excel";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // chActoBioquimico
-            // 
-            this.chActoBioquimico.AutoSize = true;
-            this.chActoBioquimico.Checked = true;
-            this.chActoBioquimico.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chActoBioquimico.Location = new System.Drawing.Point(744, 424);
-            this.chActoBioquimico.Name = "chActoBioquimico";
-            this.chActoBioquimico.Size = new System.Drawing.Size(156, 17);
-            this.chActoBioquimico.TabIndex = 20;
-            this.chActoBioquimico.Text = "Cargar ACTO BIOQUIMICO";
-            this.chActoBioquimico.UseVisualStyleBackColor = true;
-            // 
-            // lblTotalFacturacion
-            // 
-            this.lblTotalFacturacion.AutoSize = true;
-            this.lblTotalFacturacion.Location = new System.Drawing.Point(823, 615);
-            this.lblTotalFacturacion.Name = "lblTotalFacturacion";
-            this.lblTotalFacturacion.Size = new System.Drawing.Size(49, 13);
-            this.lblTotalFacturacion.TabIndex = 0;
-            this.lblTotalFacturacion.Text = "Total:   $";
-            // 
-            // txtTotalFacturacion
-            // 
-            this.txtTotalFacturacion.Enabled = false;
-            this.txtTotalFacturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalFacturacion.Location = new System.Drawing.Point(878, 610);
-            this.txtTotalFacturacion.Name = "txtTotalFacturacion";
-            this.txtTotalFacturacion.Size = new System.Drawing.Size(116, 22);
-            this.txtTotalFacturacion.TabIndex = 1;
             // 
             // idFacturacionOrden
             // 
@@ -486,12 +426,93 @@
             this.subtotal.ReadOnly = true;
             this.subtotal.Width = 120;
             // 
+            // lblAnalisisFacturados
+            // 
+            this.lblAnalisisFacturados.AutoSize = true;
+            this.lblAnalisisFacturados.Location = new System.Drawing.Point(12, 431);
+            this.lblAnalisisFacturados.Name = "lblAnalisisFacturados";
+            this.lblAnalisisFacturados.Size = new System.Drawing.Size(172, 13);
+            this.lblAnalisisFacturados.TabIndex = 14;
+            this.lblAnalisisFacturados.Text = "Pacientes con Analisis Facturados:";
+            // 
+            // cboPacientesAdheridos
+            // 
+            this.cboPacientesAdheridos.FormattingEnabled = true;
+            this.cboPacientesAdheridos.Location = new System.Drawing.Point(324, 19);
+            this.cboPacientesAdheridos.Name = "cboPacientesAdheridos";
+            this.cboPacientesAdheridos.Size = new System.Drawing.Size(387, 21);
+            this.cboPacientesAdheridos.TabIndex = 15;
+            this.cboPacientesAdheridos.SelectedIndexChanged += new System.EventHandler(this.cboPacientesAdheridos_SelectedIndexChanged);
+            // 
+            // gbPacientesAdheridos
+            // 
+            this.gbPacientesAdheridos.Controls.Add(this.cboPacientesAdheridos);
+            this.gbPacientesAdheridos.Controls.Add(this.lblPacAdheridos);
+            this.gbPacientesAdheridos.Enabled = false;
+            this.gbPacientesAdheridos.Location = new System.Drawing.Point(12, 64);
+            this.gbPacientesAdheridos.Name = "gbPacientesAdheridos";
+            this.gbPacientesAdheridos.Size = new System.Drawing.Size(1007, 50);
+            this.gbPacientesAdheridos.TabIndex = 16;
+            this.gbPacientesAdheridos.TabStop = false;
+            this.gbPacientesAdheridos.Text = "Información Pacientes Adheridos";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(15, 610);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(86, 37);
+            this.btnSalir.TabIndex = 17;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Location = new System.Drawing.Point(699, 610);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(149, 37);
+            this.btnImprimir.TabIndex = 18;
+            this.btnImprimir.Text = "Exportar a Excel";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // chActoBioquimico
+            // 
+            this.chActoBioquimico.AutoSize = true;
+            this.chActoBioquimico.Checked = true;
+            this.chActoBioquimico.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chActoBioquimico.Location = new System.Drawing.Point(769, 424);
+            this.chActoBioquimico.Name = "chActoBioquimico";
+            this.chActoBioquimico.Size = new System.Drawing.Size(156, 17);
+            this.chActoBioquimico.TabIndex = 20;
+            this.chActoBioquimico.Text = "Cargar ACTO BIOQUIMICO";
+            this.chActoBioquimico.UseVisualStyleBackColor = true;
+            // 
+            // lblTotalFacturacion
+            // 
+            this.lblTotalFacturacion.AutoSize = true;
+            this.lblTotalFacturacion.Location = new System.Drawing.Point(848, 615);
+            this.lblTotalFacturacion.Name = "lblTotalFacturacion";
+            this.lblTotalFacturacion.Size = new System.Drawing.Size(49, 13);
+            this.lblTotalFacturacion.TabIndex = 0;
+            this.lblTotalFacturacion.Text = "Total:   $";
+            // 
+            // txtTotalFacturacion
+            // 
+            this.txtTotalFacturacion.Enabled = false;
+            this.txtTotalFacturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalFacturacion.Location = new System.Drawing.Point(903, 610);
+            this.txtTotalFacturacion.Name = "txtTotalFacturacion";
+            this.txtTotalFacturacion.Size = new System.Drawing.Size(116, 22);
+            this.txtTotalFacturacion.TabIndex = 1;
+            // 
             // FacturacionMutual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1006, 653);
+            this.ClientSize = new System.Drawing.Size(1031, 653);
             this.Controls.Add(this.chActoBioquimico);
             this.Controls.Add(this.txtTotalFacturacion);
             this.Controls.Add(this.lblTotalFacturacion);
@@ -509,7 +530,11 @@
             this.Controls.Add(this.dgvProtocolosXPaciente);
             this.Controls.Add(this.dgvAnalisisXProtocolo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1047, 692);
+            this.MinimumSize = new System.Drawing.Size(1047, 692);
             this.Name = "FacturacionMutual";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturacion Mutual";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalisisXProtocolo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProtocolosXPaciente)).EndInit();
@@ -567,5 +592,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn listaCodAnalisis;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotalUnidBioq;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
+        private System.Windows.Forms.Label lblAnio;
+        private System.Windows.Forms.MaskedTextBox txtAnioFacturacion;
     }
 }

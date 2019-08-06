@@ -61,7 +61,7 @@
             this.salirToolStripMenuItem});
             this.menuSistema.Location = new System.Drawing.Point(0, 0);
             this.menuSistema.Name = "menuSistema";
-            this.menuSistema.Size = new System.Drawing.Size(954, 24);
+            this.menuSistema.Size = new System.Drawing.Size(1102, 24);
             this.menuSistema.TabIndex = 0;
             // 
             // datosToolStripMenuItem
@@ -189,7 +189,7 @@
             this.pictLaboratorio.InitialImage = null;
             this.pictLaboratorio.Location = new System.Drawing.Point(0, 24);
             this.pictLaboratorio.Name = "pictLaboratorio";
-            this.pictLaboratorio.Size = new System.Drawing.Size(954, 432);
+            this.pictLaboratorio.Size = new System.Drawing.Size(1102, 484);
             this.pictLaboratorio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictLaboratorio.TabIndex = 1;
             this.pictLaboratorio.TabStop = false;
@@ -198,7 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 451);
+            this.ClientSize = new System.Drawing.Size(1102, 505);
             this.Controls.Add(this.pictLaboratorio);
             this.Controls.Add(this.menuSistema);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

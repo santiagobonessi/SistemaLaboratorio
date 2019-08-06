@@ -176,7 +176,7 @@
             // lblCant
             // 
             this.lblCant.AutoSize = true;
-            this.lblCant.Location = new System.Drawing.Point(1059, 25);
+            this.lblCant.Location = new System.Drawing.Point(1073, 25);
             this.lblCant.Name = "lblCant";
             this.lblCant.Size = new System.Drawing.Size(76, 13);
             this.lblCant.TabIndex = 9;
@@ -185,7 +185,7 @@
             // lblCantFilas
             // 
             this.lblCantFilas.AutoSize = true;
-            this.lblCantFilas.Location = new System.Drawing.Point(1141, 25);
+            this.lblCantFilas.Location = new System.Drawing.Point(1149, 25);
             this.lblCantFilas.Name = "lblCantFilas";
             this.lblCantFilas.Size = new System.Drawing.Size(0, 13);
             this.lblCantFilas.TabIndex = 10;
