@@ -675,8 +675,9 @@ namespace LabBioquimica.Forms.Transaccion
             blLabBioquimica.bl_PROTOCOLO_DETALLE blProtocoloDet = new blLabBioquimica.bl_PROTOCOLO_DETALLE();
             blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad entPD = blProtocoloDet.BuscarPorPK(p_ID_PROTOCOLO_DET);
 
-            dgvProtocoloDetalle.Rows.Add(entPD.ID_PROTOCOLO, entPD.ID_PROTOCOLO_DETALLE, entPD.ID_ANALISIS, entPD.NOMBRE_ANALISIS, entPD.METODO_ANALISIS, entPD.CODIGO_ANALISIS);
+            this.dgvProtocoloDetalle.Rows.Add(entPD.ID_PROTOCOLO, entPD.ID_PROTOCOLO_DETALLE, entPD.ID_ANALISIS, entPD.NOMBRE_ANALISIS, entPD.METODO_ANALISIS, entPD.CODIGO_ANALISIS);
 
+            this.dgvProtocoloDetalle.Rows[dgvProtocoloDetalle.Rows.Count - 1].Selected = true;
         }
 
         //Metodo utilizado desde el form NuevoAnalisis para actualizar grilla dgvPracticas
@@ -690,17 +691,7 @@ namespace LabBioquimica.Forms.Transaccion
             blLabBioquimica.bl_PRACTICA blPractica = new blLabBioquimica.bl_PRACTICA();
             blLabBioquimica.bl_PRACTICAEntidad entPrac = blPractica.BuscarPorPK(p_ID_PRACTICA);
 
-            DataGridViewRow filSelec = dgvProtocoloDetalle.CurrentRow;
-
-            if (filSelec != null)
-            {
-                String idPDGrilla = dgvProtocoloDetalle.Rows[filSelec.Index].Cells[1].Value.ToString();
-                int idPD = int.Parse(idPDGrilla);
-                if (idPD == entPrac.ID_PROTOCOLO_DETALLE)
-                {
-                    dgvPracticas.Rows.Add(entPrac.ID_PROTOCOLO_DETALLE, entPrac.ID_PRACTICA, entPrac.ID_ITEM, entPrac.NOMBRE_ITEM, entPrac.RESULTADO, entPrac.VALOR_REF_ITEM, entPrac.NOMBRE_UNIDAD);
-                }
-            }
+            this.dgvPracticas.Rows.Add(entPrac.ID_PROTOCOLO_DETALLE, entPrac.ID_PRACTICA, entPrac.ID_ITEM, entPrac.NOMBRE_ITEM, entPrac.RESULTADO, entPrac.VALOR_REF_ITEM, entPrac.NOMBRE_UNIDAD);
         }
 
         //Este evento se desencadena al modificar una celda de la columa Resultado en la grilla dgvPracticas
