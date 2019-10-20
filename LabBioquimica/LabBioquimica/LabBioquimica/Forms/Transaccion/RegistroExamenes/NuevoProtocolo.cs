@@ -61,11 +61,11 @@ namespace LabBioquimica.Forms.Transaccion
             //Click con el boton derecho
             if (e.Button == MouseButtons.Right)
             {
-                ContextMenuStrip miMenu = new System.Windows.Forms.ContextMenuStrip();
-
                 //Posicion de la fila que haces click
                 int position_xy_mouse_row = dgvProtocoloDetalle.HitTest(e.X, e.Y).RowIndex;
                 posSelecPD = position_xy_mouse_row;
+
+                ContextMenuStrip miMenu = new System.Windows.Forms.ContextMenuStrip();
 
                 foreach (DataGridViewRow dr in dgvProtocoloDetalle.SelectedRows)
                 {
@@ -97,7 +97,6 @@ namespace LabBioquimica.Forms.Transaccion
                     {
                         dgvPracticas.Rows.Add(entPrac.ID_PROTOCOLO_DETALLE, entPrac.ID_PRACTICA, entPrac.ID_ITEM, entPrac.NOMBRE_ITEM, entPrac.RESULTADO, entPrac.VALOR_REF_ITEM, entPrac.NOMBRE_UNIDAD);
                     }
-
                 }
                 //Si no selecciona un protocolo detalle
                 else
@@ -111,7 +110,6 @@ namespace LabBioquimica.Forms.Transaccion
 
                 //Evento menu click
                 miMenu.ItemClicked += new ToolStripItemClickedEventHandler(MiMenu_ItemClicked);
-
             }
             //Click con el boton izquierdo
             else if (e.Button == MouseButtons.Left)
@@ -125,16 +123,15 @@ namespace LabBioquimica.Forms.Transaccion
                 {
                     dr.Selected = false;
                 }
-
-                dgvPracticas.Rows.Clear();
-                dgvPracticas.Refresh();
-
                 //Si selecciona un protocolo detalle
                 if (position_xy_mouse_row >= 0)
                 {
                     dgvPracticas.Enabled = true;
 
                     dgvProtocoloDetalle.Rows[position_xy_mouse_row].Selected = true;
+
+                    dgvPracticas.Rows.Clear();
+                    dgvPracticas.Refresh();
 
                     //Cargar Practicas del Protocolo Detalle seleccionado
                     String idPDGrilla = dgvProtocoloDetalle.Rows[posSelecPD].Cells[1].Value.ToString();
@@ -147,7 +144,6 @@ namespace LabBioquimica.Forms.Transaccion
                     {
                         dgvPracticas.Rows.Add(entPrac.ID_PROTOCOLO_DETALLE, entPrac.ID_PRACTICA, entPrac.ID_ITEM, entPrac.NOMBRE_ITEM, entPrac.RESULTADO, entPrac.VALOR_REF_ITEM, entPrac.NOMBRE_UNIDAD);
                     }
-
                 }
             }
         }
@@ -157,7 +153,6 @@ namespace LabBioquimica.Forms.Transaccion
         {
             //Si el analisis seleccionado anteriormente es igual al que se le cargan los componentes
             //se debe agregar la practica, sino no se agrega
-
             DataGridViewRow filSelec = dgvProtocoloDetalle.CurrentRow;
 
             foreach (DataGridViewRow dr in dgvProtocoloDetalle.SelectedRows)
@@ -199,7 +194,7 @@ namespace LabBioquimica.Forms.Transaccion
             switch (eventoSelec)
             {
                 case "NuevaPractica":
-                    
+
                     String numProtocolo = this.txtNroProtocolo.Text;
                     String paciente = this.cboPaciente.Text;
                     Forms.Transaccion.NuevoAnalisis nuevoAnalisis = new Forms.Transaccion.NuevoAnalisis(this, numProtocolo, paciente);
@@ -223,32 +218,38 @@ namespace LabBioquimica.Forms.Transaccion
 
                         blProtocoloDet.Baja(entPDBaja);
 
-                        //Actualizar grilla Protocolo Detalle y Practica
-                        cargarGrillaPDyP(int.Parse(idProtocoloBaja));
 
+                        int index = dgvProtocoloDetalle.Rows[posSelecPD].Index;
+                        this.dgvProtocoloDetalle.Rows.RemoveAt(index);
+
+                        foreach (DataGridViewRow dr in dgvProtocoloDetalle.SelectedRows)
+                        {
+                            dr.Selected = false;
+                        }
+
+                        this.dgvPracticas.Rows.Clear();
+                        this.dgvPracticas.Refresh();
                     }
 
                     break;
 
                 case "AgregarModificarItemsPractica":
+                    blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad entPD = new blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad();
 
-                    
-                        blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad entPD = new blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad();
+                    String idPDMod = dgvProtocoloDetalle.Rows[posSelecPD].Cells[1].Value.ToString();
+                    String idAnalisisMod = dgvProtocoloDetalle.Rows[posSelecPD].Cells[2].Value.ToString();
+                    String nomAnalisisMod = dgvProtocoloDetalle.Rows[posSelecPD].Cells[3].Value.ToString();
 
-                        String idPDMod = dgvProtocoloDetalle.Rows[posSelecPD].Cells[1].Value.ToString();
-                        String idAnalisisMod = dgvProtocoloDetalle.Rows[posSelecPD].Cells[2].Value.ToString();
-                        String nomAnalisisMod = dgvProtocoloDetalle.Rows[posSelecPD].Cells[3].Value.ToString();
+                    entPD.ID_PROTOCOLO_DETALLE = int.Parse(idPDMod);
+                    entPD.ID_ANALISIS = int.Parse(idAnalisisMod);
+                    entPD.NOMBRE_ANALISIS = nomAnalisisMod;
 
-                        entPD.ID_PROTOCOLO_DETALLE = int.Parse(idPDMod);
-                        entPD.ID_ANALISIS = int.Parse(idAnalisisMod);
-                        entPD.NOMBRE_ANALISIS = nomAnalisisMod;
+                    String numProtocoloMod = this.txtNroProtocolo.Text;
+                    String pacienteMod = this.cboPaciente.Text;
+                    Forms.Transaccion.NuevoAnalisis modAnalisis = new Forms.Transaccion.NuevoAnalisis(this, numProtocoloMod, pacienteMod, entPD);
+                    modAnalisis.ShowDialog();
+                    modAnalisis.Dispose();
 
-                        String numProtocoloMod = this.txtNroProtocolo.Text;
-                        String pacienteMod = this.cboPaciente.Text;
-                        Forms.Transaccion.NuevoAnalisis modAnalisis = new Forms.Transaccion.NuevoAnalisis(this, numProtocoloMod, pacienteMod, entPD);
-                        modAnalisis.ShowDialog();
-                        modAnalisis.Dispose();
-                    
                     break;
 
                 default:
@@ -296,7 +297,7 @@ namespace LabBioquimica.Forms.Transaccion
             switch (eventoSelec)
             {
                 case "EliminarItem":
-                    String idPracticaBaja = dgvPracticas.Rows[posSelecPra].Cells[1].Value.ToString();
+                    string idPracticaBaja = dgvPracticas.Rows[posSelecPra].Cells[1].Value.ToString();
 
                     //Borrar Item de la grilla Practica
                     blLabBioquimica.bl_PRACTICA blPractica = new blLabBioquimica.bl_PRACTICA();
@@ -307,30 +308,8 @@ namespace LabBioquimica.Forms.Transaccion
 
                     blPractica.Baja(entPra);
 
-                    //Actualizar grilla practica
-                    //Carga las Practicas de la primer fila que es la seleccionada inicialmente
-                    DataGridViewRow filSelec = dgvProtocoloDetalle.CurrentRow;
-                    if (filSelec != null)
-                    {
-                        dgvPracticas.Rows.Clear();
-                        dgvPracticas.Refresh();
-
-                        String idPDGrilla = dgvProtocoloDetalle.Rows[filSelec.Index].Cells[1].Value.ToString();
-
-                        int idPD = int.Parse(idPDGrilla);
-
-                        //Traer datos de la/s practica/s del Protocolo Detalle Seleccionado
-                        blLabBioquimica.bl_PRACTICAEntidadColeccion colPrac = blPractica.Buscar(null, idPD, null);
-
-                        foreach (blLabBioquimica.bl_PRACTICAEntidad ent in colPrac)
-                        {
-                            dgvPracticas.Rows.Add(ent.ID_PROTOCOLO_DETALLE, ent.ID_PRACTICA, ent.ID_ITEM, ent.NOMBRE_ITEM, ent.RESULTADO, ent.VALOR_REF_ITEM, ent.NOMBRE_UNIDAD);
-                        }
-
-                    }
-
-
-
+                    int index = dgvPracticas.Rows[posSelecPra].Index;
+                    this.dgvPracticas.Rows.RemoveAt(index);
                     break;
 
                 default:
@@ -391,7 +370,7 @@ namespace LabBioquimica.Forms.Transaccion
         {
             blLabBioquimica.bl_PROFESIONAL blProfesional = new blLabBioquimica.bl_PROFESIONAL();
             DataTable dt = blProfesional.dataTableProfesional();
-            
+
             AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
             //recorrer y cargar los items para el autocompletado
             foreach (DataRow row in dt.Rows)
@@ -577,11 +556,11 @@ namespace LabBioquimica.Forms.Transaccion
 
             //Carga las Practicas de la fila seleccionada en la grilla dgvProtocoloDetalle
             DataGridViewRow filSelec = dgvProtocoloDetalle.CurrentRow;
-            
+
             //Si hay una fila seleccionada trae las practicas, sino trae las practicas de la primer fila
             if (filSelec != null)
             {
-                
+
 
                 String idPDGrilla = dgvProtocoloDetalle.Rows[filSelec.Index].Cells[1].Value.ToString();
                 int idPD = int.Parse(idPDGrilla);
@@ -598,7 +577,7 @@ namespace LabBioquimica.Forms.Transaccion
             }
             else
             {
-                
+
 
                 String idPDGrilla = dgvProtocoloDetalle.Rows[0].Cells[1].Value.ToString();
                 int idPD = int.Parse(idPDGrilla);
@@ -614,7 +593,7 @@ namespace LabBioquimica.Forms.Transaccion
                         dgvPracticas.Rows.Add(ent.ID_PROTOCOLO_DETALLE, ent.ID_PRACTICA, ent.ID_ITEM, ent.NOMBRE_ITEM, ent.RESULTADO, ent.VALOR_REF_ITEM, ent.NOMBRE_UNIDAD);
                     }
                 }
-                
+
             }
 
         }
@@ -669,14 +648,21 @@ namespace LabBioquimica.Forms.Transaccion
         }
 
         //Metodo utilizado desde el form NuevoAnalisis para cargar una fila de Protocolo Detalle
-        public void cargarProtocoloDetalle(Int32 p_ID_PROTOCOLO_DET)    
+        public void cargarProtocoloDetalle(Int32 p_ID_PROTOCOLO_DET)
         {
+            dgvPracticas.Rows.Clear();
+            dgvPracticas.Refresh();
+
             //Busco los datos del protocolo detalle
             blLabBioquimica.bl_PROTOCOLO_DETALLE blProtocoloDet = new blLabBioquimica.bl_PROTOCOLO_DETALLE();
             blLabBioquimica.bl_PROTOCOLO_DETALLEEntidad entPD = blProtocoloDet.BuscarPorPK(p_ID_PROTOCOLO_DET);
 
             this.dgvProtocoloDetalle.Rows.Add(entPD.ID_PROTOCOLO, entPD.ID_PROTOCOLO_DETALLE, entPD.ID_ANALISIS, entPD.NOMBRE_ANALISIS, entPD.METODO_ANALISIS, entPD.CODIGO_ANALISIS);
 
+            foreach (DataGridViewRow dr in dgvProtocoloDetalle.SelectedRows)
+            {
+                dr.Selected = false;
+            }
             this.dgvProtocoloDetalle.Rows[dgvProtocoloDetalle.Rows.Count - 1].Selected = true;
         }
 
@@ -737,7 +723,7 @@ namespace LabBioquimica.Forms.Transaccion
                     btnAceptar.Enabled = true;
                 }
             }
-            
+
         }
 
         private void NuevoProtocolo_FormClosing(object sender, FormClosingEventArgs e)
@@ -760,7 +746,7 @@ namespace LabBioquimica.Forms.Transaccion
 
             blLabBioquimica.bl_PROTOCOLO blProtocolo = new blLabBioquimica.bl_PROTOCOLO();
             blLabBioquimica.bl_PROTOCOLOEntidad entProt = blProtocolo.BuscarPorPK(int.Parse(idProtocolo));
-             
+
 
             //Creamos una instancia del formulario del reporte
             Reportes.RPT_EXAMENES formRPT = new Reportes.RPT_EXAMENES();
@@ -776,7 +762,7 @@ namespace LabBioquimica.Forms.Transaccion
             pf.CurrentValues.Add(pdv);
             pfs.Add(pf);
             formRPT.crvExamenes.ParameterFieldInfo = pfs;
-            
+
             oRep.Load(@rutaReporteExamenes.ToString());
             formRPT.crvExamenes.ReportSource = oRep;
             formRPT.Show();
@@ -786,13 +772,12 @@ namespace LabBioquimica.Forms.Transaccion
             string nombreReportePDF = DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + "_" +
             DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString() + "_" + entProt.NRO_PROTOCOLO.ToString() + "_" + entProt.N_PACIENTE + ".pdf";
 
-            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @rutaSalidaReportesExamenes+nombreReportePDF);
-
+            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @rutaSalidaReportesExamenes + nombreReportePDF);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            // TO DO : Limpiar todos los campos, que arranque de cero.
+            // TODO : Limpiar todos los campos, que arranque de cero.
         }
     }
 }

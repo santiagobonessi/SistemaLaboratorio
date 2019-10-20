@@ -226,7 +226,6 @@ namespace LabBioquimica.Forms.Transaccion
                     {
                         cargarComponentePractica(idItem);
                     }
-                    
                     break;
 
                 case "Cargar Todos":
@@ -276,7 +275,6 @@ namespace LabBioquimica.Forms.Transaccion
 
         public void cargarTodosComponentesPractica()
         {
-
             //Cargar Practicas en base de datos
             blLabBioquimica.bl_PRACTICA blPractica = new blLabBioquimica.bl_PRACTICA();
             blLabBioquimica.bl_PRACTICAEntidadColeccion colPrac = blPractica.Buscar(null, idProtocoloDetActual, null);
@@ -311,14 +309,8 @@ namespace LabBioquimica.Forms.Transaccion
 
                     np_frm.cargarComponentePractica(idPractica);
                 }
-
-                
             }
-            
-
         }
-
-
 
     }
 }
