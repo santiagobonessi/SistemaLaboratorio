@@ -71,9 +71,6 @@ namespace LabBioquimica.Forms.Transaccion
             {
                 dgvItemsAnalisis.Rows.Add(ent.ID_ITEM, ent.NOMBRE, ent.VALOR_REF);
             }
-
-
-
         }
 
         public void cargarComboAnalisis()

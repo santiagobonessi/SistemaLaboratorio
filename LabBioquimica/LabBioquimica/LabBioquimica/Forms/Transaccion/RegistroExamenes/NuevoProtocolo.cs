@@ -547,7 +547,6 @@ namespace LabBioquimica.Forms.Transaccion
         //Metodo que carga los datos de la grilla dgvPracticas
         public void cargarGrillaPracticas(Int32 p_ID_PROTOCOLO_DET)
         {
-
             //Limpiar grilla dgvPracticas
             dgvPracticas.Rows.Clear();
             dgvPracticas.Refresh();
@@ -560,8 +559,6 @@ namespace LabBioquimica.Forms.Transaccion
             //Si hay una fila seleccionada trae las practicas, sino trae las practicas de la primer fila
             if (filSelec != null)
             {
-
-
                 String idPDGrilla = dgvProtocoloDetalle.Rows[filSelec.Index].Cells[1].Value.ToString();
                 int idPD = int.Parse(idPDGrilla);
 
@@ -573,12 +570,9 @@ namespace LabBioquimica.Forms.Transaccion
                 {
                     dgvPracticas.Rows.Add(ent.ID_PROTOCOLO_DETALLE, ent.ID_PRACTICA, ent.ID_ITEM, ent.NOMBRE_ITEM, ent.RESULTADO, ent.VALOR_REF_ITEM, ent.NOMBRE_UNIDAD);
                 }
-
             }
             else
             {
-
-
                 String idPDGrilla = dgvProtocoloDetalle.Rows[0].Cells[1].Value.ToString();
                 int idPD = int.Parse(idPDGrilla);
 
@@ -593,9 +587,7 @@ namespace LabBioquimica.Forms.Transaccion
                         dgvPracticas.Rows.Add(ent.ID_PROTOCOLO_DETALLE, ent.ID_PRACTICA, ent.ID_ITEM, ent.NOMBRE_ITEM, ent.RESULTADO, ent.VALOR_REF_ITEM, ent.NOMBRE_UNIDAD);
                     }
                 }
-
             }
-
         }
 
 
@@ -627,7 +619,6 @@ namespace LabBioquimica.Forms.Transaccion
                 this.txtConsultaProtocolo.Focus();
                 return;
             }
-
         }
 
         public void limpiarBGProtocolo()
@@ -639,7 +630,6 @@ namespace LabBioquimica.Forms.Transaccion
             this.cboProfesional.SelectedIndex = -1;
             this.btnAceptar.Enabled = true;
             this.btnModificar.Enabled = false;
-
         }
 
         public Int32 getProtocoloActual()
@@ -698,7 +688,6 @@ namespace LabBioquimica.Forms.Transaccion
                 entPrac.USR_MOD = "ADMIN";
                 entPrac.FEC_MOD = DateTime.Now;
 
-
                 blPractica.ModificarResultado(entPrac);
             }
         }
@@ -747,11 +736,9 @@ namespace LabBioquimica.Forms.Transaccion
             blLabBioquimica.bl_PROTOCOLO blProtocolo = new blLabBioquimica.bl_PROTOCOLO();
             blLabBioquimica.bl_PROTOCOLOEntidad entProt = blProtocolo.BuscarPorPK(int.Parse(idProtocolo));
 
-
             //Creamos una instancia del formulario del reporte
             Reportes.RPT_EXAMENES formRPT = new Reportes.RPT_EXAMENES();
             ReportDocument oRep = new ReportDocument();
-
 
             ParameterField pf = new ParameterField();
             ParameterFields pfs = new ParameterFields();
@@ -768,7 +755,6 @@ namespace LabBioquimica.Forms.Transaccion
             formRPT.Show();
 
             //Nombre de cada reporte de salida, con fecha, hora e id de protocolo.
-            //TO DO: Agregar nombre y apellido del Paciente.
             string nombreReportePDF = DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + "_" +
             DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString() + "_" + entProt.NRO_PROTOCOLO.ToString() + "_" + entProt.N_PACIENTE + ".pdf";
 
