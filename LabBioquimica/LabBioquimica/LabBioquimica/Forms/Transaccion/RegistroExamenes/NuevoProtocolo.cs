@@ -25,9 +25,9 @@ namespace LabBioquimica.Forms.Transaccion
         private int idProtocoloActual;
 
         //Variable de la posicion seleccionada en la grilla dgvProtocoloDetalle
-        public static Int32 posSelecPD;
+        public static int posSelecPD;
         //Variable de la posicion seleccionada en la grilla dgvPracticas
-        public static Int32 posSelecPra;
+        public static int posSelecPra;
 
         //Constructor sin parámetros
         public NuevoProtocolo()
@@ -731,8 +731,14 @@ namespace LabBioquimica.Forms.Transaccion
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            String idProtocolo = this.idProtocoloActual.ToString();
+            if(idProtocoloActual == 0)
+            {
+                MessageBox.Show("No se selecciono Protocolo");
+                return;
+            }
 
+            String idProtocolo = this.idProtocoloActual.ToString();
+            
             blLabBioquimica.bl_PROTOCOLO blProtocolo = new blLabBioquimica.bl_PROTOCOLO();
             blLabBioquimica.bl_PROTOCOLOEntidad entProt = blProtocolo.BuscarPorPK(int.Parse(idProtocolo));
 
@@ -763,7 +769,14 @@ namespace LabBioquimica.Forms.Transaccion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            // TODO : Limpiar todos los campos, que arranque de cero.
+            // Limpiar todos los campos, que arranque de cero.
+            limpiarBGProtocolo();
+            this.dgvProtocoloDetalle.Rows.Clear();
+            this.dgvPracticas.Rows.Clear();
+            this.txtConsultaProtocolo.Text = "";
+            idProtocoloActual = 0;
+            posSelecPD = 0;
+            posSelecPra = 0;
         }
     }
 }
