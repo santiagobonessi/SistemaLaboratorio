@@ -204,7 +204,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuSistema;
             this.Name = "FormMenu";
-            this.Text = "SISTEMA LABORATORIO BIOQUIMICA";
+            this.Text = "SISTEMA LABORATORIO BIOQUIMICA - VERSION BETA (PRUEBA)";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.Resize += new System.EventHandler(this.FormMenu_Resize);
             this.menuSistema.ResumeLayout(false);

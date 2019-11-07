@@ -19,3 +19,10 @@ C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimic
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\obj\Debug\blLabBioquimica.csprojResolveAssemblyReference.cache
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\obj\Debug\blLabBioquimica.dll
 C:\Users\Santiago\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\obj\Debug\blLabBioquimica.pdb
+C:\Users\Veronica\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\bin\Debug\blLabBioquimica.dll
+C:\Users\Veronica\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\bin\Debug\blLabBioquimica.pdb
+C:\Users\Veronica\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\bin\Debug\daLabBioquimica.dll
+C:\Users\Veronica\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\bin\Debug\daLabBioquimica.pdb
+C:\Users\Veronica\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\obj\Debug\blLabBioquimica.csprojResolveAssemblyReference.cache
+C:\Users\Veronica\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\obj\Debug\blLabBioquimica.dll
+C:\Users\Veronica\Documents\GitHub\SistemaLaboratorio\LabBioquimica\LabBioquimica\blLabBioquimica\obj\Debug\blLabBioquimica.pdb
