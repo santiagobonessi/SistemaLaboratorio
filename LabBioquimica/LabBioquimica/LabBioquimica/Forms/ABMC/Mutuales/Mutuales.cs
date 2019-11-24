@@ -151,7 +151,8 @@ namespace LabBioquimica.Forms.ABMC
                     {
                         Baja(idMutualBaja);
                         MessageBox.Show("La mutual " + nomBaja + " ha sido eliminado");
-                        cargarMutuales();
+                        int index = this.dgvMutuales.Rows[posSelec].Index;
+                        this.dgvMutuales.Rows.RemoveAt(index);
                     }
                     break;
 

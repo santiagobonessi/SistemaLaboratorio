@@ -165,7 +165,8 @@ namespace LabBioquimica.Forms.ABMC
                     {
                         Baja(idAnalisisBaja);
                         MessageBox.Show("El analisis " + nomBaja + " ha sido eliminado");
-                        cargarAnalisis();
+                        int index = this.dgvAnalisis.Rows[posSelec].Index;
+                        this.dgvAnalisis.Rows.RemoveAt(index);
                     }
                     break;
 
