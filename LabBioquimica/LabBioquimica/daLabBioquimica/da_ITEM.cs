@@ -64,7 +64,8 @@ namespace daLabBioquimica
                                + "AND (I.idAnalisis = @ID_ANALISIS OR @ID_ANALISIS IS NULL) "
                                + "AND (I.nombre LIKE @NOMBRE + '%' OR @NOMBRE IS NULL) "
                                + "AND I.usr_baja IS NULL "
-                               + "AND I.fec_baja IS NULL ";
+                               + "AND I.fec_baja IS NULL "
+                               + "ORDER BY I.nroOrden";
 
                 SqlCommand com = new SqlCommand(sql, conn);
 

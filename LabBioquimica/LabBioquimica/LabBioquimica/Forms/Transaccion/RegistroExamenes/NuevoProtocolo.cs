@@ -255,7 +255,6 @@ namespace LabBioquimica.Forms.Transaccion
                 default:
                     break;
             }
-
         }
 
         //Evento que se desencadena cuando hago click en la grilla dgvPracticas
@@ -677,8 +676,12 @@ namespace LabBioquimica.Forms.Transaccion
             if (filSelec != null)
             {
                 //Agregar el resultado a la Practica modificada
-                String idPractica = dgvPracticas.Rows[filSelec.Index].Cells[1].Value.ToString();
-                String resultado = dgvPracticas.Rows[filSelec.Index].Cells[4].Value.ToString();
+                string idPractica = dgvPracticas.Rows[filSelec.Index].Cells[1].Value.ToString();
+                string resultado = "";
+                if(dgvPracticas.Rows[filSelec.Index].Cells[4].Value != null)
+                {
+                    resultado = dgvPracticas.Rows[filSelec.Index].Cells[4].Value.ToString();
+                }
 
                 blLabBioquimica.bl_PRACTICA blPractica = new blLabBioquimica.bl_PRACTICA();
                 blLabBioquimica.bl_PRACTICAEntidad entPrac = new blLabBioquimica.bl_PRACTICAEntidad();
