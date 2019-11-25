@@ -148,7 +148,8 @@ namespace LabBioquimica.Forms.ABMC
                     {
                         Baja(idProfesionalBaja);
                         MessageBox.Show("El profesional " + apeBaja + ", " + nomBaja + " ha sido eliminado");
-                        cargarProfesionales();
+                        int index = this.dgvProfesionales.Rows[posSelec].Index;
+                        this.dgvProfesionales.Rows.RemoveAt(index);
                     }
                     break;
 

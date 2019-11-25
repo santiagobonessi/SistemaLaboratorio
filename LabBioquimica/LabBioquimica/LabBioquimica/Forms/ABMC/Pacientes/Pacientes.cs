@@ -166,7 +166,9 @@ namespace LabBioquimica.Forms.ABMC
                     {
                         Baja(idPacienteBaja);
                         MessageBox.Show("El paciente " + apeBaja + ", " + nomBaja + " ha sido eliminado");
-                        cargarPacientes();
+                        
+                        int index = this.dgvPacientes.Rows[posSelec].Index;
+                        this.dgvPacientes.Rows.RemoveAt(index);
                     }
                     break;
 

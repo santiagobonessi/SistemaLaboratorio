@@ -6,3 +6,10 @@
 *.exe
 *.pdf
 App.config
+*.dll
+*.pdb
+*.txt
+*.txt
+*.cache
+*.config
+LabBioquimica/LabBioquimica/LabBioquimica/obj/Debug/LabBioquimica.pdb

@@ -30,8 +30,6 @@ namespace LabBioquimica.Forms.ABMC
             InitializeComponent();
             a_frm = anali;
             
-            //cargarItemsXAnalisis();
-            //cargarComboAnalisis();
         }
 
         private void Items_Load(object sender, EventArgs e)
@@ -190,11 +188,13 @@ namespace LabBioquimica.Forms.ABMC
                         MessageBox.Show("El item " + nomBaja + " ha sido eliminado");
                         if(a_frm != null)
                         {
+                            // TO DO: Ver como llamar al nomre del analisis sin actualizar grilla
                             cargarItemsXAnalisis(int.Parse(this.cboAnalisis.ValueMember), this.cboAnalisis.Text);
                         }
                         else
                         {
-                            cargarItems();
+                            int index = this.dgvItems.Rows[posSelec].Index;
+                            this.dgvItems.Rows.RemoveAt(index);
                         }
                         
                     }

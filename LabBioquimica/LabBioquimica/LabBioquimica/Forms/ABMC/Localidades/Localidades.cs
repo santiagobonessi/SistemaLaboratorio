@@ -148,7 +148,8 @@ namespace LabBioquimica.Forms.ABMC
                     {
                         Baja(idLocalidadBaja);
                         MessageBox.Show("La localidad " + nomBaja + " ha sido eliminado");
-                        cargarLocalidades();
+                        int index = this.dgvLocalidades.Rows[posSelec].Index;
+                        this.dgvLocalidades.Rows.RemoveAt(index);
                     }
                     break;
 

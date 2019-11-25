@@ -122,7 +122,8 @@ namespace LabBioquimica.Forms.ABMC
                     {
                         Baja(idUnidadBaja);
                         MessageBox.Show("La unidad " + nomBaja + " ha sido eliminado");
-                        cargarUnidades();
+                        int index = this.dgvUnidades.Rows[posSelec].Index;
+                        this.dgvUnidades.Rows.RemoveAt(index);
                     }
                     break;
 

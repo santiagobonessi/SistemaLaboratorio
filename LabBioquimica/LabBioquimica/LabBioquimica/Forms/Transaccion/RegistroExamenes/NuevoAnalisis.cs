@@ -307,6 +307,8 @@ namespace LabBioquimica.Forms.Transaccion
                     np_frm.cargarComponentePractica(idPractica);
                 }
             }
+            // Cierro ventana luego de cargar todos los items
+            Close();
         }
 
     }
